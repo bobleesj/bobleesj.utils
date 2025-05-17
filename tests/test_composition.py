@@ -1,0 +1,156 @@
+import pytest
+
+from bobleesj.utils.parsers import composition
+
+
+@pytest.mark.parametrize(
+    "formula, expected",
+    [
+        ("NdSi2", [("Nd", 1), ("Si", 2)]),
+        ("Th2Os", [("Th", 2), ("Os", 1)]),
+        ("Sm5Co7Sb2", [("Sm", 5), ("Co", 7), ("Sb", 2)]),
+        ("SmCoSb", [("Sm", 1), ("Co", 1), ("Sb", 1)]),
+        ("ABCD", [("A", 1), ("B", 1), ("C", 1), ("D", 1)]),
+        ("A1B1C1D1", [("A", 1), ("B", 1), ("C", 1), ("D", 1)]),
+    ],
+)
+def test_parse_formula(formula, expected):
+    actual = composition.get_parsed_formula(formula)
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "formula, expected",
+    [
+        ("NdSi2", "Nd0.333333Si0.666667"),
+        ("Th2Os", "Th0.666667Os0.333333"),
+        ("Sn5Co2", "Sn0.714286Co0.285714"),
+        ("ABC", "A0.333333B0.333333C0.333333"),
+        ("ABC1", "A0.333333B0.333333C0.333333"),
+    ],
+)
+def test_get_normalized_formula(formula, expected):
+    actual = composition.get_normalized_formula(formula)
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "formula, expected",
+    [
+        ("NdSi2", "Nd0.333Si0.667"),
+        ("Th2Os", "Th0.667Os0.333"),
+        ("Sn5Co2", "Sn0.714Co0.286"),
+        ("ABC", "A0.333B0.333C0.333"),
+        ("ABC1", "A0.333B0.333C0.333"),
+    ],
+)
+def test_get_normalized_formula_3_decial(
+    formula,
+    expected,
+):
+    actual = composition.get_normalized_formula(formula, decimal_places=3)
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "formula, expected",
+    [
+        ("NdSi2", [("Nd", 0.333), ("Si", 0.667)]),
+        ("Th2Os", [("Th", 0.667), ("Os", 0.333)]),
+    ],
+)
+def test_normalized_parsed_formula(formula, expected):
+    actual = composition.get_normalized_parsed_formula(
+        formula, decimal_places=3
+    )
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "formula, expected",
+    [
+        ("NdSi2", 2),  # Binary
+        ("Th2Os", 2),  # Binary
+        ("Sm5Co7Sb2", 3),  # Ternary
+        ("SmCoSb", 3),  # Tenary without numbers
+        ("ABCD", 4),  # Quarternary
+        ("A1B1C1D1", 4),  # Quarternary
+    ],
+)
+def test_count_element(formula, expected):
+    actual = composition.count_element(formula)
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "formula, expected_max_min_avg_index",
+    [
+        ("NdSi2", (2, 1, 1.5)),
+        ("Sn5Co2", (5, 2, 3.5)),
+        ("NdSi2Th2", (2, 1, 1.667)),
+    ],
+)
+def test_get_max_min_avg_index(formula, expected_max_min_avg_index):
+    actual = composition.get_max_min_avg_index(formula)
+    assert actual == pytest.approx(expected_max_min_avg_index, abs=1e-3)
+
+
+@pytest.mark.parametrize(
+    "formula, expected_elements",
+    [
+        ("NdSi2", ["Nd", "Si"]),
+        ("Th2Os", ["Th", "Os"]),
+        ("Sm5Co7Sb2", ["Sm", "Co", "Sb"]),
+        ("SmCoSb", ["Sm", "Co", "Sb"]),
+        ("ABCD", ["A", "B", "C", "D"]),
+        ("A1B1C1D1", ["A", "B", "C", "D"]),
+    ],
+)
+def test_get_elements_from_formula(formula, expected_elements):
+    actual = composition.get_elements_from_formula(formula)
+    assert actual == expected_elements
+
+
+@pytest.mark.parametrize(
+    "formula, expected_indices",
+    [
+        ("NdSi2", [1.0, 2.0]),
+        ("Th2Os", [2.0, 1.0]),
+        ("Sm5Co7Sb2", [5.0, 7.0, 2.0]),
+        ("SmCoSb", [1.0, 1.0, 1.0]),
+        ("ABCD", [1.0, 1.0, 1.0, 1.0]),
+        ("A1B1C1D1", [1.0, 1.0, 1.0, 1.0]),
+    ],
+)
+def test_get_indices_from_formula(formula, expected_indices):
+    actual = composition.get_indices_from_formula(formula)
+    assert actual == expected_indices
+
+
+@pytest.mark.parametrize(
+    "formula, expected_norm_indices",
+    [
+        ("NdSi2", [0.333333, 0.666667]),
+        ("Th2Os", [0.666667, 0.333333]),
+        ("Sm5Co7Sb2", [0.357143, 0.5, 0.142857]),
+        ("SmCoSb", [0.333333, 0.333333, 0.333333]),
+        ("ABCD", [0.25, 0.25, 0.25, 0.25]),
+        ("A1B1C1D1", [0.25, 0.25, 0.25, 0.25]),
+    ],
+)
+def test_get_normalized_indices_from_formula(formula, expected_norm_indices):
+    actual = composition.get_normalized_indices_from_formula(formula)
+    assert actual == expected_norm_indices
+
+
+def test_sort_formulas_by_composition():
+    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_sorted_formula_dict = composition.sort_formulas_by_composition(
+        formulas
+    )
+    expected_sorted_formula_dict = {
+        2: ["NdSi2", "ThOs"],
+        3: ["NdSi2Th2"],
+        4: ["YNdThSi2"],
+    }
+    assert actual_sorted_formula_dict == expected_sorted_formula_dict
