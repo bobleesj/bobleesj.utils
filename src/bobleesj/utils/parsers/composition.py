@@ -90,3 +90,15 @@ def sort_formulas_by_composition(formulas: list[str]) -> dict[int, list[str]]:
             sorted_formulas[element_count] = []
         sorted_formulas[element_count].append(formula)
     return sorted_formulas
+
+def get_formula_string_from_parsed(parsed_formula: list[tuple[str, float]]) -> str:
+    """Convert the parsed formula into a string."""
+    formula_string = ""
+    for element, index in parsed_formula:
+        if index.is_integer() and int(index) != 1:
+            formula_string += f"{element}{int(index)}"
+        elif index.is_integer() and int(index) == 1:
+            formula_string += f"{element}"
+        else:
+            formula_string += f"{element}{index}"
+    return formula_string

@@ -34,7 +34,7 @@ class Property(str, Enum):
 def get_oliynyk_CAF_data():
     # Load Excel file from the package using importlib.resources
     with importlib.resources.path(
-        "bobleesj.utils.data.db", "oliynyk-intermetallics-elements.xlsx"
+        "bobleesj.utils.data.db", "oliynyk-elemental-property-list.xlsx"
     ) as path:
         oliynyk_df = pd.read_excel(path)
     # Clean column names: remove spaces
@@ -47,18 +47,17 @@ def get_oliynyk_CAF_data():
 
 
 def list_supported_elements(db):
-    # Get the list of elements in the database
     elements = list(db.keys())
     return elements
 
 
-def get_property_values(property, db) -> dict[str, float]:
+def get_property_data(property, db) -> dict[str, float]:
     elements = list_supported_elements(db)
     values = {element: db[element][property] for element in elements}
     return values
 
 
-def check_formula_in_oliynyk(formula: str, db_elements: list[str]) -> bool:
+def check_elements_in_database(formula: str, db_elements: list[str]) -> bool:
     """Check if the formula is in the Oliynyk database."""
     elements_parsed = parser.get_elements_from_formula(formula)
     for element in elements_parsed:

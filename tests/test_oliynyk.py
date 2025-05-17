@@ -2,9 +2,9 @@ import pytest
 
 from bobleesj.utils.sources.oliynyk import Property as P
 from bobleesj.utils.sources.oliynyk import (
-    check_formula_in_oliynyk,
+    check_elements_in_database,
     get_oliynyk_CAF_data,
-    get_property_values,
+    get_property_data,
     list_supported_elements,
 )
 
@@ -43,88 +43,20 @@ def test_property(property, expected_string):
 def test_get_oliynyk_CAF_data():
     db = get_oliynyk_CAF_data()
     # Number of elements in the database
-    assert len(db) == 33
+    assert len(db) == 70
     assert db["Nd"]["atomic_weight"] == 144.242
     assert db["Nd"]["atomic_number"] == 60
 
 
 def test_list_supported_elements(CAF_oliynyk_db):
     actual_elements = list_supported_elements(CAF_oliynyk_db)
-    expected_elements = [
-        "Si",
-        "Sc",
-        "Fe",
-        "Co",
-        "Ni",
-        "Ga",
-        "Ge",
-        "Y",
-        "Ru",
-        "Rh",
-        "Pd",
-        "In",
-        "Sn",
-        "Sb",
-        "La",
-        "Ce",
-        "Pr",
-        "Nd",
-        "Sm",
-        "Eu",
-        "Gd",
-        "Tb",
-        "Dy",
-        "Ho",
-        "Er",
-        "Tm",
-        "Yb",
-        "Lu",
-        "Os",
-        "Ir",
-        "Pt",
-        "Th",
-        "U",
-    ]
+    expected_elements = ['Li', 'Be', 'B', 'C', 'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'K', 'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga', 'Ge', 'As', 'Se', 'Rb', 'Sr', 'Y', 'Zr', 'Nb', 'Mo', 'Ru', 'Rh', 'Pd', 'Ag', 'Cd', 'In', 'Sn', 'Sb', 'Te', 'Cs', 'Ba', 'La', 'Ce', 'Pr', 'Nd', 'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb', 'Lu', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt', 'Au', 'Tl', 'Pb', 'Bi', 'Th', 'U']
     assert actual_elements == expected_elements
 
 
-def test_get_property_values(CAF_oliynyk_db):
-    actual_values = get_property_values(P.AW, CAF_oliynyk_db)
-    expected_values = {
-        "Si": 28.0855,
-        "Sc": 44.95591,
-        "Fe": 55.847,
-        "Co": 58.9332,
-        "Ni": 58.6934,
-        "Ga": 69.723,
-        "Ge": 72.63,
-        "Y": 88.90584,
-        "Ru": 101.07,
-        "Rh": 102.9055,
-        "Pd": 106.42,
-        "In": 114.818,
-        "Sn": 118.71,
-        "Sb": 121.76,
-        "La": 138.9055,
-        "Ce": 140.115,
-        "Pr": 140.90765,
-        "Nd": 144.242,
-        "Sm": 150.36,
-        "Eu": 151.965,
-        "Gd": 157.25,
-        "Tb": 158.92534,
-        "Dy": 162.5,
-        "Ho": 164.93032,
-        "Er": 167.259,
-        "Tm": 168.93421,
-        "Yb": 173.045,
-        "Lu": 174.967,
-        "Os": 190.23,
-        "Ir": 192.217,
-        "Pt": 195.084,
-        "Th": 232.0381,
-        "U": 238.0289,
-    }
+def test_get_property_data(CAF_oliynyk_db):
+    actual_values = get_property_data(P.AW, CAF_oliynyk_db)
+    expected_values = {'Li': 6.941, 'Be': 9.01218, 'B': 10.811, 'C': 12.011, 'Na': 22.989768, 'Mg': 24.305, 'Al': 26.981539, 'Si': 28.0855, 'P': 30.973762, 'S': 32.066, 'K': 39.0983, 'Ca': 40.078, 'Sc': 44.95591, 'Ti': 47.867, 'V': 50.9415, 'Cr': 51.9961, 'Mn': 54.93805, 'Fe': 55.847, 'Co': 58.9332, 'Ni': 58.6934, 'Cu': 63.546, 'Zn': 65.38, 'Ga': 69.723, 'Ge': 72.63, 'As': 74.92159, 'Se': 78.971, 'Rb': 85.4678, 'Sr': 87.62, 'Y': 88.90584, 'Zr': 91.224, 'Nb': 92.90638, 'Mo': 95.95, 'Ru': 101.07, 'Rh': 102.9055, 'Pd': 106.42, 'Ag': 107.8682, 'Cd': 112.411, 'In': 114.818, 'Sn': 118.71, 'Sb': 121.76, 'Te': 127.6, 'Cs': 132.90543, 'Ba': 137.327, 'La': 138.9055, 'Ce': 140.115, 'Pr': 140.90765, 'Nd': 144.242, 'Sm': 150.36, 'Eu': 151.965, 'Gd': 157.25, 'Tb': 158.92534, 'Dy': 162.5, 'Ho': 164.93032, 'Er': 167.259, 'Tm': 168.93421, 'Yb': 173.045, 'Lu': 174.967, 'Hf': 178.49, 'Ta': 180.9479, 'W': 183.84, 'Re': 186.207, 'Os': 190.23, 'Ir': 192.217, 'Pt': 195.084, 'Au': 196.96654, 'Tl': 204.3833, 'Pb': 207.2, 'Bi': 208.98037, 'Th': 232.0381, 'U': 238.0289}
     assert actual_values == expected_values
 
 
@@ -143,9 +75,6 @@ def test_get_property_values(CAF_oliynyk_db):
         ("PtIr", True),
     ],
 )
-def test_check_formula_in_oliynyk(formula, expected_result, CAF_oliynyk_db):
-    elements_supported = list_supported_elements(CAF_oliynyk_db)
-    assert (
-        check_formula_in_oliynyk(formula, elements_supported)
-        == expected_result
-    )
+def test_check_elements_in_database(formula, expected_result, CAF_oliynyk_db):
+    elements = list_supported_elements(CAF_oliynyk_db)
+    assert check_elements_in_database(formula, elements) == expected_result

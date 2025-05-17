@@ -11,6 +11,7 @@ from bobleesj.utils.parsers import composition
         ("Sm5Co7Sb2", [("Sm", 5), ("Co", 7), ("Sb", 2)]),
         ("SmCoSb", [("Sm", 1), ("Co", 1), ("Sb", 1)]),
         ("ABCD", [("A", 1), ("B", 1), ("C", 1), ("D", 1)]),
+        ("A0.1B0.2C0.3D0.4", [("A", 0.1), ("B", 0.2), ("C", 0.3), ("D", 0.4)]),
         ("A1B1C1D1", [("A", 1), ("B", 1), ("C", 1), ("D", 1)]),
     ],
 )
@@ -154,3 +155,23 @@ def test_sort_formulas_by_composition():
         4: ["YNdThSi2"],
     }
     assert actual_sorted_formula_dict == expected_sorted_formula_dict
+
+@pytest.mark.parametrize(
+    "parsed_formula, expected_string",
+    [   
+        # Floats with 2 elements
+        ([("Nd", 0.333), ("Si", 0.667)], "Nd0.333Si0.667"),
+        # Floats with 3 elements
+        ([("Sm", 0.25), ("Co", 0.5), ("Sb", 0.25)], "Sm0.25Co0.5Sb0.25"),
+        ([("Th", 0.5), ("Os", 0.5)], "Th0.5Os0.5"),
+        # Two integers with 2 elements
+        ([("A", 1.0), ("B", 1.0)], "AB"), 
+        # One integer that is 1, expect not to diplay the integer of 1
+        ([("A", 1.0), ("B", 0.5)], "AB0.5"), 
+        # One integer that is not 1, expect to display the integer
+        ([("A", 2.0), ("B", 0.5)], "A2B0.5"), 
+    ],
+)
+def test_get_formula_string_from_parsed(parsed_formula, expected_string):
+    actual_formula = composition.get_formula_string_from_parsed(parsed_formula)
+    assert actual_formula == expected_string
