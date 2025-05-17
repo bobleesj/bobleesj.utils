@@ -2,6 +2,7 @@ import pytest
 
 from bobleesj.utils.sources.oliynyk import Property as P
 from bobleesj.utils.sources.oliynyk import (
+    check_formula_in_oliynyk,
     get_oliynyk_CAF_data,
     get_property_values,
     list_supported_elements,
@@ -125,3 +126,26 @@ def test_get_property_values(CAF_oliynyk_db):
         "U": 238.0289,
     }
     assert actual_values == expected_values
+
+
+@pytest.mark.parametrize(
+    "formula, expected_result",
+    [
+        ("NdSi2", True),
+        ("XYZ", False),
+        ("FeCo", True),
+        ("FeH", False),
+        ("SiGe", True),
+        ("ABCD", False),
+        ("LaNi5", True),
+        ("UTh", True),
+        ("Invalid123", False),
+        ("PtIr", True),
+    ],
+)
+def test_check_formula_in_oliynyk(formula, expected_result, CAF_oliynyk_db):
+    elements_supported = list_supported_elements(CAF_oliynyk_db)
+    assert (
+        check_formula_in_oliynyk(formula, elements_supported)
+        == expected_result
+    )

@@ -3,6 +3,8 @@ from enum import Enum
 
 import pandas as pd
 
+from bobleesj.utils.parsers import composition as parser
+
 
 class Property(str, Enum):
     AW = "atomic_weight"
@@ -53,5 +55,13 @@ def list_supported_elements(db):
 def get_property_values(property, db) -> dict[str, float]:
     elements = list_supported_elements(db)
     values = {element: db[element][property] for element in elements}
-    print(values)
     return values
+
+
+def check_formula_in_oliynyk(formula: str, db_elements: list[str]) -> bool:
+    """Check if the formula is in the Oliynyk database."""
+    elements_parsed = parser.get_elements_from_formula(formula)
+    for element in elements_parsed:
+        if element not in db_elements:
+            return False
+    return True
