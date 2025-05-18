@@ -51,10 +51,19 @@ def list_supported_elements(db):
     return elements
 
 
-def get_property_data(property, db) -> dict[str, float]:
+def get_property_data(property: Property, db) -> dict[str, float]:
+    db = get_oliynyk_CAF_data()
     elements = list_supported_elements(db)
-    values = {element: db[element][property] for element in elements}
-    return values
+    data = {element: db[element][property] for element in elements}
+    return data
+
+
+def get_property_data_for_formula(
+    formula: str, property: Property, db
+) -> dict[str, float]:
+    elements = parser.get_elements_from_formula(formula)
+    data = {element: db[element][property] for element in elements}
+    return data
 
 
 def check_elements_in_database(formula: str, db_elements: list[str]) -> bool:

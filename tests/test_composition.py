@@ -156,20 +156,21 @@ def test_sort_formulas_by_composition():
     }
     assert actual_sorted_formula_dict == expected_sorted_formula_dict
 
+
 @pytest.mark.parametrize(
     "parsed_formula, expected_string",
-    [   
+    [
         # Floats with 2 elements
         ([("Nd", 0.333), ("Si", 0.667)], "Nd0.333Si0.667"),
         # Floats with 3 elements
         ([("Sm", 0.25), ("Co", 0.5), ("Sb", 0.25)], "Sm0.25Co0.5Sb0.25"),
         ([("Th", 0.5), ("Os", 0.5)], "Th0.5Os0.5"),
         # Two integers with 2 elements
-        ([("A", 1.0), ("B", 1.0)], "AB"), 
+        ([("A", 1.0), ("B", 1.0)], "AB"),
         # One integer that is 1, expect not to diplay the integer of 1
-        ([("A", 1.0), ("B", 0.5)], "AB0.5"), 
+        ([("A", 1.0), ("B", 0.5)], "AB0.5"),
         # One integer that is not 1, expect to display the integer
-        ([("A", 2.0), ("B", 0.5)], "A2B0.5"), 
+        ([("A", 2.0), ("B", 0.5)], "A2B0.5"),
     ],
 )
 def test_get_formula_string_from_parsed(parsed_formula, expected_string):
