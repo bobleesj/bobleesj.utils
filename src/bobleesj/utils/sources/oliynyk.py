@@ -31,45 +31,37 @@ class Property(str, Enum):
     BULK_MODULUS = "bulk_modulus"
 
 
-def get_oliynyk_CAF_data():
-    # Load Excel file from the package using importlib.resources
-    with importlib.resources.path(
-        "bobleesj.utils.data.db", "oliynyk-elemental-property-list.xlsx"
-    ) as path:
-        oliynyk_df = pd.read_excel(path)
-    # Clean column names: remove spaces
-    oliynyk_df.columns = oliynyk_df.columns.str.replace(" ", "", regex=False)
-    # Replace NaNs with 0
-    oliynyk_df = oliynyk_df.fillna(0)
-    # Convert to dictionary keyed by element symbol
-    oliynyk_dict = oliynyk_df.set_index("symbol").to_dict(orient="index")
-    return oliynyk_dict
+class Oliynyk:
+    def __init__(self):
+        self.db = self.get_oliynyk_CAF_data()
+        self.elements = self.list_supported_elements()
 
+    def get_oliynyk_CAF_data(self):
+        with importlib.resources.path(
+            "bobleesj.utils.data.db", "oliynyk-elemental-property-list.xlsx"
+        ) as path:
+            oliynyk_df = pd.read_excel(path)
+        oliynyk_df.columns = oliynyk_df.columns.str.replace(
+            " ", "", regex=False
+        )
+        oliynyk_df = oliynyk_df.fillna(0)
+        oliynyk_dict = oliynyk_df.set_index("symbol").to_dict(orient="index")
+        return oliynyk_dict
 
-def list_supported_elements(db):
-    elements = list(db.keys())
-    return elements
+    def list_supported_elements(self):
+        return list(self.db.keys())
 
+    def get_property_data(self, property: Property) -> dict[str, float]:
+        return {
+            element: self.db[element][property] for element in self.elements
+        }
 
-def get_property_data(property: Property, db) -> dict[str, float]:
-    db = get_oliynyk_CAF_data()
-    elements = list_supported_elements(db)
-    data = {element: db[element][property] for element in elements}
-    return data
+    def get_property_data_for_formula(
+        self, formula: str, property: Property
+    ) -> dict[str, float]:
+        elements = parser.get_elements_from_formula(formula)
+        return {element: self.db[element][property] for element in elements}
 
-
-def get_property_data_for_formula(
-    formula: str, property: Property, db
-) -> dict[str, float]:
-    elements = parser.get_elements_from_formula(formula)
-    data = {element: db[element][property] for element in elements}
-    return data
-
-
-def check_elements_in_database(formula: str, db_elements: list[str]) -> bool:
-    """Check if the formula is in the Oliynyk database."""
-    elements_parsed = parser.get_elements_from_formula(formula)
-    for element in elements_parsed:
-        if element not in db_elements:
-            return False
-    return True
+    def is_formula_supported(self, formula: str) -> bool:
+        elements_parsed = parser.get_elements_from_formula(formula)
+        return all(element in self.elements for element in elements_parsed)

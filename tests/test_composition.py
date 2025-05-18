@@ -167,7 +167,7 @@ def test_sort_formulas_by_composition():
         ([("Th", 0.5), ("Os", 0.5)], "Th0.5Os0.5"),
         # Two integers with 2 elements
         ([("A", 1.0), ("B", 1.0)], "AB"),
-        # One integer that is 1, expect not to diplay the integer of 1
+        # One integer that is 1, expect not to display the integer of 1
         ([("A", 1.0), ("B", 0.5)], "AB0.5"),
         # One integer that is not 1, expect to display the integer
         ([("A", 2.0), ("B", 0.5)], "A2B0.5"),

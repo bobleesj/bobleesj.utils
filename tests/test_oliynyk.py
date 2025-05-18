@@ -1,13 +1,6 @@
 import pytest
 
 from bobleesj.utils.sources.oliynyk import Property as P
-from bobleesj.utils.sources.oliynyk import (
-    check_elements_in_database,
-    get_oliynyk_CAF_data,
-    get_property_data,
-    get_property_data_for_formula,
-    list_supported_elements,
-)
 
 
 @pytest.mark.parametrize(
@@ -41,16 +34,15 @@ def test_property(property, expected_string):
     assert property == expected_string
 
 
-def test_get_oliynyk_CAF_data():
-    db = get_oliynyk_CAF_data()
+def test_get_oliynyk_CAF_data(oliynyk):
     # Number of elements in the database
-    assert len(db) == 70
-    assert db["Nd"]["atomic_weight"] == 144.242
-    assert db["Nd"]["atomic_number"] == 60
+    assert len(oliynyk.db) == 70
+    assert oliynyk.db["Nd"]["atomic_weight"] == 144.242
+    assert oliynyk.db["Nd"]["atomic_number"] == 60
 
 
-def test_list_supported_elements(CAF_oliynyk_db):
-    actual_elements = list_supported_elements(CAF_oliynyk_db)
+def test_list_supported_elements(oliynyk):
+    actual_elements = oliynyk.elements
     expected_elements = [
         "Li",
         "Be",
@@ -126,8 +118,8 @@ def test_list_supported_elements(CAF_oliynyk_db):
     assert actual_elements == expected_elements
 
 
-def test_get_property_data(CAF_oliynyk_db):
-    actual_values = get_property_data(P.AW, CAF_oliynyk_db)
+def test_get_property_data(oliynyk):
+    actual_values = oliynyk.get_property_data(P.AW)
     expected_values = {
         "Li": 6.941,
         "Be": 9.01218,
@@ -203,14 +195,21 @@ def test_get_property_data(CAF_oliynyk_db):
     assert actual_values == expected_values
 
 
+def test_get_property_data_from_formula(oliynyk):
+    formula = "NdSi2"
+    actual_data = oliynyk.get_property_data_for_formula(formula, P.MEND_NUM)
+    expected_data = {"Nd": 19, "Si": 78}
+    assert actual_data == expected_data
+
+
 @pytest.mark.parametrize(
-    "formula, expected_result",
+    "formula, expected",
     [
         ("NdSi2", True),
-        ("XYZ", False),
         ("FeCo", True),
-        ("FeH", False),
         ("SiGe", True),
+        ("XYZ", False),
+        ("FeH", False),
         ("ABCD", False),
         ("LaNi5", True),
         ("UTh", True),
@@ -218,15 +217,5 @@ def test_get_property_data(CAF_oliynyk_db):
         ("PtIr", True),
     ],
 )
-def test_check_elements_in_database(formula, expected_result, CAF_oliynyk_db):
-    elements = list_supported_elements(CAF_oliynyk_db)
-    assert check_elements_in_database(formula, elements) == expected_result
-
-
-def test_get_property_by_elements(CAF_oliynyk_db):
-    formula = "NdSi2"
-    actual_data = get_property_data_for_formula(
-        formula, P.MEND_NUM, CAF_oliynyk_db
-    )
-    expected_data = {"Nd": 19, "Si": 78}
-    assert actual_data == expected_data
+def test_is_formula_supported(formula, expected, oliynyk):
+    assert oliynyk.is_formula_supported(formula) == expected

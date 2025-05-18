@@ -1,9 +1,9 @@
 import pytest
 
-from bobleesj.utils.sources.oliynyk import get_oliynyk_CAF_data
+from bobleesj.utils.sources.oliynyk import Oliynyk
 
 
 @pytest.fixture
-def CAF_oliynyk_db():
+def oliynyk() -> Oliynyk:
     # 20250516 - deleted Tc, Pm and Hg since some properties are not available
-    return get_oliynyk_CAF_data()
+    return Oliynyk()
