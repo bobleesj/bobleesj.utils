@@ -3,7 +3,7 @@ from enum import Enum
 
 import pandas as pd
 
-from bobleesj.utils.parsers import composition as parser
+from bobleesj.utils.parsers.formula import Formula
 
 
 class Property(str, Enum):
@@ -59,9 +59,19 @@ class Oliynyk:
     def get_property_data_for_formula(
         self, formula: str, property: Property
     ) -> dict[str, float]:
-        elements = parser.get_elements_from_formula(formula)
+        elements = Formula(formula).elements
         return {element: self.db[element][property] for element in elements}
-
+    
     def is_formula_supported(self, formula: str) -> bool:
-        elements_parsed = parser.get_elements_from_formula(formula)
+        elements_parsed = Formula(formula).elements
         return all(element in self.elements for element in elements_parsed)
+
+    def filter_supported_formulas(self, formulas: list[str]) -> tuple[list[str], list[str]]:
+        """Filter formulas to only include those with supported elements."""
+        supported, unsupported = [], []
+        for formula in formulas:
+            if self.is_formula_supported(formula):
+                supported.append(formula)
+            else:
+                unsupported.append(formula)
+        return supported, unsupported

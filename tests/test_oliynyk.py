@@ -201,6 +201,9 @@ def test_get_property_data_from_formula(oliynyk):
     expected_data = {"Nd": 19, "Si": 78}
     assert actual_data == expected_data
 
+"""
+Methods
+"""
 
 @pytest.mark.parametrize(
     "formula, expected",
@@ -219,3 +222,32 @@ def test_get_property_data_from_formula(oliynyk):
 )
 def test_is_formula_supported(formula, expected, oliynyk):
     assert oliynyk.is_formula_supported(formula) == expected
+@pytest.mark.parametrize(
+    "formulas, expected_supported, expected_unsupported",
+    [
+        (
+            ["NdSi2", "FeCo", "XYZ", "LaNi5", "FeH", "PtIr", "HgH"],
+            ["NdSi2", "FeCo", "LaNi5", "PtIr"],
+            ["XYZ", "FeH", "HgH"],
+        ),
+        (
+            ["SiGe", "ABCD", "UTh", "Invalid123"],
+            ["SiGe", "UTh"],
+            ["ABCD", "Invalid123"],
+        ),
+        (
+            [],
+            [],
+            [],
+        ),
+        (
+            ["Li", "Be", "B", "C"],
+            ["Li", "Be", "B", "C"],
+            [],
+        )
+    ],
+)
+def test_filter_supported_formulas(formulas, expected_supported, expected_unsupported, oliynyk):
+    supported, unsupported = oliynyk.filter_supported_formulas(formulas)
+    assert supported == expected_supported
+    assert unsupported == expected_unsupported

@@ -1,10 +1,25 @@
 import pytest
 
-from bobleesj.utils.parsers import composition
+from bobleesj.utils.parsers.formula import Formula
+
+"""
+@staticmethod
+"""
+
+
+def test_sort_formulas_by_composition():
+    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_sorted_formula_dict = Formula.sort_formulas_by_composition(formulas)
+    expected_sorted_formula_dict = {
+        2: ["NdSi2", "ThOs"],
+        3: ["NdSi2Th2"],
+        4: ["YNdThSi2"],
+    }
+    assert actual_sorted_formula_dict == expected_sorted_formula_dict
 
 
 @pytest.mark.parametrize(
-    "formula, expected",
+    "formula, expected_parsed_formula",
     [
         ("NdSi2", [("Nd", 1), ("Si", 2)]),
         ("Th2Os", [("Th", 2), ("Os", 1)]),
@@ -15,9 +30,9 @@ from bobleesj.utils.parsers import composition
         ("A1B1C1D1", [("A", 1), ("B", 1), ("C", 1), ("D", 1)]),
     ],
 )
-def test_parse_formula(formula, expected):
-    actual = composition.get_parsed_formula(formula)
-    assert actual == expected
+def test_parse_formula(formula, expected_parsed_formula):
+    actual_parsed_formula = Formula(formula).parsed_formula
+    assert actual_parsed_formula == expected_parsed_formula
 
 
 @pytest.mark.parametrize(
@@ -31,7 +46,7 @@ def test_parse_formula(formula, expected):
     ],
 )
 def test_get_normalized_formula(formula, expected):
-    actual = composition.get_normalized_formula(formula)
+    actual = Formula(formula).get_normalized_formula()
     assert actual == expected
 
 
@@ -49,7 +64,7 @@ def test_get_normalized_formula_3_decial(
     formula,
     expected,
 ):
-    actual = composition.get_normalized_formula(formula, decimal_places=3)
+    actual = Formula(formula).get_normalized_formula(decimals=3)
     assert actual == expected
 
 
@@ -61,39 +76,13 @@ def test_get_normalized_formula_3_decial(
     ],
 )
 def test_normalized_parsed_formula(formula, expected):
-    actual = composition.get_normalized_parsed_formula(
-        formula, decimal_places=3
-    )
+    actual = Formula(formula).get_normalized_parsed_formula(decimals=3)
     assert actual == expected
 
 
-@pytest.mark.parametrize(
-    "formula, expected",
-    [
-        ("NdSi2", 2),  # Binary
-        ("Th2Os", 2),  # Binary
-        ("Sm5Co7Sb2", 3),  # Ternary
-        ("SmCoSb", 3),  # Tenary without numbers
-        ("ABCD", 4),  # Quarternary
-        ("A1B1C1D1", 4),  # Quarternary
-    ],
-)
-def test_count_element(formula, expected):
-    actual = composition.count_element(formula)
-    assert actual == expected
-
-
-@pytest.mark.parametrize(
-    "formula, expected_max_min_avg_index",
-    [
-        ("NdSi2", (2, 1, 1.5)),
-        ("Sn5Co2", (5, 2, 3.5)),
-        ("NdSi2Th2", (2, 1, 1.667)),
-    ],
-)
-def test_get_max_min_avg_index(formula, expected_max_min_avg_index):
-    actual = composition.get_max_min_avg_index(formula)
-    assert actual == pytest.approx(expected_max_min_avg_index, abs=1e-3)
+"""
+@Property
+"""
 
 
 @pytest.mark.parametrize(
@@ -108,8 +97,37 @@ def test_get_max_min_avg_index(formula, expected_max_min_avg_index):
     ],
 )
 def test_get_elements_from_formula(formula, expected_elements):
-    actual = composition.get_elements_from_formula(formula)
+    actual = Formula(formula).elements
     assert actual == expected_elements
+
+
+@pytest.mark.parametrize(
+    "formula, expected",
+    [
+        ("NdSi2", 2),  # Binary
+        ("Th2Os", 2),  # Binary
+        ("Sm5Co7Sb2", 3),  # Ternary
+        ("SmCoSb", 3),  # Tenary without numbers
+        ("ABCD", 4),  # Quarternary
+        ("A1B1C1D1", 4),  # Quarternary
+    ],
+)
+def test_count_element(formula, expected):
+    actual = Formula(formula).element_count
+    assert actual == expected
+
+
+@pytest.mark.parametrize(
+    "formula, expected_max_min_avg_index",
+    [
+        ("NdSi2", (2, 1, 1.5)),
+        ("Sn5Co2", (5, 2, 3.5)),
+        ("NdSi2Th2", (2, 1, 1.667)),
+    ],
+)
+def test_max_min_avg_index(formula, expected_max_min_avg_index):
+    actual = Formula(formula).max_min_avg_index
+    assert actual == pytest.approx(expected_max_min_avg_index, abs=1e-3)
 
 
 @pytest.mark.parametrize(
@@ -123,8 +141,8 @@ def test_get_elements_from_formula(formula, expected_elements):
         ("A1B1C1D1", [1.0, 1.0, 1.0, 1.0]),
     ],
 )
-def test_get_indices_from_formula(formula, expected_indices):
-    actual = composition.get_indices_from_formula(formula)
+def test_indices(formula, expected_indices):
+    actual = Formula(formula).indices
     assert actual == expected_indices
 
 
@@ -140,21 +158,8 @@ def test_get_indices_from_formula(formula, expected_indices):
     ],
 )
 def test_get_normalized_indices_from_formula(formula, expected_norm_indices):
-    actual = composition.get_normalized_indices_from_formula(formula)
+    actual = Formula(formula).get_normalized_indices()
     assert actual == expected_norm_indices
-
-
-def test_sort_formulas_by_composition():
-    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-    actual_sorted_formula_dict = composition.sort_formulas_by_composition(
-        formulas
-    )
-    expected_sorted_formula_dict = {
-        2: ["NdSi2", "ThOs"],
-        3: ["NdSi2Th2"],
-        4: ["YNdThSi2"],
-    }
-    assert actual_sorted_formula_dict == expected_sorted_formula_dict
 
 
 @pytest.mark.parametrize(
@@ -174,5 +179,5 @@ def test_sort_formulas_by_composition():
     ],
 )
 def test_get_formula_string_from_parsed(parsed_formula, expected_string):
-    actual_formula = composition.get_formula_string_from_parsed(parsed_formula)
+    actual_formula = Formula.build_formula_from_parsed(parsed_formula)
     assert actual_formula == expected_string
