@@ -1,6 +1,6 @@
 **Added:**
 
-* Add docstrings for Formula class with examples.
+* Add docstrings to ``Oliynyk``,  ``Property``, ``Formula`` classes.
 
 **Changed:**
 
