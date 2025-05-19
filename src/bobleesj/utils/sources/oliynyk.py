@@ -50,23 +50,29 @@ class Property(str, Enum):
 
 
 class Oliynyk:
-    """Oliynyk elemental property database interface.
-
-    Examples
-    --------
-    from bobleesj.utils.sources.oliynyk import Property as P
-    >>> oliynyk = Oliynyk()
-    >>> oliynyk.is_formula_supported("LiFePO4")
-    True
-    >>> oliynyk.get_property_data(P.AW)["Fe"]
-    55.845
-    """
+    """Oliynyk elemental property database interface."""
 
     def __init__(self):
         self.db = self.get_oliynyk_CAF_data()
         self.elements = self.list_supported_elements()
 
-    def get_oliynyk_CAF_data(self):
+    def get_oliynyk_CAF_data(self) -> dict[str, dict[str, float]]:
+        """Load the Oliynyk elemental property data from an Excel file. The
+        data is stored in a dictionary format with element symbols as keys.
+
+        Examples
+        --------
+        >>> oliynyk = Oliynyk()
+        >>> data = oliynyk.get_oliynyk_CAF_data()
+        {
+            "Li": {"atomic_weight": 6.941, ...},
+            "Be": {"atomic_weight": 9.0122, ...},
+            ...
+        }
+        >>> data["Li"]["atomic_weight"]
+        6.941
+        """
+
         with importlib.resources.path(
             "bobleesj.utils.data.db", "oliynyk-elemental-property-list.xlsx"
         ) as path:
@@ -79,10 +85,27 @@ class Oliynyk:
         return oliynyk_dict
 
     def list_supported_elements(self) -> list[str]:
-        """List all elements in the Oliynyk database."""
+        """List all elements in the Oliynyk database.
+
+        Examples
+        --------
+        >>> oliynyk = Oliynyk()
+        >>> elements = oliynyk.list_supported_elements()
+        >>> elements
+        ["Li", "Be", "B", "C", "Na", "Mg", "Al", "Si", "P", "S", ...]
+        """
         return list(self.db.keys())
 
     def get_property_data(self, property: Property) -> dict[str, float]:
+        """Get the given property data for all elements in the database.
+
+        Examples
+        --------
+        >>> oliynyk = Oliynyk()
+        >>> property_data = oliynyk.get_property_data(Property.AW)
+        >>> property_data
+        {"Li": 6.941, "Be": 9.0122, "B": 10.81, ...}
+        """
         return {
             element: self.db[element][property] for element in self.elements
         }
@@ -90,12 +113,13 @@ class Oliynyk:
     def get_property_data_for_formula(
         self, formula: str, property: Property
     ) -> dict[str, float]:
-        """Get property data for elements in a given formula.
+        """Get property data for individual elements in a given formula.
 
         Examples
         --------
-        >>> oliynyk.get_property_data_for_formula("LiFePO4", Property.AW)
-        {'Li': 6.941, 'Fe': 55.845, 'P': 30.973761, 'O': 15.999}
+        >>> oliynyk = Oliynyk()
+        >>> oliynyk.get_property_data_for_formula("LiFeP", Property.AW)
+        {"Li": 6.941, "Fe": 55.845, "O": 15.999}
         """
         elements = Formula(formula).elements
         return {element: self.db[element][property] for element in elements}
@@ -105,6 +129,7 @@ class Oliynyk:
 
         Examples
         --------
+        >>> oliynyk = Oliynyk()
         >>> oliynyk.is_formula_supported("LiFePO4")
         True
         >>> oliynyk.is_formula_supported("FeH")
@@ -120,12 +145,13 @@ class Oliynyk:
 
         Examples
         --------
-        >>> formulas = ["LiFePO4", "FeH", "NdSi2"]
-        >>> supported, unsupported = oliynyk.filter_supported_formulas(formulas)
+        >>> oliynyk = Oliynyk()
+        >>> formulas = ["FeH", "NdSi2"]
+        >>> supported, unsupported = oliynyk.get_supported_formulas(formulas)
         >>> supported
-        ['LiFePO4', 'NdSi2']
+        ["NdSi2"]
         >>> unsupported
-        ['FeH']
+        ["FeH"]
         """
         supported, unsupported = [], []
         for formula in formulas:

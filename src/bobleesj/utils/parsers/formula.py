@@ -293,7 +293,7 @@ class Formula:
     @property
     def max_min_avg_index(self) -> tuple[float, float, float]:
         """Get the max, min, and avg index of the formula.
-        
+
         Examples
         --------
         >>> formula = Formula("NdSi2")
@@ -305,7 +305,7 @@ class Formula:
 
     def get_normalized_indices(self, decimals=6) -> list[float]:
         """Get the normalized indices of the formula.
-        
+
         Examples
         --------
         >>> formula = Formula("NdSi2")
@@ -319,7 +319,7 @@ class Formula:
 
     def get_normalized_formula(self, decimals=6) -> str:
         """Get the normalized formula of the formula.
-        
+
         Examples
         --------
         >>> formula = Formula("NdSi2")
