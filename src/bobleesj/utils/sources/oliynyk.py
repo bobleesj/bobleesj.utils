@@ -50,6 +50,18 @@ class Property(str, Enum):
 
 
 class Oliynyk:
+    """Oliynyk elemental property database interface.
+
+    Examples
+    --------
+    from bobleesj.utils.sources.oliynyk import Property as P
+    >>> oliynyk = Oliynyk()
+    >>> oliynyk.is_formula_supported("LiFePO4")
+    True
+    >>> oliynyk.get_property_data(P.AW)["Fe"]
+    55.845
+    """
+
     def __init__(self):
         self.db = self.get_oliynyk_CAF_data()
         self.elements = self.list_supported_elements()
@@ -66,7 +78,8 @@ class Oliynyk:
         oliynyk_dict = oliynyk_df.set_index("symbol").to_dict(orient="index")
         return oliynyk_dict
 
-    def list_supported_elements(self):
+    def list_supported_elements(self) -> list[str]:
+        """List all elements in the Oliynyk database."""
         return list(self.db.keys())
 
     def get_property_data(self, property: Property) -> dict[str, float]:
@@ -77,17 +90,43 @@ class Oliynyk:
     def get_property_data_for_formula(
         self, formula: str, property: Property
     ) -> dict[str, float]:
+        """Get property data for elements in a given formula.
+
+        Examples
+        --------
+        >>> oliynyk.get_property_data_for_formula("LiFePO4", Property.AW)
+        {'Li': 6.941, 'Fe': 55.845, 'P': 30.973761, 'O': 15.999}
+        """
         elements = Formula(formula).elements
         return {element: self.db[element][property] for element in elements}
 
     def is_formula_supported(self, formula: str) -> bool:
+        """Check if a formula is supported by the Oliynyk database.
+
+        Examples
+        --------
+        >>> oliynyk.is_formula_supported("LiFePO4")
+        True
+        >>> oliynyk.is_formula_supported("FeH")
+        False
+        """
         elements_parsed = Formula(formula).elements
         return all(element in self.elements for element in elements_parsed)
 
-    def filter_supported_formulas(
+    def get_supported_formulas(
         self, formulas: list[str]
     ) -> tuple[list[str], list[str]]:
-        """Filter formulas to only include those with supported elements."""
+        """Filter formulas to only include those with supported elements.
+
+        Examples
+        --------
+        >>> formulas = ["LiFePO4", "FeH", "NdSi2"]
+        >>> supported, unsupported = oliynyk.filter_supported_formulas(formulas)
+        >>> supported
+        ['LiFePO4', 'NdSi2']
+        >>> unsupported
+        ['FeH']
+        """
         supported, unsupported = [], []
         for formula in formulas:
             if self.is_formula_supported(formula):

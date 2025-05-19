@@ -3,7 +3,7 @@ import pytest
 from bobleesj.utils.parsers.formula import Formula
 
 """
-@staticmethod
+@staticmethod - sort
 """
 
 
@@ -19,11 +19,69 @@ def test_sort_by_composition():
     assert actual_sorted_formula_dict == expected_sorted_formula_dict
 
 
+"""
+@staticmethod - order
+"""
+
+
+def test_order_by_alphabetical():
+    formulas = ["AB2", "AB", "BC2D2", "BBC2"]
+    actual_ordered_formulas = Formula.order_by_alphabetical(formulas)
+    expected_ordered_formulas = ["AB", "AB2", "BBC2", "BC2D2"]
+    assert actual_ordered_formulas == expected_ordered_formulas
+
+
+def test_order_by_alphabetical_reverse():
+    formulas = ["AB2", "AB", "BC2D2", "BBC2"]
+    actual_ordered_formulas = Formula.order_by_alphabetical(
+        formulas, reverse=True
+    )
+    expected_ordered_formulas = ["BC2D2", "BBC2", "AB2", "AB"]
+    assert actual_ordered_formulas == expected_ordered_formulas
+
+
+"""
+@staticmethod - count
+"""
+
+
+def test_count_duplicates():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_duplicates = Formula.count_duplicates(formulas)
+    expected_duplicates = {"NdSi2": 2, "NdSi2Th2": 2}
+    assert actual_duplicates == expected_duplicates
+
+
+def test_count_by_formula():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count_by_formula = Formula.count_by_formula(formulas, "NdSi2")
+    expected_count_by_formula = 2
+    assert actual_count_by_formula == expected_count_by_formula
+
+
 def test_count_by_composition():
     formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
     actual_count_dict = Formula.count_by_composition(formulas)
     expected_count_dict = {2: 2, 3: 1, 4: 1}
     assert actual_count_dict == expected_count_dict
+
+
+def test_get_element_count():
+    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_element_count = Formula.get_element_count(formulas)
+    expected_element_count = {
+        "Nd": 3,
+        "Si": 3,
+        "Th": 3,
+        "Os": 1,
+        "Y": 1,
+    }
+    assert actual_element_count == expected_element_count
+
+
+"""
+@staticmethod - unique
+"""
 
 
 def test_get_unique_formulas():
@@ -38,19 +96,6 @@ def test_get_unique_elements():
     actual_unique_elements = Formula.get_unique_elements(formulas)
     expected_unique_elements = {"Nd", "Si", "Th", "Os", "Y"}
     assert actual_unique_elements == expected_unique_elements
-
-
-def test_get_element_count():
-    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-    actual_element_count = Formula.get_element_count(formulas)
-    expected_element_count = {
-        "Nd": 3,
-        "Si": 3,
-        "Th": 3,
-        "Os": 1,
-        "Y": 1,
-    }
-    assert actual_element_count == expected_element_count
 
 
 """
@@ -157,25 +202,6 @@ def test_filter_by_elements_matching(
         formulas, elements
     )
     assert actual_filtered_formulas == expected_filtered_formulas
-
-
-"""
-@staticmethod - count
-"""
-
-
-def test_count_duplicates():
-    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
-    actual_duplicates = Formula.count_duplicates(formulas)
-    expected_duplicates = {"NdSi2": 2, "NdSi2Th2": 2}
-    assert actual_duplicates == expected_duplicates
-
-
-def test_count_by_formula():
-    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
-    actual_count_by_formula = Formula.count_by_formula(formulas, "NdSi2")
-    expected_count_by_formula = 2
-    assert actual_count_by_formula == expected_count_by_formula
 
 
 @pytest.mark.parametrize(

@@ -2,6 +2,23 @@ import re
 
 
 class Formula:
+    """A class to parse and manipulate chemical formulas. This class provides
+    methods to sort, filter, and analyze chemical.
+
+    Examples
+    --------
+    >>> formula = Formula("NdSi2")
+    >>> formula.parsed_formula
+    [('Nd', 1.0), ('Si', 2.0)]
+    >>> formula.element_count
+    2
+    >>> formula.get_normalized_formula()
+    'Nd1.0Si2.0'
+    >>> formula.get_normalized_parsed_formula()
+    [('Nd', 0.333333), ('Si', 0.666667)]
+    >>> formula.get_normalized_indices()
+    """
+
     def __init__(self, formula: str):
         self.formula = formula
         self.parsed_formula = self._parse_formula(formula)
@@ -15,7 +32,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> sort_by_composition(formulas)
+        >>> Formula.sort_by_composition(formulas)
         {2: ["NdSi2", "ThOs"], 3: ["NdSi2Th2"], 4: ["YNdThSi2"]}
         """
         sorted_formulas = {}
@@ -28,6 +45,18 @@ class Formula:
         return sorted_formulas
 
     @staticmethod
+    def order_by_alphabetical(formulas: list[str], reverse=False) -> list[str]:
+        """Sort formulas alphabetically.
+
+        Examples
+        --------
+        >>> formulas = ["AB2", "AB", "BC2D2", "BBC2"]
+        >>> Formula.order_by_alphabetical(formulas)
+        ["AB", "AB2", "BBC2", "BC2D2"]
+        """
+        return sorted(formulas, reverse=reverse)
+
+    @staticmethod
     def count_by_composition(
         formulas: list[str],
     ) -> dict[int, int]:
@@ -35,8 +64,9 @@ class Formula:
 
         Examples
         --------
-        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> count_formulas_by_composition(formulas)
+        >>>
+        formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> Formula.count_formulas_by_composition(formulas)
         {2: 2, 3: 1, 4: 1}
         """
         sorted_formulas = Formula.sort_by_composition(formulas)
@@ -51,7 +81,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "ThOs", "ThOs"]
-        >>> get_unique_formulas(formulas)
+        >>> Formula.get_unique_formulas(formulas)
         {"NdSi2", "ThOs"}
         """
         return set(formulas)
@@ -63,7 +93,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> get_unique_elements(formulas)
+        >>> Formula.get_unique_elements(formulas)
         {"Nd", "Si", "Th", "Os", "Y"}
         """
         elements = set()
@@ -81,7 +111,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> get_element_count(formulas)
+        >>> Formula.get_element_count(formulas)
         {"Nd": 3, "Si": 3, "Th": 3, "Os": 1, "Y": 1}
         """
         element_count = {}
@@ -104,7 +134,15 @@ class Formula:
 
     @staticmethod
     def build_formula_from_parsed(parsed_formula) -> str:
-        """Convert the parsed formula into a string."""
+        """Convert the parsed formula into a string. If the index can be
+        converted to 1 (int), it will be removed.
+
+        Examples
+        --------
+        >>> parsed_formula = [("Nd", 1.0), ("Si", 2.0)]
+        >>> Formula.build_formula_from_parsed(parsed_formula)
+        "NdSi2"
+        """
         formula_string = ""
         for element, index in parsed_formula:
             if index.is_integer() and int(index) != 1:
@@ -124,7 +162,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> filter_by_composition(formulas, 2)
+        >>> Formula.filter_by_composition(formulas, 2)
         ["NdSi2", "ThOs"]
         """
         return [
@@ -143,7 +181,7 @@ class Formula:
         --------
         >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
         >>> elements = ["Nd", "Si"]
-        >>> filter_by_elements(formulas, elements)
+        >>> Formula.filter_by_elements(formulas, elements)
         ["NdSi2", "NdSi2Th2", "YNdThSi2"]
         """
         filtered_formulas = []
@@ -182,7 +220,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
-        >>> count_duplicates(formulas)
+        >>> Formula.count_duplicates(formulas)
         {"NdSi2": 2, "NdSi2Th2": 2}
         """
         duplicates = {}
@@ -200,7 +238,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
-        >>> count_by_formula(formulas, "NdSi2")
+        >>> Formula.count_by_formula(formulas, "NdSi2")
         2
         """
         return formulas.count(formula_to_count)
@@ -218,30 +256,92 @@ class Formula:
 
     @property
     def elements(self) -> list[str]:
+        """Get the list of elements in the formula.
+
+        Examples
+        --------
+        >>> formula = Formula("NdSi2")
+        >>> formula.elements
+        ["Nd", "Si"]
+        """
         return [element for element, _ in self.parsed_formula]
 
     @property
     def indices(self) -> list[float]:
+        """Get the list of indices in the formula.
+
+        Examples
+        --------
+        >>> formula = Formula("NdSi2")
+        >>> formula.indices
+        [1.0, 2.0]
+        """
         return [index for _, index in self.parsed_formula]
 
     @property
     def element_count(self) -> int:
+        """Get the number of unique elements in the formula.
+
+        Examples
+        --------
+        >>> formula = Formula("NdSi2")
+        >>> formula.element_count
+        2
+        """
         return len(self.parsed_formula)
 
     @property
     def max_min_avg_index(self) -> tuple[float, float, float]:
+        """Get the max, min, and avg index of the formula.
+        
+        Examples
+        --------
+        >>> formula = Formula("NdSi2")
+        >>> formula.max_min_avg_index
+        (2.0, 1.0, 1.5)
+        """
         indices = self.indices
         return max(indices), min(indices), sum(indices) / len(indices)
 
     def get_normalized_indices(self, decimals=6) -> list[float]:
+        """Get the normalized indices of the formula.
+        
+        Examples
+        --------
+        >>> formula = Formula("NdSi2")
+        >>> formula.get_normalized_indices()
+        [0.333333, 0.666667]
+        >>> formula.get_normalized_indices(2)
+        [0.33, 0.67]
+        """
         total = sum(self.indices)
         return [round(index / total, decimals) for index in self.indices]
 
     def get_normalized_formula(self, decimals=6) -> str:
+        """Get the normalized formula of the formula.
+        
+        Examples
+        --------
+        >>> formula = Formula("NdSi2")
+        >>> formula.get_normalized_formula()
+        "Nd0.333333Si0.666667"
+        >>> formula.get_normalized_formula(2)
+        "Nd0.33Si0.67"
+        """
         return self._normalized(decimals=decimals)
 
     def get_normalized_parsed_formula(
         self, decimals=6
     ) -> list[tuple[str, float]]:
+        """Get the normalized parsed formula of the formula.
+
+        Examples
+        --------
+        >>> formula = Formula("NdSi2")
+        >>> formula.get_normalized_parsed_formula()
+        [("Nd", 0.333333), ("Si", 0.666667)]
+        >>> formula.get_normalized_parsed_formula(2)
+        [("Nd", 0.33), ("Si", 0.67)]
+        """
         normalized = self._normalized(decimals=decimals)
         return self._parse_formula(normalized)
