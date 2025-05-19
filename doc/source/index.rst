@@ -47,6 +47,7 @@ Table of contents
    Package API <api/bobleesj.utils>
    release
    license
+   notebooks/Formula
 
 =======
 Indices

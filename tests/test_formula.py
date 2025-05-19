@@ -59,7 +59,7 @@ def test_count_unique_formulas():
     assert actual_count_unique_formulas == expected_count_unique_formulas
 
 
-def test_count_all():
+def test_count_individual():
     formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
     actual_count_all = Formula.count_individual(formulas)
     expected_count_all = {"NdSi2": 2, "NdSi2Th2": 2, "ThOs": 1}
