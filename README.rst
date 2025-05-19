@@ -1,5 +1,5 @@
-|Icon| |title|_
-===============
+|title|_
+=========
 
 .. |title| replace:: bobleesj.utils
 .. _title: https://bobleesj.github.io/'
