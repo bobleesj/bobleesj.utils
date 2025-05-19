@@ -32,12 +32,37 @@ class Property(str, Enum):
 
     @classmethod
     def display(cls):
+        """Display the available elemental properties in a user-friendly
+        format.
+
+        Examples
+        --------
+        >>> Property.display()
+        Available elemental properties:
+          1. AW - atomic_weight
+          2. ATOMIC_NUMBER - atomic_number
+          ...
+        """
         print("\nAvailable elemental properties:")
         for index, prop in enumerate(cls, start=1):
             print(f"  {index}. {prop.name} - {prop.value}")
 
     @classmethod
     def select(cls):
+        """Prompt the user to select an elemental property from the available
+        options. Returns the selected property.
+
+        Examples
+        --------
+        >>> selected_property = Property.select()
+        Available elemental properties:
+          1. AW - atomic_weight
+          2. ATOMIC_NUMBER - atomic_number
+          ...
+
+        Enter the number of the property to use: 1
+        """
+
         cls.display()
         try:
             choice = int(input("\nEnter the number of the property to use: "))
