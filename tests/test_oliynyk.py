@@ -240,9 +240,9 @@ def test_is_formula_supported(formula, expected, oliynyk):
             ["ABCD", "Invalid123"],
         ),
         (
-            [],
-            [],
-            [],
+            ["LiFePO4", "FeH", "NdSi2"],
+            ["NdSi2"],
+            ["LiFePO4", "FeH"],
         ),
         (
             ["Li", "Be", "B", "C"],
@@ -254,6 +254,6 @@ def test_is_formula_supported(formula, expected, oliynyk):
 def test_filter_supported_formulas(
     formulas, expected_supported, expected_unsupported, oliynyk
 ):
-    supported, unsupported = oliynyk.filter_supported_formulas(formulas)
+    supported, unsupported = oliynyk.get_supported_formulas(formulas)
     assert supported == expected_supported
     assert unsupported == expected_unsupported
