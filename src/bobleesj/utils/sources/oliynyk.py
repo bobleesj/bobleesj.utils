@@ -109,6 +109,57 @@ class Oliynyk:
         oliynyk_dict = oliynyk_df.set_index("symbol").to_dict(orient="index")
         return oliynyk_dict
 
+    def is_formula_supported(self, formula: str) -> bool:
+        """Check if a formula is supported by the Oliynyk database.
+
+        Examples
+        --------
+        >>> oliynyk = Oliynyk()
+        >>> oliynyk.is_formula_supported("LiFePO4")
+        True
+        >>> oliynyk.is_formula_supported("FeH")
+        False
+        """
+        elements_parsed = Formula(formula).elements
+        return all(element in self.elements for element in elements_parsed)
+
+    def get_property_data_for_formula(
+        self, formula: str, property: Property
+    ) -> dict[str, float]:
+        """Get property data for individual elements in a given formula.
+
+        Examples
+        --------
+        >>> oliynyk = Oliynyk()
+        >>> oliynyk.get_property_data_for_formula("LiFeP", Property.AW)
+        {"Li": 6.941, "Fe": 55.845, "O": 15.999}
+        """
+        elements = Formula(formula).elements
+        return {element: self.db[element][property] for element in elements}
+
+    def get_supported_formulas(
+        self, formulas: list[str]
+    ) -> tuple[list[str], list[str]]:
+        """Filter formulas to only include those with supported elements.
+
+        Examples
+        --------
+        >>> oliynyk = Oliynyk()
+        >>> formulas = ["FeH", "NdSi2"]
+        >>> supported, unsupported = oliynyk.get_supported_formulas(formulas)
+        >>> supported
+        ["NdSi2"]
+        >>> unsupported
+        ["FeH"]
+        """
+        supported, unsupported = [], []
+        for formula in formulas:
+            if self.is_formula_supported(formula):
+                supported.append(formula)
+            else:
+                unsupported.append(formula)
+        return supported, unsupported
+
     def list_supported_elements(self) -> list[str]:
         """List all elements in the Oliynyk database.
 
@@ -134,54 +185,3 @@ class Oliynyk:
         return {
             element: self.db[element][property] for element in self.elements
         }
-
-    def get_property_data_for_formula(
-        self, formula: str, property: Property
-    ) -> dict[str, float]:
-        """Get property data for individual elements in a given formula.
-
-        Examples
-        --------
-        >>> oliynyk = Oliynyk()
-        >>> oliynyk.get_property_data_for_formula("LiFeP", Property.AW)
-        {"Li": 6.941, "Fe": 55.845, "O": 15.999}
-        """
-        elements = Formula(formula).elements
-        return {element: self.db[element][property] for element in elements}
-
-    def is_formula_supported(self, formula: str) -> bool:
-        """Check if a formula is supported by the Oliynyk database.
-
-        Examples
-        --------
-        >>> oliynyk = Oliynyk()
-        >>> oliynyk.is_formula_supported("LiFePO4")
-        True
-        >>> oliynyk.is_formula_supported("FeH")
-        False
-        """
-        elements_parsed = Formula(formula).elements
-        return all(element in self.elements for element in elements_parsed)
-
-    def get_supported_formulas(
-        self, formulas: list[str]
-    ) -> tuple[list[str], list[str]]:
-        """Filter formulas to only include those with supported elements.
-
-        Examples
-        --------
-        >>> oliynyk = Oliynyk()
-        >>> formulas = ["FeH", "NdSi2"]
-        >>> supported, unsupported = oliynyk.get_supported_formulas(formulas)
-        >>> supported
-        ["NdSi2"]
-        >>> unsupported
-        ["FeH"]
-        """
-        supported, unsupported = [], []
-        for formula in formulas:
-            if self.is_formula_supported(formula):
-                supported.append(formula)
-            else:
-                unsupported.append(formula)
-        return supported, unsupported

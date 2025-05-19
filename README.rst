@@ -4,10 +4,6 @@
 .. |title| replace:: bobleesj.utils
 .. _title: https://bobleesj.github.io/'
 
-.. |Icon| image:: https://avatars.githubusercontent.com/bobleesj
-        :target: https://bobleesj.github.io/'
-        :height: 100px
-
 |PyPi| |Forge| |PythonVersion| |PR|
 
 |CI| |Codecov| |Black| |Tracking|
@@ -35,93 +31,55 @@
 .. |Tracking| image:: https://img.shields.io/badge/issue_tracking-github-blue
         :target: https://github.com/bobleesj/'/issues
 
-Python package for doing science.
 
-* LONGER DESCRIPTION HERE
-
-For more information about the bobleesj.utils library, please consult our `online documentation <https://bobleesj.github.io/'>`_.
-
-Citation
+Overview
 --------
 
-If you use bobleesj.utils in a scientific publication, we would like you to cite this package as
+``bobleesj.utils`` is a Python package that provides a collection of utility functions and classes to simplify common tasks in materials informatics. ``bobleesj.utils`` is used across scientific software projects created and maintained by @bobleesj.
 
-        bobleesj.utils Package, https://github.com/bobleesj/'
+.. Open-source projects using ``bobleesj.utils``
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Installation
-------------
+.. .. list-table::
+..         :header-rows: 1
+..         :widths: 5 25 40 20
 
-The preferred method is to use `Miniconda Python
-<https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html>`_
-and install from the "conda-forge" channel of Conda packages.
+..         * - #
+..           - Open-source project
+..           - Description
+..           - Publication Link
+..         * - 1
+..           - `CIF Bond Analyzer (CBA) <https://github.com/bobleesj/cif-bond-analyzer>`__
+..           - Computes the minimum atomic bonding distances from sites, generating histograms and pair counts.
+..           - `Journal of Alloys and Compounds <https://doi.org/10.1016/j.jallcom.2023.173241>`__
+..         * - 2
+..           - `Structure Analyzer/Featurizer (SAF) <https://github.com/bobleesj/structure-analyzer-featurizer>`__
+..           - Generates geometric features of interatomic distances, atomic environment information, and coordination numbers.
+..           - `Digital Discovery <https://doi.org/10.1039/D4DD00332B>`__
+..         * - 3
+..           - `Composition Analyzer/Featurizer (CAF) <https://github.com/bobleesj/composition-analyzer-featurizer>`__
+..           - Generates chemical compositional features and provides tools for filtering, sorting, and merging data.
+..           - `Digital Discovery <https://doi.org/10.1039/D4DD00332B>`__
+..         * - 4
+..           - `cifkit <https://github.com/bobleesj/cifkit>`__
+..           - Python package for .cif coordination geometry and atomic site analysis
+..           - `JOSS <https://joss.theoj.org/papers/9016ae27b8c6fddffaae5aeb8be18d19>`__
+..         * - 5
+..           - `Inorganic ML descriptors <https://www.sciencedirect.com/science/article/pii/S2352340924001495>`__
+..           - Thermoelectric materials performance (zT) predictions with ML
+..           - `ACS Applied Materials & Interfaces <https://pubs.acs.org/doi/10.1021/acsami.4c19149>`__
+..         * - 6
+..           - `Crystal structure clustering with SAF/CAF <https://github.com/bobleesj/SAF-CAF-performance>`__
+..           - Unsupervised ML with ~80 features and experimental validation
+..           - `Journal of American Chemical Society (JACS) <https://pubs.acs.org/doi/10.1021/jacs.5c03510>`__
 
-To add "conda-forge" to the conda channels, run the following in a terminal. ::
-
-        conda config --add channels conda-forge
-
-We want to install our packages in a suitable conda environment.
-The following creates and activates a new environment named ``bobleesj.utils_env`` ::
-
-        conda create -n bobleesj.utils_env bobleesj.utils
-        conda activate bobleesj.utils_env
-
-To confirm that the installation was successful, type ::
-
-        python -c "import bobleesj.utils; print(bobleesj.utils.__version__)"
-
-The output should print the latest version displayed on the badges above.
-
-If the above does not work, you can use ``pip`` to download and install the latest release from
-`Python Package Index <https://pypi.python.org>`_.
-To install using ``pip`` into your ``bobleesj.utils_env`` environment, type ::
-
-        pip install bobleesj.utils
-
-If you prefer to install from sources, after installing the dependencies, obtain the source archive from
-`GitHub <https://github.com/bobleesj/'/>`_. Once installed, ``cd`` into your ``'`` directory
-and run the following ::
-
-        pip install .
-
-Getting Started
+Getting started
 ---------------
 
-You may consult our `online documentation <https://bobleesj.github.io/'>`_ for tutorials and API references.
+Are you interested in exploring ``bobleesj.utils``? Begin with the ``Overview`` page in our online documentation at https://bobleesj.github.io/bobleesj.utils!
 
-Support and Contribute
-----------------------
 
-If you see a bug or want to request a feature, please `report it as an issue <https://github.com/bobleesj/'/issues>`_ and/or `submit a fix as a PR <https://github.com/bobleesj/'/pulls>`_.
-
-Feel free to fork the project and contribute. To install bobleesj.utils
-in a development mode, with its sources being directly used by Python
-rather than copied to a package directory, use the following in the root
-directory ::
-
-        pip install -e .
-
-To ensure code quality and to prevent accidental commits into the default branch, please set up the use of our pre-commit
-hooks.
-
-1. Install pre-commit in your working environment by running ``conda install pre-commit``.
-
-2. Initialize pre-commit (one time only) ``pre-commit install``.
-
-Thereafter your code will be linted by black and isort and checked against flake8 before you can commit.
-If it fails by black or isort, just rerun and it should pass (black and isort will modify the files so should
-pass after they are modified). If the flake8 test fails please see the error messages and fix them manually before
-trying to commit again.
-
-Improvements and fixes are always appreciated.
-
-Before contributing, please read our `Code of Conduct <https://github.com/bobleesj/'/blob/main/CODE_OF_CONDUCT.rst>`_.
-
-Contact
--------
-
-For more information on bobleesj.utils please visit the project `web-page <https://bobleesj.github.io/>`_ or email Sangjoon Lee at bobleesj@gmail.com.
-
-Acknowledgements
+knowledgements
 ----------------
 
-``'`` is built and maintained with `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
+This GitHub repository is built and maintained with the help of `scikit-package <https://scikit-package.github.io/scikit-package/>`_.

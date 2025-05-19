@@ -3,23 +3,6 @@ import pytest
 from bobleesj.utils.parsers.formula import Formula
 
 """
-@staticmethod - sort
-"""
-
-
-def test_sort_by_composition():
-    formulas = ["Cu", "Cu", "NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-    actual_sorted_formula_dict = Formula.sort_by_composition(formulas)
-    expected_sorted_formula_dict = {
-        1: ["Cu", "Cu"],
-        2: ["NdSi2", "ThOs"],
-        3: ["NdSi2Th2"],
-        4: ["YNdThSi2"],
-    }
-    assert actual_sorted_formula_dict == expected_sorted_formula_dict
-
-
-"""
 @staticmethod - order
 """
 
@@ -43,6 +26,27 @@ def test_order_by_alphabetical_reverse():
 """
 @staticmethod - count
 """
+
+
+def test_count_formulas():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count = Formula.count(formulas)
+    expected_count = 5
+    assert actual_count == expected_count
+
+
+def test_count_unique_formulas():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count_unique_formulas = Formula.count_unique(formulas)
+    expected_count_unique_formulas = 3
+    assert actual_count_unique_formulas == expected_count_unique_formulas
+
+
+def test_count_individual():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count_all = Formula.count_individual(formulas)
+    expected_count_all = {"NdSi2": 2, "NdSi2Th2": 2, "ThOs": 1}
+    assert actual_count_all == expected_count_all
 
 
 def test_count_duplicates():
@@ -79,11 +83,6 @@ def test_get_element_count():
     assert actual_element_count == expected_element_count
 
 
-"""
-@staticmethod - unique
-"""
-
-
 def test_get_unique_formulas():
     formulas = ["NdSi2", "ThOs", "ThOs"]
     actual_unique_formulas = Formula.get_unique_formulas(formulas)
@@ -101,6 +100,18 @@ def test_get_unique_elements():
 """
 @staticmethod - filter
 """
+
+
+def test_filter_by_composition():
+    formulas = ["Cu", "Cu", "NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_sorted_formula_dict = Formula.filter_by_composition(formulas)
+    expected_sorted_formula_dict = {
+        1: ["Cu", "Cu"],
+        2: ["NdSi2", "ThOs"],
+        3: ["NdSi2Th2"],
+        4: ["YNdThSi2"],
+    }
+    assert actual_sorted_formula_dict == expected_sorted_formula_dict
 
 
 @pytest.mark.parametrize(
@@ -122,10 +133,10 @@ def test_get_unique_elements():
         ),
     ],
 )
-def test_filter_by_composition(
+def test_filter_by_composition_single(
     formulas, n_elements, expected_filtered_formulas
 ):
-    actual_filtered_formulas = Formula.filter_by_composition(
+    actual_filtered_formulas = Formula.filter_by_single_composition(
         formulas, n_elements
     )
     assert actual_filtered_formulas == expected_filtered_formulas
