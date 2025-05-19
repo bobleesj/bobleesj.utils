@@ -8,15 +8,27 @@ from bobleesj.utils.parsers.formula import Formula
 
 
 def test_sort_by_composition():
-    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    formulas = ["Cu", "Cu", "NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
     actual_sorted_formula_dict = Formula.sort_by_composition(formulas)
     expected_sorted_formula_dict = {
+        1: ["Cu", "Cu"],
         2: ["NdSi2", "ThOs"],
         3: ["NdSi2Th2"],
         4: ["YNdThSi2"],
     }
     assert actual_sorted_formula_dict == expected_sorted_formula_dict
 
+def test_count_by_composition():
+    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_count_dict = Formula.count_by_composition(formulas)
+    expected_count_dict = {2: 2, 3: 1, 4: 1}
+    assert actual_count_dict == expected_count_dict
+
+def test_get_unique_formulas():
+    formulas = ["NdSi2", "ThOs", "ThOs"]
+    actual_unique_formulas = Formula.get_unique_formulas(formulas)
+    expected_unique_formulas = {"NdSi2", "ThOs"}
+    assert actual_unique_formulas == expected_unique_formulas
 
 def test_get_unique_elements():
     formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]

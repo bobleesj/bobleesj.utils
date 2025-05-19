@@ -26,9 +26,9 @@ class Formula:
                 sorted_formulas[element_count] = []
             sorted_formulas[element_count].append(formula)
         return sorted_formulas
-
+    
     @staticmethod
-    def count_formulas_by_composition(
+    def count_by_composition(
         formulas: list[str],
     ) -> dict[int, int]:
         """Count the number of formulas in each composition category.
@@ -41,10 +41,31 @@ class Formula:
         """
         sorted_formulas = Formula.sort_by_composition(formulas)
         return {k: len(v) for k, v in sorted_formulas.items()}
+    
+    @staticmethod
+    def get_unique_formulas(
+        formulas: list[str],
+    ) -> set[str]:
+        """Get unique formulas from a list of formulas.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "ThOs"]
+        >>> get_unique_formulas(formulas)
+        {"NdSi2", "ThOs"}
+        """
+        return set(formulas)
 
     @staticmethod
     def get_unique_elements(formulas: list[str]) -> set[str]:
-        """Get unique elements from a list of formulas."""
+        """Get unique elements from a list of formulas.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> get_unique_elements(formulas)
+        {"Nd", "Si", "Th", "Os", "Y"}
+        """
         elements = set()
         for formula in formulas:
             parsed_formula = Formula(formula).parsed_formula
@@ -55,7 +76,14 @@ class Formula:
     @staticmethod
     def get_element_count(formulas: list[str]) -> dict[str, int]:
         """Get the count of each element in a list of formulas.
-        But don't consider the stoichiometry value."""
+        But don't consider the stoichiometry value.
+        
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> get_element_count(formulas)
+        {"Nd": 3, "Si": 3, "Th": 3, "Os": 1, "Y": 1}
+        """
         element_count = {}
         for formula in formulas:
             parsed_formula = Formula(formula).parsed_formula
