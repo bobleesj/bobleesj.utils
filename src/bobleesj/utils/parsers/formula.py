@@ -57,6 +57,48 @@ class Formula:
         return sorted(formulas, reverse=reverse)
 
     @staticmethod
+    def count(formulas: list[str]) -> int:
+        """Count the number of formulas in a list.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> Formula.count(formulas)
+        4
+        """
+        return len(formulas)
+
+    @staticmethod
+    def count_unique(
+        formulas: list[str],
+    ) -> int:
+        """Count the number of unique formulas in a list.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> Formula.count_unique(formulas)
+        4
+        """
+        return len(set(formulas))
+
+    @staticmethod
+    def count_individual(
+        formulas: list[str],
+    ) -> dict[str, int]:
+        """Count the number of occurrences of each formula in a list of
+        formulas.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> Formula.count_formulas(formulas)
+        {"NdSi2": 1, "ThOs": 1, "NdSi2Th2": 1, "YNdThSi2": 1}
+        """
+        return {formula: formulas.count(formula) for formula in formulas}
+
+    @staticmethod
+    @staticmethod
     def count_by_composition(
         formulas: list[str],
     ) -> dict[int, int]:

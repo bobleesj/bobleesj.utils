@@ -45,6 +45,27 @@ def test_order_by_alphabetical_reverse():
 """
 
 
+def test_count_formulas():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count = Formula.count(formulas)
+    expected_count = 5
+    assert actual_count == expected_count
+
+
+def test_count_unique_formulas():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count_unique_formulas = Formula.count_unique(formulas)
+    expected_count_unique_formulas = 3
+    assert actual_count_unique_formulas == expected_count_unique_formulas
+
+
+def test_count_all():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count_all = Formula.count_individual(formulas)
+    expected_count_all = {"NdSi2": 2, "NdSi2Th2": 2, "ThOs": 1}
+    assert actual_count_all == expected_count_all
+
+
 def test_count_duplicates():
     formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
     actual_duplicates = Formula.count_duplicates(formulas)
