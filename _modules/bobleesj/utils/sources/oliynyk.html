@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bobleesj.utils.sources.oliynyk &mdash; bobleesj.utils 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started.html">Getting started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Oliynyk.html">Oliynyk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/bobleesj.utils.html">Package API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">bobleesj.utils.sources.oliynyk</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for bobleesj.utils.sources.oliynyk</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.parsers.formula</span><span class="w"> </span><span class="kn">import</span> <span class="n">Formula</span>
+
+
+<div class="viewcode-block" id="Property">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Property">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Property</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">AW</span> <span class="o">=</span> <span class="s2">&quot;atomic_weight&quot;</span>
+    <span class="n">ATOMIC_NUMBER</span> <span class="o">=</span> <span class="s2">&quot;atomic_number&quot;</span>
+    <span class="n">PERIOD</span> <span class="o">=</span> <span class="s2">&quot;period&quot;</span>
+    <span class="n">GROUP</span> <span class="o">=</span> <span class="s2">&quot;group&quot;</span>
+    <span class="n">MEND_NUM</span> <span class="o">=</span> <span class="s2">&quot;Mendeleev_number&quot;</span>
+    <span class="n">VAL_TOTAL</span> <span class="o">=</span> <span class="s2">&quot;valencee_total&quot;</span>
+    <span class="n">UNPARIED_E</span> <span class="o">=</span> <span class="s2">&quot;unpaired_electrons&quot;</span>
+    <span class="n">GILMAN</span> <span class="o">=</span> <span class="s2">&quot;Gilman&quot;</span>
+    <span class="n">Z_EFF</span> <span class="o">=</span> <span class="s2">&quot;Z_eff&quot;</span>
+    <span class="n">ION_ENERGY</span> <span class="o">=</span> <span class="s2">&quot;ionization_energy&quot;</span>
+    <span class="n">COORD_NUM</span> <span class="o">=</span> <span class="s2">&quot;coordination_number&quot;</span>
+    <span class="n">RATIO_CLOSEST</span> <span class="o">=</span> <span class="s2">&quot;ratio_closest&quot;</span>
+    <span class="n">POLYHEDRON_DISTORT</span> <span class="o">=</span> <span class="s2">&quot;polyhedron_distortion&quot;</span>
+    <span class="n">CIF_RADIUS</span> <span class="o">=</span> <span class="s2">&quot;CIF_radius&quot;</span>
+    <span class="n">PAULING_RADIUS_CN12</span> <span class="o">=</span> <span class="s2">&quot;Pauling_radius_CN12&quot;</span>
+    <span class="n">PAULING_EN</span> <span class="o">=</span> <span class="s2">&quot;Pauling_EN&quot;</span>
+    <span class="n">MARTYNOV_BATSANOV_EN</span> <span class="o">=</span> <span class="s2">&quot;Martynov_Batsanov_EN&quot;</span>
+    <span class="n">MELTING_POINT_K</span> <span class="o">=</span> <span class="s2">&quot;melting_point_K&quot;</span>
+    <span class="n">DENSITY</span> <span class="o">=</span> <span class="s2">&quot;density&quot;</span>
+    <span class="n">SPECIFIC_HEAT</span> <span class="o">=</span> <span class="s2">&quot;specific_heat&quot;</span>
+    <span class="n">COHESIVE_ENERGY</span> <span class="o">=</span> <span class="s2">&quot;cohesive_energy&quot;</span>
+    <span class="n">BULK_MODULUS</span> <span class="o">=</span> <span class="s2">&quot;bulk_modulus&quot;</span>
+
+<div class="viewcode-block" id="Property.display">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Property.display">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Display the available elemental properties in a user-friendly</span>
+<span class="sd">        format.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; Property.display()</span>
+<span class="sd">        Available elemental properties:</span>
+<span class="sd">          1. AW - atomic_weight</span>
+<span class="sd">          2. ATOMIC_NUMBER - atomic_number</span>
+<span class="sd">          ...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Available elemental properties:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">prop</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">prop</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">prop</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Property.select">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Property.select">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Prompt the user to select an elemental property from the available</span>
+<span class="sd">        options. Returns the selected property.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; selected_property = Property.select()</span>
+<span class="sd">        Available elemental properties:</span>
+<span class="sd">          1. AW - atomic_weight</span>
+<span class="sd">          2. ATOMIC_NUMBER - atomic_number</span>
+<span class="sd">          ...</span>
+
+<span class="sd">        Enter the number of the property to use: 1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">cls</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">choice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Enter the number of the property to use: &quot;</span><span class="p">))</span>
+            <span class="n">selected</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="p">)[</span><span class="n">choice</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">You selected: </span><span class="si">{</span><span class="n">selected</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> → </span><span class="si">{</span><span class="n">selected</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">selected</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid choice. Please enter a valid number.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Oliynyk">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Oliynyk</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Oliynyk elemental property database interface.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_oliynyk_CAF_data</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_supported_elements</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Oliynyk.get_oliynyk_CAF_data">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.get_oliynyk_CAF_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_oliynyk_CAF_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load the Oliynyk elemental property data from an Excel file. The</span>
+<span class="sd">        data is stored in a dictionary format with element symbols as keys.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk = Oliynyk()</span>
+<span class="sd">        &gt;&gt;&gt; data = oliynyk.get_oliynyk_CAF_data()</span>
+<span class="sd">        {</span>
+<span class="sd">            &quot;Li&quot;: {&quot;atomic_weight&quot;: 6.941, ...},</span>
+<span class="sd">            &quot;Be&quot;: {&quot;atomic_weight&quot;: 9.0122, ...},</span>
+<span class="sd">            ...</span>
+<span class="sd">        }</span>
+<span class="sd">        &gt;&gt;&gt; data[&quot;Li&quot;][&quot;atomic_weight&quot;]</span>
+<span class="sd">        6.941</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">path</span><span class="p">(</span>
+            <span class="s2">&quot;bobleesj.utils.data.db&quot;</span><span class="p">,</span> <span class="s2">&quot;oliynyk-elemental-property-list.xlsx&quot;</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">path</span><span class="p">:</span>
+            <span class="n">oliynyk_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">oliynyk_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">oliynyk_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+            <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="n">oliynyk_df</span> <span class="o">=</span> <span class="n">oliynyk_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oliynyk_dict</span> <span class="o">=</span> <span class="n">oliynyk_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;symbol&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">oliynyk_dict</span></div>
+
+
+<div class="viewcode-block" id="Oliynyk.is_formula_supported">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.is_formula_supported">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_formula_supported</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formula</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if a formula is supported by the Oliynyk database.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk = Oliynyk()</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk.is_formula_supported(&quot;LiFePO4&quot;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk.is_formula_supported(&quot;FeH&quot;)</span>
+<span class="sd">        False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">elements_parsed</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">elements</span>
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements_parsed</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Oliynyk.get_property_data_for_formula">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.get_property_data_for_formula">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_property_data_for_formula</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">formula</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">property</span><span class="p">:</span> <span class="n">Property</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get property data for individual elements in a given formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk = Oliynyk()</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk.get_property_data_for_formula(&quot;LiFeP&quot;, Property.AW)</span>
+<span class="sd">        {&quot;Li&quot;: 6.941, &quot;Fe&quot;: 55.845, &quot;O&quot;: 15.999}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">elements</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">element</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="nb">property</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="Oliynyk.get_supported_formulas">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.get_supported_formulas">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_supported_formulas</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Filter formulas to only include those with supported elements.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk = Oliynyk()</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;FeH&quot;, &quot;NdSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; supported, unsupported = oliynyk.get_supported_formulas(formulas)</span>
+<span class="sd">        &gt;&gt;&gt; supported</span>
+<span class="sd">        [&quot;NdSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; unsupported</span>
+<span class="sd">        [&quot;FeH&quot;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">supported</span><span class="p">,</span> <span class="n">unsupported</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_formula_supported</span><span class="p">(</span><span class="n">formula</span><span class="p">):</span>
+                <span class="n">supported</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">unsupported</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">supported</span><span class="p">,</span> <span class="n">unsupported</span></div>
+
+
+<div class="viewcode-block" id="Oliynyk.list_supported_elements">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.list_supported_elements">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_supported_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List all elements in the Oliynyk database.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk = Oliynyk()</span>
+<span class="sd">        &gt;&gt;&gt; elements = oliynyk.list_supported_elements()</span>
+<span class="sd">        &gt;&gt;&gt; elements</span>
+<span class="sd">        [&quot;Li&quot;, &quot;Be&quot;, &quot;B&quot;, &quot;C&quot;, &quot;Na&quot;, &quot;Mg&quot;, &quot;Al&quot;, &quot;Si&quot;, &quot;P&quot;, &quot;S&quot;, ...]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Oliynyk.get_property_data">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.get_property_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_property_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">property</span><span class="p">:</span> <span class="n">Property</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the given property data for all elements in the database.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk = Oliynyk()</span>
+<span class="sd">        &gt;&gt;&gt; property_data = oliynyk.get_property_data(Property.AW)</span>
+<span class="sd">        &gt;&gt;&gt; property_data</span>
+<span class="sd">        {&quot;Li&quot;: 6.941, &quot;Be&quot;: 9.0122, &quot;B&quot;: 10.81, ...}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">element</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="nb">property</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span>
+        <span class="p">}</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oliynyk &mdash; bobleesj.utils 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bobleesj.utils package" href="../api/bobleesj.utils.html" />
+    <link rel="prev" title="Formula" href="Formula.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Formula.html">Formula</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Oliynyk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Available-elemental-properties">Available elemental properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Print-all-supported-properties">Print all supported properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Oliynyk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Import-the-class-and-initialize-it">Import the class and initialize it</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Get-the-property-value-given-the-element-and-the-property">Get the property value given the element and the property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Get-the-property-values-given-the-formula-and-the-property">Get the property values given the formula and the property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Get-all-elemental-values-for-the-given-property">Get all elemental values for the given property</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Validate">Validate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Check-whether-the-formula-is-supported">Check whether the formula is supported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Filter-formulas-into-supported-and-unsupported">Filter formulas into supported and unsupported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#List-elements-supported">List elements supported</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/bobleesj.utils.html">Package API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Oliynyk</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/bobleesj/'/blob/main/doc/source/notebooks/Oliynyk.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Oliynyk">
+<h1>Oliynyk<a class="headerlink" href="#Oliynyk" title="Link to this heading"></a></h1>
+<p>This code is an interface for working with the Oliynyk property dataset.</p>
+<section id="Available-elemental-properties">
+<h2>Available elemental properties<a class="headerlink" href="#Available-elemental-properties" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.sources.oliynyk</span><span class="w"> </span><span class="kn">import</span> <span class="n">Property</span> <span class="k">as</span> <span class="n">P</span>
+
+<span class="c1"># Get the string value of the property</span>
+<span class="n">P</span><span class="o">.</span><span class="n">ATOMIC_NUMBER</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;atomic_number&#39;
+</pre></div></div>
+</div>
+<section id="Print-all-supported-properties">
+<h3>Print all supported properties<a class="headerlink" href="#Print-all-supported-properties" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print all the string values of the properties</span>
+<span class="n">P</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Available elemental properties:
+  1. AW - atomic_weight
+  2. ATOMIC_NUMBER - atomic_number
+  3. PERIOD - period
+  4. GROUP - group
+  5. MEND_NUM - Mendeleev_number
+  6. VAL_TOTAL - valencee_total
+  7. UNPARIED_E - unpaired_electrons
+  8. GILMAN - Gilman
+  9. Z_EFF - Z_eff
+  10. ION_ENERGY - ionization_energy
+  11. COORD_NUM - coordination_number
+  12. RATIO_CLOSEST - ratio_closest
+  13. POLYHEDRON_DISTORT - polyhedron_distortion
+  14. CIF_RADIUS - CIF_radius
+  15. PAULING_RADIUS_CN12 - Pauling_radius_CN12
+  16. PAULING_EN - Pauling_EN
+  17. MARTYNOV_BATSANOV_EN - Martynov_Batsanov_EN
+  18. MELTING_POINT_K - melting_point_K
+  19. DENSITY - density
+  20. SPECIFIC_HEAT - specific_heat
+  21. COHESIVE_ENERGY - cohesive_energy
+  22. BULK_MODULUS - bulk_modulus
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h2>Oliynyk<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="Import-the-class-and-initialize-it">
+<h3>Import the class and initialize it<a class="headerlink" href="#Import-the-class-and-initialize-it" title="Link to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.sources.oliynyk</span><span class="w"> </span><span class="kn">import</span> <span class="n">Oliynyk</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate the Oliynyk class</span>
+<span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Get-the-property-value-given-the-element-and-the-property">
+<h3>Get the property value given the element and the property<a class="headerlink" href="#Get-the-property-value-given-the-element-and-the-property" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oliynyk</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;Cu&quot;</span><span class="p">][</span><span class="n">P</span><span class="o">.</span><span class="n">ATOMIC_NUMBER</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+29
+</pre></div></div>
+</div>
+</section>
+<section id="Get-the-property-values-given-the-formula-and-the-property">
+<h3>Get the property values given the formula and the property<a class="headerlink" href="#Get-the-property-values-given-the-formula-and-the-property" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oliynyk</span><span class="o">.</span><span class="n">get_property_data_for_formula</span><span class="p">(</span><span class="s2">&quot;NdSi2&quot;</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">MEND_NUM</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;Nd&#39;: 19, &#39;Si&#39;: 78}
+</pre></div></div>
+</div>
+</section>
+<section id="Get-all-elemental-values-for-the-given-property">
+<h3>Get all elemental values for the given property<a class="headerlink" href="#Get-all-elemental-values-for-the-given-property" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oliynyk</span><span class="o">.</span><span class="n">get_property_data</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">AW</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;Li&#39;: 6.941,
+ &#39;Be&#39;: 9.01218,
+ &#39;B&#39;: 10.811,
+ &#39;C&#39;: 12.011,
+ &#39;Na&#39;: 22.989768,
+ &#39;Mg&#39;: 24.305,
+ &#39;Al&#39;: 26.981539,
+ &#39;Si&#39;: 28.0855,
+ &#39;P&#39;: 30.973762,
+ &#39;S&#39;: 32.066,
+ &#39;K&#39;: 39.0983,
+ &#39;Ca&#39;: 40.078,
+ &#39;Sc&#39;: 44.95591,
+ &#39;Ti&#39;: 47.867,
+ &#39;V&#39;: 50.9415,
+ &#39;Cr&#39;: 51.9961,
+ &#39;Mn&#39;: 54.93805,
+ &#39;Fe&#39;: 55.847,
+ &#39;Co&#39;: 58.9332,
+ &#39;Ni&#39;: 58.6934,
+ &#39;Cu&#39;: 63.546,
+ &#39;Zn&#39;: 65.38,
+ &#39;Ga&#39;: 69.723,
+ &#39;Ge&#39;: 72.63,
+ &#39;As&#39;: 74.92159,
+ &#39;Se&#39;: 78.971,
+ &#39;Rb&#39;: 85.4678,
+ &#39;Sr&#39;: 87.62,
+ &#39;Y&#39;: 88.90584,
+ &#39;Zr&#39;: 91.224,
+ &#39;Nb&#39;: 92.90638,
+ &#39;Mo&#39;: 95.95,
+ &#39;Ru&#39;: 101.07,
+ &#39;Rh&#39;: 102.9055,
+ &#39;Pd&#39;: 106.42,
+ &#39;Ag&#39;: 107.8682,
+ &#39;Cd&#39;: 112.411,
+ &#39;In&#39;: 114.818,
+ &#39;Sn&#39;: 118.71,
+ &#39;Sb&#39;: 121.76,
+ &#39;Te&#39;: 127.6,
+ &#39;Cs&#39;: 132.90543,
+ &#39;Ba&#39;: 137.327,
+ &#39;La&#39;: 138.9055,
+ &#39;Ce&#39;: 140.115,
+ &#39;Pr&#39;: 140.90765,
+ &#39;Nd&#39;: 144.242,
+ &#39;Sm&#39;: 150.36,
+ &#39;Eu&#39;: 151.965,
+ &#39;Gd&#39;: 157.25,
+ &#39;Tb&#39;: 158.92534,
+ &#39;Dy&#39;: 162.5,
+ &#39;Ho&#39;: 164.93032,
+ &#39;Er&#39;: 167.259,
+ &#39;Tm&#39;: 168.93421,
+ &#39;Yb&#39;: 173.045,
+ &#39;Lu&#39;: 174.967,
+ &#39;Hf&#39;: 178.49,
+ &#39;Ta&#39;: 180.9479,
+ &#39;W&#39;: 183.84,
+ &#39;Re&#39;: 186.207,
+ &#39;Os&#39;: 190.23,
+ &#39;Ir&#39;: 192.217,
+ &#39;Pt&#39;: 195.084,
+ &#39;Au&#39;: 196.96654,
+ &#39;Tl&#39;: 204.3833,
+ &#39;Pb&#39;: 207.2,
+ &#39;Bi&#39;: 208.98037,
+ &#39;Th&#39;: 232.0381,
+ &#39;U&#39;: 238.0289}
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Validate">
+<h2>Validate<a class="headerlink" href="#Validate" title="Link to this heading"></a></h2>
+<section id="Check-whether-the-formula-is-supported">
+<h3>Check whether the formula is supported<a class="headerlink" href="#Check-whether-the-formula-is-supported" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oliynyk</span><span class="o">.</span><span class="n">is_formula_supported</span><span class="p">(</span><span class="s2">&quot;NdSi2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+</section>
+<section id="Filter-formulas-into-supported-and-unsupported">
+<h3>Filter formulas into supported and unsupported<a class="headerlink" href="#Filter-formulas-into-supported-and-unsupported" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supported</span><span class="p">,</span> <span class="n">unsupported</span> <span class="o">=</span> <span class="n">oliynyk</span><span class="o">.</span><span class="n">get_supported_formulas</span><span class="p">([</span><span class="s2">&quot;FeH&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Supported:&quot;</span><span class="p">,</span> <span class="n">supported</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unsupported:&quot;</span><span class="p">,</span> <span class="n">unsupported</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Supported: [&#39;NdSi2&#39;]
+Unsupported: [&#39;FeH&#39;]
+</pre></div></div>
+</div>
+</section>
+<section id="List-elements-supported">
+<h3>List elements supported<a class="headerlink" href="#List-elements-supported" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List supported elements in the Oliynyk database</span>
+<span class="n">oliynyk</span><span class="o">.</span><span class="n">list_supported_elements</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Li&#39;,
+ &#39;Be&#39;,
+ &#39;B&#39;,
+ &#39;C&#39;,
+ &#39;Na&#39;,
+ &#39;Mg&#39;,
+ &#39;Al&#39;,
+ &#39;Si&#39;,
+ &#39;P&#39;,
+ &#39;S&#39;,
+ &#39;K&#39;,
+ &#39;Ca&#39;,
+ &#39;Sc&#39;,
+ &#39;Ti&#39;,
+ &#39;V&#39;,
+ &#39;Cr&#39;,
+ &#39;Mn&#39;,
+ &#39;Fe&#39;,
+ &#39;Co&#39;,
+ &#39;Ni&#39;,
+ &#39;Cu&#39;,
+ &#39;Zn&#39;,
+ &#39;Ga&#39;,
+ &#39;Ge&#39;,
+ &#39;As&#39;,
+ &#39;Se&#39;,
+ &#39;Rb&#39;,
+ &#39;Sr&#39;,
+ &#39;Y&#39;,
+ &#39;Zr&#39;,
+ &#39;Nb&#39;,
+ &#39;Mo&#39;,
+ &#39;Ru&#39;,
+ &#39;Rh&#39;,
+ &#39;Pd&#39;,
+ &#39;Ag&#39;,
+ &#39;Cd&#39;,
+ &#39;In&#39;,
+ &#39;Sn&#39;,
+ &#39;Sb&#39;,
+ &#39;Te&#39;,
+ &#39;Cs&#39;,
+ &#39;Ba&#39;,
+ &#39;La&#39;,
+ &#39;Ce&#39;,
+ &#39;Pr&#39;,
+ &#39;Nd&#39;,
+ &#39;Sm&#39;,
+ &#39;Eu&#39;,
+ &#39;Gd&#39;,
+ &#39;Tb&#39;,
+ &#39;Dy&#39;,
+ &#39;Ho&#39;,
+ &#39;Er&#39;,
+ &#39;Tm&#39;,
+ &#39;Yb&#39;,
+ &#39;Lu&#39;,
+ &#39;Hf&#39;,
+ &#39;Ta&#39;,
+ &#39;W&#39;,
+ &#39;Re&#39;,
+ &#39;Os&#39;,
+ &#39;Ir&#39;,
+ &#39;Pt&#39;,
+ &#39;Au&#39;,
+ &#39;Tl&#39;,
+ &#39;Pb&#39;,
+ &#39;Bi&#39;,
+ &#39;Th&#39;,
+ &#39;U&#39;]
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Formula.html" class="btn btn-neutral float-left" title="Formula" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api/bobleesj.utils.html" class="btn btn-neutral float-right" title="bobleesj.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

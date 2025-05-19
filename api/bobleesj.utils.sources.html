@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bobleesj.utils.sources package &mdash; bobleesj.utils 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bobleesj.utils.data package" href="bobleesj.utils.data.html" />
+    <link rel="prev" title="bobleesj.utils.parsers package" href="bobleesj.utils.parsers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Oliynyk.html">Oliynyk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="bobleesj.utils.html">Package API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="bobleesj.utils.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.parsers.html">bobleesj.utils.parsers package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">bobleesj.utils.sources package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.data.html">bobleesj.utils.data package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bobleesj.utils.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="bobleesj.utils.html">bobleesj.utils package</a></li>
+      <li class="breadcrumb-item active">bobleesj.utils.sources package</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/bobleesj/'/blob/main/doc/source/api/bobleesj.utils.sources.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bobleesj.utils.sources">
+<span id="bobleesj-utils-sources-package"></span><h1>bobleesj.utils.sources package<a class="headerlink" href="#module-bobleesj.utils.sources" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<section id="module-bobleesj.utils.sources.oliynyk">
+<span id="bobleesj-utils-sources-oliynyk-module"></span><h3>bobleesj.utils.sources.oliynyk module<a class="headerlink" href="#module-bobleesj.utils.sources.oliynyk" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.oliynyk.</span></span><span class="sig-name descname"><span class="pre">Oliynyk</span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Oliynyk elemental property database interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk.get_oliynyk_CAF_data">
+<span class="sig-name descname"><span class="pre">get_oliynyk_CAF_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk.get_oliynyk_CAF_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk.get_oliynyk_CAF_data" title="Link to this definition"></a></dt>
+<dd><p>Load the Oliynyk elemental property data from an Excel file. The
+data is stored in a dictionary format with element symbols as keys.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">oliynyk</span><span class="o">.</span><span class="n">get_oliynyk_CAF_data</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">    &quot;Li&quot;: {&quot;atomic_weight&quot;: 6.941, ...},</span>
+<span class="go">    &quot;Be&quot;: {&quot;atomic_weight&quot;: 9.0122, ...},</span>
+<span class="go">    ...</span>
+<span class="go">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Li&quot;</span><span class="p">][</span><span class="s2">&quot;atomic_weight&quot;</span><span class="p">]</span>
+<span class="go">6.941</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk.get_property_data">
+<span class="sig-name descname"><span class="pre">get_property_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#bobleesj.utils.sources.oliynyk.Property" title="bobleesj.utils.sources.oliynyk.Property"><span class="pre">Property</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk.get_property_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk.get_property_data" title="Link to this definition"></a></dt>
+<dd><p>Get the given property data for all elements in the database.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">property_data</span> <span class="o">=</span> <span class="n">oliynyk</span><span class="o">.</span><span class="n">get_property_data</span><span class="p">(</span><span class="n">Property</span><span class="o">.</span><span class="n">AW</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">property_data</span>
+<span class="go">{&quot;Li&quot;: 6.941, &quot;Be&quot;: 9.0122, &quot;B&quot;: 10.81, ...}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk.get_property_data_for_formula">
+<span class="sig-name descname"><span class="pre">get_property_data_for_formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#bobleesj.utils.sources.oliynyk.Property" title="bobleesj.utils.sources.oliynyk.Property"><span class="pre">Property</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk.get_property_data_for_formula"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk.get_property_data_for_formula" title="Link to this definition"></a></dt>
+<dd><p>Get property data for individual elements in a given formula.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span><span class="o">.</span><span class="n">get_property_data_for_formula</span><span class="p">(</span><span class="s2">&quot;LiFeP&quot;</span><span class="p">,</span> <span class="n">Property</span><span class="o">.</span><span class="n">AW</span><span class="p">)</span>
+<span class="go">{&quot;Li&quot;: 6.941, &quot;Fe&quot;: 55.845, &quot;O&quot;: 15.999}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk.get_supported_formulas">
+<span class="sig-name descname"><span class="pre">get_supported_formulas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formulas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk.get_supported_formulas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk.get_supported_formulas" title="Link to this definition"></a></dt>
+<dd><p>Filter formulas to only include those with supported elements.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">formulas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;FeH&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">supported</span><span class="p">,</span> <span class="n">unsupported</span> <span class="o">=</span> <span class="n">oliynyk</span><span class="o">.</span><span class="n">get_supported_formulas</span><span class="p">(</span><span class="n">formulas</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">supported</span>
+<span class="go">[&quot;NdSi2&quot;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unsupported</span>
+<span class="go">[&quot;FeH&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk.is_formula_supported">
+<span class="sig-name descname"><span class="pre">is_formula_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk.is_formula_supported"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk.is_formula_supported" title="Link to this definition"></a></dt>
+<dd><p>Check if a formula is supported by the Oliynyk database.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span><span class="o">.</span><span class="n">is_formula_supported</span><span class="p">(</span><span class="s2">&quot;LiFePO4&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span><span class="o">.</span><span class="n">is_formula_supported</span><span class="p">(</span><span class="s2">&quot;FeH&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk.list_supported_elements">
+<span class="sig-name descname"><span class="pre">list_supported_elements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk.list_supported_elements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk.list_supported_elements" title="Link to this definition"></a></dt>
+<dd><p>List all elements in the Oliynyk database.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">elements</span> <span class="o">=</span> <span class="n">oliynyk</span><span class="o">.</span><span class="n">list_supported_elements</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">elements</span>
+<span class="go">[&quot;Li&quot;, &quot;Be&quot;, &quot;B&quot;, &quot;C&quot;, &quot;Na&quot;, &quot;Mg&quot;, &quot;Al&quot;, &quot;Si&quot;, &quot;P&quot;, &quot;S&quot;, ...]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.oliynyk.</span></span><span class="sig-name descname"><span class="pre">Property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Property"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.ATOMIC_NUMBER">
+<span class="sig-name descname"><span class="pre">ATOMIC_NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'atomic_number'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.ATOMIC_NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.AW">
+<span class="sig-name descname"><span class="pre">AW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'atomic_weight'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.AW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.BULK_MODULUS">
+<span class="sig-name descname"><span class="pre">BULK_MODULUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bulk_modulus'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.BULK_MODULUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.CIF_RADIUS">
+<span class="sig-name descname"><span class="pre">CIF_RADIUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CIF_radius'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.CIF_RADIUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.COHESIVE_ENERGY">
+<span class="sig-name descname"><span class="pre">COHESIVE_ENERGY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cohesive_energy'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.COHESIVE_ENERGY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.COORD_NUM">
+<span class="sig-name descname"><span class="pre">COORD_NUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'coordination_number'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.COORD_NUM" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.DENSITY">
+<span class="sig-name descname"><span class="pre">DENSITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'density'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.DENSITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.GILMAN">
+<span class="sig-name descname"><span class="pre">GILMAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Gilman'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.GILMAN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.GROUP">
+<span class="sig-name descname"><span class="pre">GROUP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'group'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.GROUP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.ION_ENERGY">
+<span class="sig-name descname"><span class="pre">ION_ENERGY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ionization_energy'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.ION_ENERGY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.MARTYNOV_BATSANOV_EN">
+<span class="sig-name descname"><span class="pre">MARTYNOV_BATSANOV_EN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Martynov_Batsanov_EN'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.MARTYNOV_BATSANOV_EN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.MELTING_POINT_K">
+<span class="sig-name descname"><span class="pre">MELTING_POINT_K</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'melting_point_K'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.MELTING_POINT_K" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.MEND_NUM">
+<span class="sig-name descname"><span class="pre">MEND_NUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Mendeleev_number'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.MEND_NUM" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.PAULING_EN">
+<span class="sig-name descname"><span class="pre">PAULING_EN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Pauling_EN'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.PAULING_EN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.PAULING_RADIUS_CN12">
+<span class="sig-name descname"><span class="pre">PAULING_RADIUS_CN12</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Pauling_radius_CN12'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.PAULING_RADIUS_CN12" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.PERIOD">
+<span class="sig-name descname"><span class="pre">PERIOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'period'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.PERIOD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.POLYHEDRON_DISTORT">
+<span class="sig-name descname"><span class="pre">POLYHEDRON_DISTORT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'polyhedron_distortion'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.POLYHEDRON_DISTORT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.RATIO_CLOSEST">
+<span class="sig-name descname"><span class="pre">RATIO_CLOSEST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ratio_closest'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.RATIO_CLOSEST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.SPECIFIC_HEAT">
+<span class="sig-name descname"><span class="pre">SPECIFIC_HEAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'specific_heat'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.SPECIFIC_HEAT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.UNPARIED_E">
+<span class="sig-name descname"><span class="pre">UNPARIED_E</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'unpaired_electrons'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.UNPARIED_E" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.VAL_TOTAL">
+<span class="sig-name descname"><span class="pre">VAL_TOTAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'valencee_total'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.VAL_TOTAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.Z_EFF">
+<span class="sig-name descname"><span class="pre">Z_EFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Z_eff'</span></em><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.Z_EFF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.display">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Property.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.display" title="Link to this definition"></a></dt>
+<dd><p>Display the available elemental properties in a user-friendly
+format.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Property</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="go">Available elemental properties:</span>
+<span class="go">  1. AW - atomic_weight</span>
+<span class="go">  2. ATOMIC_NUMBER - atomic_number</span>
+<span class="go">  ...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.select">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Property.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.select" title="Link to this definition"></a></dt>
+<dd><p>Prompt the user to select an elemental property from the available
+options. Returns the selected property.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">selected_property</span> <span class="o">=</span> <span class="n">Property</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+<span class="go">Available elemental properties:</span>
+<span class="go">  1. AW - atomic_weight</span>
+<span class="go">  2. ATOMIC_NUMBER - atomic_number</span>
+<span class="go">  ...</span>
+</pre></div>
+</div>
+<p>Enter the number of the property to use: 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bobleesj.utils.parsers.html" class="btn btn-neutral float-left" title="bobleesj.utils.parsers package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bobleesj.utils.data.html" class="btn btn-neutral float-right" title="bobleesj.utils.data package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

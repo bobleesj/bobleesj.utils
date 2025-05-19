@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bobleesj.utils.parsers.formula &mdash; bobleesj.utils 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started.html">Getting started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Oliynyk.html">Oliynyk</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/bobleesj.utils.html">Package API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">bobleesj.utils.parsers.formula</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for bobleesj.utils.parsers.formula</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+
+<div class="viewcode-block" id="Formula">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Formula</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class to parse and manipulate chemical formulas. This class provides</span>
+<span class="sd">    methods to sort, filter, and analyze chemical.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; formula = Formula(&quot;NdSi2&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; formula.parsed_formula</span>
+<span class="sd">    [(&#39;Nd&#39;, 1.0), (&#39;Si&#39;, 2.0)]</span>
+<span class="sd">    &gt;&gt;&gt; formula.element_count</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; formula.get_normalized_formula()</span>
+<span class="sd">    &#39;Nd1.0Si2.0&#39;</span>
+<span class="sd">    &gt;&gt;&gt; formula.get_normalized_parsed_formula()</span>
+<span class="sd">    [(&#39;Nd&#39;, 0.333333), (&#39;Si&#39;, 0.666667)]</span>
+<span class="sd">    &gt;&gt;&gt; formula.get_normalized_indices()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formula</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formula</span> <span class="o">=</span> <span class="n">formula</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parsed_formula</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Formula.order_by_alphabetical">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.order_by_alphabetical">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">order_by_alphabetical</span><span class="p">(</span><span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sort formulas alphabetically.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;AB2&quot;, &quot;AB&quot;, &quot;BC2D2&quot;, &quot;BBC2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.order_by_alphabetical(formulas)</span>
+<span class="sd">        [&quot;AB&quot;, &quot;AB2&quot;, &quot;BBC2&quot;, &quot;BC2D2&quot;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Formula.count">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.count">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count the number of formulas in a list.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.count(formulas)</span>
+<span class="sd">        4</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">formulas</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Formula.count_unique">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.count_unique">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_unique</span><span class="p">(</span>
+        <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count the number of unique formulas in a list.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.count_unique(formulas)</span>
+<span class="sd">        4</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">formulas</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Formula.count_individual">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.count_individual">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_individual</span><span class="p">(</span>
+        <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count the number of occurrences of each formula in a list of</span>
+<span class="sd">        formulas.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.count_formulas(formulas)</span>
+<span class="sd">        {&quot;NdSi2&quot;: 1, &quot;ThOs&quot;: 1, &quot;NdSi2Th2&quot;: 1, &quot;YNdThSi2&quot;: 1}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">formula</span><span class="p">:</span> <span class="n">formulas</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span> <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="Formula.count_by_composition">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.count_by_composition">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_by_composition</span><span class="p">(</span>
+        <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count the number of formulas in each composition category.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.count_formulas_by_composition(formulas)</span>
+<span class="sd">        {2: 2, 3: 1, 4: 1}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sorted_formulas</span> <span class="o">=</span> <span class="n">Formula</span><span class="o">.</span><span class="n">filter_by_composition</span><span class="p">(</span><span class="n">formulas</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sorted_formulas</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
+
+
+<div class="viewcode-block" id="Formula.get_unique_formulas">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.get_unique_formulas">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_unique_formulas</span><span class="p">(</span>
+        <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get unique formulas from a list of formulas.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;ThOs&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.get_unique_formulas(formulas)</span>
+<span class="sd">        {&quot;NdSi2&quot;, &quot;ThOs&quot;}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">formulas</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Formula.get_unique_elements">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.get_unique_elements">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_unique_elements</span><span class="p">(</span><span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get unique elements from a list of formulas.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.get_unique_elements(formulas)</span>
+<span class="sd">        {&quot;Nd&quot;, &quot;Si&quot;, &quot;Th&quot;, &quot;Os&quot;, &quot;Y&quot;}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">:</span>
+            <span class="n">parsed_formula</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">parsed_formula</span>
+            <span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">parsed_formula</span><span class="p">:</span>
+                <span class="n">elements</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">elements</span></div>
+
+
+<div class="viewcode-block" id="Formula.get_element_count">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.get_element_count">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_element_count</span><span class="p">(</span><span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the count of each element in a list of formulas. Do not consider</span>
+<span class="sd">        the stoichiometric value.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.get_element_count(formulas)</span>
+<span class="sd">        {&quot;Nd&quot;: 3, &quot;Si&quot;: 3, &quot;Th&quot;: 3, &quot;Os&quot;: 1, &quot;Y&quot;: 1}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">element_count</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">:</span>
+            <span class="n">parsed_formula</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">parsed_formula</span>
+            <span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">parsed_formula</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">element</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">element_count</span><span class="p">:</span>
+                    <span class="n">element_count</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">element_count</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">element_count</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_formula</span><span class="p">(</span><span class="n">formula</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;([A-Z][a-z]*)(\d*\.?\d*)&quot;</span>
+        <span class="n">parsed</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">formula</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">if</span> <span class="n">index</span> <span class="k">else</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">parsed</span>
+        <span class="p">]</span>
+
+<div class="viewcode-block" id="Formula.build_formula_from_parsed">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.build_formula_from_parsed">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_formula_from_parsed</span><span class="p">(</span><span class="n">parsed_formula</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert the parsed formula into a string. If the index can be</span>
+<span class="sd">        converted to 1 (int), it will be removed.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; parsed_formula = [(&quot;Nd&quot;, 1.0), (&quot;Si&quot;, 2.0)]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.build_formula_from_parsed(parsed_formula)</span>
+<span class="sd">        &quot;NdSi2&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">formula_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">parsed_formula</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">formula_string</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">element</span><span class="si">}{</span><span class="nb">int</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">elif</span> <span class="n">index</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">formula_string</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">element</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">formula_string</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">element</span><span class="si">}{</span><span class="n">index</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">formula_string</span></div>
+
+
+<div class="viewcode-block" id="Formula.filter_by_composition">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.filter_by_composition">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter_by_composition</span><span class="p">(</span>
+        <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sort formulas into categories based on their composition.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.filter_by_composition(formulas)</span>
+<span class="sd">        {2: [&quot;NdSi2&quot;, &quot;ThOs&quot;], 3: [&quot;NdSi2Th2&quot;], 4: [&quot;YNdThSi2&quot;]}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sorted_formulas</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">:</span>
+            <span class="n">element_count</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">element_count</span>
+            <span class="k">if</span> <span class="n">element_count</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sorted_formulas</span><span class="p">:</span>
+                <span class="n">sorted_formulas</span><span class="p">[</span><span class="n">element_count</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">sorted_formulas</span><span class="p">[</span><span class="n">element_count</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sorted_formulas</span></div>
+
+
+<div class="viewcode-block" id="Formula.filter_by_single_composition">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.filter_by_single_composition">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter_by_single_composition</span><span class="p">(</span>
+        <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">composition</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Filter formulas by the given composition type.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.filter_by_single_composition(formulas, 2)</span>
+<span class="sd">        [&quot;NdSi2&quot;, &quot;ThOs&quot;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">formula</span>
+            <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span>
+            <span class="k">if</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">element_count</span> <span class="o">==</span> <span class="n">composition</span>
+        <span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Formula.filter_by_elements_containing">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.filter_by_elements_containing">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter_by_elements_containing</span><span class="p">(</span>
+        <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Filter formulas by a list of elements.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; elements = [&quot;Nd&quot;, &quot;Si&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.filter_by_elements(formulas, elements)</span>
+<span class="sd">        [&quot;NdSi2&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filtered_formulas</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">:</span>
+            <span class="n">parsed_formula</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">parsed_formula</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">element</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">(</span><span class="n">parsed_formula</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">):</span>
+                <span class="n">filtered_formulas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">filtered_formulas</span></div>
+
+
+<div class="viewcode-block" id="Formula.filter_by_elements_matching">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.filter_by_elements_matching">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter_by_elements_matching</span><span class="p">(</span>
+        <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Filter formulas by a list of elements but the specified elements</span>
+<span class="sd">        should be only contained.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;ThOs&quot;, &quot;NdSi2Th2&quot;, &quot;YNdThSi2&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; elements = [&quot;Nd&quot;, &quot;Si&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; filter_by_elements(formulas, elements)</span>
+<span class="sd">        [&quot;NdSi2&quot;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filtered_formulas</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">:</span>
+            <span class="n">parsed_formula</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">parsed_formula</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">element</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">(</span><span class="n">parsed_formula</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parsed_formula</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
+                    <span class="n">filtered_formulas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">filtered_formulas</span></div>
+
+
+<div class="viewcode-block" id="Formula.count_duplicates">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.count_duplicates">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_duplicates</span><span class="p">(</span><span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count the number of duplicates in a list of formulas.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;NdSi2&quot;, &quot;NdSi2Th2&quot;, &quot;NdSi2Th2&quot;, &quot;ThOs&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.count_duplicates(formulas)</span>
+<span class="sd">        {&quot;NdSi2&quot;: 2, &quot;NdSi2Th2&quot;: 2}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">duplicates</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">formulas</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">formula</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">duplicates</span><span class="p">:</span>
+                <span class="n">duplicates</span><span class="p">[</span><span class="n">formula</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">duplicates</span><span class="p">[</span><span class="n">formula</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">duplicates</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="Formula.count_by_formula">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.count_by_formula">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_by_formula</span><span class="p">(</span><span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">formula_to_count</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count the number of occurrences of a specific formula in a list of</span>
+<span class="sd">        formulas.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formulas = [&quot;NdSi2&quot;, &quot;NdSi2&quot;, &quot;NdSi2Th2&quot;, &quot;NdSi2Th2&quot;, &quot;ThOs&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; Formula.count_by_formula(formulas, &quot;NdSi2&quot;)</span>
+<span class="sd">        2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">formulas</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">formula_to_count</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_normalized</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">index_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">count</span> <span class="o">/</span> <span class="n">index_sum</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_formula</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">element</span><span class="si">}{</span><span class="nb">format</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="sa">f</span><span class="s1">&#39;.</span><span class="si">{</span><span class="n">decimals</span><span class="si">}</span><span class="s1">f&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">normalized</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">elements</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the list of elements in the formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formula = Formula(&quot;NdSi2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; formula.elements</span>
+<span class="sd">        [&quot;Nd&quot;, &quot;Si&quot;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_formula</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">indices</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the list of indices in the formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formula = Formula(&quot;NdSi2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; formula.indices</span>
+<span class="sd">        [1.0, 2.0]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">index</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parsed_formula</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">element_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the number of unique elements in the formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formula = Formula(&quot;NdSi2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; formula.element_count</span>
+<span class="sd">        2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parsed_formula</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max_min_avg_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the max, min, and avg index of the formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formula = Formula(&quot;NdSi2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; formula.max_min_avg_index</span>
+<span class="sd">        (2.0, 1.0, 1.5)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indices</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">indices</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">indices</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Formula.get_normalized_indices">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.get_normalized_indices">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_normalized_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the normalized indices of the formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formula = Formula(&quot;NdSi2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; formula.get_normalized_indices()</span>
+<span class="sd">        [0.333333, 0.666667]</span>
+<span class="sd">        &gt;&gt;&gt; formula.get_normalized_indices(2)</span>
+<span class="sd">        [0.33, 0.67]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">index</span> <span class="o">/</span> <span class="n">total</span><span class="p">,</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Formula.get_normalized_formula">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.get_normalized_formula">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_normalized_formula</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the normalized formula of the formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formula = Formula(&quot;NdSi2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; formula.get_normalized_formula()</span>
+<span class="sd">        &quot;Nd0.333333Si0.666667&quot;</span>
+<span class="sd">        &gt;&gt;&gt; formula.get_normalized_formula(2)</span>
+<span class="sd">        &quot;Nd0.33Si0.67&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalized</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="n">decimals</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Formula.get_normalized_parsed_formula">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.parsers.html#bobleesj.utils.parsers.formula.Formula.get_normalized_parsed_formula">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_normalized_parsed_formula</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">6</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the normalized parsed formula of the formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; formula = Formula(&quot;NdSi2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; formula.get_normalized_parsed_formula()</span>
+<span class="sd">        [(&quot;Nd&quot;, 0.333333), (&quot;Si&quot;, 0.666667)]</span>
+<span class="sd">        &gt;&gt;&gt; formula.get_normalized_parsed_formula(2)</span>
+<span class="sd">        [(&quot;Nd&quot;, 0.33), (&quot;Si&quot;, 0.67)]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalized</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="n">decimals</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_formula</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
