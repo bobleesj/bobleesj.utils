@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+ #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # bobleesj.utils documentation build configuration file, created by
@@ -70,9 +70,6 @@ master_doc = "index"
 # General information about the project.
 project = "bobleesj.utils"
 copyright = "%Y, Sangjoon Lee"
-
-# nbsphinx CONFIGURATION
-nbsphinx_codecell_lexer = False
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
