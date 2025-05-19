@@ -28,6 +28,21 @@ class Formula:
         return sorted_formulas
 
     @staticmethod
+    def count_formulas_by_composition(
+        formulas: list[str],
+    ) -> dict[int, int]:
+        """Count the number of formulas in each composition category.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> count_formulas_by_composition(formulas)
+        {2: 2, 3: 1, 4: 1}
+        """
+        sorted_formulas = Formula.sort_by_composition(formulas)
+        return {k: len(v) for k, v in sorted_formulas.items()}
+
+    @staticmethod
     def get_unique_elements(formulas: list[str]) -> set[str]:
         """Get unique elements from a list of formulas."""
         elements = set()
@@ -48,8 +63,8 @@ class Formula:
                 if element not in element_count:
                     element_count[element] = 0
                 element_count[element] += 1
-        print(element_count)
         return element_count
+
 
     @staticmethod
     def _parse_formula(formula: str) -> list[tuple[str, float]]:
