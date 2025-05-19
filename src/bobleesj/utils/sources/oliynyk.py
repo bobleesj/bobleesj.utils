@@ -30,6 +30,24 @@ class Property(str, Enum):
     COHESIVE_ENERGY = "cohesive_energy"
     BULK_MODULUS = "bulk_modulus"
 
+    @classmethod
+    def display(cls):
+        print("\nAvailable elemental properties:")
+        for index, prop in enumerate(cls, start=1):
+            print(f"  {index}. {prop.name} - {prop.value}")
+
+    @classmethod
+    def select(cls):
+        cls.display()
+        try:
+            choice = int(input("\nEnter the number of the property to use: "))
+            selected = list(cls)[choice - 1]
+            print(f"\nYou selected: {selected.name} → {selected.value}")
+            return selected
+        except (IndexError, ValueError):
+            print("Invalid choice. Please enter a valid number.")
+            return None
+
 
 class Oliynyk:
     def __init__(self):
@@ -61,12 +79,14 @@ class Oliynyk:
     ) -> dict[str, float]:
         elements = Formula(formula).elements
         return {element: self.db[element][property] for element in elements}
-    
+
     def is_formula_supported(self, formula: str) -> bool:
         elements_parsed = Formula(formula).elements
         return all(element in self.elements for element in elements_parsed)
 
-    def filter_supported_formulas(self, formulas: list[str]) -> tuple[list[str], list[str]]:
+    def filter_supported_formulas(
+        self, formulas: list[str]
+    ) -> tuple[list[str], list[str]]:
         """Filter formulas to only include those with supported elements."""
         supported, unsupported = [], []
         for formula in formulas:
