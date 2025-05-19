@@ -24,27 +24,6 @@ class Formula:
         self.parsed_formula = self._parse_formula(formula)
 
     @staticmethod
-    def sort_by_composition(
-        formulas: list[str],
-    ) -> dict[int, list[str]]:
-        """Sort formulas into categories based on their composition.
-
-        Examples
-        --------
-        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> Formula.sort_by_composition(formulas)
-        {2: ["NdSi2", "ThOs"], 3: ["NdSi2Th2"], 4: ["YNdThSi2"]}
-        """
-        sorted_formulas = {}
-
-        for formula in formulas:
-            element_count = Formula(formula).element_count
-            if element_count not in sorted_formulas:
-                sorted_formulas[element_count] = []
-            sorted_formulas[element_count].append(formula)
-        return sorted_formulas
-
-    @staticmethod
     def order_by_alphabetical(formulas: list[str], reverse=False) -> list[str]:
         """Sort formulas alphabetically.
 
@@ -111,7 +90,7 @@ class Formula:
         >>> Formula.count_formulas_by_composition(formulas)
         {2: 2, 3: 1, 4: 1}
         """
-        sorted_formulas = Formula.sort_by_composition(formulas)
+        sorted_formulas = Formula.filter_by_composition(formulas)
         return {k: len(v) for k, v in sorted_formulas.items()}
 
     @staticmethod
@@ -197,14 +176,35 @@ class Formula:
 
     @staticmethod
     def filter_by_composition(
-        formulas: list[str], composition: int
-    ) -> list[str]:
-        """Filter formulas by their composition.
+        formulas: list[str],
+    ) -> dict[int, list[str]]:
+        """Sort formulas into categories based on their composition.
 
         Examples
         --------
         >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> Formula.filter_by_composition(formulas, 2)
+        >>> Formula.filter_by_composition(formulas)
+        {2: ["NdSi2", "ThOs"], 3: ["NdSi2Th2"], 4: ["YNdThSi2"]}
+        """
+        sorted_formulas = {}
+
+        for formula in formulas:
+            element_count = Formula(formula).element_count
+            if element_count not in sorted_formulas:
+                sorted_formulas[element_count] = []
+            sorted_formulas[element_count].append(formula)
+        return sorted_formulas
+
+    @staticmethod
+    def filter_by_single_composition(
+        formulas: list[str], composition: int
+    ) -> list[str]:
+        """Filter formulas by the given composition type.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> Formula.filter_by_single_composition(formulas, 2)
         ["NdSi2", "ThOs"]
         """
         return [
