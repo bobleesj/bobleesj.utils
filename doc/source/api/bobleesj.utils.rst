@@ -1,9 +1,7 @@
 :tocdepth: -1
 
-|title|
-=======
-
-.. |title| replace:: bobleesj.utils package
+bobleesj.utils package
+======================
 
 .. automodule:: bobleesj.utils
     :members:
@@ -14,17 +12,20 @@ Subpackages
 -----------
 
 .. toctree::
-   bobleesj.utils.example_package
+    :titlesonly:
+
+    bobleesj.utils.parsers
+    bobleesj.utils.sources
+    bobleesj.utils.data
 
 Submodules
 ----------
 
-|module|
---------
+bobleesj.utils.numbers module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. |module| replace:: bobleesj.utils.example_submodule module
-
-.. automodule:: bobleesj.utils.example_submodule
+.. automodule:: bobleesj.utils.numbers
     :members:
     :undoc-members:
     :show-inheritance:
+
