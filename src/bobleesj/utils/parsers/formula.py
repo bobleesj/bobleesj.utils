@@ -116,6 +116,24 @@ class Formula:
         return formula_string
 
     @staticmethod
+    def filter_by_composition(
+        formulas: list[str], composition: int
+    ) -> list[str]:
+        """Filter formulas by their composition.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> filter_by_composition(formulas, 2)
+        ["NdSi2", "ThOs"]
+        """
+        return [
+            formula
+            for formula in formulas
+            if Formula(formula).element_count == composition
+        ]
+
+    @staticmethod
     def filter_by_elements_containing(
         formulas: list[str], elements: list[str]
     ) -> list[str]:
@@ -186,8 +204,6 @@ class Formula:
         2
         """
         return formulas.count(formula_to_count)
-
-    # FIXME: filter by composition
 
     def _normalized(self, decimals: int = 6) -> str:
         index_sum = sum(self.indices)

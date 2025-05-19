@@ -59,6 +59,34 @@ def test_get_element_count():
 
 
 @pytest.mark.parametrize(
+    "formulas, n_elements, expected_filtered_formulas",
+    [
+        # Binary
+        (["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"], 2, ["NdSi2", "ThOs"]),
+        # Ternary
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2", "FeCuAl"],
+            3,
+            ["NdSi2Th2", "FeCuAl"],
+        ),
+        # Quaternary
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2", "FeCuAlZn"],
+            4,
+            ["YNdThSi2", "FeCuAlZn"],
+        ),
+    ],
+)
+def test_filter_by_composition(
+    formulas, n_elements, expected_filtered_formulas
+):
+    actual_filtered_formulas = Formula.filter_by_composition(
+        formulas, n_elements
+    )
+    assert actual_filtered_formulas == expected_filtered_formulas
+
+
+@pytest.mark.parametrize(
     "formulas, elements, expected_filtered_formulas",
     [
         (
