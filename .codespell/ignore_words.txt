@@ -11,3 +11,8 @@ fro
 ThOs
 Nd
 Te
+
+;; Software
+CAF
+SAF
+cifkit

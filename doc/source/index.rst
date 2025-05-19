@@ -22,8 +22,7 @@ To get started, please visit the :ref:`Getting started <getting-started>` page.
 Authors
 =======
 
-``bobleesj.utils`` is developed by Sangjoon Lee. The maintainer for this project is Sangjoon Lee. For a detailed list of contributors see
-https://github.com/bobleesj/'/graphs/contributors.
+``bobleesj.utils`` is developed by Sangjoon Lee.
 
 
 ================
@@ -56,4 +55,3 @@ Acknowledgements
    Package API <api/bobleesj.utils>
    release
    license
-   
