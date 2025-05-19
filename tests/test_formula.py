@@ -18,6 +18,7 @@ def test_sort_by_composition():
     }
     assert actual_sorted_formula_dict == expected_sorted_formula_dict
 
+
 def test_count_by_composition():
     formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
     actual_count_dict = Formula.count_by_composition(formulas)
@@ -30,11 +31,13 @@ def test_get_unique_formulas():
     expected_unique_formulas = {"NdSi2", "ThOs"}
     assert actual_unique_formulas == expected_unique_formulas
 
+
 def test_get_unique_elements():
     formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
     actual_unique_elements = Formula.get_unique_elements(formulas)
     expected_unique_elements = {"Nd", "Si", "Th", "Os", "Y"}
     assert actual_unique_elements == expected_unique_elements
+
 
 def test_get_element_count():
     formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
@@ -47,6 +50,75 @@ def test_get_element_count():
         "Y": 1,
     }
     assert actual_element_count == expected_element_count
+
+"""
+@staticmethod - filter
+"""
+
+@pytest.mark.parametrize(
+    "formulas, elements, expected_filtered_formulas",
+    [
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Nd"],
+            ["NdSi2", "NdSi2Th2", "YNdThSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Th"],
+            ["ThOs", "NdSi2Th2", "YNdThSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Si", "Th"],
+            ["NdSi2Th2", "YNdThSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Y"],
+            ["YNdThSi2"],
+        ),
+    ],
+)
+def test_filter_by_elements_containing(formulas, elements, expected_filtered_formulas):
+    actual_filtered_formulas = Formula.filter_by_elements_containing(formulas, elements)
+    assert actual_filtered_formulas == expected_filtered_formulas
+
+@pytest.mark.parametrize(
+    "formulas, elements, expected_filtered_formulas",
+    [
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Nd", "Si"],
+            ["NdSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs","ThOs2", "NdSi2Th2", "YNdThSi2"],
+            ["Th", "Os"],
+            ["ThOs", "ThOs2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Nd", "Si", "Th"],
+            ["NdSi2Th2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Y", "Nd", "Th", "Si"],
+            ["YNdThSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Nd"],
+            [],
+        ),
+    ],
+)
+def test_filter_by_elements_matching(formulas, elements, expected_filtered_formulas):
+    actual_filtered_formulas = Formula.filter_by_elements_matching(formulas, elements)
+    assert actual_filtered_formulas == expected_filtered_formulas
+
+
 
 @pytest.mark.parametrize(
     "formula, expected_parsed_formula",
@@ -63,6 +135,7 @@ def test_get_element_count():
 def test_parse_formula(formula, expected_parsed_formula):
     actual_parsed_formula = Formula(formula).parsed_formula
     assert actual_parsed_formula == expected_parsed_formula
+
 
 @pytest.mark.parametrize(
     "parsed_formula, expected_string",
@@ -210,5 +283,3 @@ def test_indices(formula, expected_indices):
 def test_get_normalized_indices_from_formula(formula, expected_norm_indices):
     actual = Formula(formula).get_normalized_indices()
     assert actual == expected_norm_indices
-
-
