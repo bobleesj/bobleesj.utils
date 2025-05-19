@@ -7,7 +7,7 @@ class Formula:
         self.parsed_formula = self._parse_formula(formula)
 
     @staticmethod
-    def sort_formulas_by_composition(
+    def sort_by_composition(
         formulas: list[str],
     ) -> dict[int, list[str]]:
         """Sort formulas into categories based on their composition.
@@ -15,7 +15,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> sort_formulas_by_composition(formulas)
+        >>> sort_by_composition(formulas)
         {2: ["NdSi2", "ThOs"], 3: ["NdSi2Th2"], 4: ["YNdThSi2"]}
         """
         sorted_formulas = {}
@@ -26,6 +26,30 @@ class Formula:
                 sorted_formulas[element_count] = []
             sorted_formulas[element_count].append(formula)
         return sorted_formulas
+
+    @staticmethod
+    def get_unique_elements(formulas: list[str]) -> set[str]:
+        """Get unique elements from a list of formulas."""
+        elements = set()
+        for formula in formulas:
+            parsed_formula = Formula(formula).parsed_formula
+            for element, _ in parsed_formula:
+                elements.add(element)
+        return elements
+
+    @staticmethod
+    def get_element_count(formulas: list[str]) -> dict[str, int]:
+        """Get the count of each element in a list of formulas.
+        But don't consider the stoichiometry value."""
+        element_count = {}
+        for formula in formulas:
+            parsed_formula = Formula(formula).parsed_formula
+            for element, _ in parsed_formula:
+                if element not in element_count:
+                    element_count[element] = 0
+                element_count[element] += 1
+        print(element_count)
+        return element_count
 
     @staticmethod
     def _parse_formula(formula: str) -> list[tuple[str, float]]:
@@ -48,6 +72,7 @@ class Formula:
             else:
                 formula_string += f"{element}{index}"
         return formula_string
+    
 
     def _normalized(self, decimals: int = 6) -> str:
         index_sum = sum(self.indices)
