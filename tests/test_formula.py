@@ -25,6 +25,7 @@ def test_count_by_composition():
     expected_count_dict = {2: 2, 3: 1, 4: 1}
     assert actual_count_dict == expected_count_dict
 
+
 def test_get_unique_formulas():
     formulas = ["NdSi2", "ThOs", "ThOs"]
     actual_unique_formulas = Formula.get_unique_formulas(formulas)
@@ -51,9 +52,11 @@ def test_get_element_count():
     }
     assert actual_element_count == expected_element_count
 
+
 """
 @staticmethod - filter
 """
+
 
 @pytest.mark.parametrize(
     "formulas, elements, expected_filtered_formulas",
@@ -80,9 +83,14 @@ def test_get_element_count():
         ),
     ],
 )
-def test_filter_by_elements_containing(formulas, elements, expected_filtered_formulas):
-    actual_filtered_formulas = Formula.filter_by_elements_containing(formulas, elements)
+def test_filter_by_elements_containing(
+    formulas, elements, expected_filtered_formulas
+):
+    actual_filtered_formulas = Formula.filter_by_elements_containing(
+        formulas, elements
+    )
     assert actual_filtered_formulas == expected_filtered_formulas
+
 
 @pytest.mark.parametrize(
     "formulas, elements, expected_filtered_formulas",
@@ -93,7 +101,7 @@ def test_filter_by_elements_containing(formulas, elements, expected_filtered_for
             ["NdSi2"],
         ),
         (
-            ["NdSi2", "ThOs","ThOs2", "NdSi2Th2", "YNdThSi2"],
+            ["NdSi2", "ThOs", "ThOs2", "NdSi2Th2", "YNdThSi2"],
             ["Th", "Os"],
             ["ThOs", "ThOs2"],
         ),
@@ -114,10 +122,32 @@ def test_filter_by_elements_containing(formulas, elements, expected_filtered_for
         ),
     ],
 )
-def test_filter_by_elements_matching(formulas, elements, expected_filtered_formulas):
-    actual_filtered_formulas = Formula.filter_by_elements_matching(formulas, elements)
+def test_filter_by_elements_matching(
+    formulas, elements, expected_filtered_formulas
+):
+    actual_filtered_formulas = Formula.filter_by_elements_matching(
+        formulas, elements
+    )
     assert actual_filtered_formulas == expected_filtered_formulas
 
+
+"""
+@staticmethod - count
+"""
+
+
+def test_count_duplicates():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_duplicates = Formula.count_duplicates(formulas)
+    expected_duplicates = {"NdSi2": 2, "NdSi2Th2": 2}
+    assert actual_duplicates == expected_duplicates
+
+
+def test_count_by_formula():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count_by_formula = Formula.count_by_formula(formulas, "NdSi2")
+    expected_count_by_formula = 2
+    assert actual_count_by_formula == expected_count_by_formula
 
 
 @pytest.mark.parametrize(

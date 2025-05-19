@@ -75,8 +75,8 @@ class Formula:
 
     @staticmethod
     def get_element_count(formulas: list[str]) -> dict[str, int]:
-        """Get the count of each element in a list of formulas. 
-        Do not consider the stoichiometric value.
+        """Get the count of each element in a list of formulas. Do not consider
+        the stoichiometric value.
 
         Examples
         --------
@@ -114,7 +114,7 @@ class Formula:
             else:
                 formula_string += f"{element}{index}"
         return formula_string
-    
+
     @staticmethod
     def filter_by_elements_containing(
         formulas: list[str], elements: list[str]
@@ -134,12 +134,13 @@ class Formula:
             if all(element in dict(parsed_formula) for element in elements):
                 filtered_formulas.append(formula)
         return filtered_formulas
-    
+
     @staticmethod
     def filter_by_elements_matching(
         formulas: list[str], elements: list[str]
     ) -> list[str]:
-        """Filter formulas by a list of elements but the specified elements should be only contained.
+        """Filter formulas by a list of elements but the specified elements
+        should be only contained.
 
         Examples
         --------
@@ -156,8 +157,37 @@ class Formula:
                     filtered_formulas.append(formula)
         return filtered_formulas
 
-    #FIXME: filter by composition
+    @staticmethod
+    def count_duplicates(formulas: list[str]) -> dict[str, int]:
+        """Count the number of duplicates in a list of formulas.
 
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+        >>> count_duplicates(formulas)
+        {"NdSi2": 2, "NdSi2Th2": 2}
+        """
+        duplicates = {}
+        for formula in formulas:
+            if formula not in duplicates:
+                duplicates[formula] = 0
+            duplicates[formula] += 1
+        return {k: v for k, v in duplicates.items() if v > 1}
+
+    @staticmethod
+    def count_by_formula(formulas: list[str], formula_to_count: str) -> int:
+        """Count the number of occurrences of a specific formula in a list of
+        formulas.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+        >>> count_by_formula(formulas, "NdSi2")
+        2
+        """
+        return formulas.count(formula_to_count)
+
+    # FIXME: filter by composition
 
     def _normalized(self, decimals: int = 6) -> str:
         index_sum = sum(self.indices)
