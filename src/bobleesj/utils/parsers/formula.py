@@ -7,7 +7,7 @@ class Formula:
         self.parsed_formula = self._parse_formula(formula)
 
     @staticmethod
-    def sort_formulas_by_composition(
+    def sort_by_composition(
         formulas: list[str],
     ) -> dict[int, list[str]]:
         """Sort formulas into categories based on their composition.
@@ -15,7 +15,7 @@ class Formula:
         Examples
         --------
         >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-        >>> sort_formulas_by_composition(formulas)
+        >>> sort_by_composition(formulas)
         {2: ["NdSi2", "ThOs"], 3: ["NdSi2Th2"], 4: ["YNdThSi2"]}
         """
         sorted_formulas = {}
@@ -26,6 +26,72 @@ class Formula:
                 sorted_formulas[element_count] = []
             sorted_formulas[element_count].append(formula)
         return sorted_formulas
+
+    @staticmethod
+    def count_by_composition(
+        formulas: list[str],
+    ) -> dict[int, int]:
+        """Count the number of formulas in each composition category.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> count_formulas_by_composition(formulas)
+        {2: 2, 3: 1, 4: 1}
+        """
+        sorted_formulas = Formula.sort_by_composition(formulas)
+        return {k: len(v) for k, v in sorted_formulas.items()}
+
+    @staticmethod
+    def get_unique_formulas(
+        formulas: list[str],
+    ) -> set[str]:
+        """Get unique formulas from a list of formulas.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "ThOs"]
+        >>> get_unique_formulas(formulas)
+        {"NdSi2", "ThOs"}
+        """
+        return set(formulas)
+
+    @staticmethod
+    def get_unique_elements(formulas: list[str]) -> set[str]:
+        """Get unique elements from a list of formulas.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> get_unique_elements(formulas)
+        {"Nd", "Si", "Th", "Os", "Y"}
+        """
+        elements = set()
+        for formula in formulas:
+            parsed_formula = Formula(formula).parsed_formula
+            for element, _ in parsed_formula:
+                elements.add(element)
+        return elements
+
+    @staticmethod
+    def get_element_count(formulas: list[str]) -> dict[str, int]:
+        """Get the count of each element in a list of formulas. Do not consider
+        the stoichiometric value.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> get_element_count(formulas)
+        {"Nd": 3, "Si": 3, "Th": 3, "Os": 1, "Y": 1}
+        """
+        element_count = {}
+        for formula in formulas:
+            parsed_formula = Formula(formula).parsed_formula
+            for element, _ in parsed_formula:
+                if element not in element_count:
+                    element_count[element] = 0
+                element_count[element] += 1
+        return element_count
 
     @staticmethod
     def _parse_formula(formula: str) -> list[tuple[str, float]]:
@@ -48,6 +114,96 @@ class Formula:
             else:
                 formula_string += f"{element}{index}"
         return formula_string
+
+    @staticmethod
+    def filter_by_composition(
+        formulas: list[str], composition: int
+    ) -> list[str]:
+        """Filter formulas by their composition.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> filter_by_composition(formulas, 2)
+        ["NdSi2", "ThOs"]
+        """
+        return [
+            formula
+            for formula in formulas
+            if Formula(formula).element_count == composition
+        ]
+
+    @staticmethod
+    def filter_by_elements_containing(
+        formulas: list[str], elements: list[str]
+    ) -> list[str]:
+        """Filter formulas by a list of elements.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> elements = ["Nd", "Si"]
+        >>> filter_by_elements(formulas, elements)
+        ["NdSi2", "NdSi2Th2", "YNdThSi2"]
+        """
+        filtered_formulas = []
+        for formula in formulas:
+            parsed_formula = Formula(formula).parsed_formula
+            if all(element in dict(parsed_formula) for element in elements):
+                filtered_formulas.append(formula)
+        return filtered_formulas
+
+    @staticmethod
+    def filter_by_elements_matching(
+        formulas: list[str], elements: list[str]
+    ) -> list[str]:
+        """Filter formulas by a list of elements but the specified elements
+        should be only contained.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+        >>> elements = ["Nd", "Si"]
+        >>> filter_by_elements(formulas, elements)
+        ["NdSi2"]
+        """
+        filtered_formulas = []
+        for formula in formulas:
+            parsed_formula = Formula(formula).parsed_formula
+            if all(element in dict(parsed_formula) for element in elements):
+                if len(parsed_formula) == len(elements):
+                    filtered_formulas.append(formula)
+        return filtered_formulas
+
+    @staticmethod
+    def count_duplicates(formulas: list[str]) -> dict[str, int]:
+        """Count the number of duplicates in a list of formulas.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+        >>> count_duplicates(formulas)
+        {"NdSi2": 2, "NdSi2Th2": 2}
+        """
+        duplicates = {}
+        for formula in formulas:
+            if formula not in duplicates:
+                duplicates[formula] = 0
+            duplicates[formula] += 1
+        return {k: v for k, v in duplicates.items() if v > 1}
+
+    @staticmethod
+    def count_by_formula(formulas: list[str], formula_to_count: str) -> int:
+        """Count the number of occurrences of a specific formula in a list of
+        formulas.
+
+        Examples
+        --------
+        >>> formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+        >>> count_by_formula(formulas, "NdSi2")
+        2
+        """
+        return formulas.count(formula_to_count)
 
     def _normalized(self, decimals: int = 6) -> str:
         index_sum = sum(self.indices)

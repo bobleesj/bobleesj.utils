@@ -7,15 +7,175 @@ from bobleesj.utils.parsers.formula import Formula
 """
 
 
-def test_sort_formulas_by_composition():
-    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
-    actual_sorted_formula_dict = Formula.sort_formulas_by_composition(formulas)
+def test_sort_by_composition():
+    formulas = ["Cu", "Cu", "NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_sorted_formula_dict = Formula.sort_by_composition(formulas)
     expected_sorted_formula_dict = {
+        1: ["Cu", "Cu"],
         2: ["NdSi2", "ThOs"],
         3: ["NdSi2Th2"],
         4: ["YNdThSi2"],
     }
     assert actual_sorted_formula_dict == expected_sorted_formula_dict
+
+
+def test_count_by_composition():
+    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_count_dict = Formula.count_by_composition(formulas)
+    expected_count_dict = {2: 2, 3: 1, 4: 1}
+    assert actual_count_dict == expected_count_dict
+
+
+def test_get_unique_formulas():
+    formulas = ["NdSi2", "ThOs", "ThOs"]
+    actual_unique_formulas = Formula.get_unique_formulas(formulas)
+    expected_unique_formulas = {"NdSi2", "ThOs"}
+    assert actual_unique_formulas == expected_unique_formulas
+
+
+def test_get_unique_elements():
+    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_unique_elements = Formula.get_unique_elements(formulas)
+    expected_unique_elements = {"Nd", "Si", "Th", "Os", "Y"}
+    assert actual_unique_elements == expected_unique_elements
+
+
+def test_get_element_count():
+    formulas = ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"]
+    actual_element_count = Formula.get_element_count(formulas)
+    expected_element_count = {
+        "Nd": 3,
+        "Si": 3,
+        "Th": 3,
+        "Os": 1,
+        "Y": 1,
+    }
+    assert actual_element_count == expected_element_count
+
+
+"""
+@staticmethod - filter
+"""
+
+
+@pytest.mark.parametrize(
+    "formulas, n_elements, expected_filtered_formulas",
+    [
+        # Binary
+        (["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"], 2, ["NdSi2", "ThOs"]),
+        # Ternary
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2", "FeCuAl"],
+            3,
+            ["NdSi2Th2", "FeCuAl"],
+        ),
+        # Quaternary
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2", "FeCuAlZn"],
+            4,
+            ["YNdThSi2", "FeCuAlZn"],
+        ),
+    ],
+)
+def test_filter_by_composition(
+    formulas, n_elements, expected_filtered_formulas
+):
+    actual_filtered_formulas = Formula.filter_by_composition(
+        formulas, n_elements
+    )
+    assert actual_filtered_formulas == expected_filtered_formulas
+
+
+@pytest.mark.parametrize(
+    "formulas, elements, expected_filtered_formulas",
+    [
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Nd"],
+            ["NdSi2", "NdSi2Th2", "YNdThSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Th"],
+            ["ThOs", "NdSi2Th2", "YNdThSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Si", "Th"],
+            ["NdSi2Th2", "YNdThSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Y"],
+            ["YNdThSi2"],
+        ),
+    ],
+)
+def test_filter_by_elements_containing(
+    formulas, elements, expected_filtered_formulas
+):
+    actual_filtered_formulas = Formula.filter_by_elements_containing(
+        formulas, elements
+    )
+    assert actual_filtered_formulas == expected_filtered_formulas
+
+
+@pytest.mark.parametrize(
+    "formulas, elements, expected_filtered_formulas",
+    [
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Nd", "Si"],
+            ["NdSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "ThOs2", "NdSi2Th2", "YNdThSi2"],
+            ["Th", "Os"],
+            ["ThOs", "ThOs2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Nd", "Si", "Th"],
+            ["NdSi2Th2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Y", "Nd", "Th", "Si"],
+            ["YNdThSi2"],
+        ),
+        (
+            ["NdSi2", "ThOs", "NdSi2Th2", "YNdThSi2"],
+            ["Nd"],
+            [],
+        ),
+    ],
+)
+def test_filter_by_elements_matching(
+    formulas, elements, expected_filtered_formulas
+):
+    actual_filtered_formulas = Formula.filter_by_elements_matching(
+        formulas, elements
+    )
+    assert actual_filtered_formulas == expected_filtered_formulas
+
+
+"""
+@staticmethod - count
+"""
+
+
+def test_count_duplicates():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_duplicates = Formula.count_duplicates(formulas)
+    expected_duplicates = {"NdSi2": 2, "NdSi2Th2": 2}
+    assert actual_duplicates == expected_duplicates
+
+
+def test_count_by_formula():
+    formulas = ["NdSi2", "NdSi2", "NdSi2Th2", "NdSi2Th2", "ThOs"]
+    actual_count_by_formula = Formula.count_by_formula(formulas, "NdSi2")
+    expected_count_by_formula = 2
+    assert actual_count_by_formula == expected_count_by_formula
 
 
 @pytest.mark.parametrize(
@@ -33,6 +193,27 @@ def test_sort_formulas_by_composition():
 def test_parse_formula(formula, expected_parsed_formula):
     actual_parsed_formula = Formula(formula).parsed_formula
     assert actual_parsed_formula == expected_parsed_formula
+
+
+@pytest.mark.parametrize(
+    "parsed_formula, expected_string",
+    [
+        # Floats with 2 elements
+        ([("Nd", 0.333), ("Si", 0.667)], "Nd0.333Si0.667"),
+        # Floats with 3 elements
+        ([("Sm", 0.25), ("Co", 0.5), ("Sb", 0.25)], "Sm0.25Co0.5Sb0.25"),
+        ([("Th", 0.5), ("Os", 0.5)], "Th0.5Os0.5"),
+        # Two integers with 2 elements
+        ([("A", 1.0), ("B", 1.0)], "AB"),
+        # One integer that is 1, expect not to display the integer of 1
+        ([("A", 1.0), ("B", 0.5)], "AB0.5"),
+        # One integer that is not 1, expect to display the integer
+        ([("A", 2.0), ("B", 0.5)], "A2B0.5"),
+    ],
+)
+def test_get_formula_string_from_parsed(parsed_formula, expected_string):
+    actual_formula = Formula.build_formula_from_parsed(parsed_formula)
+    assert actual_formula == expected_string
 
 
 @pytest.mark.parametrize(
@@ -81,7 +262,7 @@ def test_normalized_parsed_formula(formula, expected):
 
 
 """
-@Property
+@property
 """
 
 
@@ -160,24 +341,3 @@ def test_indices(formula, expected_indices):
 def test_get_normalized_indices_from_formula(formula, expected_norm_indices):
     actual = Formula(formula).get_normalized_indices()
     assert actual == expected_norm_indices
-
-
-@pytest.mark.parametrize(
-    "parsed_formula, expected_string",
-    [
-        # Floats with 2 elements
-        ([("Nd", 0.333), ("Si", 0.667)], "Nd0.333Si0.667"),
-        # Floats with 3 elements
-        ([("Sm", 0.25), ("Co", 0.5), ("Sb", 0.25)], "Sm0.25Co0.5Sb0.25"),
-        ([("Th", 0.5), ("Os", 0.5)], "Th0.5Os0.5"),
-        # Two integers with 2 elements
-        ([("A", 1.0), ("B", 1.0)], "AB"),
-        # One integer that is 1, expect not to display the integer of 1
-        ([("A", 1.0), ("B", 0.5)], "AB0.5"),
-        # One integer that is not 1, expect to display the integer
-        ([("A", 2.0), ("B", 0.5)], "A2B0.5"),
-    ],
-)
-def test_get_formula_string_from_parsed(parsed_formula, expected_string):
-    actual_formula = Formula.build_formula_from_parsed(parsed_formula)
-    assert actual_formula == expected_string
