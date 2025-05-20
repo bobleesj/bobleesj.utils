@@ -16,4 +16,3 @@ Release notes
 * Add docstrings to ``Oliynyk``,  ``Property``, ``Formula`` classes.
 * Add filter by composition, elements (containing/matching) in the Formula class.
 * Add Jupyter Notebook support in the documentation.
-

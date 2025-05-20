@@ -378,3 +378,70 @@ def test_indices(formula, expected_indices):
 def test_get_normalized_indices_from_formula(formula, expected_norm_indices):
     actual = Formula(formula).get_normalized_indices()
     assert actual == expected_norm_indices
+
+
+def test_convert_custom_labels_to_order_map(custom_labels_from_excel):
+    actual_order_map = Formula._convert_custom_labels_to_order_map(
+        custom_labels_from_excel
+    )
+    expected_order_map = {
+        2: {"Fe": 0, "Co": 0, "Ni": 0, "Si": 1, "Ga": 1, "Ge": 1},
+        3: {
+            "Sc": 0,
+            "Y": 0,
+            "La": 0,
+            "Fe": 1,
+            "Co": 1,
+            "Ni": 1,
+            "Si": 2,
+            "Ga": 2,
+            "Ge": 2,
+        },
+        4: {
+            "Sc": 0,
+            "Y": 0,
+            "La": 0,
+            "Fe": 1,
+            "Co": 1,
+            "Ni": 1,
+            "Si": 2,
+            "Ga": 2,
+            "Ge": 2,
+            "Gd": 3,
+            "Tb": 3,
+            "Dy": 3,
+        },
+    }
+    assert actual_order_map == expected_order_map
+
+
+@pytest.mark.parametrize(
+    "formula,expected_sorted_formula",
+    [
+        # Binary
+        ("FeSi", "FeSi"),
+        ("SiFe", "FeSi"),
+        # Ternary
+        ("ScFeSi", "ScFeSi"),
+        ("FeScSi", "ScFeSi"),
+        ("SiFeSc", "ScFeSi"),
+        # Quaternary
+        ("ScFeSiGd", "ScFeSiGd"),
+        ("FeScSiGd", "ScFeSiGd"),
+        ("SiFeScGd", "ScFeSiGd"),
+        ("GdFeScSi", "ScFeSiGd"),
+        ("GdSiFeSc", "ScFeSiGd"),
+    ],
+)
+def test_sort_with_custom_order(
+    formula, expected_sorted_formula, custom_labels_from_excel
+):
+    actual_sorted_formula = Formula(formula).sort_by_custom_label(custom_labels_from_excel)
+    assert actual_sorted_formula == expected_sorted_formula
+
+
+# def test_sort_by_stoichiometry():
+#     assert False
+
+# def test_sort_by_element_property():
+#     assert False
