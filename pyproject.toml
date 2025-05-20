@@ -11,7 +11,7 @@ authors = [
 maintainers = [
   { name="Sangjoon Lee", email="bobleesj@gmail.com" },
 ]
-description = "Python package for doing science."
+description = "`Python package for sharing utility functions and classes in materials informatics."
 keywords = ['science', 'utility', 'chemistry']
 readme = "README.rst"
 requires-python = ">=3.11, <3.14"
@@ -33,8 +33,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/bobleesj/'/"
-Issues = "https://github.com/bobleesj/'/issues/"
+Homepage = "https://bobleesj.github.io/bobleesj.utils/"
+Issues = "https://github.com/bobleesj/bobleesj.utils/issues/"
 
 [tool.setuptools-git-versioning]
 enabled = true

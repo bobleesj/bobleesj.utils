@@ -15,4 +15,3 @@ Subpackages
     :titlesonly:
 
     bobleesj.utils.data.db
-
