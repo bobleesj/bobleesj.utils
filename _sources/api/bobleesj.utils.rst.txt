@@ -28,4 +28,3 @@ bobleesj.utils.numbers module
     :members:
     :undoc-members:
     :show-inheritance:
-

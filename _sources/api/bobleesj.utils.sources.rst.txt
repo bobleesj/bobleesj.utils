@@ -18,4 +18,3 @@ bobleesj.utils.sources.oliynyk module
     :members:
     :undoc-members:
     :show-inheritance:
-

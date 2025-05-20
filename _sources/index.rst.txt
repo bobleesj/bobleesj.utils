@@ -5,7 +5,7 @@
 
 .. |title| replace:: bobleesj.utils documentation
 
-``bobleesj.utils`` - Python package for doing science.
+``bobleesj.utils`` is a Python package for sharing utility functions and classes in materials informatics.
 
 | Software version |release|
 | Last updated |today|.

@@ -7,4 +7,3 @@ bobleesj.utils.data.db package
     :members:
     :undoc-members:
     :show-inheritance:
-
