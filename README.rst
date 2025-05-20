@@ -11,11 +11,11 @@
 .. |Black| image:: https://img.shields.io/badge/code_style-black-black
         :target: https://github.com/psf/black
 
-.. |CI| image:: https://github.com/bobleesj/'/actions/workflows/matrix-and-codecov-on-merge-to-main.yml/badge.svg
-        :target: https://github.com/bobleesj/'/actions/workflows/matrix-and-codecov-on-merge-to-main.yml
+.. |CI| image:: https://github.com/bobleesj/bobleesj.utils/actions/workflows/matrix-and-codecov-on-merge-to-main.yml/badge.svg
+        :target: https://github.com/bobleesj/bobleesj.utils/actions/workflows/matrix-and-codecov-on-merge-to-main.yml
 
-.. |Codecov| image:: https://codecov.io/gh/bobleesj/'/branch/main/graph/badge.svg
-        :target: https://codecov.io/gh/bobleesj/'
+.. |Codecov| image:: https://github.com/bobleesj/bobleesj.utils/branch/main/graph/badge.svg
+        :target: https://github.com/bobleesj/bobleesj.utils
 
 .. |Forge| image:: https://img.shields.io/conda/vn/conda-forge/bobleesj.utils
         :target: https://anaconda.org/conda-forge/bobleesj.utils
