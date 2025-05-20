@@ -14,8 +14,8 @@
 .. |CI| image:: https://github.com/bobleesj/bobleesj.utils/actions/workflows/matrix-and-codecov-on-merge-to-main.yml/badge.svg
         :target: https://github.com/bobleesj/bobleesj.utils/actions/workflows/matrix-and-codecov-on-merge-to-main.yml
 
-.. |Codecov| image:: https://github.com/bobleesj/bobleesj.utils/branch/main/graph/badge.svg
-        :target: https://github.com/bobleesj/bobleesj.utils
+.. |Codecov| image:: https://codecov.io/gh/bobleesj/bobleesj.utils/branch/main/graph/badge.svg
+        :target: https://codecov.io/gh/bobleesj/bobleesj.utils
 
 .. |Forge| image:: https://img.shields.io/conda/vn/conda-forge/bobleesj.utils
         :target: https://anaconda.org/conda-forge/bobleesj.utils
