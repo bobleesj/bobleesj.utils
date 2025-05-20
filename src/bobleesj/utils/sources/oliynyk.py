@@ -123,20 +123,6 @@ class Oliynyk:
         elements_parsed = Formula(formula).elements
         return all(element in self.elements for element in elements_parsed)
 
-    def get_property_data_for_formula(
-        self, formula: str, property: Property
-    ) -> dict[str, float]:
-        """Get property data for individual elements in a given formula.
-
-        Examples
-        --------
-        >>> oliynyk = Oliynyk()
-        >>> oliynyk.get_property_data_for_formula("LiFeP", Property.AW)
-        {"Li": 6.941, "Fe": 55.845, "O": 15.999}
-        """
-        elements = Formula(formula).elements
-        return {element: self.db[element][property] for element in elements}
-
     def get_supported_formulas(
         self, formulas: list[str]
     ) -> tuple[list[str], list[str]]:
@@ -171,6 +157,20 @@ class Oliynyk:
         ["Li", "Be", "B", "C", "Na", "Mg", "Al", "Si", "P", "S", ...]
         """
         return list(self.db.keys())
+
+    def get_property_data_for_formula(
+        self, formula: str, property: Property
+    ) -> dict[str, float]:
+        """Get property data for individual elements in a given formula.
+
+        Examples
+        --------
+        >>> oliynyk = Oliynyk()
+        >>> oliynyk.get_property_data_for_formula("LiFeP", Property.AW)
+        {"Li": 6.941, "Fe": 55.845, "O": 15.999}
+        """
+        elements = Formula(formula).elements
+        return {element: self.db[element][property] for element in elements}
 
     def get_property_data(self, property: Property) -> dict[str, float]:
         """Get the given property data for all elements in the database.

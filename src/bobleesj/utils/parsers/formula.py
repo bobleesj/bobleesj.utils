@@ -284,7 +284,6 @@ class Formula:
         """
         return formulas.count(formula_to_count)
 
-
     @staticmethod
     def _convert_custom_labels_to_order_map(custom_labels: dict) -> dict:
         """Convert a nested custom_labels dictionary into an element order
@@ -341,7 +340,6 @@ class Formula:
                     order_map[element] = idx
             label_order_map[element_count] = order_map
         return label_order_map
-
 
     def _normalized(self, decimals: int = 6) -> str:
         index_sum = sum(self.indices)
@@ -500,5 +498,103 @@ class Formula:
         element_order = label_order_map.get(self.element_count, {})
         formula_sorted = sorted(
             formula_parsed, key=lambda x: element_order.get(x[0], float("inf"))
+        )
+        return Formula.build_formula_from_parsed(formula_sorted)
+
+    def sort_by_elemental_property(
+        self,
+        property_data: dict[str, float],
+        ascending=True,
+        normalize=False,
+    ) -> str:
+        """Sort the elements in a chemical formula based on a specified CAF
+        property.
+
+        Parameters
+        ----------
+        formula : str
+            The chemical formula to be sorted.
+        property_data: dict[str, float]
+            The dictionary that contains the single value for each element of the
+            given formula.
+        ascending : bool, optional
+            Whether to sort in ascending order. Defaults to True.
+        normalize : bool, optional
+            Whether to normalize the formula before sorting. Defaults to False.
+
+        Returns
+        -------
+        str
+            The formula string with elements sorted according to the specified
+            property.
+
+        Examples
+        --------
+        >>> from bobleesj.utils.sources.oliynyk import Oliynyk
+        >>> from bobleesj.utils.sources.oliynyk import Property as P
+        >>> formula = "LiFe"
+        >>> property_data = Oliynyk().get_property_data_for_formula(formula, P.MEND_NUM)
+        >>> Formula(formula).sort("LiFe", property_data)
+        "LiFe"
+        #FIXME: TEST THIS EXAMPLES
+        """
+        formula_parsed = (
+            self.get_normalized_parsed_formula()
+            if normalize
+            else self.parsed_formula
+        )
+        formula_sorted = sorted(
+            formula_parsed,
+            key=lambda x: property_data.get(x[0], 0),
+            reverse=not ascending,
+        )
+        return Formula.build_formula_from_parsed(formula_sorted)
+
+    def sort_by_stoichiometry(
+        self, property_data: dict[str:float], ascending=True, normalize=False
+    ) -> str:
+        """Sort the elements in the chemical formula based on their
+        composition.
+
+        When there are more than one element with the same compsition, the
+        Mendeleev number is used to break the tie. During the tie, the Mendeleev
+        number is always sorted in ascending order.
+
+        Parameters
+        ----------
+        property_data: dict[str: float]
+            The data to sort with when when stoichiometric raito is the same.
+            The default value is optional that if no data provided, then we
+            will simply sort alphabetically from a to z.
+        ascending : bool, optional
+            Whether to sort in ascending order. Defaults to True.
+        normalize : bool, optional
+            Whether to normalize the formula before sorting. Defaults to False.
+
+        Returns
+        -------
+        str
+            The formula string with elements sorted according to the specified
+            property.
+
+        Examples
+        --------
+        >>> sort("LiNa2B", db)
+        "LiBNa2"
+        """
+        formula_parsed = (
+            self.get_normalized_parsed_formula()
+            if normalize
+            else self.parsed_formula
+        )
+        reverse = not ascending
+        formula_sorted = sorted(
+            formula_parsed,
+            key=lambda x: (
+                # 1st sort, reverse sort if descending (reversed)
+                -x[1] if reverse else x[1],
+                # 2nd sort for the same compoposition. Always ascending sort.
+                property_data[x[0]],
+            ),
         )
         return Formula.build_formula_from_parsed(formula_sorted)

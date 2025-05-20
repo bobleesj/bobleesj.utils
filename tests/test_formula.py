@@ -1,6 +1,7 @@
 import pytest
 
 from bobleesj.utils.parsers.formula import Formula
+from bobleesj.utils.sources.oliynyk import Property as P
 
 """
 @staticmethod - order
@@ -380,6 +381,11 @@ def test_get_normalized_indices_from_formula(formula, expected_norm_indices):
     assert actual == expected_norm_indices
 
 
+"""
+Sort - helper
+"""
+
+
 def test_convert_custom_labels_to_order_map(custom_labels_from_excel):
     actual_order_map = Formula._convert_custom_labels_to_order_map(
         custom_labels_from_excel
@@ -415,6 +421,11 @@ def test_convert_custom_labels_to_order_map(custom_labels_from_excel):
     assert actual_order_map == expected_order_map
 
 
+"""
+Sort - custom label
+"""
+
+
 @pytest.mark.parametrize(
     "formula,expected_sorted_formula",
     [
@@ -436,12 +447,109 @@ def test_convert_custom_labels_to_order_map(custom_labels_from_excel):
 def test_sort_with_custom_order(
     formula, expected_sorted_formula, custom_labels_from_excel
 ):
-    actual_sorted_formula = Formula(formula).sort_by_custom_label(custom_labels_from_excel)
+    actual_sorted_formula = Formula(formula).sort_by_custom_label(
+        custom_labels_from_excel
+    )
     assert actual_sorted_formula == expected_sorted_formula
 
 
-# def test_sort_by_stoichiometry():
-#     assert False
+"""
+Sort - element property
+"""
 
-# def test_sort_by_element_property():
-#     assert False
+
+@pytest.mark.parametrize(
+    "formula, ascending, normalize, expected_output",
+    [
+        # C1. Ascending (Al = 13, Cu = 29) → Al before Cu
+        ("AlCu2", True, False, "AlCu2"),
+        ("Cu2Al", True, False, "AlCu2"),
+        # # C2. Ascending, normalized
+        ("AlCu2", True, True, "Al0.333333Cu0.666667"),
+        ("Cu2Al", True, True, "Al0.333333Cu0.666667"),
+        # C3. Descending
+        ("AlCu2", False, False, "Cu2Al"),
+        ("Cu2Al1", False, False, "Cu2Al"),
+        # C4. Descending, normalized
+        ("AlCu2", False, True, "Cu0.666667Al0.333333"),
+        ("Cu2Al", False, True, "Cu0.666667Al0.333333"),
+    ],
+)
+def test_sort_by_element_property(
+    formula, ascending, normalize, expected_output
+):
+    property_data = {"Al": 26.981539, "Cu": 63.546, "Test": 100.0}
+    result = Formula(formula).sort_by_elemental_property(
+        property_data, ascending, normalize
+    )
+    assert result == expected_output
+
+
+"""
+Sort - stoichiometry
+"""
+
+
+@pytest.mark.parametrize(
+    # Li Mendeleev number = 1
+    # Na Mendeleev number = 11
+    # B Mendeleev number = 72
+    "formula, expected_output",
+    [
+        # Test sorting by composiiton, ascending
+        # C1. Test binary
+        ("LiB", "LiB"),
+        ("Li1B1", "LiB"),
+        ("LiB1", "LiB"),
+        ("BLi", "LiB"),
+        ("B1Li1", "LiB"),
+        ("BLi1", "LiB"),
+        # C2 Test ternary
+        # 1. All 3 element same comp, expect LiNaB
+        ("LiNaB", "LiNaB"),
+        ("Li1Na1B1", "LiNaB"),
+        ("LiNaB1", "LiNaB"),
+        ("BLiNa", "LiNaB"),
+        ("BLi1Na1", "LiNaB"),
+        ("BLiNa1", "LiNaB"),
+        # 2. Two elements same comp, expect one element last
+        ("LiNa2B", "LiBNa2"),  # Na2 should be last
+        ("LiNaB2", "LiNaB2"),  # B2 should be last
+        ("Li2NaB", "NaBLi2"),  # Li2 should be last
+    ],
+)
+def test_sort_by_stoichiometry_default_with_Mendeleeve(
+    formula, expected_output, oliynyk
+):
+    result = Formula(formula).sort_by_stoichiometry(
+        oliynyk.get_property_data_for_formula(formula, P.MEND_NUM)
+    )
+    assert result == expected_output
+
+
+@pytest.mark.parametrize(
+    "formula, expected_output",
+    [
+        # Test sorting by composition, descending
+        # C1. Test binary
+        ("LiB", "LiB"),
+        ("Li1B1", "LiB"),
+        ("LiB1", "LiB"),
+        ("BLi", "LiB"),
+        ("B1Li1", "LiB"),
+        ("BLi1", "LiB"),
+        # C2 Test ternary
+        # 1. Two elements same comp, expect one element last
+        ("LiNa2B", "Na2LiB"),  # Li should be last
+        ("LiNaB2", "B2LiNa"),  # Na should be last
+        ("Li2NaB", "Li2NaB"), # Na should be last
+    ],
+)
+def test_sort_by_stoichiometry_descend_with_Mendeleeve(
+    formula, expected_output, oliynyk
+):
+    result = Formula(formula).sort_by_stoichiometry(
+        oliynyk.get_property_data_for_formula(formula, P.MEND_NUM),
+        ascending=False,
+    )
+    assert result == expected_output
