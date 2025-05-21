@@ -11,7 +11,7 @@ authors = [
 maintainers = [
   { name="Sangjoon Lee", email="bobleesj@gmail.com" },
 ]
-description = "`Python package for sharing utility functions and classes in materials informatics."
+description = "Python package for sharing utility functions and classes in materials informatics."
 keywords = ['science', 'utility', 'chemistry']
 readme = "README.rst"
 requires-python = ">=3.11, <3.14"
