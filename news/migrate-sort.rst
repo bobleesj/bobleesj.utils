@@ -1,6 +1,6 @@
 **Added:**
 
-* Implement ``Elements`` enum for retriving the name of the element given the symbol.
+* Implement ``Elements`` enum for retrieving the name of the element given the symbol.
 * Implement sorting of a formula by property, by index, and by defined custom labels.
 
 **Changed:**
