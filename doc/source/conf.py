@@ -60,6 +60,11 @@ templates_path = ["_templates"]
 # You can specify multiple suffix as a list of string:
 #
 source_suffix = [".rst"]
+"""
+PACKAGE CONFIGURATION
+"""
+# nbsphinx
+nbsphinx_allow_errors = True
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
