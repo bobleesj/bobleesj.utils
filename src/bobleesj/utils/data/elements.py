@@ -9,7 +9,7 @@ class Element(Enum):
     B = "Boron"
     C = "Carbon"
     N = "Nitrogen"
-    O = "Oxygen"
+    O = "Oxygen"  # noqa: E741
     F = "Fluorine"
     Ne = "Neon"
     Na = "Sodium"
@@ -54,7 +54,7 @@ class Element(Enum):
     Sn = "Tin"
     Sb = "Antimony"
     Te = "Tellurium"
-    I = "Iodine"
+    I = "Iodine"  # noqa: E741
     Xe = "Xenon"
     Cs = "Caesium"
     Ba = "Barium"
