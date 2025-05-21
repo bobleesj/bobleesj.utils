@@ -4,12 +4,9 @@ build:
   os: "ubuntu-22.04"
   tools:
     python: "latest"
-
-python:
-  install:
-    - method: pip
-      path: .
-    - requirements: requirements/docs.txt # Then install doc-specific dependencies
+    commands:
+    - pip install requirements/docs.txt
+    - pip install .
 
 sphinx:
   configuration: doc/source/conf.py
