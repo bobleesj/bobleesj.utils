@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Element(Enum):
     H = "Hydrogen"
     He = "Helium"
