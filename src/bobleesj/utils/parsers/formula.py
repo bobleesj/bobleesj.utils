@@ -153,7 +153,9 @@ class Formula:
         ]
 
     @staticmethod
-    def build_formula_from_parsed(parsed_formula) -> str:
+    def build_formula_from_parsed(
+        parsed_formula: list[tuple[str, float]]
+    ) -> str:
         """Convert the parsed formula into a string. If the index can be
         converted to 1 (int), it will be removed.
 
@@ -196,7 +198,7 @@ class Formula:
 
     @staticmethod
     def filter_by_single_composition(
-        formulas: list[str], composition: int
+        formulas: list[str], composition_type: int
     ) -> list[str]:
         """Filter formulas by the given composition type.
 
@@ -209,7 +211,7 @@ class Formula:
         return [
             formula
             for formula in formulas
-            if Formula(formula).element_count == composition
+            if Formula(formula).element_count == composition_type
         ]
 
     @staticmethod
@@ -515,8 +517,8 @@ class Formula:
         formula : str
             The chemical formula to be sorted.
         property_data: dict[str, float]
-            The dictionary that contains the single value for each element of the
-            given formula.
+            The dictionary that contains the single value for each element of
+            the given formula.
         ascending : bool, optional
             Whether to sort in ascending order. Defaults to True.
         normalize : bool, optional
@@ -530,11 +532,13 @@ class Formula:
 
         Examples
         --------
+        #FIXME: Double check this example
         >>> from bobleesj.utils.sources.oliynyk import Oliynyk
         >>> from bobleesj.utils.sources.oliynyk import Property as P
         >>> formula = "LiFe"
-        >>> property_data = Oliynyk().get_property_data_for_formula(formula, P.MEND_NUM)
-        >>> Formula(formula).sort("LiFe", property_data)
+        >>> oliynyk = Oliynyk()
+        >>> prop_data = oliynyk.get_property_data_for_formula(formula, P.AW)
+        >>> Formula(formula).sort("LiFe", prop_data)
         "LiFe"
         #FIXME: TEST THIS EXAMPLES
         """
@@ -557,8 +561,8 @@ class Formula:
         composition.
 
         When there are more than one element with the same compsition, the
-        Mendeleev number is used to break the tie. During the tie, the Mendeleev
-        number is always sorted in ascending order.
+        Mendeleev number is used to break the tie. During the tie, the
+        Mendeleev number is always sorted in ascending order.
 
         Parameters
         ----------

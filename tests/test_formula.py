@@ -542,7 +542,7 @@ def test_sort_by_stoichiometry_default_with_Mendeleeve(
         # 1. Two elements same comp, expect one element last
         ("LiNa2B", "Na2LiB"),  # Li should be last
         ("LiNaB2", "B2LiNa"),  # Na should be last
-        ("Li2NaB", "Li2NaB"), # Na should be last
+        ("Li2NaB", "Li2NaB"),  # Na should be last
     ],
 )
 def test_sort_by_stoichiometry_descend_with_Mendeleeve(
