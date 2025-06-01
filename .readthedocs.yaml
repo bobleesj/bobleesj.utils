@@ -4,8 +4,10 @@ build:
   os: "ubuntu-22.04"
   tools:
     python: "latest"
-    commands:
-      - pip install requirements/docs.txt
+
+python:
+  install:
+    - requirements: requirements/docs.txt
 
 sphinx:
   configuration: doc/source/conf.py
