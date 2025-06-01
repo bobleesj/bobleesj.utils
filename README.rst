@@ -39,7 +39,7 @@ Motivation
 
 Please visit https://bobleesj.github.io/bobleesj.utils to see the documentation and examples of how to use this package.
 
-Aknowledgements
+Acknowledgements
 ----------------
 
 This GitHub repository is built and maintained with the help of `scikit-package <https://scikit-package.github.io/scikit-package/>`_.

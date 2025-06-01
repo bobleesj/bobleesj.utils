@@ -1,7 +1,6 @@
 import re
 
 from bobleesj.utils.data.element import Element as E
-from bobleesj.utils.sources import ptable
 
 
 class Formula:
