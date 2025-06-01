@@ -6,7 +6,6 @@ build:
     python: "latest"
     commands:
       - pip install requirements/docs.txt
-      - pip install .
 
 sphinx:
   configuration: doc/source/conf.py
