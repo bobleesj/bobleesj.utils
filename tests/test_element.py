@@ -25,3 +25,10 @@ def test_element_enum_values_unique():
     # Test that all enum values are unique
     values = [e.value for e in Element]
     assert len(values) == len(set(values))
+
+
+def test_element_supported():
+    all_symbols = Element.all_symbols()
+    assert len(all_symbols) == 118
+    assert "H" in all_symbols
+    assert "He" in all_symbols

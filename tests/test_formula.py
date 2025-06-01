@@ -4,6 +4,16 @@ from bobleesj.utils.parsers.formula import Formula
 from bobleesj.utils.sources.oliynyk import Property as P
 
 """
+__init__
+"""
+
+# def test_valid_formula():
+#     formula = Formula("NdSi2")
+
+# def test_invalid_formula():
+#     with pytest.raises(ValueError, match="Invalid formula: 'boblee'"):
+#         Formula("boblee")
+"""
 @staticmethod - order
 """
 
@@ -229,7 +239,7 @@ def test_filter_by_elements_matching(
     ],
 )
 def test_parse_formula(formula, expected_parsed_formula):
-    actual_parsed_formula = Formula(formula).parsed_formula
+    actual_parsed_formula = Formula(formula, validate=False).parsed_formula
     assert actual_parsed_formula == expected_parsed_formula
 
 
@@ -265,7 +275,7 @@ def test_get_formula_string_from_parsed(parsed_formula, expected_string):
     ],
 )
 def test_get_normalized_formula(formula, expected):
-    actual = Formula(formula).get_normalized_formula()
+    actual = Formula(formula, validate=False).get_normalized_formula()
     assert actual == expected
 
 
@@ -283,7 +293,9 @@ def test_get_normalized_formula_3_decial(
     formula,
     expected,
 ):
-    actual = Formula(formula).get_normalized_formula(decimals=3)
+    actual = Formula(formula, validate=False).get_normalized_formula(
+        decimals=3
+    )
     assert actual == expected
 
 
@@ -295,7 +307,9 @@ def test_get_normalized_formula_3_decial(
     ],
 )
 def test_normalized_parsed_formula(formula, expected):
-    actual = Formula(formula).get_normalized_parsed_formula(decimals=3)
+    actual = Formula(formula, validate=False).get_normalized_parsed_formula(
+        decimals=3
+    )
     assert actual == expected
 
 
@@ -316,7 +330,7 @@ def test_normalized_parsed_formula(formula, expected):
     ],
 )
 def test_get_elements_from_formula(formula, expected_elements):
-    actual = Formula(formula).elements
+    actual = Formula(formula, validate=False).elements
     assert actual == expected_elements
 
 
@@ -332,7 +346,7 @@ def test_get_elements_from_formula(formula, expected_elements):
     ],
 )
 def test_count_element(formula, expected):
-    actual = Formula(formula).element_count
+    actual = Formula(formula, validate=False).element_count
     assert actual == expected
 
 
@@ -345,7 +359,7 @@ def test_count_element(formula, expected):
     ],
 )
 def test_max_min_avg_index(formula, expected_max_min_avg_index):
-    actual = Formula(formula).max_min_avg_index
+    actual = Formula(formula, validate=False).max_min_avg_index
     assert actual == pytest.approx(expected_max_min_avg_index, abs=1e-3)
 
 
@@ -361,7 +375,7 @@ def test_max_min_avg_index(formula, expected_max_min_avg_index):
     ],
 )
 def test_indices(formula, expected_indices):
-    actual = Formula(formula).indices
+    actual = Formula(formula, validate=False).indices
     assert actual == expected_indices
 
 
@@ -377,7 +391,7 @@ def test_indices(formula, expected_indices):
     ],
 )
 def test_get_normalized_indices_from_formula(formula, expected_norm_indices):
-    actual = Formula(formula).get_normalized_indices()
+    actual = Formula(formula, validate=False).get_normalized_indices()
     assert actual == expected_norm_indices
 
 
@@ -447,9 +461,9 @@ Sort - custom label
 def test_sort_with_custom_order(
     formula, expected_sorted_formula, custom_labels_from_excel
 ):
-    actual_sorted_formula = Formula(formula).sort_by_custom_label(
-        custom_labels_from_excel
-    )
+    actual_sorted_formula = Formula(
+        formula, validate=False
+    ).sort_by_custom_label(custom_labels_from_excel)
     assert actual_sorted_formula == expected_sorted_formula
 
 
@@ -479,7 +493,7 @@ def test_sort_by_element_property(
     formula, ascending, normalize, expected_output
 ):
     property_data = {"Al": 26.981539, "Cu": 63.546, "Test": 100.0}
-    result = Formula(formula).sort_by_elemental_property(
+    result = Formula(formula, validate=False).sort_by_elemental_property(
         property_data, ascending, normalize
     )
     assert result == expected_output
@@ -521,7 +535,7 @@ Sort - stoichiometry
 def test_sort_by_stoichiometry_default_with_Mendeleeve(
     formula, expected_output, oliynyk
 ):
-    result = Formula(formula).sort_by_stoichiometry(
+    result = Formula(formula, validate=False).sort_by_stoichiometry(
         oliynyk.get_property_data_for_formula(formula, P.MEND_NUM)
     )
     assert result == expected_output
@@ -548,7 +562,7 @@ def test_sort_by_stoichiometry_default_with_Mendeleeve(
 def test_sort_by_stoichiometry_descend_with_Mendeleeve(
     formula, expected_output, oliynyk
 ):
-    result = Formula(formula).sort_by_stoichiometry(
+    result = Formula(formula, validate=False).sort_by_stoichiometry(
         oliynyk.get_property_data_for_formula(formula, P.MEND_NUM),
         ascending=False,
     )

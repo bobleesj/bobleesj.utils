@@ -11,6 +11,7 @@ fro
 ThOs
 Nd
 Te
+HGe
 
 ;; Software
 CAF

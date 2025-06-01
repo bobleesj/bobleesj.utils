@@ -1,5 +1,8 @@
 import re
 
+from bobleesj.utils.data.element import Element as E
+from bobleesj.utils.sources import ptable
+
 
 class Formula:
     """A class to parse and manipulate chemical formulas. This class provides
@@ -19,9 +22,17 @@ class Formula:
     >>> formula.get_normalized_indices()
     """
 
-    def __init__(self, formula: str):
+    def __init__(self, formula: str, validate=True):
         self.formula = formula
         self.parsed_formula = self._parse_formula(formula)
+        valid_elements = E.all_symbols()
+        if validate:
+            if not all(
+                element in valid_elements for element, _ in self.parsed_formula
+            ):
+                raise ValueError(
+                    f"No elements found in the perdiodic table for {formula}."
+                )
 
     @staticmethod
     def order_by_alphabetical(formulas: list[str], reverse=False) -> list[str]:
