@@ -101,7 +101,7 @@ def value(element: str) -> dict[str, float]:
     Returns
     -------
     dict[str, float]
-        A dictionary containing the CIF radius and Pauling radius for the element.
+        A dictionary containing the CIF radius and Pauling radius.
 
     Raises
     ------
