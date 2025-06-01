@@ -121,6 +121,11 @@ class Element(Enum):
     Ts = "Tennessine"
     Og = "Oganesson"
 
+
+    @classmethod
+    def all_symbols(cls):
+        return [element.name for element in cls]
+
     @property
     def symbol(self):
         return str(self.name)
@@ -128,3 +133,4 @@ class Element(Enum):
     @property
     def full_name(self):
         return self.value
+    
