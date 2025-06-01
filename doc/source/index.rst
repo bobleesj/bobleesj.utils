@@ -3,7 +3,7 @@
 |title|
 #######
 
-.. |title| replace:: bobleesj.utils documentation
+.. |title| replace:: bobleesj.utils
 
 ``bobleesj.utils`` is a Python package for sharing utility functions and classes in materials informatics.
 
@@ -14,16 +14,41 @@
 Getting started
 ===============
 
-Welcome to the ``bobleesj.utils`` documentation!
 
-To get started, please visit the :ref:`Getting started <getting-started>` page.
 
-=======
-Authors
-=======
+- ``Formula`` to sort, filter, order formula(s).
 
-``bobleesj.utils`` is developed by Sangjoon Lee.
+- ``Oliynyk`` to parse Oliynyk elemental property database (https://doi.org/10.1016/j.dib.2024.110178).
 
+- ``radius`` to parse available atomic radii for each element.
+
+- ``Element`` to prevent typos in writing element symbols and names.
+
+- ``ptable`` to parse the atomic number, atomic mass, element, and the name.
+
+
+============
+Installation
+============
+
+To install ``bobleesj.utils``, you can use pip or conda:
+
+.. code-block:: bash
+
+   $ pip install bobleesj.utils
+
+If you prefer using ``conda``, you can install it from the conda-forge channel:
+
+.. code-block:: bash
+
+   $ conda install bobleesj.utils
+
+
+=================
+How to contribute
+=================
+
+Would you like to request new features? Please open issue on GitHub. Before you make a pull request, consider running ``pre-commit run --all-files`` to check the code style and formatting.
 
 ================
 Acknowledgements
