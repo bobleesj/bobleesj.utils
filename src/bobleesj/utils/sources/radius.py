@@ -108,9 +108,51 @@ def get_radius(element: str) -> dict[str, float]:
     ------
     KeyError
         If the element is not found in the radius data.
+    Examples
+    --------
+    >>> get_radius("Fe")
+    {'CIF': 1.242, 'Pauling_CN12': 1.26}
     """
+
     rad_data = get_radius_data()
     if element not in rad_data:
         raise KeyError(f"Element '{element}' not found in radius data.")
     
     return rad_data[element]
+
+def get_supported_elements() -> list[str]:
+    """Get a list of supported elements.
+
+    Returns
+    -------
+    list[str]
+        A list of chemical symbols for the elements that have radius data.
+    
+    Examples
+    --------
+    >>> get_supported_elements()
+    ['Si', 'Sc', 'Fe', ...]
+    """
+    return list(get_radius_data().keys())
+
+def is_supported(element: str) -> bool:
+    """Check if an element is supported.
+
+    Parameters
+    ----------
+    element : str
+        The chemical symbol of the element.
+
+    Returns
+    -------
+    bool
+        True if the element is supported, False otherwise.
+    
+    Examples
+    --------
+    >>> is_supported("Fe")
+    True
+    >>> is_supported("UnknownElement")
+    False
+    """
+    return element in get_supported_elements()
