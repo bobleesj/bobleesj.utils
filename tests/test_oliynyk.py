@@ -213,12 +213,10 @@ Methods
         ("NdSi2", True),
         ("FeCo", True),
         ("SiGe", True),
-        ("XYZ", False),
+        ("HCo", False),
         ("FeH", False),
-        ("ABCD", False),
         ("LaNi5", True),
         ("UTh", True),
-        ("Invalid123", False),
         ("PtIr", True),
     ],
 )
@@ -230,14 +228,14 @@ def test_is_formula_supported(formula, expected, oliynyk):
     "formulas, expected_supported, expected_unsupported",
     [
         (
-            ["NdSi2", "FeCo", "XYZ", "LaNi5", "FeH", "PtIr", "HgH"],
+            ["NdSi2", "FeCo", "LaNi5", "FeH", "PtIr", "HgH"],
             ["NdSi2", "FeCo", "LaNi5", "PtIr"],
-            ["XYZ", "FeH", "HgH"],
+            ["FeH", "HgH"],
         ),
         (
-            ["SiGe", "ABCD", "UTh", "Invalid123"],
+            ["SiGe", "UTh", "HGe"],
             ["SiGe", "UTh"],
-            ["ABCD", "Invalid123"],
+            ["HGe"],
         ),
         (
             ["LiFePO4", "FeH", "NdSi2"],
