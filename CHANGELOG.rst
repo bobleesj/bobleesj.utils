@@ -15,7 +15,7 @@ Release notes
 * Implement ``radius.py`` module to get CIF and Pauling CN radius data for elements.
 * Implement ``Elements`` enum for retrieving the name of the element given the symbol.
 * Implement sorting of a formula by property, by index, and by defined custom labels.
-* Implement parsing atomic mass, atomic number, element symbol and name with ``ptable.py`.
+* Implement parsing atomic mass, atomic number, element symbol and name with ``ptable.py``.
 
 
 0.0.1
