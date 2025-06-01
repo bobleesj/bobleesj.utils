@@ -46,6 +46,7 @@ Acknowledgements
 
    notebooks/Formula
    notebooks/Oliynyk
+   notebooks/radius
 
 .. toctree::
    :maxdepth: 2
