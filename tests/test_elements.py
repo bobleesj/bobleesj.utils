@@ -1,6 +1,6 @@
 import pytest
 
-from bobleesj.utils.data.elements import Element
+from bobleesj.utils.data.element import Element
 
 
 @pytest.mark.parametrize(

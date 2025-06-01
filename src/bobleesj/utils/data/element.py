@@ -14,7 +14,7 @@ class Element(Enum):
     Ne = "Neon"
     Na = "Sodium"
     Mg = "Magnesium"
-    Al = "Aluminium"
+    Al = "Aluminum"
     Si = "Silicon"
     P = "Phosphorus"
     S = "Sulfur"
@@ -56,7 +56,7 @@ class Element(Enum):
     Te = "Tellurium"
     I = "Iodine"  # noqa: E741
     Xe = "Xenon"
-    Cs = "Caesium"
+    Cs = "Cesium"
     Ba = "Barium"
     La = "Lanthanum"
     Ce = "Cerium"
