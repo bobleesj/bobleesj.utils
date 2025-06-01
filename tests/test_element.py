@@ -1,6 +1,6 @@
 import pytest
 
-from bobleesj.utils.data.elements import Element
+from bobleesj.utils.data.element import Element
 
 
 @pytest.mark.parametrize(
@@ -12,8 +12,8 @@ from bobleesj.utils.data.elements import Element
     ],
 )
 def test_element_enum_names_and_values(element, expected_name, expected_value):
-    assert element.name == expected_name
-    assert element.value == expected_value
+    assert element.symbol == expected_name
+    assert element.full_name == expected_value
 
 
 def test_element_enum_length():
