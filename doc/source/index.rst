@@ -56,14 +56,6 @@ Acknowledgements
 
 ``bobleesj.utils`` is built and maintained with `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
 
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: GETTING STARTED
-
-   getting-started
-
 .. toctree::
    :maxdepth: 2
    :hidden:
