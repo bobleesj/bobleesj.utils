@@ -1,7 +1,7 @@
 **Added:**
 
 * Add installation guide in the documentation.
-* Check whether the elements from the formula is in the periodic table when ``Formaul`` is initialized
+* Check whether the elements from the formula is in the periodic table when ``Formula`` is initialized
 * Implement ``Element.all_symbols()`` to return all 118 elements symbols from the periodic table.
 
 **Changed:**
