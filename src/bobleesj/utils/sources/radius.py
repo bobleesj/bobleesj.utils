@@ -1,4 +1,4 @@
-def get_radius_data() -> dict:
+def data() -> dict:
     """Return a dictionary of element radius data."""
     rad_data = {
         "Si": [1.176, 1.316],
@@ -91,7 +91,7 @@ def get_radius_data() -> dict:
 
     return data
 
-def get_radius(element: str) -> dict[str, float]:
+def value(element: str) -> dict[str, float]:
     """Get the radius data for a given element.
 
     Parameters
@@ -114,13 +114,13 @@ def get_radius(element: str) -> dict[str, float]:
     {'CIF': 1.242, 'Pauling_CN12': 1.26}
     """
 
-    rad_data = get_radius_data()
+    rad_data = data()
     if element not in rad_data:
         raise KeyError(f"Element '{element}' not found in radius data.")
     
     return rad_data[element]
 
-def get_supported_elements() -> list[str]:
+def supported_elements() -> list[str]:
     """Get a list of supported elements.
 
     Returns
@@ -133,9 +133,9 @@ def get_supported_elements() -> list[str]:
     >>> get_supported_elements()
     ['Si', 'Sc', 'Fe', ...]
     """
-    return list(get_radius_data().keys())
+    return list(data().keys())
 
-def is_supported(element: str) -> bool:
+def is_available(element: str) -> bool:
     """Check if an element is supported.
 
     Parameters
@@ -155,4 +155,4 @@ def is_supported(element: str) -> bool:
     >>> is_supported("UnknownElement")
     False
     """
-    return element in get_supported_elements()
+    return element in supported_elements()

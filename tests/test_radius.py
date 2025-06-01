@@ -1,11 +1,11 @@
 import pytest
 
-from bobleesj.utils.sources.radius import get_radius_data, get_radius, get_supported_elements, is_supported
+from bobleesj.utils.sources.radius import data, value, supported_elements, is_available
 
 
 def test_get_radius_data():
     """Test the get_radius_data function."""
-    radius_data = get_radius_data()
+    radius_data = data()
     
     # Check if the data is a dictionary
     assert isinstance(radius_data, dict)
@@ -23,29 +23,29 @@ def test_get_radius_data():
 
 def test_get_radius():
     """Test the get_radius function."""
-    assert get_radius("Fe") =={
+    assert value("Fe") =={
         'CIF': 1.242,
         'Pauling_CN12': 1.26,
     }
     # Test for an unknown element
     with pytest.raises(KeyError, match="Element 'UnknownElement' not found in radius data."):
-        get_radius("UnknownElement")
+        value("UnknownElement")
 
 def test_get_supported_elements():
     """Test the get_supported_elements function."""
-    supported_elements = get_supported_elements()
+    actual_elements = supported_elements()
     
     # Check if the result is a list
-    assert isinstance(supported_elements, list)
+    assert isinstance(actual_elements, list)
     
     # Check if it contains expected elements
     expected_elements = ["Li", "Fe", "O", "N"]
     for element in expected_elements:
-        assert element in supported_elements
-    assert len(supported_elements) == 79
+        assert element in actual_elements
+    assert len(actual_elements) == 79
 
 def test_is_supported():
     """Test the is_supported function."""
-    assert is_supported("Fe") is True
-    assert is_supported("UnknownElement") is False
+    assert is_available("Fe") is True
+    assert is_available("UnknownElement") is False
     
