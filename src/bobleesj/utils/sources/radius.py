@@ -82,14 +82,13 @@ def data() -> dict:
         "I": [1.359, 1.338],
         "Tc": [1.355, 1.803],
         "Pm": [1.797, 1.635],
-
     }
     data: dict = {
-        k: {"CIF": v[0], "Pauling_CN12": v[1]}
-        for k, v in rad_data.items()
+        k: {"CIF": v[0], "Pauling_CN12": v[1]} for k, v in rad_data.items()
     }
 
     return data
+
 
 def value(element: str) -> dict[str, float]:
     """Get the radius data for a given element.
@@ -103,7 +102,7 @@ def value(element: str) -> dict[str, float]:
     -------
     dict[str, float]
         A dictionary containing the CIF radius and Pauling radius for the element.
-    
+
     Raises
     ------
     KeyError
@@ -117,8 +116,9 @@ def value(element: str) -> dict[str, float]:
     rad_data = data()
     if element not in rad_data:
         raise KeyError(f"Element '{element}' not found in radius data.")
-    
+
     return rad_data[element]
+
 
 def supported_elements() -> list[str]:
     """Get a list of supported elements.
@@ -127,13 +127,14 @@ def supported_elements() -> list[str]:
     -------
     list[str]
         A list of chemical symbols for the elements that have radius data.
-    
+
     Examples
     --------
     >>> get_supported_elements()
     ['Si', 'Sc', 'Fe', ...]
     """
     return list(data().keys())
+
 
 def is_available(element: str) -> bool:
     """Check if an element is supported.
@@ -147,7 +148,7 @@ def is_available(element: str) -> bool:
     -------
     bool
         True if the element is supported, False otherwise.
-    
+
     Examples
     --------
     >>> is_supported("Fe")
