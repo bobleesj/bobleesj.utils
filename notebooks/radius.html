@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>radius &mdash; bobleesj.utils 0.0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d58853b1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Element" href="Element.html" />
+    <link rel="prev" title="Oliynyk" href="Oliynyk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptable.html">Periodic table</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/bobleesj.utils.html">Package API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">radius</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/bobleesj/bobleesj.utils/blob/main/doc/source/notebooks/radius.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="radius">
+<h1>radius<a class="headerlink" href="#radius" title="Link to this heading"></a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.sources</span><span class="w"> </span><span class="kn">import</span> <span class="n">radius</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all available radius data</span>
+<span class="n">radius</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;Si&#39;: {&#39;CIF&#39;: 1.176, &#39;Pauling_CN12&#39;: 1.316},
+ &#39;Sc&#39;: {&#39;CIF&#39;: 1.641, &#39;Pauling_CN12&#39;: 1.62},
+ &#39;Fe&#39;: {&#39;CIF&#39;: 1.242, &#39;Pauling_CN12&#39;: 1.26},
+ &#39;Co&#39;: {&#39;CIF&#39;: 1.25, &#39;Pauling_CN12&#39;: 1.252},
+ &#39;Ni&#39;: {&#39;CIF&#39;: 1.246, &#39;Pauling_CN12&#39;: 1.244},
+ &#39;Ga&#39;: {&#39;CIF&#39;: 1.243, &#39;Pauling_CN12&#39;: 1.408},
+ &#39;Ge&#39;: {&#39;CIF&#39;: 1.225, &#39;Pauling_CN12&#39;: 1.366},
+ &#39;Y&#39;: {&#39;CIF&#39;: 1.783, &#39;Pauling_CN12&#39;: 1.797},
+ &#39;Ru&#39;: {&#39;CIF&#39;: 1.324, &#39;Pauling_CN12&#39;: 1.336},
+ &#39;Rh&#39;: {&#39;CIF&#39;: 1.345, &#39;Pauling_CN12&#39;: 1.342},
+ &#39;Pd&#39;: {&#39;CIF&#39;: 1.376, &#39;Pauling_CN12&#39;: 1.373},
+ &#39;In&#39;: {&#39;CIF&#39;: 1.624, &#39;Pauling_CN12&#39;: 1.66},
+ &#39;Sn&#39;: {&#39;CIF&#39;: 1.511, &#39;Pauling_CN12&#39;: 1.62},
+ &#39;Sb&#39;: {&#39;CIF&#39;: 1.434, &#39;Pauling_CN12&#39;: 1.59},
+ &#39;La&#39;: {&#39;CIF&#39;: 1.871, &#39;Pauling_CN12&#39;: 1.871},
+ &#39;Ce&#39;: {&#39;CIF&#39;: 1.819, &#39;Pauling_CN12&#39;: 1.818},
+ &#39;Pr&#39;: {&#39;CIF&#39;: 1.82, &#39;Pauling_CN12&#39;: 1.824},
+ &#39;Nd&#39;: {&#39;CIF&#39;: 1.813, &#39;Pauling_CN12&#39;: 1.818},
+ &#39;Sm&#39;: {&#39;CIF&#39;: 1.793, &#39;Pauling_CN12&#39;: 1.85},
+ &#39;Eu&#39;: {&#39;CIF&#39;: 1.987, &#39;Pauling_CN12&#39;: 2.084},
+ &#39;Gd&#39;: {&#39;CIF&#39;: 1.787, &#39;Pauling_CN12&#39;: 1.795},
+ &#39;Tb&#39;: {&#39;CIF&#39;: 1.764, &#39;Pauling_CN12&#39;: 1.773},
+ &#39;Dy&#39;: {&#39;CIF&#39;: 1.752, &#39;Pauling_CN12&#39;: 1.77},
+ &#39;Ho&#39;: {&#39;CIF&#39;: 1.745, &#39;Pauling_CN12&#39;: 1.761},
+ &#39;Er&#39;: {&#39;CIF&#39;: 1.734, &#39;Pauling_CN12&#39;: 1.748},
+ &#39;Tm&#39;: {&#39;CIF&#39;: 1.726, &#39;Pauling_CN12&#39;: 1.743},
+ &#39;Yb&#39;: {&#39;CIF&#39;: 1.939, &#39;Pauling_CN12&#39;: 1.933},
+ &#39;Lu&#39;: {&#39;CIF&#39;: 1.718, &#39;Pauling_CN12&#39;: 1.738},
+ &#39;Os&#39;: {&#39;CIF&#39;: 1.337, &#39;Pauling_CN12&#39;: 1.35},
+ &#39;Ir&#39;: {&#39;CIF&#39;: 1.356, &#39;Pauling_CN12&#39;: 1.355},
+ &#39;Pt&#39;: {&#39;CIF&#39;: 1.387, &#39;Pauling_CN12&#39;: 1.385},
+ &#39;Th&#39;: {&#39;CIF&#39;: 1.798, &#39;Pauling_CN12&#39;: 1.795},
+ &#39;U&#39;: {&#39;CIF&#39;: 1.377, &#39;Pauling_CN12&#39;: 1.516},
+ &#39;Al&#39;: {&#39;CIF&#39;: 1.31, &#39;Pauling_CN12&#39;: 1.31},
+ &#39;Mo&#39;: {&#39;CIF&#39;: 1.362, &#39;Pauling_CN12&#39;: 1.386},
+ &#39;Hf&#39;: {&#39;CIF&#39;: 1.5635, &#39;Pauling_CN12&#39;: 1.585},
+ &#39;Ta&#39;: {&#39;CIF&#39;: 1.43, &#39;Pauling_CN12&#39;: 1.457},
+ &#39;Ag&#39;: {&#39;CIF&#39;: 1.443, &#39;Pauling_CN12&#39;: 1.442},
+ &#39;As&#39;: {&#39;CIF&#39;: 1.247, &#39;Pauling_CN12&#39;: 1.39},
+ &#39;Au&#39;: {&#39;CIF&#39;: 1.435, &#39;Pauling_CN12&#39;: 1.439},
+ &#39;B&#39;: {&#39;CIF&#39;: 0.807, &#39;Pauling_CN12&#39;: 0.98},
+ &#39;Ba&#39;: {&#39;CIF&#39;: 1.994, &#39;Pauling_CN12&#39;: 2.215},
+ &#39;Be&#39;: {&#39;CIF&#39;: 1.072, &#39;Pauling_CN12&#39;: 1.123},
+ &#39;Bi&#39;: {&#39;CIF&#39;: 1.53, &#39;Pauling_CN12&#39;: 1.7},
+ &#39;C&#39;: {&#39;CIF&#39;: 0.76, &#39;Pauling_CN12&#39;: 0.914},
+ &#39;Ca&#39;: {&#39;CIF&#39;: 1.716, &#39;Pauling_CN12&#39;: 1.97},
+ &#39;Cd&#39;: {&#39;CIF&#39;: 1.49, &#39;Pauling_CN12&#39;: 1.543},
+ &#39;Cr&#39;: {&#39;CIF&#39;: 1.204, &#39;Pauling_CN12&#39;: 1.357},
+ &#39;Cs&#39;: {&#39;CIF&#39;: 1.894, &#39;Pauling_CN12&#39;: 2.67},
+ &#39;Cu&#39;: {&#39;CIF&#39;: 1.275, &#39;Pauling_CN12&#39;: 1.276},
+ &#39;Hg&#39;: {&#39;CIF&#39;: 1.45, &#39;Pauling_CN12&#39;: 1.57},
+ &#39;K&#39;: {&#39;CIF&#39;: 1.823, &#39;Pauling_CN12&#39;: 2.349},
+ &#39;Li&#39;: {&#39;CIF&#39;: 1.488, &#39;Pauling_CN12&#39;: 1.549},
+ &#39;Mg&#39;: {&#39;CIF&#39;: 1.587, &#39;Pauling_CN12&#39;: 1.598},
+ &#39;Mn&#39;: {&#39;CIF&#39;: 1.164, &#39;Pauling_CN12&#39;: 1.306},
+ &#39;Na&#39;: {&#39;CIF&#39;: 1.662, &#39;Pauling_CN12&#39;: 1.896},
+ &#39;Nb&#39;: {&#39;CIF&#39;: 1.426, &#39;Pauling_CN12&#39;: 1.456},
+ &#39;P&#39;: {&#39;CIF&#39;: 1.123, &#39;Pauling_CN12&#39;: 1.28},
+ &#39;Pb&#39;: {&#39;CIF&#39;: 1.725, &#39;Pauling_CN12&#39;: 1.746},
+ &#39;Rb&#39;: {&#39;CIF&#39;: 1.781, &#39;Pauling_CN12&#39;: 2.48},
+ &#39;Re&#39;: {&#39;CIF&#39;: 1.345, &#39;Pauling_CN12&#39;: 1.373},
+ &#39;S&#39;: {&#39;CIF&#39;: 1.074, &#39;Pauling_CN12&#39;: 1.27},
+ &#39;Se&#39;: {&#39;CIF&#39;: 1.237, &#39;Pauling_CN12&#39;: 1.4},
+ &#39;Sr&#39;: {&#39;CIF&#39;: 1.977, &#39;Pauling_CN12&#39;: 2.148},
+ &#39;Te&#39;: {&#39;CIF&#39;: 1.417, &#39;Pauling_CN12&#39;: 1.6},
+ &#39;Ti&#39;: {&#39;CIF&#39;: 1.406, &#39;Pauling_CN12&#39;: 1.467},
+ &#39;Tl&#39;: {&#39;CIF&#39;: 1.663, &#39;Pauling_CN12&#39;: 1.712},
+ &#39;V&#39;: {&#39;CIF&#39;: 1.307, &#39;Pauling_CN12&#39;: 1.338},
+ &#39;W&#39;: {&#39;CIF&#39;: 1.364, &#39;Pauling_CN12&#39;: 1.394},
+ &#39;Zn&#39;: {&#39;CIF&#39;: 1.333, &#39;Pauling_CN12&#39;: 1.379},
+ &#39;Zr&#39;: {&#39;CIF&#39;: 1.553, &#39;Pauling_CN12&#39;: 1.597},
+ &#39;N&#39;: {&#39;CIF&#39;: 0.536, &#39;Pauling_CN12&#39;: 0.88},
+ &#39;O&#39;: {&#39;CIF&#39;: 0.611, &#39;Pauling_CN12&#39;: 1.115},
+ &#39;F&#39;: {&#39;CIF&#39;: 0.709, &#39;Pauling_CN12&#39;: 1.6},
+ &#39;Cl&#39;: {&#39;CIF&#39;: 0.968, &#39;Pauling_CN12&#39;: 1.448},
+ &#39;Br&#39;: {&#39;CIF&#39;: 1.141, &#39;Pauling_CN12&#39;: 1.659},
+ &#39;I&#39;: {&#39;CIF&#39;: 1.359, &#39;Pauling_CN12&#39;: 1.338},
+ &#39;Tc&#39;: {&#39;CIF&#39;: 1.355, &#39;Pauling_CN12&#39;: 1.803},
+ &#39;Pm&#39;: {&#39;CIF&#39;: 1.797, &#39;Pauling_CN12&#39;: 1.635}}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the radius for a specific element, e.g., Iron (Fe)</span>
+<span class="n">radius</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s2">&quot;Fe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;CIF&#39;: 1.242, &#39;Pauling_CN12&#39;: 1.26}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check whether the radius data is available for a specific element</span>
+<span class="n">radius</span><span class="o">.</span><span class="n">is_available</span><span class="p">(</span><span class="s2">&quot;Fe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radius</span><span class="o">.</span><span class="n">is_available</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the list of elements with available radius data</span>
+<span class="n">radius</span><span class="o">.</span><span class="n">supported_elements</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Si&#39;,
+ &#39;Sc&#39;,
+ &#39;Fe&#39;,
+ &#39;Co&#39;,
+ &#39;Ni&#39;,
+ &#39;Ga&#39;,
+ &#39;Ge&#39;,
+ &#39;Y&#39;,
+ &#39;Ru&#39;,
+ &#39;Rh&#39;,
+ &#39;Pd&#39;,
+ &#39;In&#39;,
+ &#39;Sn&#39;,
+ &#39;Sb&#39;,
+ &#39;La&#39;,
+ &#39;Ce&#39;,
+ &#39;Pr&#39;,
+ &#39;Nd&#39;,
+ &#39;Sm&#39;,
+ &#39;Eu&#39;,
+ &#39;Gd&#39;,
+ &#39;Tb&#39;,
+ &#39;Dy&#39;,
+ &#39;Ho&#39;,
+ &#39;Er&#39;,
+ &#39;Tm&#39;,
+ &#39;Yb&#39;,
+ &#39;Lu&#39;,
+ &#39;Os&#39;,
+ &#39;Ir&#39;,
+ &#39;Pt&#39;,
+ &#39;Th&#39;,
+ &#39;U&#39;,
+ &#39;Al&#39;,
+ &#39;Mo&#39;,
+ &#39;Hf&#39;,
+ &#39;Ta&#39;,
+ &#39;Ag&#39;,
+ &#39;As&#39;,
+ &#39;Au&#39;,
+ &#39;B&#39;,
+ &#39;Ba&#39;,
+ &#39;Be&#39;,
+ &#39;Bi&#39;,
+ &#39;C&#39;,
+ &#39;Ca&#39;,
+ &#39;Cd&#39;,
+ &#39;Cr&#39;,
+ &#39;Cs&#39;,
+ &#39;Cu&#39;,
+ &#39;Hg&#39;,
+ &#39;K&#39;,
+ &#39;Li&#39;,
+ &#39;Mg&#39;,
+ &#39;Mn&#39;,
+ &#39;Na&#39;,
+ &#39;Nb&#39;,
+ &#39;P&#39;,
+ &#39;Pb&#39;,
+ &#39;Rb&#39;,
+ &#39;Re&#39;,
+ &#39;S&#39;,
+ &#39;Se&#39;,
+ &#39;Sr&#39;,
+ &#39;Te&#39;,
+ &#39;Ti&#39;,
+ &#39;Tl&#39;,
+ &#39;V&#39;,
+ &#39;W&#39;,
+ &#39;Zn&#39;,
+ &#39;Zr&#39;,
+ &#39;N&#39;,
+ &#39;O&#39;,
+ &#39;F&#39;,
+ &#39;Cl&#39;,
+ &#39;Br&#39;,
+ &#39;I&#39;,
+ &#39;Tc&#39;,
+ &#39;Pm&#39;]
+</pre></div></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Oliynyk.html" class="btn btn-neutral float-left" title="Oliynyk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Element.html" class="btn btn-neutral float-right" title="Element" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

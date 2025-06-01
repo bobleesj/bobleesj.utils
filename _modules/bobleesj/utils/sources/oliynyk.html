@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils.sources.oliynyk &mdash; bobleesj.utils 0.0.1 documentation</title>
+  <title>bobleesj.utils.sources.oliynyk &mdash; bobleesj.utils 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -13,7 +13,7 @@
   
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../../../../_static/documentation_options.js?v=d58853b1"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,14 +43,13 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started.html">Getting started</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+              <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Formula.html">Formula</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/radius.html">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/ptable.html">Periodic table</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
 <ul>
@@ -226,23 +225,6 @@
         <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements_parsed</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Oliynyk.get_property_data_for_formula">
-<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.get_property_data_for_formula">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_property_data_for_formula</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">formula</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">property</span><span class="p">:</span> <span class="n">Property</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get property data for individual elements in a given formula.</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; oliynyk = Oliynyk()</span>
-<span class="sd">        &gt;&gt;&gt; oliynyk.get_property_data_for_formula(&quot;LiFeP&quot;, Property.AW)</span>
-<span class="sd">        {&quot;Li&quot;: 6.941, &quot;Fe&quot;: 55.845, &quot;O&quot;: 15.999}</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">elements</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">elements</span>
-        <span class="k">return</span> <span class="p">{</span><span class="n">element</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="nb">property</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">}</span></div>
-
-
 <div class="viewcode-block" id="Oliynyk.get_supported_formulas">
 <a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.get_supported_formulas">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_supported_formulas</span><span class="p">(</span>
@@ -282,6 +264,23 @@
 <span class="sd">        [&quot;Li&quot;, &quot;Be&quot;, &quot;B&quot;, &quot;C&quot;, &quot;Na&quot;, &quot;Mg&quot;, &quot;Al&quot;, &quot;Si&quot;, &quot;P&quot;, &quot;S&quot;, ...]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Oliynyk.get_property_data_for_formula">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.get_property_data_for_formula">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_property_data_for_formula</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">formula</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">property</span><span class="p">:</span> <span class="n">Property</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get property data for individual elements in a given formula.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk = Oliynyk()</span>
+<span class="sd">        &gt;&gt;&gt; oliynyk.get_property_data_for_formula(&quot;LiFeP&quot;, Property.AW)</span>
+<span class="sd">        {&quot;Li&quot;: 6.941, &quot;Fe&quot;: 55.845, &quot;O&quot;: 15.999}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="n">formula</span><span class="p">)</span><span class="o">.</span><span class="n">elements</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">element</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="nb">property</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">}</span></div>
 
 
 <div class="viewcode-block" id="Oliynyk.get_property_data">

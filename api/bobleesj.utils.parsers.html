@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils.parsers package &mdash; bobleesj.utils 0.0.1 documentation</title>
+  <title>bobleesj.utils.parsers package &mdash; bobleesj.utils 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../_static/documentation_options.js?v=d58853b1"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -46,14 +46,13 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+              <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/Formula.html">Formula</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/radius.html">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ptable.html">Periodic table</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
 <ul class="current">
@@ -91,7 +90,7 @@
           <li class="breadcrumb-item"><a href="bobleesj.utils.html">bobleesj.utils package</a></li>
       <li class="breadcrumb-item active">bobleesj.utils.parsers package</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/bobleesj/'/blob/main/doc/source/api/bobleesj.utils.parsers.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/bobleesj/bobleesj.utils/blob/main/doc/source/api/bobleesj.utils.parsers.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -107,7 +106,7 @@
 <span id="bobleesj-utils-parsers-formula-module"></span><h3>bobleesj.utils.parsers.formula module<a class="headerlink" href="#module-bobleesj.utils.parsers.formula" title="Link to this heading"></a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bobleesj.utils.parsers.formula.</span></span><span class="sig-name descname"><span class="pre">Formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bobleesj.utils.parsers.formula.</span></span><span class="sig-name descname"><span class="pre">Formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to parse and manipulate chemical formulas. This class provides
 methods to sort, filter, and analyze chemical.</p>
@@ -126,7 +125,7 @@ methods to sort, filter, and analyze chemical.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.build_formula_from_parsed">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_formula_from_parsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parsed_formula</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.build_formula_from_parsed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.build_formula_from_parsed" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_formula_from_parsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parsed_formula</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.build_formula_from_parsed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.build_formula_from_parsed" title="Link to this definition"></a></dt>
 <dd><p>Convert the parsed formula into a string. If the index can be
 converted to 1 (int), it will be removed.</p>
 <p class="rubric">Examples</p>
@@ -277,7 +276,7 @@ should be only contained.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.filter_by_single_composition">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter_by_single_composition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formulas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">composition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.filter_by_single_composition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.filter_by_single_composition" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter_by_single_composition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formulas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">composition_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.filter_by_single_composition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.filter_by_single_composition" title="Link to this definition"></a></dt>
 <dd><p>Filter formulas by the given composition type.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">formulas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NdSi2&quot;</span><span class="p">,</span> <span class="s2">&quot;ThOs&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2Th2&quot;</span><span class="p">,</span> <span class="s2">&quot;YNdThSi2&quot;</span><span class="p">]</span>
@@ -398,6 +397,120 @@ the stoichiometric value.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">formulas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AB2&quot;</span><span class="p">,</span> <span class="s2">&quot;AB&quot;</span><span class="p">,</span> <span class="s2">&quot;BC2D2&quot;</span><span class="p">,</span> <span class="s2">&quot;BBC2&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Formula</span><span class="o">.</span><span class="n">order_by_alphabetical</span><span class="p">(</span><span class="n">formulas</span><span class="p">)</span>
 <span class="go">[&quot;AB&quot;, &quot;AB2&quot;, &quot;BBC2&quot;, &quot;BC2D2&quot;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.sort_by_custom_label">
+<span class="sig-name descname"><span class="pre">sort_by_custom_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">custom_labels:</span> <span class="pre">dict[slice(&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">dict[slice(&lt;class</span> <span class="pre">'str'&gt;,</span> <span class="pre">list[str],</span> <span class="pre">None)],</span> <span class="pre">None)],</span> <span class="pre">normalize=False</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.sort_by_custom_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.sort_by_custom_label" title="Link to this definition"></a></dt>
+<dd><p>Sort elements in a chemical formula using a precomputed element
+order map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>formula</strong> (<em>str</em>) – The chemical formula to be sorted.</p></li>
+<li><p><strong>element_order</strong> (<em>dict</em><em>[</em><em>int</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em><em>]</em>) – The mapping from element symbols to their desired sort index.</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to normalize the parsed formula, by default False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The sorted formula string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">formula</span> <span class="o">=</span> <span class="s2">&quot;BLi&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_labels</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Li&quot;</span><span class="p">,</span> <span class="s2">&quot;Er&quot;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;In&quot;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">},</span>
+<span class="gp">... </span>    <span class="mi">3</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;R&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Er&quot;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s2">&quot;M&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Co&quot;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;In&quot;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">},</span>
+<span class="gp">... </span>    <span class="mi">4</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Er&quot;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Co&quot;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;In&quot;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;U&quot;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">},</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sorted_formula</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">custom_labels</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sorted_formula</span><span class="p">)</span>
+<span class="go">LiB</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.sort_by_elemental_property">
+<span class="sig-name descname"><span class="pre">sort_by_elemental_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.sort_by_elemental_property"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.sort_by_elemental_property" title="Link to this definition"></a></dt>
+<dd><p>Sort the elements in a chemical formula based on a specified CAF
+property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>formula</strong> (<em>str</em>) – The chemical formula to be sorted.</p></li>
+<li><p><strong>property_data</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em>]</em>) – The dictionary that contains the single value for each element of
+the given formula.</p></li>
+<li><p><strong>ascending</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to sort in ascending order. Defaults to True.</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to normalize the formula before sorting. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The formula string with elements sorted according to the specified
+property.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>#FIXME: Double check this example
+&gt;&gt;&gt; from bobleesj.utils.sources.oliynyk import Oliynyk
+&gt;&gt;&gt; from bobleesj.utils.sources.oliynyk import Property as P
+&gt;&gt;&gt; formula = “LiFe”
+&gt;&gt;&gt; oliynyk = Oliynyk()
+&gt;&gt;&gt; prop_data = oliynyk.get_property_data_for_formula(formula, P.AW)
+&gt;&gt;&gt; Formula(formula).sort(“LiFe”, prop_data)
+“LiFe”
+#FIXME: TEST THIS EXAMPLES</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.sort_by_stoichiometry">
+<span class="sig-name descname"><span class="pre">sort_by_stoichiometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">property_data:</span> <span class="pre">dict[slice(&lt;class</span> <span class="pre">'str'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">None)],</span> <span class="pre">ascending=True,</span> <span class="pre">normalize=False</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.sort_by_stoichiometry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.sort_by_stoichiometry" title="Link to this definition"></a></dt>
+<dd><p>Sort the elements in the chemical formula based on their
+composition.</p>
+<p>When there are more than one element with the same compsition, the
+Mendeleev number is used to break the tie. During the tie, the
+Mendeleev number is always sorted in ascending order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>property_data</strong> (<em>dict</em><em>[</em><em>str: float</em><em>]</em>) – The data to sort with when when stoichiometric raito is the same.
+The default value is optional that if no data provided, then we
+will simply sort alphabetically from a to z.</p></li>
+<li><p><strong>ascending</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to sort in ascending order. Defaults to True.</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to normalize the formula before sorting. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The formula string with elements sorted according to the specified
+property.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;LiNa2B&quot;</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+<span class="go">&quot;LiBNa2&quot;</span>
 </pre></div>
 </div>
 </dd></dl>

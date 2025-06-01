@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Periodic table &mdash; bobleesj.utils 0.0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d58853b1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bobleesj.utils package" href="../api/bobleesj.utils.html" />
+    <link rel="prev" title="Element" href="Element.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radius.html">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Element.html">Element</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Periodic table</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/bobleesj.utils.html">Package API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Periodic table</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/bobleesj/bobleesj.utils/blob/main/doc/source/notebooks/ptable.ipynb" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Periodic-table">
+<h1>Periodic table<a class="headerlink" href="#Periodic-table" title="Link to this heading"></a></h1>
+<p>The goal is to retrieve values found in the periodic table of 118 elements</p>
+<ul class="simple">
+<li><p>Atomic number</p></li>
+<li><p>Name</p></li>
+<li><p>Symbol</p></li>
+<li><p>Atomic mass (u)</p></li>
+</ul>
+<p>We will take advantage of the <code class="docutils literal notranslate"><span class="pre">Element</span></code> class to avoid typing manually.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.data.element</span><span class="w"> </span><span class="kn">import</span> <span class="n">Element</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.sources</span><span class="w"> </span><span class="kn">import</span> <span class="n">ptable</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search by atomic number</span>
+<span class="n">ptable</span><span class="o">.</span><span class="n">values_from_atomic_number</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;atomic_number&#39;: 1, &#39;name&#39;: &#39;Hydrogen&#39;, &#39;symbol&#39;: &#39;H&#39;, &#39;atomic_mass&#39;: 1.008}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search by symbol</span>
+<span class="n">ptable</span><span class="o">.</span><span class="n">values_from_symbol</span><span class="p">(</span><span class="n">Element</span><span class="o">.</span><span class="n">H</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;atomic_number&#39;: 1, &#39;name&#39;: &#39;Hydrogen&#39;, &#39;symbol&#39;: &#39;H&#39;, &#39;atomic_mass&#39;: 1.008}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search by name</span>
+<span class="n">ptable</span><span class="o">.</span><span class="n">values_from_name</span><span class="p">(</span><span class="n">Element</span><span class="o">.</span><span class="n">H</span><span class="o">.</span><span class="n">full_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;atomic_number&#39;: 1, &#39;name&#39;: &#39;Hydrogen&#39;, &#39;symbol&#39;: &#39;H&#39;, &#39;atomic_mass&#39;: 1.008}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all data at once</span>
+<span class="n">ptable</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[{&#39;atomic_number&#39;: 1, &#39;name&#39;: &#39;Hydrogen&#39;, &#39;symbol&#39;: &#39;H&#39;, &#39;atomic_mass&#39;: 1.008},
+ {&#39;atomic_number&#39;: 2, &#39;name&#39;: &#39;Helium&#39;, &#39;symbol&#39;: &#39;He&#39;, &#39;atomic_mass&#39;: 4.0026},
+ {&#39;atomic_number&#39;: 3, &#39;name&#39;: &#39;Lithium&#39;, &#39;symbol&#39;: &#39;Li&#39;, &#39;atomic_mass&#39;: 7.0},
+ {&#39;atomic_number&#39;: 4,
+  &#39;name&#39;: &#39;Beryllium&#39;,
+  &#39;symbol&#39;: &#39;Be&#39;,
+  &#39;atomic_mass&#39;: 9.012183},
+ {&#39;atomic_number&#39;: 5, &#39;name&#39;: &#39;Boron&#39;, &#39;symbol&#39;: &#39;B&#39;, &#39;atomic_mass&#39;: 10.81},
+ {&#39;atomic_number&#39;: 6, &#39;name&#39;: &#39;Carbon&#39;, &#39;symbol&#39;: &#39;C&#39;, &#39;atomic_mass&#39;: 12.011},
+ {&#39;atomic_number&#39;: 7,
+  &#39;name&#39;: &#39;Nitrogen&#39;,
+  &#39;symbol&#39;: &#39;N&#39;,
+  &#39;atomic_mass&#39;: 14.007},
+ {&#39;atomic_number&#39;: 8, &#39;name&#39;: &#39;Oxygen&#39;, &#39;symbol&#39;: &#39;O&#39;, &#39;atomic_mass&#39;: 15.999},
+ {&#39;atomic_number&#39;: 9,
+  &#39;name&#39;: &#39;Fluorine&#39;,
+  &#39;symbol&#39;: &#39;F&#39;,
+  &#39;atomic_mass&#39;: 18.99840316},
+ {&#39;atomic_number&#39;: 10, &#39;name&#39;: &#39;Neon&#39;, &#39;symbol&#39;: &#39;Ne&#39;, &#39;atomic_mass&#39;: 20.18},
+ {&#39;atomic_number&#39;: 11,
+  &#39;name&#39;: &#39;Sodium&#39;,
+  &#39;symbol&#39;: &#39;Na&#39;,
+  &#39;atomic_mass&#39;: 22.9897693},
+ {&#39;atomic_number&#39;: 12,
+  &#39;name&#39;: &#39;Magnesium&#39;,
+  &#39;symbol&#39;: &#39;Mg&#39;,
+  &#39;atomic_mass&#39;: 24.305},
+ {&#39;atomic_number&#39;: 13,
+  &#39;name&#39;: &#39;Aluminum&#39;,
+  &#39;symbol&#39;: &#39;Al&#39;,
+  &#39;atomic_mass&#39;: 26.981538},
+ {&#39;atomic_number&#39;: 14,
+  &#39;name&#39;: &#39;Silicon&#39;,
+  &#39;symbol&#39;: &#39;Si&#39;,
+  &#39;atomic_mass&#39;: 28.085},
+ {&#39;atomic_number&#39;: 15,
+  &#39;name&#39;: &#39;Phosphorus&#39;,
+  &#39;symbol&#39;: &#39;P&#39;,
+  &#39;atomic_mass&#39;: 30.973762},
+ {&#39;atomic_number&#39;: 16, &#39;name&#39;: &#39;Sulfur&#39;, &#39;symbol&#39;: &#39;S&#39;, &#39;atomic_mass&#39;: 32.07},
+ {&#39;atomic_number&#39;: 17,
+  &#39;name&#39;: &#39;Chlorine&#39;,
+  &#39;symbol&#39;: &#39;Cl&#39;,
+  &#39;atomic_mass&#39;: 35.45},
+ {&#39;atomic_number&#39;: 18, &#39;name&#39;: &#39;Argon&#39;, &#39;symbol&#39;: &#39;Ar&#39;, &#39;atomic_mass&#39;: 39.9},
+ {&#39;atomic_number&#39;: 19,
+  &#39;name&#39;: &#39;Potassium&#39;,
+  &#39;symbol&#39;: &#39;K&#39;,
+  &#39;atomic_mass&#39;: 39.0983},
+ {&#39;atomic_number&#39;: 20,
+  &#39;name&#39;: &#39;Calcium&#39;,
+  &#39;symbol&#39;: &#39;Ca&#39;,
+  &#39;atomic_mass&#39;: 40.08},
+ {&#39;atomic_number&#39;: 21,
+  &#39;name&#39;: &#39;Scandium&#39;,
+  &#39;symbol&#39;: &#39;Sc&#39;,
+  &#39;atomic_mass&#39;: 44.95591},
+ {&#39;atomic_number&#39;: 22,
+  &#39;name&#39;: &#39;Titanium&#39;,
+  &#39;symbol&#39;: &#39;Ti&#39;,
+  &#39;atomic_mass&#39;: 47.867},
+ {&#39;atomic_number&#39;: 23,
+  &#39;name&#39;: &#39;Vanadium&#39;,
+  &#39;symbol&#39;: &#39;V&#39;,
+  &#39;atomic_mass&#39;: 50.9415},
+ {&#39;atomic_number&#39;: 24,
+  &#39;name&#39;: &#39;Chromium&#39;,
+  &#39;symbol&#39;: &#39;Cr&#39;,
+  &#39;atomic_mass&#39;: 51.996},
+ {&#39;atomic_number&#39;: 25,
+  &#39;name&#39;: &#39;Manganese&#39;,
+  &#39;symbol&#39;: &#39;Mn&#39;,
+  &#39;atomic_mass&#39;: 54.93804},
+ {&#39;atomic_number&#39;: 26, &#39;name&#39;: &#39;Iron&#39;, &#39;symbol&#39;: &#39;Fe&#39;, &#39;atomic_mass&#39;: 55.84},
+ {&#39;atomic_number&#39;: 27,
+  &#39;name&#39;: &#39;Cobalt&#39;,
+  &#39;symbol&#39;: &#39;Co&#39;,
+  &#39;atomic_mass&#39;: 58.93319},
+ {&#39;atomic_number&#39;: 28,
+  &#39;name&#39;: &#39;Nickel&#39;,
+  &#39;symbol&#39;: &#39;Ni&#39;,
+  &#39;atomic_mass&#39;: 58.693},
+ {&#39;atomic_number&#39;: 29, &#39;name&#39;: &#39;Copper&#39;, &#39;symbol&#39;: &#39;Cu&#39;, &#39;atomic_mass&#39;: 63.55},
+ {&#39;atomic_number&#39;: 30, &#39;name&#39;: &#39;Zinc&#39;, &#39;symbol&#39;: &#39;Zn&#39;, &#39;atomic_mass&#39;: 65.4},
+ {&#39;atomic_number&#39;: 31,
+  &#39;name&#39;: &#39;Gallium&#39;,
+  &#39;symbol&#39;: &#39;Ga&#39;,
+  &#39;atomic_mass&#39;: 69.723},
+ {&#39;atomic_number&#39;: 32,
+  &#39;name&#39;: &#39;Germanium&#39;,
+  &#39;symbol&#39;: &#39;Ge&#39;,
+  &#39;atomic_mass&#39;: 72.63},
+ {&#39;atomic_number&#39;: 33,
+  &#39;name&#39;: &#39;Arsenic&#39;,
+  &#39;symbol&#39;: &#39;As&#39;,
+  &#39;atomic_mass&#39;: 74.92159},
+ {&#39;atomic_number&#39;: 34,
+  &#39;name&#39;: &#39;Selenium&#39;,
+  &#39;symbol&#39;: &#39;Se&#39;,
+  &#39;atomic_mass&#39;: 78.97},
+ {&#39;atomic_number&#39;: 35, &#39;name&#39;: &#39;Bromine&#39;, &#39;symbol&#39;: &#39;Br&#39;, &#39;atomic_mass&#39;: 79.9},
+ {&#39;atomic_number&#39;: 36, &#39;name&#39;: &#39;Krypton&#39;, &#39;symbol&#39;: &#39;Kr&#39;, &#39;atomic_mass&#39;: 83.8},
+ {&#39;atomic_number&#39;: 37,
+  &#39;name&#39;: &#39;Rubidium&#39;,
+  &#39;symbol&#39;: &#39;Rb&#39;,
+  &#39;atomic_mass&#39;: 85.468},
+ {&#39;atomic_number&#39;: 38,
+  &#39;name&#39;: &#39;Strontium&#39;,
+  &#39;symbol&#39;: &#39;Sr&#39;,
+  &#39;atomic_mass&#39;: 87.62},
+ {&#39;atomic_number&#39;: 39,
+  &#39;name&#39;: &#39;Yttrium&#39;,
+  &#39;symbol&#39;: &#39;Y&#39;,
+  &#39;atomic_mass&#39;: 88.90584},
+ {&#39;atomic_number&#39;: 40,
+  &#39;name&#39;: &#39;Zirconium&#39;,
+  &#39;symbol&#39;: &#39;Zr&#39;,
+  &#39;atomic_mass&#39;: 91.22},
+ {&#39;atomic_number&#39;: 41,
+  &#39;name&#39;: &#39;Niobium&#39;,
+  &#39;symbol&#39;: &#39;Nb&#39;,
+  &#39;atomic_mass&#39;: 92.90637},
+ {&#39;atomic_number&#39;: 42,
+  &#39;name&#39;: &#39;Molybdenum&#39;,
+  &#39;symbol&#39;: &#39;Mo&#39;,
+  &#39;atomic_mass&#39;: 95.95},
+ {&#39;atomic_number&#39;: 43,
+  &#39;name&#39;: &#39;Technetium&#39;,
+  &#39;symbol&#39;: &#39;Tc&#39;,
+  &#39;atomic_mass&#39;: 96.90636},
+ {&#39;atomic_number&#39;: 44,
+  &#39;name&#39;: &#39;Ruthenium&#39;,
+  &#39;symbol&#39;: &#39;Ru&#39;,
+  &#39;atomic_mass&#39;: 101.1},
+ {&#39;atomic_number&#39;: 45,
+  &#39;name&#39;: &#39;Rhodium&#39;,
+  &#39;symbol&#39;: &#39;Rh&#39;,
+  &#39;atomic_mass&#39;: 102.9055},
+ {&#39;atomic_number&#39;: 46,
+  &#39;name&#39;: &#39;Palladium&#39;,
+  &#39;symbol&#39;: &#39;Pd&#39;,
+  &#39;atomic_mass&#39;: 106.42},
+ {&#39;atomic_number&#39;: 47,
+  &#39;name&#39;: &#39;Silver&#39;,
+  &#39;symbol&#39;: &#39;Ag&#39;,
+  &#39;atomic_mass&#39;: 107.868},
+ {&#39;atomic_number&#39;: 48,
+  &#39;name&#39;: &#39;Cadmium&#39;,
+  &#39;symbol&#39;: &#39;Cd&#39;,
+  &#39;atomic_mass&#39;: 112.41},
+ {&#39;atomic_number&#39;: 49,
+  &#39;name&#39;: &#39;Indium&#39;,
+  &#39;symbol&#39;: &#39;In&#39;,
+  &#39;atomic_mass&#39;: 114.818},
+ {&#39;atomic_number&#39;: 50, &#39;name&#39;: &#39;Tin&#39;, &#39;symbol&#39;: &#39;Sn&#39;, &#39;atomic_mass&#39;: 118.71},
+ {&#39;atomic_number&#39;: 51,
+  &#39;name&#39;: &#39;Antimony&#39;,
+  &#39;symbol&#39;: &#39;Sb&#39;,
+  &#39;atomic_mass&#39;: 121.76},
+ {&#39;atomic_number&#39;: 52,
+  &#39;name&#39;: &#39;Tellurium&#39;,
+  &#39;symbol&#39;: &#39;Te&#39;,
+  &#39;atomic_mass&#39;: 127.6},
+ {&#39;atomic_number&#39;: 53,
+  &#39;name&#39;: &#39;Iodine&#39;,
+  &#39;symbol&#39;: &#39;I&#39;,
+  &#39;atomic_mass&#39;: 126.9045},
+ {&#39;atomic_number&#39;: 54, &#39;name&#39;: &#39;Xenon&#39;, &#39;symbol&#39;: &#39;Xe&#39;, &#39;atomic_mass&#39;: 131.29},
+ {&#39;atomic_number&#39;: 55,
+  &#39;name&#39;: &#39;Cesium&#39;,
+  &#39;symbol&#39;: &#39;Cs&#39;,
+  &#39;atomic_mass&#39;: 132.905452},
+ {&#39;atomic_number&#39;: 56,
+  &#39;name&#39;: &#39;Barium&#39;,
+  &#39;symbol&#39;: &#39;Ba&#39;,
+  &#39;atomic_mass&#39;: 137.33},
+ {&#39;atomic_number&#39;: 57,
+  &#39;name&#39;: &#39;Lanthanum&#39;,
+  &#39;symbol&#39;: &#39;La&#39;,
+  &#39;atomic_mass&#39;: 138.9055},
+ {&#39;atomic_number&#39;: 58,
+  &#39;name&#39;: &#39;Cerium&#39;,
+  &#39;symbol&#39;: &#39;Ce&#39;,
+  &#39;atomic_mass&#39;: 140.116},
+ {&#39;atomic_number&#39;: 59,
+  &#39;name&#39;: &#39;Praseodymium&#39;,
+  &#39;symbol&#39;: &#39;Pr&#39;,
+  &#39;atomic_mass&#39;: 140.90766},
+ {&#39;atomic_number&#39;: 60,
+  &#39;name&#39;: &#39;Neodymium&#39;,
+  &#39;symbol&#39;: &#39;Nd&#39;,
+  &#39;atomic_mass&#39;: 144.24},
+ {&#39;atomic_number&#39;: 61,
+  &#39;name&#39;: &#39;Promethium&#39;,
+  &#39;symbol&#39;: &#39;Pm&#39;,
+  &#39;atomic_mass&#39;: 144.91276},
+ {&#39;atomic_number&#39;: 62,
+  &#39;name&#39;: &#39;Samarium&#39;,
+  &#39;symbol&#39;: &#39;Sm&#39;,
+  &#39;atomic_mass&#39;: 150.4},
+ {&#39;atomic_number&#39;: 63,
+  &#39;name&#39;: &#39;Europium&#39;,
+  &#39;symbol&#39;: &#39;Eu&#39;,
+  &#39;atomic_mass&#39;: 151.964},
+ {&#39;atomic_number&#39;: 64,
+  &#39;name&#39;: &#39;Gadolinium&#39;,
+  &#39;symbol&#39;: &#39;Gd&#39;,
+  &#39;atomic_mass&#39;: 157.25},
+ {&#39;atomic_number&#39;: 65,
+  &#39;name&#39;: &#39;Terbium&#39;,
+  &#39;symbol&#39;: &#39;Tb&#39;,
+  &#39;atomic_mass&#39;: 158.92535},
+ {&#39;atomic_number&#39;: 66,
+  &#39;name&#39;: &#39;Dysprosium&#39;,
+  &#39;symbol&#39;: &#39;Dy&#39;,
+  &#39;atomic_mass&#39;: 162.5},
+ {&#39;atomic_number&#39;: 67,
+  &#39;name&#39;: &#39;Holmium&#39;,
+  &#39;symbol&#39;: &#39;Ho&#39;,
+  &#39;atomic_mass&#39;: 164.93033},
+ {&#39;atomic_number&#39;: 68,
+  &#39;name&#39;: &#39;Erbium&#39;,
+  &#39;symbol&#39;: &#39;Er&#39;,
+  &#39;atomic_mass&#39;: 167.26},
+ {&#39;atomic_number&#39;: 69,
+  &#39;name&#39;: &#39;Thulium&#39;,
+  &#39;symbol&#39;: &#39;Tm&#39;,
+  &#39;atomic_mass&#39;: 168.93422},
+ {&#39;atomic_number&#39;: 70,
+  &#39;name&#39;: &#39;Ytterbium&#39;,
+  &#39;symbol&#39;: &#39;Yb&#39;,
+  &#39;atomic_mass&#39;: 173.05},
+ {&#39;atomic_number&#39;: 71,
+  &#39;name&#39;: &#39;Lutetium&#39;,
+  &#39;symbol&#39;: &#39;Lu&#39;,
+  &#39;atomic_mass&#39;: 174.9667},
+ {&#39;atomic_number&#39;: 72,
+  &#39;name&#39;: &#39;Hafnium&#39;,
+  &#39;symbol&#39;: &#39;Hf&#39;,
+  &#39;atomic_mass&#39;: 178.49},
+ {&#39;atomic_number&#39;: 73,
+  &#39;name&#39;: &#39;Tantalum&#39;,
+  &#39;symbol&#39;: &#39;Ta&#39;,
+  &#39;atomic_mass&#39;: 180.9479},
+ {&#39;atomic_number&#39;: 74,
+  &#39;name&#39;: &#39;Tungsten&#39;,
+  &#39;symbol&#39;: &#39;W&#39;,
+  &#39;atomic_mass&#39;: 183.84},
+ {&#39;atomic_number&#39;: 75,
+  &#39;name&#39;: &#39;Rhenium&#39;,
+  &#39;symbol&#39;: &#39;Re&#39;,
+  &#39;atomic_mass&#39;: 186.207},
+ {&#39;atomic_number&#39;: 76, &#39;name&#39;: &#39;Osmium&#39;, &#39;symbol&#39;: &#39;Os&#39;, &#39;atomic_mass&#39;: 190.2},
+ {&#39;atomic_number&#39;: 77,
+  &#39;name&#39;: &#39;Iridium&#39;,
+  &#39;symbol&#39;: &#39;Ir&#39;,
+  &#39;atomic_mass&#39;: 192.22},
+ {&#39;atomic_number&#39;: 78,
+  &#39;name&#39;: &#39;Platinum&#39;,
+  &#39;symbol&#39;: &#39;Pt&#39;,
+  &#39;atomic_mass&#39;: 195.08},
+ {&#39;atomic_number&#39;: 79,
+  &#39;name&#39;: &#39;Gold&#39;,
+  &#39;symbol&#39;: &#39;Au&#39;,
+  &#39;atomic_mass&#39;: 196.96657},
+ {&#39;atomic_number&#39;: 80,
+  &#39;name&#39;: &#39;Mercury&#39;,
+  &#39;symbol&#39;: &#39;Hg&#39;,
+  &#39;atomic_mass&#39;: 200.59},
+ {&#39;atomic_number&#39;: 81,
+  &#39;name&#39;: &#39;Thallium&#39;,
+  &#39;symbol&#39;: &#39;Tl&#39;,
+  &#39;atomic_mass&#39;: 204.383},
+ {&#39;atomic_number&#39;: 82, &#39;name&#39;: &#39;Lead&#39;, &#39;symbol&#39;: &#39;Pb&#39;, &#39;atomic_mass&#39;: 207},
+ {&#39;atomic_number&#39;: 83,
+  &#39;name&#39;: &#39;Bismuth&#39;,
+  &#39;symbol&#39;: &#39;Bi&#39;,
+  &#39;atomic_mass&#39;: 208.9804},
+ {&#39;atomic_number&#39;: 84,
+  &#39;name&#39;: &#39;Polonium&#39;,
+  &#39;symbol&#39;: &#39;Po&#39;,
+  &#39;atomic_mass&#39;: 208.98243},
+ {&#39;atomic_number&#39;: 85,
+  &#39;name&#39;: &#39;Astatine&#39;,
+  &#39;symbol&#39;: &#39;At&#39;,
+  &#39;atomic_mass&#39;: 209.98715},
+ {&#39;atomic_number&#39;: 86,
+  &#39;name&#39;: &#39;Radon&#39;,
+  &#39;symbol&#39;: &#39;Rn&#39;,
+  &#39;atomic_mass&#39;: 222.01758},
+ {&#39;atomic_number&#39;: 87,
+  &#39;name&#39;: &#39;Francium&#39;,
+  &#39;symbol&#39;: &#39;Fr&#39;,
+  &#39;atomic_mass&#39;: 223.01973},
+ {&#39;atomic_number&#39;: 88,
+  &#39;name&#39;: &#39;Radium&#39;,
+  &#39;symbol&#39;: &#39;Ra&#39;,
+  &#39;atomic_mass&#39;: 226.02541},
+ {&#39;atomic_number&#39;: 89,
+  &#39;name&#39;: &#39;Actinium&#39;,
+  &#39;symbol&#39;: &#39;Ac&#39;,
+  &#39;atomic_mass&#39;: 227.02775},
+ {&#39;atomic_number&#39;: 90,
+  &#39;name&#39;: &#39;Thorium&#39;,
+  &#39;symbol&#39;: &#39;Th&#39;,
+  &#39;atomic_mass&#39;: 232.038},
+ {&#39;atomic_number&#39;: 91,
+  &#39;name&#39;: &#39;Protactinium&#39;,
+  &#39;symbol&#39;: &#39;Pa&#39;,
+  &#39;atomic_mass&#39;: 231.03588},
+ {&#39;atomic_number&#39;: 92,
+  &#39;name&#39;: &#39;Uranium&#39;,
+  &#39;symbol&#39;: &#39;U&#39;,
+  &#39;atomic_mass&#39;: 238.0289},
+ {&#39;atomic_number&#39;: 93,
+  &#39;name&#39;: &#39;Neptunium&#39;,
+  &#39;symbol&#39;: &#39;Np&#39;,
+  &#39;atomic_mass&#39;: 237.048172},
+ {&#39;atomic_number&#39;: 94,
+  &#39;name&#39;: &#39;Plutonium&#39;,
+  &#39;symbol&#39;: &#39;Pu&#39;,
+  &#39;atomic_mass&#39;: 244.0642},
+ {&#39;atomic_number&#39;: 95,
+  &#39;name&#39;: &#39;Americium&#39;,
+  &#39;symbol&#39;: &#39;Am&#39;,
+  &#39;atomic_mass&#39;: 243.06138},
+ {&#39;atomic_number&#39;: 96,
+  &#39;name&#39;: &#39;Curium&#39;,
+  &#39;symbol&#39;: &#39;Cm&#39;,
+  &#39;atomic_mass&#39;: 247.07035},
+ {&#39;atomic_number&#39;: 97,
+  &#39;name&#39;: &#39;Berkelium&#39;,
+  &#39;symbol&#39;: &#39;Bk&#39;,
+  &#39;atomic_mass&#39;: 247.07031},
+ {&#39;atomic_number&#39;: 98,
+  &#39;name&#39;: &#39;Californium&#39;,
+  &#39;symbol&#39;: &#39;Cf&#39;,
+  &#39;atomic_mass&#39;: 251.07959},
+ {&#39;atomic_number&#39;: 99,
+  &#39;name&#39;: &#39;Einsteinium&#39;,
+  &#39;symbol&#39;: &#39;Es&#39;,
+  &#39;atomic_mass&#39;: 252.083},
+ {&#39;atomic_number&#39;: 100,
+  &#39;name&#39;: &#39;Fermium&#39;,
+  &#39;symbol&#39;: &#39;Fm&#39;,
+  &#39;atomic_mass&#39;: 257.09511},
+ {&#39;atomic_number&#39;: 101,
+  &#39;name&#39;: &#39;Mendelevium&#39;,
+  &#39;symbol&#39;: &#39;Md&#39;,
+  &#39;atomic_mass&#39;: 258.09843},
+ {&#39;atomic_number&#39;: 102,
+  &#39;name&#39;: &#39;Nobelium&#39;,
+  &#39;symbol&#39;: &#39;No&#39;,
+  &#39;atomic_mass&#39;: 259.101},
+ {&#39;atomic_number&#39;: 103,
+  &#39;name&#39;: &#39;Lawrencium&#39;,
+  &#39;symbol&#39;: &#39;Lr&#39;,
+  &#39;atomic_mass&#39;: 266.12},
+ {&#39;atomic_number&#39;: 104,
+  &#39;name&#39;: &#39;Rutherfordium&#39;,
+  &#39;symbol&#39;: &#39;Rf&#39;,
+  &#39;atomic_mass&#39;: 267.122},
+ {&#39;atomic_number&#39;: 105,
+  &#39;name&#39;: &#39;Dubnium&#39;,
+  &#39;symbol&#39;: &#39;Db&#39;,
+  &#39;atomic_mass&#39;: 268.126},
+ {&#39;atomic_number&#39;: 106,
+  &#39;name&#39;: &#39;Seaborgium&#39;,
+  &#39;symbol&#39;: &#39;Sg&#39;,
+  &#39;atomic_mass&#39;: 269.128},
+ {&#39;atomic_number&#39;: 107,
+  &#39;name&#39;: &#39;Bohrium&#39;,
+  &#39;symbol&#39;: &#39;Bh&#39;,
+  &#39;atomic_mass&#39;: 270.133},
+ {&#39;atomic_number&#39;: 108,
+  &#39;name&#39;: &#39;Hassium&#39;,
+  &#39;symbol&#39;: &#39;Hs&#39;,
+  &#39;atomic_mass&#39;: 269.1336},
+ {&#39;atomic_number&#39;: 109,
+  &#39;name&#39;: &#39;Meitnerium&#39;,
+  &#39;symbol&#39;: &#39;Mt&#39;,
+  &#39;atomic_mass&#39;: 277.154},
+ {&#39;atomic_number&#39;: 110,
+  &#39;name&#39;: &#39;Darmstadtium&#39;,
+  &#39;symbol&#39;: &#39;Ds&#39;,
+  &#39;atomic_mass&#39;: 282.166},
+ {&#39;atomic_number&#39;: 111,
+  &#39;name&#39;: &#39;Roentgenium&#39;,
+  &#39;symbol&#39;: &#39;Rg&#39;,
+  &#39;atomic_mass&#39;: 282.169},
+ {&#39;atomic_number&#39;: 112,
+  &#39;name&#39;: &#39;Copernicium&#39;,
+  &#39;symbol&#39;: &#39;Cn&#39;,
+  &#39;atomic_mass&#39;: 286.179},
+ {&#39;atomic_number&#39;: 113,
+  &#39;name&#39;: &#39;Nihonium&#39;,
+  &#39;symbol&#39;: &#39;Nh&#39;,
+  &#39;atomic_mass&#39;: 286.182},
+ {&#39;atomic_number&#39;: 114,
+  &#39;name&#39;: &#39;Flerovium&#39;,
+  &#39;symbol&#39;: &#39;Fl&#39;,
+  &#39;atomic_mass&#39;: 290.192},
+ {&#39;atomic_number&#39;: 115,
+  &#39;name&#39;: &#39;Moscovium&#39;,
+  &#39;symbol&#39;: &#39;Mc&#39;,
+  &#39;atomic_mass&#39;: 290.196},
+ {&#39;atomic_number&#39;: 116,
+  &#39;name&#39;: &#39;Livermorium&#39;,
+  &#39;symbol&#39;: &#39;Lv&#39;,
+  &#39;atomic_mass&#39;: 293.205},
+ {&#39;atomic_number&#39;: 117,
+  &#39;name&#39;: &#39;Tennessine&#39;,
+  &#39;symbol&#39;: &#39;Ts&#39;,
+  &#39;atomic_mass&#39;: 294.211},
+ {&#39;atomic_number&#39;: 118,
+  &#39;name&#39;: &#39;Oganesson&#39;,
+  &#39;symbol&#39;: &#39;Og&#39;,
+  &#39;atomic_mass&#39;: 295.216}]
+</pre></div></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Element.html" class="btn btn-neutral float-left" title="Element" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api/bobleesj.utils.html" class="btn btn-neutral float-right" title="bobleesj.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils.data package &mdash; bobleesj.utils 0.0.1 documentation</title>
+  <title>bobleesj.utils.data package &mdash; bobleesj.utils 0.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../_static/documentation_options.js?v=d58853b1"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -46,14 +46,13 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+              <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/Formula.html">Formula</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/radius.html">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ptable.html">Periodic table</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
 <ul class="current">
@@ -63,6 +62,7 @@
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.sources.html">bobleesj.utils.sources package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">bobleesj.utils.data package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>
@@ -91,7 +91,7 @@
           <li class="breadcrumb-item"><a href="bobleesj.utils.html">bobleesj.utils package</a></li>
       <li class="breadcrumb-item active">bobleesj.utils.data package</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/bobleesj/'/blob/main/doc/source/api/bobleesj.utils.data.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/bobleesj/bobleesj.utils/blob/main/doc/source/api/bobleesj.utils.data.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -108,6 +108,623 @@
 <li class="toctree-l1"><a class="reference internal" href="bobleesj.utils.data.db.html">bobleesj.utils.data.db package</a></li>
 </ul>
 </div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<section id="module-bobleesj.utils.data.element">
+<span id="bobleesj-utils-data-elements-module"></span><h3>bobleesj.utils.data.elements module<a class="headerlink" href="#module-bobleesj.utils.data.element" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bobleesj.utils.data.element.</span></span><span class="sig-name descname"><span class="pre">Element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/data/element.html#Element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.data.element.Element" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ac">
+<span class="sig-name descname"><span class="pre">Ac</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Actinium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ac" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ag">
+<span class="sig-name descname"><span class="pre">Ag</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Silver'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Al">
+<span class="sig-name descname"><span class="pre">Al</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Aluminum'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Al" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Am">
+<span class="sig-name descname"><span class="pre">Am</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Americium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Am" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ar">
+<span class="sig-name descname"><span class="pre">Ar</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Argon'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.As">
+<span class="sig-name descname"><span class="pre">As</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Arsenic'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.As" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.At">
+<span class="sig-name descname"><span class="pre">At</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Astatine'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.At" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Au">
+<span class="sig-name descname"><span class="pre">Au</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Gold'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Au" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.B">
+<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Boron'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.B" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ba">
+<span class="sig-name descname"><span class="pre">Ba</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Barium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ba" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Be">
+<span class="sig-name descname"><span class="pre">Be</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Beryllium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Be" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Bh">
+<span class="sig-name descname"><span class="pre">Bh</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Bohrium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Bh" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Bi">
+<span class="sig-name descname"><span class="pre">Bi</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Bismuth'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Bi" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Bk">
+<span class="sig-name descname"><span class="pre">Bk</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Berkelium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Bk" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Br">
+<span class="sig-name descname"><span class="pre">Br</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Bromine'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Br" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.C">
+<span class="sig-name descname"><span class="pre">C</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Carbon'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.C" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ca">
+<span class="sig-name descname"><span class="pre">Ca</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Calcium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ca" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Cd">
+<span class="sig-name descname"><span class="pre">Cd</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cadmium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Cd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ce">
+<span class="sig-name descname"><span class="pre">Ce</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cerium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ce" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Cf">
+<span class="sig-name descname"><span class="pre">Cf</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Californium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Cf" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Cl">
+<span class="sig-name descname"><span class="pre">Cl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Chlorine'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Cl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Cm">
+<span class="sig-name descname"><span class="pre">Cm</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Curium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Cm" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Cn">
+<span class="sig-name descname"><span class="pre">Cn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Copernicium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Cn" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Co">
+<span class="sig-name descname"><span class="pre">Co</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cobalt'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Co" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Cr">
+<span class="sig-name descname"><span class="pre">Cr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Chromium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Cr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Cs">
+<span class="sig-name descname"><span class="pre">Cs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cesium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Cs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Cu">
+<span class="sig-name descname"><span class="pre">Cu</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Copper'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Cu" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Db">
+<span class="sig-name descname"><span class="pre">Db</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Dubnium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Db" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ds">
+<span class="sig-name descname"><span class="pre">Ds</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Darmstadtium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ds" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Dy">
+<span class="sig-name descname"><span class="pre">Dy</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Dysprosium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Dy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Er">
+<span class="sig-name descname"><span class="pre">Er</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Erbium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Er" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Es">
+<span class="sig-name descname"><span class="pre">Es</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Einsteinium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Es" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Eu">
+<span class="sig-name descname"><span class="pre">Eu</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Europium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Eu" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.F">
+<span class="sig-name descname"><span class="pre">F</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Fluorine'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.F" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Fe">
+<span class="sig-name descname"><span class="pre">Fe</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Iron'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Fe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Fl">
+<span class="sig-name descname"><span class="pre">Fl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Flerovium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Fl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Fm">
+<span class="sig-name descname"><span class="pre">Fm</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Fermium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Fm" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Fr">
+<span class="sig-name descname"><span class="pre">Fr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Francium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Fr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ga">
+<span class="sig-name descname"><span class="pre">Ga</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Gallium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ga" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Gd">
+<span class="sig-name descname"><span class="pre">Gd</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Gadolinium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Gd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ge">
+<span class="sig-name descname"><span class="pre">Ge</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Germanium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ge" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.H">
+<span class="sig-name descname"><span class="pre">H</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Hydrogen'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.H" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.He">
+<span class="sig-name descname"><span class="pre">He</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Helium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.He" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Hf">
+<span class="sig-name descname"><span class="pre">Hf</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Hafnium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Hf" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Hg">
+<span class="sig-name descname"><span class="pre">Hg</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Mercury'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Hg" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ho">
+<span class="sig-name descname"><span class="pre">Ho</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Holmium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ho" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Hs">
+<span class="sig-name descname"><span class="pre">Hs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Hassium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Hs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.I">
+<span class="sig-name descname"><span class="pre">I</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Iodine'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.I" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.In">
+<span class="sig-name descname"><span class="pre">In</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Indium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.In" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ir">
+<span class="sig-name descname"><span class="pre">Ir</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Iridium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ir" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.K">
+<span class="sig-name descname"><span class="pre">K</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Potassium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.K" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Kr">
+<span class="sig-name descname"><span class="pre">Kr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Krypton'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Kr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.La">
+<span class="sig-name descname"><span class="pre">La</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Lanthanum'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.La" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Li">
+<span class="sig-name descname"><span class="pre">Li</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Lithium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Li" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Lr">
+<span class="sig-name descname"><span class="pre">Lr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Lawrencium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Lr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Lu">
+<span class="sig-name descname"><span class="pre">Lu</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Lutetium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Lu" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Lv">
+<span class="sig-name descname"><span class="pre">Lv</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Livermorium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Lv" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Mc">
+<span class="sig-name descname"><span class="pre">Mc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Moscovium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Mc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Md">
+<span class="sig-name descname"><span class="pre">Md</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Mendelevium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Md" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Mg">
+<span class="sig-name descname"><span class="pre">Mg</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Magnesium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Mg" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Mn">
+<span class="sig-name descname"><span class="pre">Mn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Manganese'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Mn" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Mo">
+<span class="sig-name descname"><span class="pre">Mo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Molybdenum'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Mo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Mt">
+<span class="sig-name descname"><span class="pre">Mt</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Meitnerium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Mt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.N">
+<span class="sig-name descname"><span class="pre">N</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Nitrogen'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.N" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Na">
+<span class="sig-name descname"><span class="pre">Na</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Sodium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Na" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Nb">
+<span class="sig-name descname"><span class="pre">Nb</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Niobium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Nb" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Nd">
+<span class="sig-name descname"><span class="pre">Nd</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Neodymium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Nd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ne">
+<span class="sig-name descname"><span class="pre">Ne</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Neon'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ne" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Nh">
+<span class="sig-name descname"><span class="pre">Nh</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Nihonium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Nh" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ni">
+<span class="sig-name descname"><span class="pre">Ni</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Nickel'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ni" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.No">
+<span class="sig-name descname"><span class="pre">No</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Nobelium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.No" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Np">
+<span class="sig-name descname"><span class="pre">Np</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Neptunium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Np" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.O">
+<span class="sig-name descname"><span class="pre">O</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Oxygen'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.O" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Og">
+<span class="sig-name descname"><span class="pre">Og</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Oganesson'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Og" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Os">
+<span class="sig-name descname"><span class="pre">Os</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Osmium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Os" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.P">
+<span class="sig-name descname"><span class="pre">P</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Phosphorus'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.P" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Pa">
+<span class="sig-name descname"><span class="pre">Pa</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Protactinium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Pa" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Pb">
+<span class="sig-name descname"><span class="pre">Pb</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Lead'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Pb" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Pd">
+<span class="sig-name descname"><span class="pre">Pd</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Palladium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Pd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Pm">
+<span class="sig-name descname"><span class="pre">Pm</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Promethium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Pm" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Po">
+<span class="sig-name descname"><span class="pre">Po</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Polonium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Po" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Pr">
+<span class="sig-name descname"><span class="pre">Pr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Praseodymium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Pr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Pt">
+<span class="sig-name descname"><span class="pre">Pt</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Platinum'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Pt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Pu">
+<span class="sig-name descname"><span class="pre">Pu</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Plutonium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Pu" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ra">
+<span class="sig-name descname"><span class="pre">Ra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Radium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Rb">
+<span class="sig-name descname"><span class="pre">Rb</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Rubidium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Rb" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Re">
+<span class="sig-name descname"><span class="pre">Re</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Rhenium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Re" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Rf">
+<span class="sig-name descname"><span class="pre">Rf</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Rutherfordium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Rf" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Rg">
+<span class="sig-name descname"><span class="pre">Rg</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Roentgenium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Rg" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Rh">
+<span class="sig-name descname"><span class="pre">Rh</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Rhodium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Rh" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Rn">
+<span class="sig-name descname"><span class="pre">Rn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Radon'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Rn" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ru">
+<span class="sig-name descname"><span class="pre">Ru</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Ruthenium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ru" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.S">
+<span class="sig-name descname"><span class="pre">S</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Sulfur'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.S" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Sb">
+<span class="sig-name descname"><span class="pre">Sb</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Antimony'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Sb" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Sc">
+<span class="sig-name descname"><span class="pre">Sc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Scandium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Sc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Se">
+<span class="sig-name descname"><span class="pre">Se</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Selenium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Se" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Sg">
+<span class="sig-name descname"><span class="pre">Sg</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Seaborgium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Sg" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Si">
+<span class="sig-name descname"><span class="pre">Si</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Silicon'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Si" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Sm">
+<span class="sig-name descname"><span class="pre">Sm</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Samarium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Sm" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Sn">
+<span class="sig-name descname"><span class="pre">Sn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tin'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Sn" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Sr">
+<span class="sig-name descname"><span class="pre">Sr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Strontium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Sr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ta">
+<span class="sig-name descname"><span class="pre">Ta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tantalum'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Tb">
+<span class="sig-name descname"><span class="pre">Tb</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Terbium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Tb" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Tc">
+<span class="sig-name descname"><span class="pre">Tc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Technetium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Tc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Te">
+<span class="sig-name descname"><span class="pre">Te</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tellurium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Te" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Th">
+<span class="sig-name descname"><span class="pre">Th</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Thorium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Th" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ti">
+<span class="sig-name descname"><span class="pre">Ti</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Titanium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ti" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Tl">
+<span class="sig-name descname"><span class="pre">Tl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Thallium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Tl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Tm">
+<span class="sig-name descname"><span class="pre">Tm</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Thulium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Tm" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Ts">
+<span class="sig-name descname"><span class="pre">Ts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tennessine'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Ts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.U">
+<span class="sig-name descname"><span class="pre">U</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Uranium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.U" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.V">
+<span class="sig-name descname"><span class="pre">V</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Vanadium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.V" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.W">
+<span class="sig-name descname"><span class="pre">W</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tungsten'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.W" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Xe">
+<span class="sig-name descname"><span class="pre">Xe</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Xenon'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Xe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Y">
+<span class="sig-name descname"><span class="pre">Y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Yttrium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Yb">
+<span class="sig-name descname"><span class="pre">Yb</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Ytterbium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Yb" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Zn">
+<span class="sig-name descname"><span class="pre">Zn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Zinc'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Zn" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.Zr">
+<span class="sig-name descname"><span class="pre">Zr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Zirconium'</span></em><a class="headerlink" href="#bobleesj.utils.data.element.Element.Zr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.all_symbols">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">all_symbols</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/data/element.html#Element.all_symbols"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.data.element.Element.all_symbols" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.full_name">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">full_name</span></span><a class="headerlink" href="#bobleesj.utils.data.element.Element.full_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bobleesj.utils.data.element.Element.symbol">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">symbol</span></span><a class="headerlink" href="#bobleesj.utils.data.element.Element.symbol" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 </section>
 

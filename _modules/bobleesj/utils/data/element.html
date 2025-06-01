@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bobleesj.utils.data.element &mdash; bobleesj.utils 0.0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=d58853b1"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/radius.html">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/ptable.html">Periodic table</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/bobleesj.utils.html">Package API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">bobleesj.utils.data.element</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for bobleesj.utils.data.element</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+
+
+<div class="viewcode-block" id="Element">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.data.html#bobleesj.utils.data.element.Element">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Element</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="s2">&quot;Hydrogen&quot;</span>
+    <span class="n">He</span> <span class="o">=</span> <span class="s2">&quot;Helium&quot;</span>
+    <span class="n">Li</span> <span class="o">=</span> <span class="s2">&quot;Lithium&quot;</span>
+    <span class="n">Be</span> <span class="o">=</span> <span class="s2">&quot;Beryllium&quot;</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="s2">&quot;Boron&quot;</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="s2">&quot;Carbon&quot;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="s2">&quot;Nitrogen&quot;</span>
+    <span class="n">O</span> <span class="o">=</span> <span class="s2">&quot;Oxygen&quot;</span>  <span class="c1"># noqa: E741</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="s2">&quot;Fluorine&quot;</span>
+    <span class="n">Ne</span> <span class="o">=</span> <span class="s2">&quot;Neon&quot;</span>
+    <span class="n">Na</span> <span class="o">=</span> <span class="s2">&quot;Sodium&quot;</span>
+    <span class="n">Mg</span> <span class="o">=</span> <span class="s2">&quot;Magnesium&quot;</span>
+    <span class="n">Al</span> <span class="o">=</span> <span class="s2">&quot;Aluminum&quot;</span>
+    <span class="n">Si</span> <span class="o">=</span> <span class="s2">&quot;Silicon&quot;</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="s2">&quot;Phosphorus&quot;</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="s2">&quot;Sulfur&quot;</span>
+    <span class="n">Cl</span> <span class="o">=</span> <span class="s2">&quot;Chlorine&quot;</span>
+    <span class="n">Ar</span> <span class="o">=</span> <span class="s2">&quot;Argon&quot;</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="s2">&quot;Potassium&quot;</span>
+    <span class="n">Ca</span> <span class="o">=</span> <span class="s2">&quot;Calcium&quot;</span>
+    <span class="n">Sc</span> <span class="o">=</span> <span class="s2">&quot;Scandium&quot;</span>
+    <span class="n">Ti</span> <span class="o">=</span> <span class="s2">&quot;Titanium&quot;</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="s2">&quot;Vanadium&quot;</span>
+    <span class="n">Cr</span> <span class="o">=</span> <span class="s2">&quot;Chromium&quot;</span>
+    <span class="n">Mn</span> <span class="o">=</span> <span class="s2">&quot;Manganese&quot;</span>
+    <span class="n">Fe</span> <span class="o">=</span> <span class="s2">&quot;Iron&quot;</span>
+    <span class="n">Co</span> <span class="o">=</span> <span class="s2">&quot;Cobalt&quot;</span>
+    <span class="n">Ni</span> <span class="o">=</span> <span class="s2">&quot;Nickel&quot;</span>
+    <span class="n">Cu</span> <span class="o">=</span> <span class="s2">&quot;Copper&quot;</span>
+    <span class="n">Zn</span> <span class="o">=</span> <span class="s2">&quot;Zinc&quot;</span>
+    <span class="n">Ga</span> <span class="o">=</span> <span class="s2">&quot;Gallium&quot;</span>
+    <span class="n">Ge</span> <span class="o">=</span> <span class="s2">&quot;Germanium&quot;</span>
+    <span class="n">As</span> <span class="o">=</span> <span class="s2">&quot;Arsenic&quot;</span>
+    <span class="n">Se</span> <span class="o">=</span> <span class="s2">&quot;Selenium&quot;</span>
+    <span class="n">Br</span> <span class="o">=</span> <span class="s2">&quot;Bromine&quot;</span>
+    <span class="n">Kr</span> <span class="o">=</span> <span class="s2">&quot;Krypton&quot;</span>
+    <span class="n">Rb</span> <span class="o">=</span> <span class="s2">&quot;Rubidium&quot;</span>
+    <span class="n">Sr</span> <span class="o">=</span> <span class="s2">&quot;Strontium&quot;</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="s2">&quot;Yttrium&quot;</span>
+    <span class="n">Zr</span> <span class="o">=</span> <span class="s2">&quot;Zirconium&quot;</span>
+    <span class="n">Nb</span> <span class="o">=</span> <span class="s2">&quot;Niobium&quot;</span>
+    <span class="n">Mo</span> <span class="o">=</span> <span class="s2">&quot;Molybdenum&quot;</span>
+    <span class="n">Tc</span> <span class="o">=</span> <span class="s2">&quot;Technetium&quot;</span>
+    <span class="n">Ru</span> <span class="o">=</span> <span class="s2">&quot;Ruthenium&quot;</span>
+    <span class="n">Rh</span> <span class="o">=</span> <span class="s2">&quot;Rhodium&quot;</span>
+    <span class="n">Pd</span> <span class="o">=</span> <span class="s2">&quot;Palladium&quot;</span>
+    <span class="n">Ag</span> <span class="o">=</span> <span class="s2">&quot;Silver&quot;</span>
+    <span class="n">Cd</span> <span class="o">=</span> <span class="s2">&quot;Cadmium&quot;</span>
+    <span class="n">In</span> <span class="o">=</span> <span class="s2">&quot;Indium&quot;</span>
+    <span class="n">Sn</span> <span class="o">=</span> <span class="s2">&quot;Tin&quot;</span>
+    <span class="n">Sb</span> <span class="o">=</span> <span class="s2">&quot;Antimony&quot;</span>
+    <span class="n">Te</span> <span class="o">=</span> <span class="s2">&quot;Tellurium&quot;</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="s2">&quot;Iodine&quot;</span>  <span class="c1"># noqa: E741</span>
+    <span class="n">Xe</span> <span class="o">=</span> <span class="s2">&quot;Xenon&quot;</span>
+    <span class="n">Cs</span> <span class="o">=</span> <span class="s2">&quot;Cesium&quot;</span>
+    <span class="n">Ba</span> <span class="o">=</span> <span class="s2">&quot;Barium&quot;</span>
+    <span class="n">La</span> <span class="o">=</span> <span class="s2">&quot;Lanthanum&quot;</span>
+    <span class="n">Ce</span> <span class="o">=</span> <span class="s2">&quot;Cerium&quot;</span>
+    <span class="n">Pr</span> <span class="o">=</span> <span class="s2">&quot;Praseodymium&quot;</span>
+    <span class="n">Nd</span> <span class="o">=</span> <span class="s2">&quot;Neodymium&quot;</span>
+    <span class="n">Pm</span> <span class="o">=</span> <span class="s2">&quot;Promethium&quot;</span>
+    <span class="n">Sm</span> <span class="o">=</span> <span class="s2">&quot;Samarium&quot;</span>
+    <span class="n">Eu</span> <span class="o">=</span> <span class="s2">&quot;Europium&quot;</span>
+    <span class="n">Gd</span> <span class="o">=</span> <span class="s2">&quot;Gadolinium&quot;</span>
+    <span class="n">Tb</span> <span class="o">=</span> <span class="s2">&quot;Terbium&quot;</span>
+    <span class="n">Dy</span> <span class="o">=</span> <span class="s2">&quot;Dysprosium&quot;</span>
+    <span class="n">Ho</span> <span class="o">=</span> <span class="s2">&quot;Holmium&quot;</span>
+    <span class="n">Er</span> <span class="o">=</span> <span class="s2">&quot;Erbium&quot;</span>
+    <span class="n">Tm</span> <span class="o">=</span> <span class="s2">&quot;Thulium&quot;</span>
+    <span class="n">Yb</span> <span class="o">=</span> <span class="s2">&quot;Ytterbium&quot;</span>
+    <span class="n">Lu</span> <span class="o">=</span> <span class="s2">&quot;Lutetium&quot;</span>
+    <span class="n">Hf</span> <span class="o">=</span> <span class="s2">&quot;Hafnium&quot;</span>
+    <span class="n">Ta</span> <span class="o">=</span> <span class="s2">&quot;Tantalum&quot;</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="s2">&quot;Tungsten&quot;</span>
+    <span class="n">Re</span> <span class="o">=</span> <span class="s2">&quot;Rhenium&quot;</span>
+    <span class="n">Os</span> <span class="o">=</span> <span class="s2">&quot;Osmium&quot;</span>
+    <span class="n">Ir</span> <span class="o">=</span> <span class="s2">&quot;Iridium&quot;</span>
+    <span class="n">Pt</span> <span class="o">=</span> <span class="s2">&quot;Platinum&quot;</span>
+    <span class="n">Au</span> <span class="o">=</span> <span class="s2">&quot;Gold&quot;</span>
+    <span class="n">Hg</span> <span class="o">=</span> <span class="s2">&quot;Mercury&quot;</span>
+    <span class="n">Tl</span> <span class="o">=</span> <span class="s2">&quot;Thallium&quot;</span>
+    <span class="n">Pb</span> <span class="o">=</span> <span class="s2">&quot;Lead&quot;</span>
+    <span class="n">Bi</span> <span class="o">=</span> <span class="s2">&quot;Bismuth&quot;</span>
+    <span class="n">Po</span> <span class="o">=</span> <span class="s2">&quot;Polonium&quot;</span>
+    <span class="n">At</span> <span class="o">=</span> <span class="s2">&quot;Astatine&quot;</span>
+    <span class="n">Rn</span> <span class="o">=</span> <span class="s2">&quot;Radon&quot;</span>
+    <span class="n">Fr</span> <span class="o">=</span> <span class="s2">&quot;Francium&quot;</span>
+    <span class="n">Ra</span> <span class="o">=</span> <span class="s2">&quot;Radium&quot;</span>
+    <span class="n">Ac</span> <span class="o">=</span> <span class="s2">&quot;Actinium&quot;</span>
+    <span class="n">Th</span> <span class="o">=</span> <span class="s2">&quot;Thorium&quot;</span>
+    <span class="n">Pa</span> <span class="o">=</span> <span class="s2">&quot;Protactinium&quot;</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="s2">&quot;Uranium&quot;</span>
+    <span class="n">Np</span> <span class="o">=</span> <span class="s2">&quot;Neptunium&quot;</span>
+    <span class="n">Pu</span> <span class="o">=</span> <span class="s2">&quot;Plutonium&quot;</span>
+    <span class="n">Am</span> <span class="o">=</span> <span class="s2">&quot;Americium&quot;</span>
+    <span class="n">Cm</span> <span class="o">=</span> <span class="s2">&quot;Curium&quot;</span>
+    <span class="n">Bk</span> <span class="o">=</span> <span class="s2">&quot;Berkelium&quot;</span>
+    <span class="n">Cf</span> <span class="o">=</span> <span class="s2">&quot;Californium&quot;</span>
+    <span class="n">Es</span> <span class="o">=</span> <span class="s2">&quot;Einsteinium&quot;</span>
+    <span class="n">Fm</span> <span class="o">=</span> <span class="s2">&quot;Fermium&quot;</span>
+    <span class="n">Md</span> <span class="o">=</span> <span class="s2">&quot;Mendelevium&quot;</span>
+    <span class="n">No</span> <span class="o">=</span> <span class="s2">&quot;Nobelium&quot;</span>
+    <span class="n">Lr</span> <span class="o">=</span> <span class="s2">&quot;Lawrencium&quot;</span>
+    <span class="n">Rf</span> <span class="o">=</span> <span class="s2">&quot;Rutherfordium&quot;</span>
+    <span class="n">Db</span> <span class="o">=</span> <span class="s2">&quot;Dubnium&quot;</span>
+    <span class="n">Sg</span> <span class="o">=</span> <span class="s2">&quot;Seaborgium&quot;</span>
+    <span class="n">Bh</span> <span class="o">=</span> <span class="s2">&quot;Bohrium&quot;</span>
+    <span class="n">Hs</span> <span class="o">=</span> <span class="s2">&quot;Hassium&quot;</span>
+    <span class="n">Mt</span> <span class="o">=</span> <span class="s2">&quot;Meitnerium&quot;</span>
+    <span class="n">Ds</span> <span class="o">=</span> <span class="s2">&quot;Darmstadtium&quot;</span>
+    <span class="n">Rg</span> <span class="o">=</span> <span class="s2">&quot;Roentgenium&quot;</span>
+    <span class="n">Cn</span> <span class="o">=</span> <span class="s2">&quot;Copernicium&quot;</span>
+    <span class="n">Nh</span> <span class="o">=</span> <span class="s2">&quot;Nihonium&quot;</span>
+    <span class="n">Fl</span> <span class="o">=</span> <span class="s2">&quot;Flerovium&quot;</span>
+    <span class="n">Mc</span> <span class="o">=</span> <span class="s2">&quot;Moscovium&quot;</span>
+    <span class="n">Lv</span> <span class="o">=</span> <span class="s2">&quot;Livermorium&quot;</span>
+    <span class="n">Ts</span> <span class="o">=</span> <span class="s2">&quot;Tennessine&quot;</span>
+    <span class="n">Og</span> <span class="o">=</span> <span class="s2">&quot;Oganesson&quot;</span>
+
+<div class="viewcode-block" id="Element.all_symbols">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.data.html#bobleesj.utils.data.element.Element.all_symbols">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_symbols</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">cls</span><span class="p">]</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">symbol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">full_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
