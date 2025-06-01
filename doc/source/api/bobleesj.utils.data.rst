@@ -22,7 +22,7 @@ Submodules
 bobleesj.utils.data.elements module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. automodule:: bobleesj.utils.data.elements
+.. automodule:: bobleesj.utils.data.element
     :members:
     :undoc-members:
     :show-inheritance:
