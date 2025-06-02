@@ -1,19 +1,11 @@
-import os
+# import os
 from argparse import ArgumentParser
-from pathlib import Path
+# from pathlib import Path
 
 from bobleesj.utils.cli import conda_forge
 
+#FIXME: Implmement hidden config file for scalability
 BOB_CONFIG_FILE = "~/.bobrc"
-
-# Maintain 3 feedstocks:
-
-
-# Checkout main, stash any existing
-# changes, and pull the latest changes from the remote repository.
-# Make a pull request from from bobleesj/<version> to conda-forge/main
-
-
 # config_file = os.environ.get("BOB_CONFIG_FILE", BOB_CONFIG_FILE)
 # config_file = Path(os.path.expandvars(config_file)).expanduser()
 # exist_config = config_file.exists()
