@@ -52,7 +52,7 @@ namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
 dependencies = {file = ["requirements/pip.txt"]}
 
 [project.scripts]
-package = "bobleesj.utils.app:main"
+bob = "bobleesj.utils.app:main"
 
 [tool.codespell]
 exclude-file = ".codespell/ignore_lines.txt"
