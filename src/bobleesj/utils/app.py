@@ -1,0 +1,39 @@
+import os
+from argparse import ArgumentParser
+from pathlib import Path
+from bobleesj.utils.cli import conda_forge
+
+BOB_CONFIG_FILE = "~/.bobrc"
+
+# Maintain 3 feedstocks:
+
+
+# Checkout main, stash any existing
+# changes, and pull the latest changes from the remote repository.
+# Make a pull request from from bobleesj/<version> to conda-forge/main
+
+
+config_file = os.environ.get("BOB_CONFIG_FILE", BOB_CONFIG_FILE)
+config_file = Path(os.path.expandvars(config_file)).expanduser()
+exist_config = config_file.exists()
+
+def update_feedstock():
+    conda_forge.main()
+
+def main():
+    parser = ArgumentParser(description="Save time managing software packages.")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    # "update" command
+    parser_update = subparsers.add_parser("update", help="Update repositories and packages.")
+    update_subparsers = parser_update.add_subparsers(dest="subcommand", required=True)
+
+    # "feedstock" subcommand under "update"
+    parser_feedstock = update_subparsers.add_parser("feedstock", help="Update a conda-forge feedstock with the latest version and SHA256 from PyPI.")
+    parser_feedstock.set_defaults(func=update_feedstock)
+
+    args = parser.parse_args()
+    args.func(args)
+
+if __name__ == "__main__":
+    main()
