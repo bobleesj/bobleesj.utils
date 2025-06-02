@@ -61,9 +61,6 @@ def main(config):
     - The user then is prompted to use the pull request template from CLI
     - THe rest is done by the user, including re-rendering the feedstock.
     """
-    config = {
-        "feedstock_path": "/Users/macbook/downloads/dev/feedstocks",
-    }
 
     feedstock_path = config["feedstock_path"]
     feedstocks = [

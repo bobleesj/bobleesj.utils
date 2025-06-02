@@ -13,3 +13,10 @@ def get_github_username():
             "Could not retrieve GitHub username using GitHub CLI. "
             "Please make sure your local machine is authenticated with GitHub."
         )
+
+
+def get_current_branch():
+    result = subprocess.check_output(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"], text=True
+    )
+    return result.strip()
