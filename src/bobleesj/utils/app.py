@@ -18,15 +18,15 @@ BOB_CONFIG_FILE = "~/.bobrc"
 # config_file = Path(os.path.expandvars(config_file)).expanduser()
 # exist_config = config_file.exists()
 config = {
-        "feedstock_path": "/Users/macbook/downloads/dev/feedstocks",
-    }
+    "feedstock_path": "/Users/macbook/downloads/dev/feedstocks",
+}
+
 
 def update_feedstock():
     conda_forge.main(config)
 
 
 def main():
-    
 
     parser = ArgumentParser(
         description="Save time managing software packages."
