@@ -1,7 +1,7 @@
 # import os
 from argparse import ArgumentParser
 
-from bobleesj.utils.cli import conda_forge, news
+from bobleesj.utils.cli import conda_forge, news, test
 
 # from pathlib import Path
 
@@ -18,7 +18,15 @@ config = {
 # FIXME: implement `bob test package`
 
 
-def update_feedstock():
+def test_package(args):
+    test.build_pytest()
+
+
+def test_release(args):
+    test.build_check_release()
+
+
+def update_feedstock(args):
     conda_forge.main(config)
 
 
@@ -36,6 +44,25 @@ def main():
         description="Save time managing software packages."
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
+    # --- Test command ---
+    parser_update = subparsers.add_parser(
+        "test", help="Test the package with a new conda environment."
+    )
+    update_subparsers = parser_update.add_subparsers(
+        dest="subcommand", required=True
+    )
+    parser_test_package = update_subparsers.add_parser(
+        "package",
+        help="Test the single package.",
+    )
+    parser_test_package.set_defaults(func=test_package)
+
+    parser_test_release = update_subparsers.add_parser(
+        "release",
+        help="Test the release condition for the package.",
+    )
+    parser_test_release.set_defaults(func=test_release)
+
     # --- Update Command ---
     parser_update = subparsers.add_parser(
         "update", help="Update repositories and packages."
@@ -50,7 +77,7 @@ def main():
     )
     parser_feedstock.set_defaults(func=update_feedstock)
 
-    # --- Add Command ---
+    # --- Add command ---
     parser_add = subparsers.add_parser("add", help="Add news entries.")
     add_subparsers = parser_add.add_subparsers(
         dest="subcommand", required=True
@@ -81,4 +108,12 @@ def main():
 
 
 if __name__ == "__main__":
+    """
+    Examples:
+    ---------
+    >>> bob test package
+    >>> bob update feedsetock
+    >>> bob add news -a -m "Add awesome news!"
+    >>> bob add no-news -m "A grammatical fix"
+    """
     main()
