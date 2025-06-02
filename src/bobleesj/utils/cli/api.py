@@ -1,17 +1,20 @@
+import requests
+from packaging.version import parse as parse_version
+
 
 def get_PyPI_version_SHA(package_name, count=1):
-    """Fetch the latest stable versions of the package and their SHA256 from PyPI."""
+    """Fetch the latest stable versions of the package and their SHA256."""
     response = requests.get(f"https://pypi.org/pypi/{package_name}/json")
     if response.status_code == 200:
         data = response.json()
-
-        # Filter and sort versions: only stable
         all_versions = [
-            v for v in data["releases"].keys()
+            v
+            for v in data["releases"].keys()
             if not parse_version(v).is_prerelease
         ]
-        sorted_versions = sorted(all_versions, key=parse_version, reverse=True)[:count]
-
+        sorted_versions = sorted(
+            all_versions, key=parse_version, reverse=True
+        )[:count]
         version_info = {}
         for version in sorted_versions:
             files = data["releases"][version]

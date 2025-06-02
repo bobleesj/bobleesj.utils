@@ -1,5 +1,6 @@
 import subprocess
 
+
 def get_github_username():
     """Get the GitHub username using the GitHub CLI."""
     try:
@@ -12,4 +13,3 @@ def get_github_username():
             "Could not retrieve GitHub username using GitHub CLI. "
             "Please make sure your local machine is authenticated with GitHub."
         )
-

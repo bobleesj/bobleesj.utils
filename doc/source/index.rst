@@ -15,7 +15,6 @@ Getting started
 ===============
 
 
-
 - ``Formula`` to sort, filter, order formula(s).
 
 - ``Oliynyk`` to parse Oliynyk elemental property database (https://doi.org/10.1016/j.dib.2024.110178).
