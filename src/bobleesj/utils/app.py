@@ -14,16 +14,20 @@ BOB_CONFIG_FILE = "~/.bobrc"
 # Make a pull request from from bobleesj/<version> to conda-forge/main
 
 
-config_file = os.environ.get("BOB_CONFIG_FILE", BOB_CONFIG_FILE)
-config_file = Path(os.path.expandvars(config_file)).expanduser()
-exist_config = config_file.exists()
-
+# config_file = os.environ.get("BOB_CONFIG_FILE", BOB_CONFIG_FILE)
+# config_file = Path(os.path.expandvars(config_file)).expanduser()
+# exist_config = config_file.exists()
+config = {
+        "feedstock_path": "/Users/macbook/downloads/dev/feedstocks",
+    }
 
 def update_feedstock():
-    conda_forge.main()
+    conda_forge.main(config)
 
 
 def main():
+    
+
     parser = ArgumentParser(
         description="Save time managing software packages."
     )
@@ -40,7 +44,8 @@ def main():
     # "feedstock" subcommand under "update"
     parser_feedstock = update_subparsers.add_parser(
         "feedstock",
-        help="Update a conda-forge feedstock with the latest version and SHA256 from PyPI.",
+        help="Prepare to create a PR to the conda-forge/main with updated "
+        "version and SHA256 in meta.yaml.",
     )
     parser_feedstock.set_defaults(func=update_feedstock)
 

@@ -7,8 +7,7 @@ from bobleesj.utils.cli.shell import run
 
 
 def _update_meta_yaml(meta_file_path, new_version, new_sha256):
-    """Update the meta.yaml file with the new version and SHA256 hash before
-    making a PR to the feedstock repository."""
+    """Update the meta.yaml file with the new version and SHA256."""
     with open(meta_file_path, "r") as file:
         lines = file.readlines()
 
@@ -46,7 +45,8 @@ def _run_gh_shell_command(
     # Run the PR create command in the appropriate directory
     run(pr_command, cwd=cwd)
 
-def main():
+
+def main(config):
     """This script streamlines the process of updating Python package versions
     and their corresponding SHA256 hashes in a meta.yaml file, followed by
     creating a PR in the GitHub feedstock repository.
@@ -54,9 +54,9 @@ def main():
     - The user is prompted to choose a feedstock directory.
     - The system prints the latest versions and SHA256 hashes from PyPI.
     - The user confirms the version to update.
-    - The user's GitHub username is fetched using the GitHub CLI for authentication.
+    - The user's GitHub username is fetched using GitHub CLI.
     - The meta.yaml file is updated with the new version and SHA256.
-    - These changes are committed and pushed to GitHub to <username>/<version> 
+    - These changes are committed and pushed to GitHub to <username>/<version>
     - A PR is created from to conda-forge/main.
     - The user then is prompted to use the pull request template from CLI
     - THe rest is done by the user, including re-rendering the feedstock.
@@ -64,6 +64,7 @@ def main():
     config = {
         "feedstock_path": "/Users/macbook/downloads/dev/feedstocks",
     }
+
     feedstock_path = config["feedstock_path"]
     feedstocks = [
         f
@@ -75,7 +76,7 @@ def main():
     if not feedstocks:
         raise ValueError(
             f"No feedstocks found in {feedstock_path}. "
-            "Please ensure you have cloned the feedstocks and set the correct path."
+            "Please ensure you have cloned feedstocks."
         )
 
     print("Available feedstocks:")
@@ -95,13 +96,13 @@ def main():
                 ),
             }
             print(
-                f"  {i}. {pkg_name}, {pkg_version}, SHA256: {pkg_sha256[:5]}..."
+                f"  {i}. {pkg_name}, {pkg_version}, SHA256: {pkg_sha256[:5]}.."
             )
         except ValueError:
             print(f"  {i}. {pkg_name}, [PyPI: Not Found]")
 
     choice = click.prompt(
-        "Enter the corressponding number of the feedstock you want to update",
+        "Enter the corresponding number of the feedstock you want to update",
         type=click.IntRange(1, len(feedstocks)),
     )
     selected = version_map[choice]
