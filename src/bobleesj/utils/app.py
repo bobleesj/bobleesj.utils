@@ -1,10 +1,12 @@
 # import os
 from argparse import ArgumentParser
-# from pathlib import Path
 
 from bobleesj.utils.cli import conda_forge
 
-#FIXME: Implmement hidden config file for scalability
+# from pathlib import Path
+
+
+# FIXME: Implmement hidden config file for scalability
 BOB_CONFIG_FILE = "~/.bobrc"
 # config_file = os.environ.get("BOB_CONFIG_FILE", BOB_CONFIG_FILE)
 # config_file = Path(os.path.expandvars(config_file)).expanduser()
