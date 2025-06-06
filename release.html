@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release notes &mdash; bobleesj.utils 0.0.2 documentation</title>
+  <title>Release notes &mdash; bobleesj.utils 0.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=d58853b1"></script>
+      <script src="_static/documentation_options.js?v=7cc827d7"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -58,8 +58,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api/bobleesj.utils.html">Package API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.0.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.0.1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -92,7 +93,18 @@
   <section id="release-notes">
 <span id="index-0"></span><h1>Release notes<a class="headerlink" href="#release-notes" title="Link to this heading"></a></h1>
 <section id="id1">
-<h2>0.0.2<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<h2>0.0.3<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><strong>Added:</strong></p>
+<ul class="simple">
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">test</span> <span class="pre">release</span></code> so that the package check whether it can be released to PyPI after running <code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">check</span> <span class="pre">dist/*</span></code>.</p></li>
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">test</span> <span class="pre">package</span></code> to create a new environment to test the package fully.</p></li>
+<li><p>Support a total of 76 elements in the Oliynyk database with N, O, F, Cl, Br, I added.</p></li>
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">update</span> <span class="pre">feedstock</span></code> to prepare a PR to conda-forge feedstock with SHA256 and version updated from PyPI.</p></li>
+<li><p>Streamline news file creation process with <code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">add</span> <span class="pre">news</span> <span class="pre">-flag</span> <span class="pre">-m</span> <span class="pre">&lt;news-message&gt;</span></code> entry point.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.0.2<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p><strong>Added:</strong></p>
 <ul class="simple">
 <li><p>Add installation guide in the documentation.</p></li>
@@ -101,11 +113,11 @@
 <li><p>Implement <code class="docutils literal notranslate"><span class="pre">radius.py</span></code> module to get CIF and Pauling CN radius data for elements.</p></li>
 <li><p>Implement <code class="docutils literal notranslate"><span class="pre">Elements</span></code> enum for retrieving the name of the element given the symbol.</p></li>
 <li><p>Implement sorting of a formula by property, by index, and by defined custom labels.</p></li>
-<li><p>Implement parsing atomic mass, atomic number, element symbol and name with <a href="#id2"><span class="problematic" id="id3">``</span></a>ptable.py`.</p></li>
+<li><p>Implement parsing atomic mass, atomic number, element symbol and name with <code class="docutils literal notranslate"><span class="pre">ptable.py</span></code>.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>0.0.1<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<section id="id3">
+<h2>0.0.1<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p><strong>Added:</strong></p>
 <ul class="simple">
 <li><p>Create a new package with scikit-package.</p></li>
