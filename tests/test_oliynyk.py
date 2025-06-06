@@ -36,7 +36,7 @@ def test_property(property, expected_string):
 
 def test_get_oliynyk_CAF_data(oliynyk):
     # Number of elements in the database
-    assert len(oliynyk.db) == 70
+    assert len(oliynyk.db) == 76
     assert oliynyk.db["Nd"]["atomic_weight"] == 144.242
     assert oliynyk.db["Nd"]["atomic_number"] == 60
 
@@ -48,12 +48,16 @@ def test_list_supported_elements(oliynyk):
         "Be",
         "B",
         "C",
+        "N",
+        "O",
+        "F",
         "Na",
         "Mg",
         "Al",
         "Si",
         "P",
         "S",
+        "Cl",
         "K",
         "Ca",
         "Sc",
@@ -70,6 +74,7 @@ def test_list_supported_elements(oliynyk):
         "Ge",
         "As",
         "Se",
+        "Br",
         "Rb",
         "Sr",
         "Y",
@@ -85,6 +90,7 @@ def test_list_supported_elements(oliynyk):
         "Sn",
         "Sb",
         "Te",
+        "I",
         "Cs",
         "Ba",
         "La",
@@ -125,12 +131,16 @@ def test_get_property_data(oliynyk):
         "Be": 9.01218,
         "B": 10.811,
         "C": 12.011,
+        "N": 14.00674,
+        "O": 15.9994,
+        "F": 18.998403,
         "Na": 22.989768,
         "Mg": 24.305,
         "Al": 26.981539,
         "Si": 28.0855,
         "P": 30.973762,
         "S": 32.066,
+        "Cl": 35.4527,
         "K": 39.0983,
         "Ca": 40.078,
         "Sc": 44.95591,
@@ -147,6 +157,7 @@ def test_get_property_data(oliynyk):
         "Ge": 72.63,
         "As": 74.92159,
         "Se": 78.971,
+        "Br": 79.904,
         "Rb": 85.4678,
         "Sr": 87.62,
         "Y": 88.90584,
@@ -162,6 +173,7 @@ def test_get_property_data(oliynyk):
         "Sn": 118.71,
         "Sb": 121.76,
         "Te": 127.6,
+        "I": 126.90447,
         "Cs": 132.90543,
         "Ba": 137.327,
         "La": 138.9055,
@@ -233,14 +245,14 @@ def test_is_formula_supported(formula, expected, oliynyk):
             ["FeH", "HgH"],
         ),
         (
-            ["SiGe", "UTh", "HGe"],
+            ["SiGe", "UTh", "HGe", "PmO"],
             ["SiGe", "UTh"],
-            ["HGe"],
+            ["HGe", "PmO"],
         ),
         (
             ["LiFePO4", "FeH", "NdSi2"],
-            ["NdSi2"],
-            ["LiFePO4", "FeH"],
+            ["LiFePO4", "NdSi2"],
+            ["FeH"],
         ),
         (
             ["Li", "Be", "B", "C"],
