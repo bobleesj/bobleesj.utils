@@ -4,6 +4,18 @@ Release notes
 
 .. current developments
 
+0.0.3
+=====
+
+**Added:**
+
+* Implement ``bob test release`` so that the package check whether it can be released to PyPI after running ``twine check dist/*``.
+* Implement ``bob test package`` to create a new environment to test the package fully.
+* Support a total of 76 elements in the Oliynyk database with N, O, F, Cl, Br, I added.
+* Implement ``bob update feedstock`` to prepare a PR to conda-forge feedstock with SHA256 and version updated from PyPI.
+* Streamline news file creation process with ``bob add news -flag -m <news-message>`` entry point.
+
+
 0.0.2
 =====
 
