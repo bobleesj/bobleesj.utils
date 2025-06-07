@@ -1,5 +1,6 @@
 from bobleesj.utils.sources import mendeleev
 
+
 def test_mendeleev():
     assert len(mendeleev.numbers) == 85
     # Check that all elements have unique atomic numbers
