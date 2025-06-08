@@ -1,10 +1,10 @@
-import os
 import glob
+import os
 
 
 def get_file_paths(dir_path: str, ext=".cif") -> list[str]:
-    """
-    Return a list of file paths with a given extension in the specified directory.
+    """Return a list of file paths with a given extension in the specified
+    directory.
 
     Parameters
     ----------
@@ -27,8 +27,8 @@ def get_file_paths(dir_path: str, ext=".cif") -> list[str]:
 
 
 def contains_file_type(dir_path: str, ext=".cif") -> bool:
-    """
-    Check if the specified directory contains at least one file with the given extension.
+    """Check if the specified directory contains at least one file with the
+    given extension.
 
     Parameters
     ----------
@@ -40,8 +40,8 @@ def contains_file_type(dir_path: str, ext=".cif") -> bool:
     Returns
     -------
     bool
-        True if at least one file with the given extension exists in the directory,
-        False otherwise.
+        True if at least one file with the given extension exists
+        in the directory, False otherwise.
 
     Examples
     --------

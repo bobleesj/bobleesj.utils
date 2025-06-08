@@ -1,6 +1,6 @@
 import os
-import pytest
-from bobleesj.utils.io.folder import get_file_paths, contains_file_type
+
+from bobleesj.utils.io.folder import contains_file_type, get_file_paths
 
 
 def test_get_file_paths_with_matching_files(tmp_path):
@@ -26,12 +26,14 @@ def test_get_file_paths_with_no_matches(tmp_path):
 
 def test_contains_file_type_with_no_matches(tmp_path):
     (tmp_path / "test.txt").write_text("text")
-    assert contains_file_type(str(tmp_path), ext=".cif") == False
+    assert contains_file_type(str(tmp_path), ext=".cif") is False
 
-def test_contains_file_type_with_no_matches(tmp_path):
+
+def test_contains_file_type_with_match(tmp_path):
     (tmp_path / "test.cif").write_text("text")
-    assert contains_file_type(str(tmp_path), ext=".cif") == True
+    assert contains_file_type(str(tmp_path), ext=".cif") is True
+
 
 def test_contains_file_type_ignores_dirs(tmp_path):
     os.mkdir(tmp_path / "test.cif")
-    assert contains_file_type(str(tmp_path), ext=".cif") == False
+    assert contains_file_type(str(tmp_path), ext=".cif") is False
