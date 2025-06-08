@@ -1,16 +1,22 @@
 from argparse import ArgumentParser
-from bobleesj.utils.cli import test, delete
+
+from bobleesj.utils.cli import delete, test
 
 
 def setup_test_subcommands(subparsers):
     test_parser = subparsers.add_parser(
         "test", help="Test the package with a new conda environment."
     )
-    test_subparsers = test_parser.add_subparsers(dest="subcommand", required=True)
+    test_subparsers = test_parser.add_subparsers(
+        dest="subcommand", required=True
+    )
 
     test_commands = {
         "package": ("Test the single package.", test.build_pytest),
-        "release": ("Test the release condition for the package.", test.build_check_release),
+        "release": (
+            "Test the release condition for the package.",
+            test.build_check_release,
+        ),
     }
 
     for name, (help_text, handler) in test_commands.items():
@@ -22,10 +28,15 @@ def setup_delete_subcommands(subparsers):
     delete_parser = subparsers.add_parser(
         "delete", help="Operations for deleting files, branches, etc."
     )
-    delete_subparsers = delete_parser.add_subparsers(dest="subcommand", required=True)
+    delete_subparsers = delete_parser.add_subparsers(
+        dest="subcommand", required=True
+    )
 
     delete_commands = {
-        "local-branches": ("Delete all local branches.", delete.all_local_branches),
+        "local-branches": (
+            "Delete all local branches.",
+            delete.all_local_branches,
+        ),
     }
 
     for name, (help_text, handler) in delete_commands.items():
@@ -34,7 +45,9 @@ def setup_delete_subcommands(subparsers):
 
 
 def main():
-    parser = ArgumentParser(description="Save time managing software packages.")
+    parser = ArgumentParser(
+        description="Save time managing software packages."
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     setup_test_subcommands(subparsers)
@@ -42,7 +55,7 @@ def main():
 
     args = parser.parse_args()
 
-    if hasattr(args, 'func'):
+    if hasattr(args, "func"):
         args.func(args)
     else:
         parser.print_help()
