@@ -2,7 +2,7 @@ import os
 import subprocess
 
 
-def build_check_release(env_name="release-env"):
+def build_check_release(args, env_name="release-env"):
     print("📦 Starting isolated build and check process...")
     print(f"🧪 Creating a new environment: {env_name}")
 
@@ -29,7 +29,7 @@ def build_check_release(env_name="release-env"):
         print(e)
 
 
-def build_pytest():
+def build_pytest(args):
     """In a Python subprocess, you start with a blank shell so there is no
     e.g., .bashrc available. The environment name is derived from the current
     working directory.
