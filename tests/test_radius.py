@@ -1,9 +1,9 @@
 import pytest
 
 from bobleesj.utils.sources.radius import (
+    are_available,
     data,
     is_available,
-    are_available,
     supported_elements,
     value,
 )
@@ -33,10 +33,12 @@ def test_is_available():
     assert is_available("Fe") is True
     assert is_available("UnknownElement") is False
 
+
 def test_are_available():
     """Test the are_available function."""
     assert are_available(["Fe", "O", "N"]) is True
     assert are_available(["Fe", "UnknownElement"]) is False
+
 
 def test_get_radius():
     """Test the get_radius function."""
