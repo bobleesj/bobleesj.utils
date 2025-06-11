@@ -20,7 +20,7 @@ Manage GitHub repositories
 #. Create many GitHub issues for all packages in the folder specified in ``~/.bobrc``:
 
     .. code-block:: bash
-    
+
         $ bob create issues
 
 #. Delete all local branches except ``main``:
@@ -39,7 +39,7 @@ Manage packages locally
         $ bob test package
 
     .. note::
-        
+
         It runs the following command internally:
 
         .. code-block:: bash
@@ -61,7 +61,7 @@ Manage packages locally
         $ bob test release
 
     .. note::
-        
+
         It runs the following command internally:
 
         .. code-block:: bash
@@ -78,4 +78,4 @@ Manage packages locally
 
 
 
- 
+
