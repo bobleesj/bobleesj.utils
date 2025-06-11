@@ -75,7 +75,3 @@ Manage packages locally
             pip install build twine && \\
             pip install . --no-deps && \\
             python -m build && twine check dist/*
-
-
-
-
