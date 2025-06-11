@@ -14,7 +14,6 @@
 Getting started
 ===============
 
-
 - ``Formula`` to sort, filter, order formula(s).
 
 - ``Oliynyk`` to parse Oliynyk elemental property database (https://doi.org/10.1016/j.dib.2024.110178).
@@ -24,7 +23,6 @@ Getting started
 - ``Element`` to prevent typos in writing element symbols and names.
 
 - ``ptable`` to parse the atomic number, atomic mass, element, and the name.
-
 
 ============
 Installation
@@ -65,6 +63,13 @@ Acknowledgements
    notebooks/radius
    notebooks/Element
    notebooks/ptable
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: COMMANDS
+
+   cli
 
 .. toctree::
    :maxdepth: 2
