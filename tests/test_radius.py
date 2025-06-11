@@ -1,6 +1,7 @@
 import pytest
 
 from bobleesj.utils.sources.radius import (
+    are_available,
     data,
     is_available,
     supported_elements,
@@ -25,6 +26,18 @@ def test_get_radius_data():
         assert isinstance(radius_data[element], dict)
         assert "CIF" in radius_data[element]
         assert "Pauling_CN12" in radius_data[element]
+
+
+def test_is_available():
+    """Test the is_available function."""
+    assert is_available("Fe") is True
+    assert is_available("UnknownElement") is False
+
+
+def test_are_available():
+    """Test the are_available function."""
+    assert are_available(["Fe", "O", "N"]) is True
+    assert are_available(["Fe", "UnknownElement"]) is False
 
 
 def test_get_radius():

@@ -136,6 +136,29 @@ def supported_elements() -> list[str]:
     return list(data().keys())
 
 
+def are_available(elements: list[str]) -> bool:
+    """Check if all elements in the list are supported.
+
+    Parameters
+    ----------
+    elements : list[str]
+        A list of chemical symbols of elements.
+
+    Returns
+    -------
+    bool
+        True if all elements are supported, False otherwise.
+
+    Examples
+    --------
+    >>> are_all_available(["Fe", "O", "N"])
+    True
+    >>> are_all_available(["Fe", "UnknownElement"])
+    False
+    """
+    return all(is_available(element) for element in elements)
+
+
 def is_available(element: str) -> bool:
     """Check if an element is supported.
 
