@@ -7,6 +7,10 @@ Release notes
 0.0.4
 =====
 
+
+0.0.4
+=====
+
 **Added:**
 
 * Implement functions to retrieve files with the specified file type and whether the folder contains the file extension.
