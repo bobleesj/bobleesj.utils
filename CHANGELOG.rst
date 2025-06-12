@@ -4,6 +4,19 @@ Release notes
 
 .. current developments
 
+0.0.4
+=====
+
+**Added:**
+
+* Implement functions to retrieve files with the specified file type and whether the folder contains the file extension.
+* Add whether a list of elements are available for CIF/Pauling Radius.
+* Implement bob create issues to generate issues across many repositories.
+* Add bob <verb> <noun> CLI tutorials in the documentation.
+* Implement bob delete local-branches to delete all branches except main.
+* Add mendeleeve numbers under the sources module.
+
+
 0.0.3
 =====
 
