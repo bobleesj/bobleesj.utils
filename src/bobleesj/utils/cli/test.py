@@ -5,7 +5,6 @@ import subprocess
 def build_check_release(args, env_name="release-env"):
     print("📦 Starting isolated build and check process...")
     print(f"🧪 Creating a new environment: {env_name}")
-
     command = f"""
     mamba create -n {env_name} python=3.13 \\
         --file requirements/test.txt \\
@@ -17,7 +16,6 @@ def build_check_release(args, env_name="release-env"):
     pip install . --no-deps && \\
     python -m build && twine check dist/*
     """
-
     try:
         subprocess.run(command, shell=True, executable="/bin/bash", check=True)
         print(
@@ -42,10 +40,8 @@ def build_pytest(args):
     """
     package_name = os.path.basename(os.getcwd())
     env_name = f"{package_name}-env"
-
     print(f"🧪 Testing package: {package_name}")
     print(f"📦 Creating and using env: {env_name}")
-
     command = f"""
     mamba create -n {env_name} python=3.13 \\
         --file requirements/test.txt \\

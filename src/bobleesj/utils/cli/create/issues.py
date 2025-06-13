@@ -27,7 +27,7 @@ def create_issue(repo_path, title, body):
         print("❌ Failed to create issue.")
 
 
-def issues(args):
+def create(args):
     root_dir = config.value("~/.bobrc", "dev_dir_path")
     if not root_dir or not Path(root_dir).is_dir():
         print(f"Error: '{root_dir}' is not a valid directory.")
