@@ -1,9 +1,17 @@
 from argparse import ArgumentParser
 
-from bobleesj.utils.cli import create, delete, test
+from bobleesj.utils.cli import test
+from bobleesj.utils.cli.create import gif, issues
+from bobleesj.utils.cli.delete import branch
 
 
 def setup_test_subcommands(subparsers):
+    """
+    Examples
+    --------
+    >>> bob test package
+    >>> bob test release
+    """
     test_parser = subparsers.add_parser(
         "test", help="Test the package with a new conda environment."
     )
@@ -23,6 +31,12 @@ def setup_test_subcommands(subparsers):
 
 
 def setup_create_subcommands(subparsers):
+    """
+    Examples
+    --------
+    >>> bob create issues
+    >>> bob create gif -p <path-to-the-video-file>
+    """
     create_parser = subparsers.add_parser(
         "create", help="Create new issues, PRs, etc."
     )
@@ -30,14 +44,24 @@ def setup_create_subcommands(subparsers):
         dest="subcommand", required=True
     )
     create_commands = {
-        "issues": ("Create issues.", create.issues),
+        "issues": ("Create issues.", issues.create),
+        "gif": ("Create a GIF from a video file.", gif.create),
     }
     for name, (help_text, handler) in create_commands.items():
         subparser = create_subparsers.add_parser(name, help=help_text)
+        if name == "gif":
+            subparser.add_argument(
+                "-p", "--path", required=True, help="Path to the video file"
+            )
         subparser.set_defaults(func=handler)
 
 
 def setup_delete_subcommands(subparsers):
+    """
+    Examples
+    --------
+    >>> bob delete local-branches
+    """
     delete_parser = subparsers.add_parser(
         "delete", help="Operations for deleting files, branches, etc."
     )
@@ -47,7 +71,7 @@ def setup_delete_subcommands(subparsers):
     delete_commands = {
         "local-branches": (
             "Delete all local branches.",
-            delete.all_local_branches,
+            branch.delete_local,
         ),
     }
     for name, (help_text, handler) in delete_commands.items():
@@ -79,6 +103,7 @@ if __name__ == "__main__":
     ---------
     >>> bob test package
     >>> bob test release
+    >>> bob create issues
     >>> bob delete local-branches
 
     Not implemented:
