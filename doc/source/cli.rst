@@ -65,14 +65,14 @@ Create a new conda environment, install the dependencies from conda-forge, insta
         pytest && pre-commit run --all-files
 
 
-.. seealso:: 
+.. seealso::
 
     Do you have trouble running ``mamba``? Here is how you can download and install ``mamba`` if you don't have it installed yet. This version is for macOS:
 
     .. code-block:: bash
 
         $ rm -rf /Users/<macbook-username>/miniconda3
-        $ rm -rf /Users/<macbook-username>/miniforge3 
+        $ rm -rf /Users/<macbook-username>/miniforge3
         $ curl -L -O "[https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$)(uname -m).sh"
         $ bash Miniforge3-$(uname)-$(uname -m).sh
         $ mamba shell init
@@ -99,6 +99,3 @@ Test whether the package can be uploaded to PyPI before releasing it:
         pip install build twine && \\
         pip install . --no-deps && \\
         python -m build && twine check dist/*
-
-
-
