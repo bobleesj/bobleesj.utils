@@ -5,9 +5,7 @@ from moviepy import VideoFileClip
 
 def create(args):
     if not args.path:
-        print(
-            "No path provided. Use -p or --path to specify the file path."
-        )
+        print("No path provided. Use -p or --path to specify the file path.")
         return
     video_path = args.path
     if not os.path.isfile(video_path):
