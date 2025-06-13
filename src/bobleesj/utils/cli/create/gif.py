@@ -1,5 +1,5 @@
 import os
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 def create(args):
     if not args.path:
@@ -14,7 +14,7 @@ def create(args):
         base, _ = os.path.splitext(video_path)
         gif_path = base + ".gif"
         print(f"Converting video to GIF at: {gif_path}")
-        clip.write_gif(gif_path, fps=5)  # You can adjust fps or duration as needed
+        clip.write_gif(gif_path, fps=5)
         print("GIF created successfully!")
     except Exception as e:
         print(f"Failed to convert video to GIF: {e}")
