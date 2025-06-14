@@ -18,3 +18,4 @@ bobleesj.utils.cli.delete.branch module
     :members:
     :undoc-members:
     :show-inheritance:
+

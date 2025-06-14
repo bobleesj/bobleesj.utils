@@ -28,7 +28,6 @@ bobleesj.utils.cli.auth module
     :undoc-members:
     :show-inheritance:
 
-
 bobleesj.utils.cli.shell module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -36,7 +35,6 @@ bobleesj.utils.cli.shell module
     :members:
     :undoc-members:
     :show-inheritance:
-
 
 bobleesj.utils.cli.test module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -46,7 +44,6 @@ bobleesj.utils.cli.test module
     :undoc-members:
     :show-inheritance:
 
-
 bobleesj.utils.cli.api module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -54,3 +51,4 @@ bobleesj.utils.cli.api module
     :members:
     :undoc-members:
     :show-inheritance:
+

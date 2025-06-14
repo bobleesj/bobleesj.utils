@@ -31,7 +31,6 @@ bobleesj.utils.numbers module
     :undoc-members:
     :show-inheritance:
 
-
 bobleesj.utils.app module
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -39,3 +38,4 @@ bobleesj.utils.app module
     :members:
     :undoc-members:
     :show-inheritance:
+

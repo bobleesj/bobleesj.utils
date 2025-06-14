@@ -19,7 +19,6 @@ bobleesj.utils.io.config module
     :undoc-members:
     :show-inheritance:
 
-
 bobleesj.utils.io.folder module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -27,3 +26,4 @@ bobleesj.utils.io.folder module
     :members:
     :undoc-members:
     :show-inheritance:
+
