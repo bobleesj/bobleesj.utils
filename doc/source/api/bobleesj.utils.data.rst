@@ -19,8 +19,8 @@ Subpackages
 Submodules
 ----------
 
-bobleesj.utils.data.elements module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bobleesj.utils.data.element module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: bobleesj.utils.data.element
     :members:
