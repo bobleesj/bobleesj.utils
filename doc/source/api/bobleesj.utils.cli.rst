@@ -51,4 +51,3 @@ bobleesj.utils.cli.api module
     :members:
     :undoc-members:
     :show-inheritance:
-

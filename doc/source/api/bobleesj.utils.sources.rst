@@ -42,4 +42,3 @@ bobleesj.utils.sources.ptable module
     :members:
     :undoc-members:
     :show-inheritance:
-

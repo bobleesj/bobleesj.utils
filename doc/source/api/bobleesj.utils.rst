@@ -38,4 +38,3 @@ bobleesj.utils.app module
     :members:
     :undoc-members:
     :show-inheritance:
-

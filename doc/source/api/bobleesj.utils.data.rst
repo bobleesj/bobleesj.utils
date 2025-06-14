@@ -26,4 +26,3 @@ bobleesj.utils.data.element module
     :members:
     :undoc-members:
     :show-inheritance:
-

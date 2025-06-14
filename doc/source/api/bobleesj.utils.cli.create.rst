@@ -26,4 +26,3 @@ bobleesj.utils.cli.create.gif module
     :members:
     :undoc-members:
     :show-inheritance:
-
