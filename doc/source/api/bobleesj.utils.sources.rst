@@ -18,3 +18,30 @@ bobleesj.utils.sources.oliynyk module
     :members:
     :undoc-members:
     :show-inheritance:
+
+
+bobleesj.utils.sources.mendeleev module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: bobleesj.utils.sources.mendeleev
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+bobleesj.utils.sources.radius module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: bobleesj.utils.sources.radius
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+bobleesj.utils.sources.ptable module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: bobleesj.utils.sources.ptable
+    :members:
+    :undoc-members:
+    :show-inheritance:
