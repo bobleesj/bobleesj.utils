@@ -28,9 +28,9 @@ def build_check_release(args, env_name="release-env"):
 
 
 def build_pytest(args):
-    """In a Python subprocess, you start with a blank shell so there is no
-    e.g., .bashrc available. The environment name is derived from the current
-    working directory.
+    """In a Python subprocess, you start with a blank shell so there is
+    no e.g., .bashrc available. The environment name is derived from the
+    current working directory.
 
     - Create a new Python environment with mamba with Python 3.13
     - Install all requirements
