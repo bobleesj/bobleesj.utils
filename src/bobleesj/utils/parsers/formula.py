@@ -4,8 +4,8 @@ from bobleesj.utils.data.element import Element as E
 
 
 class Formula:
-    """A class to parse and manipulate chemical formulas. This class provides
-    methods to sort, filter, and analyze chemical.
+    """A class to parse and manipulate chemical formulas. This class
+    provides methods to sort, filter, and analyze chemical.
 
     Examples
     --------
@@ -135,8 +135,8 @@ class Formula:
 
     @staticmethod
     def get_element_count(formulas: list[str]) -> dict[str, int]:
-        """Get the count of each element in a list of formulas. Do not consider
-        the stoichiometric value.
+        """Get the count of each element in a list of formulas. Do not
+        consider the stoichiometric value.
 
         Examples
         --------
@@ -248,8 +248,8 @@ class Formula:
     def filter_by_elements_matching(
         formulas: list[str], elements: list[str]
     ) -> list[str]:
-        """Filter formulas by a list of elements but the specified elements
-        should be only contained.
+        """Filter formulas by a list of elements but the specified
+        elements should be only contained.
 
         Examples
         --------
@@ -285,8 +285,8 @@ class Formula:
 
     @staticmethod
     def count_by_formula(formulas: list[str], formula_to_count: str) -> int:
-        """Count the number of occurrences of a specific formula in a list of
-        formulas.
+        """Count the number of occurrences of a specific formula in a
+        list of formulas.
 
         Examples
         --------
@@ -298,8 +298,8 @@ class Formula:
 
     @staticmethod
     def _convert_custom_labels_to_order_map(custom_labels: dict) -> dict:
-        """Convert a nested custom_labels dictionary into an element order
-        mapping.
+        """Convert a nested custom_labels dictionary into an element
+        order mapping.
 
         This function is used for the sorting of elements in the sort formula
         as a part of the sorted function above.
@@ -459,8 +459,8 @@ class Formula:
     def sort_by_custom_label(
         self, custom_labels: dict[int : dict[str : list[str]]], normalize=False
     ) -> str:
-        """Sort elements in a chemical formula using a precomputed element
-        order map.
+        """Sort elements in a chemical formula using a precomputed
+        element order map.
 
         Parameters
         ----------
@@ -519,8 +519,8 @@ class Formula:
         ascending=True,
         normalize=False,
     ) -> str:
-        """Sort the elements in a chemical formula based on a specified CAF
-        property.
+        """Sort the elements in a chemical formula based on a specified
+        CAF property.
 
         Parameters
         ----------

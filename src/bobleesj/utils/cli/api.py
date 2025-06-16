@@ -3,7 +3,8 @@ from packaging.version import parse as parse_version
 
 
 def get_PyPI_version_SHA(package_name, count=1):
-    """Fetch the latest stable versions of the package and their SHA256."""
+    """Fetch the latest stable versions of the package and their
+    SHA256."""
     response = requests.get(f"https://pypi.org/pypi/{package_name}/json")
     if response.status_code == 200:
         data = response.json()

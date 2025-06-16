@@ -49,8 +49,8 @@ class Property(str, Enum):
 
     @classmethod
     def select(cls):
-        """Prompt the user to select an elemental property from the available
-        options. Returns the selected property.
+        """Prompt the user to select an elemental property from the
+        available options. Returns the selected property.
 
         Examples
         --------
@@ -82,8 +82,9 @@ class Oliynyk:
         self.elements = self.list_supported_elements()
 
     def get_oliynyk_CAF_data(self) -> dict[str, dict[str, float]]:
-        """Load the Oliynyk elemental property data from an Excel file. The
-        data is stored in a dictionary format with element symbols as keys.
+        """Load the Oliynyk elemental property data from an Excel file.
+        The data is stored in a dictionary format with element symbols
+        as keys.
 
         Examples
         --------
@@ -126,7 +127,8 @@ class Oliynyk:
     def get_supported_formulas(
         self, formulas: list[str]
     ) -> tuple[list[str], list[str]]:
-        """Filter formulas to only include those with supported elements.
+        """Filter formulas to only include those with supported
+        elements.
 
         Examples
         --------
