@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils.sources.oliynyk &mdash; bobleesj.utils 0.0.4 documentation</title>
+  <title>bobleesj.utils.sources.oliynyk &mdash; bobleesj.utils 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -13,7 +13,7 @@
   
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=94eb6667"></script>
+      <script src="../../../../_static/documentation_options.js?v=f539c95a"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -145,8 +145,8 @@
 <a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Property.select">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Prompt the user to select an elemental property from the available</span>
-<span class="sd">        options. Returns the selected property.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Prompt the user to select an elemental property from the</span>
+<span class="sd">        available options. Returns the selected property.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -184,8 +184,9 @@
 <div class="viewcode-block" id="Oliynyk.get_oliynyk_CAF_data">
 <a class="viewcode-back" href="../../../../api/bobleesj.utils.sources.html#bobleesj.utils.sources.oliynyk.Oliynyk.get_oliynyk_CAF_data">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_oliynyk_CAF_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load the Oliynyk elemental property data from an Excel file. The</span>
-<span class="sd">        data is stored in a dictionary format with element symbols as keys.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load the Oliynyk elemental property data from an Excel file.</span>
+<span class="sd">        The data is stored in a dictionary format with element symbols</span>
+<span class="sd">        as keys.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -234,7 +235,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_supported_formulas</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">formulas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Filter formulas to only include those with supported elements.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Filter formulas to only include those with supported</span>
+<span class="sd">        elements.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>

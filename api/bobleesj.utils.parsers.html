@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils.parsers package &mdash; bobleesj.utils 0.0.4 documentation</title>
+  <title>bobleesj.utils.parsers package &mdash; bobleesj.utils 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=94eb6667"></script>
+      <script src="../_static/documentation_options.js?v=f539c95a"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bobleesj.utils.sources package" href="bobleesj.utils.sources.html" />
+    <link rel="next" title="bobleesj.utils.io package" href="bobleesj.utils.io.html" />
     <link rel="prev" title="bobleesj.utils package" href="bobleesj.utils.html" /> 
 </head>
 
@@ -66,6 +66,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.io.html">bobleesj.utils.io package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.cli.html">bobleesj.utils.cli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.sorters.html">bobleesj.utils.sorters package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.sources.html">bobleesj.utils.sources package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.data.html">bobleesj.utils.data package</a></li>
 </ul>
@@ -112,8 +115,8 @@
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bobleesj.utils.parsers.formula.</span></span><span class="sig-name descname"><span class="pre">Formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class to parse and manipulate chemical formulas. This class provides
-methods to sort, filter, and analyze chemical.</p>
+<p>A class to parse and manipulate chemical formulas. This class
+provides methods to sort, filter, and analyze chemical.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">formula</span> <span class="o">=</span> <span class="n">Formula</span><span class="p">(</span><span class="s2">&quot;NdSi2&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">formula</span><span class="o">.</span><span class="n">parsed_formula</span>
@@ -168,8 +171,8 @@ converted to 1 (int), it will be removed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.count_by_formula">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count_by_formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formulas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formula_to_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.count_by_formula"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.count_by_formula" title="Link to this definition"></a></dt>
-<dd><p>Count the number of occurrences of a specific formula in a list of
-formulas.</p>
+<dd><p>Count the number of occurrences of a specific formula in a
+list of formulas.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">formulas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NdSi2&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2Th2&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2Th2&quot;</span><span class="p">,</span> <span class="s2">&quot;ThOs&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Formula</span><span class="o">.</span><span class="n">count_by_formula</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="s2">&quot;NdSi2&quot;</span><span class="p">)</span>
@@ -267,8 +270,8 @@ formulas.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.filter_by_elements_matching">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter_by_elements_matching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formulas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.filter_by_elements_matching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.filter_by_elements_matching" title="Link to this definition"></a></dt>
-<dd><p>Filter formulas by a list of elements but the specified elements
-should be only contained.</p>
+<dd><p>Filter formulas by a list of elements but the specified
+elements should be only contained.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">formulas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NdSi2&quot;</span><span class="p">,</span> <span class="s2">&quot;ThOs&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2Th2&quot;</span><span class="p">,</span> <span class="s2">&quot;YNdThSi2&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Nd&quot;</span><span class="p">,</span> <span class="s2">&quot;Si&quot;</span><span class="p">]</span>
@@ -293,8 +296,8 @@ should be only contained.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.get_element_count">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_element_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formulas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.get_element_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.get_element_count" title="Link to this definition"></a></dt>
-<dd><p>Get the count of each element in a list of formulas. Do not consider
-the stoichiometric value.</p>
+<dd><p>Get the count of each element in a list of formulas. Do not
+consider the stoichiometric value.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">formulas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NdSi2&quot;</span><span class="p">,</span> <span class="s2">&quot;ThOs&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2Th2&quot;</span><span class="p">,</span> <span class="s2">&quot;YNdThSi2&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Formula</span><span class="o">.</span><span class="n">get_element_count</span><span class="p">(</span><span class="n">formulas</span><span class="p">)</span>
@@ -408,8 +411,8 @@ the stoichiometric value.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.sort_by_custom_label">
 <span class="sig-name descname"><span class="pre">sort_by_custom_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">custom_labels:</span> <span class="pre">dict[slice(&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">dict[slice(&lt;class</span> <span class="pre">'str'&gt;,</span> <span class="pre">list[str],</span> <span class="pre">None)],</span> <span class="pre">None)],</span> <span class="pre">normalize=False</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.sort_by_custom_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.sort_by_custom_label" title="Link to this definition"></a></dt>
-<dd><p>Sort elements in a chemical formula using a precomputed element
-order map.</p>
+<dd><p>Sort elements in a chemical formula using a precomputed
+element order map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -454,8 +457,8 @@ order map.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.parsers.formula.Formula.sort_by_elemental_property">
 <span class="sig-name descname"><span class="pre">sort_by_elemental_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/parsers/formula.html#Formula.sort_by_elemental_property"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.parsers.formula.Formula.sort_by_elemental_property" title="Link to this definition"></a></dt>
-<dd><p>Sort the elements in a chemical formula based on a specified CAF
-property.</p>
+<dd><p>Sort the elements in a chemical formula based on a specified
+CAF property.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -530,7 +533,7 @@ property.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="bobleesj.utils.html" class="btn btn-neutral float-left" title="bobleesj.utils package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bobleesj.utils.sources.html" class="btn btn-neutral float-right" title="bobleesj.utils.sources package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bobleesj.utils.io.html" class="btn btn-neutral float-right" title="bobleesj.utils.io package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

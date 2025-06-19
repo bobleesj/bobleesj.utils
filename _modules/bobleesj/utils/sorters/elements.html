@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bobleesj.utils.sorters.elements &mdash; bobleesj.utils 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/radius.html">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/ptable.html">Periodic table</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">COMMANDS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cli.html"><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">&lt;verb&gt;</span> <span class="pre">&lt;noun&gt;</span></code> commands</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/bobleesj.utils.html">Package API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">bobleesj.utils.sorters.elements</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for bobleesj.utils.sorters.elements</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.sources</span><span class="w"> </span><span class="kn">import</span> <span class="n">mendeleev</span>
+
+
+<div class="viewcode-block" id="Elements">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sorters.html#bobleesj.utils.sorters.elements.Elements">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Elements</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sort chemical elements by custom labels, Mendeleev numbers, or</span>
+<span class="sd">    alphabetically.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    label_mapping : dict, optional</span>
+<span class="sd">        The custom label mapping for sorting elements.</span>
+<span class="sd">    excel_path : str, optional</span>
+<span class="sd">        The path to Excel file with custom labels.</span>
+<span class="sd">        It overrides `label_mapping` if provided.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; element_sorter = Elements(excel_path=&quot;labels.xlsx&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; element_sorter.sort([&quot;Fe&quot;, &quot;Si&quot;], method=&quot;custom&quot;)</span>
+<span class="sd">    (&#39;Fe&#39;, &#39;Si&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; custom_labels = {</span>
+<span class="sd">    ...     2: {&quot;A&quot;: [&quot;Fe&quot;, &quot;Co&quot;], &quot;B&quot;: [&quot;Si&quot;, &quot;Ga&quot;]},</span>
+<span class="sd">    ...     3: {&quot;R&quot;: [&quot;Sc&quot;, &quot;Y&quot;], &quot;M&quot;: [&quot;Fe&quot;, &quot;Co&quot;],</span>
+<span class="sd">                &quot;X&quot;: [&quot;Si&quot;, &quot;Ga&quot;]},</span>
+<span class="sd">    ...     4: {&quot;A&quot;: [&quot;Sc&quot;, &quot;Y&quot;], &quot;B&quot;: [&quot;Fe&quot;, &quot;Co&quot;],</span>
+<span class="sd">                &quot;C&quot;: [&quot;Si&quot;, &quot;Ga&quot;], &quot;D&quot;: [&quot;Gd&quot;, &quot;Tb&quot;, &quot;Dy&quot;]},</span>
+<span class="sd">    ... }</span>
+<span class="sd">    &gt;&gt;&gt; element_sorter = Elements(label_mapping=custom_labels)</span>
+<span class="sd">    &gt;&gt;&gt; element_sorter.sort([&quot;Sc&quot;, &quot;Fe&quot;, &quot;Si&quot;], method=&quot;custom&quot;)</span>
+<span class="sd">    (&#39;Sc&#39;, &#39;Fe&#39;, &#39;Si&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; element_sorter.sort([&quot;O&quot;, &quot;Fe&quot;], method=&quot;mendeleev&quot;)</span>
+<span class="sd">    (&#39;O&#39;, &#39;Fe&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label_mapping</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">excel_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">label_mapping</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">label_mapping</span> <span class="o">=</span> <span class="n">label_mapping</span>
+        <span class="k">elif</span> <span class="n">excel_path</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">label_mapping</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_labels_from_excel</span><span class="p">(</span><span class="n">excel_path</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_labels_from_excel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">excel_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">sheet_map</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Binary&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Element_A&quot;</span><span class="p">,</span> <span class="s2">&quot;Element_B&quot;</span><span class="p">]),</span>
+            <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Ternary&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Element_R&quot;</span><span class="p">,</span> <span class="s2">&quot;Element_M&quot;</span><span class="p">,</span> <span class="s2">&quot;Element_X&quot;</span><span class="p">]),</span>
+            <span class="mi">4</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;Quaternary&quot;</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">&quot;Element_A&quot;</span><span class="p">,</span> <span class="s2">&quot;Element_B&quot;</span><span class="p">,</span> <span class="s2">&quot;Element_C&quot;</span><span class="p">,</span> <span class="s2">&quot;Element_D&quot;</span><span class="p">],</span>
+            <span class="p">),</span>
+        <span class="p">}</span>
+        <span class="n">label_keys_map</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span>
+            <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span>
+            <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">],</span>
+        <span class="p">}</span>
+
+        <span class="n">custom_labels</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">num_elements</span><span class="p">,</span> <span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span> <span class="ow">in</span> <span class="n">sheet_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">excel_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;openpyxl&quot;</span><span class="p">)</span>
+            <span class="n">element_lists</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">]</span>
+            <span class="n">label_keys</span> <span class="o">=</span> <span class="n">label_keys_map</span><span class="p">[</span><span class="n">num_elements</span><span class="p">]</span>
+            <span class="n">custom_labels</span><span class="p">[</span><span class="n">num_elements</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">label</span><span class="p">:</span> <span class="n">elements</span>
+                <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">elements</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">label_keys</span><span class="p">,</span> <span class="n">element_lists</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="n">custom_labels</span>
+
+<div class="viewcode-block" id="Elements.sort">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sorters.html#bobleesj.utils.sorters.elements.Elements.sort">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">descending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sort a list of elements.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        elements : list of str</span>
+<span class="sd">            Element symbols to sort (e.g., [&#39;Fe&#39;, &#39;O&#39;]).</span>
+<span class="sd">        method : str or None, optional</span>
+<span class="sd">            &#39;custom&#39;: custom label-based sorting.</span>
+<span class="sd">            &#39;mendeleev&#39;: by Mendeleev numbers.</span>
+<span class="sd">            None/other: alphabetical (default).</span>
+<span class="sd">        descending : bool, default=True</span>
+<span class="sd">            Sort descending.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple</span>
+<span class="sd">            Sorted element symbols.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If method is unsupported or custom sorting fails.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; elements.sort([&quot;O&quot;, &quot;Fe&quot;], descending=False)</span>
+<span class="sd">        (&#39;Fe&#39;, &#39;O&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; elements.sort([&#39;O&#39;, &#39;Fe&#39;], method=&quot;mendeleev&quot;)</span>
+<span class="sd">        (&#39;O&#39;, &#39;Fe&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; elements.sort([&quot;Fe&quot;, &quot;O&quot;], method=&quot;custom&quot;)</span>
+<span class="sd">        (&#39;Fe&#39;, &#39;O&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">descending</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;mendeleev&quot;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">sorted_elements</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+                    <span class="n">elements</span><span class="p">,</span>
+                    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">el</span><span class="p">:</span> <span class="n">mendeleev</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">el</span><span class="p">],</span>
+                    <span class="n">reverse</span><span class="o">=</span><span class="n">descending</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">sorted_elements</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown element in Mendeleev sort: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;custom&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_mapping</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Custom label mapping is not defined. &quot;</span>
+                    <span class="s2">&quot;Provide a valid label_mapping or excel_path &quot;</span>
+                    <span class="s2">&quot;when you instantiate the Elements class.&quot;</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">length</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_mapping</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;No label mapping found for </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2">-element systems.&quot;</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sort_binary</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sort_ternary</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sort_quaternary</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Only 2, 3, or 4-element systems are supported.&quot;</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown sort method: </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sort_binary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must contain exactly 2 elements.&quot;</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_mapping</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span>
+        <span class="n">e0</span><span class="p">,</span> <span class="n">e1</span> <span class="o">=</span> <span class="n">elements</span>
+        <span class="k">if</span> <span class="n">e0</span> <span class="ow">in</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">e1</span> <span class="ow">in</span> <span class="n">B</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">e0</span><span class="p">,</span> <span class="n">e1</span>
+        <span class="k">elif</span> <span class="n">e1</span> <span class="ow">in</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">e0</span> <span class="ow">in</span> <span class="n">B</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e0</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">elements</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sort_ternary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must contain exactly 3 elements.&quot;</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_mapping</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">perm</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">perm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;R&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">perm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;M&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">perm</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">]</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="n">perm</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not determine R-M-X order for: </span><span class="si">{</span><span class="n">elements</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sort_quaternary</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must contain exactly 4 elements.&quot;</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">label_mapping</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">perm</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">perm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">perm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">perm</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">perm</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">]</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="n">perm</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not determine A-B-C-D order for: </span><span class="si">{</span><span class="n">elements</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

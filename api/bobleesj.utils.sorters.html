@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bobleesj.utils.sorters package &mdash; bobleesj.utils 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=cca77546"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bobleesj.utils.sources package" href="bobleesj.utils.sources.html" />
+    <link rel="prev" title="bobleesj.utils.cli.create package" href="bobleesj.utils.cli.create.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            bobleesj.utils
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/radius.html">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ptable.html">Periodic table</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">COMMANDS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html"><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">&lt;verb&gt;</span> <span class="pre">&lt;noun&gt;</span></code> commands</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="bobleesj.utils.html">Package API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="bobleesj.utils.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.parsers.html">bobleesj.utils.parsers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.io.html">bobleesj.utils.io package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.cli.html">bobleesj.utils.cli package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">bobleesj.utils.sorters package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.sources.html">bobleesj.utils.sources package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.data.html">bobleesj.utils.data package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bobleesj.utils.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bobleesj.utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="bobleesj.utils.html">bobleesj.utils package</a></li>
+      <li class="breadcrumb-item active">bobleesj.utils.sorters package</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/bobleesj/bobleesj.utils/blob/main/doc/source/api/bobleesj.utils.sorters.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bobleesj.utils.sorters">
+<span id="bobleesj-utils-sorters-package"></span><h1>bobleesj.utils.sorters package<a class="headerlink" href="#module-bobleesj.utils.sorters" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<section id="module-bobleesj.utils.sorters.elements">
+<span id="bobleesj-utils-sorters-elements-module"></span><h3>bobleesj.utils.sorters.elements module<a class="headerlink" href="#module-bobleesj.utils.sorters.elements" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="bobleesj.utils.sorters.elements.Elements">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sorters.elements.</span></span><span class="sig-name descname"><span class="pre">Elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excel_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sorters/elements.html#Elements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sorters.elements.Elements" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Sort chemical elements by custom labels, Mendeleev numbers, or
+alphabetically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label_mapping</strong> (<em>dict</em><em>, </em><em>optional</em>) – The custom label mapping for sorting elements.</p></li>
+<li><p><strong>excel_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The path to Excel file with custom labels.
+It overrides <cite>label_mapping</cite> if provided.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">element_sorter</span> <span class="o">=</span> <span class="n">Elements</span><span class="p">(</span><span class="n">excel_path</span><span class="o">=</span><span class="s2">&quot;labels.xlsx&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">element_sorter</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s2">&quot;Fe&quot;</span><span class="p">,</span> <span class="s2">&quot;Si&quot;</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;custom&quot;</span><span class="p">)</span>
+<span class="go">(&#39;Fe&#39;, &#39;Si&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_labels</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Fe&quot;</span><span class="p">,</span> <span class="s2">&quot;Co&quot;</span><span class="p">],</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="s2">&quot;Ga&quot;</span><span class="p">]},</span>
+<span class="gp">... </span>    <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;R&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Sc&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">],</span> <span class="s2">&quot;M&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Fe&quot;</span><span class="p">,</span> <span class="s2">&quot;Co&quot;</span><span class="p">],</span>
+<span class="go">            &quot;X&quot;: [&quot;Si&quot;, &quot;Ga&quot;]},</span>
+<span class="go">...     4: {&quot;A&quot;: [&quot;Sc&quot;, &quot;Y&quot;], &quot;B&quot;: [&quot;Fe&quot;, &quot;Co&quot;],</span>
+<span class="go">            &quot;C&quot;: [&quot;Si&quot;, &quot;Ga&quot;], &quot;D&quot;: [&quot;Gd&quot;, &quot;Tb&quot;, &quot;Dy&quot;]},</span>
+<span class="go">... }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">element_sorter</span> <span class="o">=</span> <span class="n">Elements</span><span class="p">(</span><span class="n">label_mapping</span><span class="o">=</span><span class="n">custom_labels</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">element_sorter</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s2">&quot;Sc&quot;</span><span class="p">,</span> <span class="s2">&quot;Fe&quot;</span><span class="p">,</span> <span class="s2">&quot;Si&quot;</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;custom&quot;</span><span class="p">)</span>
+<span class="go">(&#39;Sc&#39;, &#39;Fe&#39;, &#39;Si&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">element_sorter</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="s2">&quot;Fe&quot;</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;mendeleev&quot;</span><span class="p">)</span>
+<span class="go">(&#39;O&#39;, &#39;Fe&#39;)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="bobleesj.utils.sorters.elements.Elements.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">descending</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sorters/elements.html#Elements.sort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sorters.elements.Elements.sort" title="Link to this definition"></a></dt>
+<dd><p>Sort a list of elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elements</strong> (<em>list</em><em> of </em><em>str</em>) – Element symbols to sort (e.g., [‘Fe’, ‘O’]).</p></li>
+<li><p><strong>method</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – ‘custom’: custom label-based sorting.
+‘mendeleev’: by Mendeleev numbers.
+None/other: alphabetical (default).</p></li>
+<li><p><strong>descending</strong> (<em>bool</em><em>, </em><em>default=True</em>) – Sort descending.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sorted element symbols.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If method is unsupported or custom sorting fails.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">elements</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="s2">&quot;Fe&quot;</span><span class="p">],</span> <span class="n">descending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">(&#39;Fe&#39;, &#39;O&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">elements</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;Fe&#39;</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;mendeleev&quot;</span><span class="p">)</span>
+<span class="go">(&#39;O&#39;, &#39;Fe&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">elements</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s2">&quot;Fe&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;custom&quot;</span><span class="p">)</span>
+<span class="go">(&#39;Fe&#39;, &#39;O&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bobleesj.utils.cli.create.html" class="btn btn-neutral float-left" title="bobleesj.utils.cli.create package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bobleesj.utils.sources.html" class="btn btn-neutral float-right" title="bobleesj.utils.sources package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

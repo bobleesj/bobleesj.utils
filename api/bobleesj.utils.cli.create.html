@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils package &mdash; bobleesj.utils 0.0.1 documentation</title>
+  <title>bobleesj.utils.cli.create package &mdash; bobleesj.utils 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bobleesj.utils.parsers package" href="bobleesj.utils.parsers.html" />
-    <link rel="prev" title="bob &lt;verb&gt; &lt;noun&gt; commands" href="../cli.html" /> 
+    <link rel="next" title="bobleesj.utils.sorters package" href="bobleesj.utils.sorters.html" />
+    <link rel="prev" title="bobleesj.utils.cli.delete package" href="bobleesj.utils.cli.delete.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,24 +60,21 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Package API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="bobleesj.utils.html">Package API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="bobleesj.utils.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.parsers.html">bobleesj.utils.parsers package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.io.html">bobleesj.utils.io package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.cli.html">bobleesj.utils.cli package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="bobleesj.utils.cli.html">bobleesj.utils.cli package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="bobleesj.utils.cli.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bobleesj.utils.cli.html#submodules">Submodules</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.sorters.html">bobleesj.utils.sorters package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.sources.html">bobleesj.utils.sources package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.data.html">bobleesj.utils.data package</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-bobleesj.utils.numbers">bobleesj.utils.numbers module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#bobleesj.utils.numbers.calculate_basic_stats"><code class="docutils literal notranslate"><span class="pre">calculate_basic_stats()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#bobleesj-utils-app-module">bobleesj.utils.app module</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="bobleesj.utils.html#submodules">Submodules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Release notes</a></li>
@@ -98,9 +95,11 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">bobleesj.utils package</li>
+          <li class="breadcrumb-item"><a href="bobleesj.utils.html">bobleesj.utils package</a></li>
+          <li class="breadcrumb-item"><a href="bobleesj.utils.cli.html">bobleesj.utils.cli package</a></li>
+      <li class="breadcrumb-item active">bobleesj.utils.cli.create package</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/bobleesj/bobleesj.utils/blob/main/doc/source/api/bobleesj.utils.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/bobleesj/bobleesj.utils/blob/main/doc/source/api/bobleesj.utils.cli.create.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -108,41 +107,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-bobleesj.utils">
-<span id="bobleesj-utils-package"></span><h1>bobleesj.utils package<a class="headerlink" href="#module-bobleesj.utils" title="Link to this heading"></a></h1>
-<p>Python package for doing science.</p>
-<section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bobleesj.utils.parsers.html">bobleesj.utils.parsers package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bobleesj.utils.io.html">bobleesj.utils.io package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bobleesj.utils.cli.html">bobleesj.utils.cli package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bobleesj.utils.cli.delete.html">bobleesj.utils.cli.delete package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bobleesj.utils.cli.create.html">bobleesj.utils.cli.create package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="bobleesj.utils.sorters.html">bobleesj.utils.sorters package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bobleesj.utils.sources.html">bobleesj.utils.sources package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bobleesj.utils.data.html">bobleesj.utils.data package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bobleesj.utils.data.db.html">bobleesj.utils.data.db package</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
+  <section id="module-bobleesj.utils.cli.create">
+<span id="bobleesj-utils-cli-create-package"></span><h1>bobleesj.utils.cli.create package<a class="headerlink" href="#module-bobleesj.utils.cli.create" title="Link to this heading"></a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-<section id="module-bobleesj.utils.numbers">
-<span id="bobleesj-utils-numbers-module"></span><h3>bobleesj.utils.numbers module<a class="headerlink" href="#module-bobleesj.utils.numbers" title="Link to this heading"></a></h3>
+<section id="module-bobleesj.utils.cli.create.issues">
+<span id="bobleesj-utils-cli-create-issues-module"></span><h3>bobleesj.utils.cli.create.issues module<a class="headerlink" href="#module-bobleesj.utils.cli.create.issues" title="Link to this heading"></a></h3>
 <dl class="py function">
-<dt class="sig sig-object py" id="bobleesj.utils.numbers.calculate_basic_stats">
-<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.numbers.</span></span><span class="sig-name descname"><span class="pre">calculate_basic_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/numbers.html#calculate_basic_stats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.numbers.calculate_basic_stats" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="bobleesj.utils.cli.create.issues.create">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.cli.create.issues.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/cli/create/issues.html#create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.cli.create.issues.create" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.cli.create.issues.create_issue">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.cli.create.issues.</span></span><span class="sig-name descname"><span class="pre">create_issue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repo_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/cli/create/issues.html#create_issue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.cli.create.issues.create_issue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.cli.create.issues.find_git_repos">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.cli.create.issues.</span></span><span class="sig-name descname"><span class="pre">find_git_repos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/cli/create/issues.html#find_git_repos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.cli.create.issues.find_git_repos" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.cli.create.issues.prompt_for_issue">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.cli.create.issues.</span></span><span class="sig-name descname"><span class="pre">prompt_for_issue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/cli/create/issues.html#prompt_for_issue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.cli.create.issues.prompt_for_issue" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>
-<section id="bobleesj-utils-app-module">
-<h3>bobleesj.utils.app module<a class="headerlink" href="#bobleesj-utils-app-module" title="Link to this heading"></a></h3>
+<section id="bobleesj-utils-cli-create-gif-module">
+<h3>bobleesj.utils.cli.create.gif module<a class="headerlink" href="#bobleesj-utils-cli-create-gif-module" title="Link to this heading"></a></h3>
 </section>
 </section>
 </section>
@@ -151,8 +144,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../cli.html" class="btn btn-neutral float-left" title="bob &lt;verb&gt; &lt;noun&gt; commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bobleesj.utils.parsers.html" class="btn btn-neutral float-right" title="bobleesj.utils.parsers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bobleesj.utils.cli.delete.html" class="btn btn-neutral float-left" title="bobleesj.utils.cli.delete package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bobleesj.utils.sorters.html" class="btn btn-neutral float-right" title="bobleesj.utils.sorters package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

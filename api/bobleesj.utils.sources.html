@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils.sources package &mdash; bobleesj.utils 0.0.4 documentation</title>
+  <title>bobleesj.utils.sources package &mdash; bobleesj.utils 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=94eb6667"></script>
+      <script src="../_static/documentation_options.js?v=f539c95a"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="bobleesj.utils.data package" href="bobleesj.utils.data.html" />
-    <link rel="prev" title="bobleesj.utils.parsers package" href="bobleesj.utils.parsers.html" /> 
+    <link rel="prev" title="bobleesj.utils.sorters package" href="bobleesj.utils.sorters.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,6 +63,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="bobleesj.utils.html">Package API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="bobleesj.utils.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.parsers.html">bobleesj.utils.parsers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.io.html">bobleesj.utils.io package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.cli.html">bobleesj.utils.cli package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bobleesj.utils.sorters.html">bobleesj.utils.sorters package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">bobleesj.utils.sources package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
@@ -116,8 +119,9 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk.get_oliynyk_CAF_data">
 <span class="sig-name descname"><span class="pre">get_oliynyk_CAF_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk.get_oliynyk_CAF_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk.get_oliynyk_CAF_data" title="Link to this definition"></a></dt>
-<dd><p>Load the Oliynyk elemental property data from an Excel file. The
-data is stored in a dictionary format with element symbols as keys.</p>
+<dd><p>Load the Oliynyk elemental property data from an Excel file.
+The data is stored in a dictionary format with element symbols
+as keys.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">oliynyk</span><span class="o">.</span><span class="n">get_oliynyk_CAF_data</span><span class="p">()</span>
@@ -160,7 +164,8 @@ data is stored in a dictionary format with element symbols as keys.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Oliynyk.get_supported_formulas">
 <span class="sig-name descname"><span class="pre">get_supported_formulas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formulas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Oliynyk.get_supported_formulas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Oliynyk.get_supported_formulas" title="Link to this definition"></a></dt>
-<dd><p>Filter formulas to only include those with supported elements.</p>
+<dd><p>Filter formulas to only include those with supported
+elements.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">oliynyk</span> <span class="o">=</span> <span class="n">Oliynyk</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">formulas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;FeH&quot;</span><span class="p">,</span> <span class="s2">&quot;NdSi2&quot;</span><span class="p">]</span>
@@ -334,8 +339,8 @@ format.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="bobleesj.utils.sources.oliynyk.Property.select">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sources/oliynyk.html#Property.select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.oliynyk.Property.select" title="Link to this definition"></a></dt>
-<dd><p>Prompt the user to select an elemental property from the available
-options. Returns the selected property.</p>
+<dd><p>Prompt the user to select an elemental property from the
+available options. Returns the selected property.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">selected_property</span> <span class="o">=</span> <span class="n">Property</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
 <span class="go">Available elemental properties:</span>
@@ -350,6 +355,139 @@ options. Returns the selected property.</p>
 </dd></dl>
 
 </section>
+<section id="module-bobleesj.utils.sources.mendeleev">
+<span id="bobleesj-utils-sources-mendeleev-module"></span><h3>bobleesj.utils.sources.mendeleev module<a class="headerlink" href="#module-bobleesj.utils.sources.mendeleev" title="Link to this heading"></a></h3>
+</section>
+<section id="module-bobleesj.utils.sources.radius">
+<span id="bobleesj-utils-sources-radius-module"></span><h3>bobleesj.utils.sources.radius module<a class="headerlink" href="#module-bobleesj.utils.sources.radius" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.radius.are_available">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.radius.</span></span><span class="sig-name descname"><span class="pre">are_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/radius.html#are_available"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.radius.are_available" title="Link to this definition"></a></dt>
+<dd><p>Check if all elements in the list are supported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elements</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – A list of chemical symbols of elements.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if all elements are supported, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">are_all_available</span><span class="p">([</span><span class="s2">&quot;Fe&quot;</span><span class="p">,</span> <span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">are_all_available</span><span class="p">([</span><span class="s2">&quot;Fe&quot;</span><span class="p">,</span> <span class="s2">&quot;UnknownElement&quot;</span><span class="p">])</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.radius.data">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.radius.</span></span><span class="sig-name descname"><span class="pre">data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/radius.html#data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.radius.data" title="Link to this definition"></a></dt>
+<dd><p>Return a dictionary of element radius data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.radius.is_available">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.radius.</span></span><span class="sig-name descname"><span class="pre">is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/radius.html#is_available"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.radius.is_available" title="Link to this definition"></a></dt>
+<dd><p>Check if an element is supported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<em>str</em>) – The chemical symbol of the element.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the element is supported, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">is_supported</span><span class="p">(</span><span class="s2">&quot;Fe&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_supported</span><span class="p">(</span><span class="s2">&quot;UnknownElement&quot;</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.radius.supported_elements">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.radius.</span></span><span class="sig-name descname"><span class="pre">supported_elements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/radius.html#supported_elements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.radius.supported_elements" title="Link to this definition"></a></dt>
+<dd><p>Get a list of supported elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of chemical symbols for the elements that have radius data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_supported_elements</span><span class="p">()</span>
+<span class="go">[&#39;Si&#39;, &#39;Sc&#39;, &#39;Fe&#39;, ...]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.radius.value">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.radius.</span></span><span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/bobleesj/utils/sources/radius.html#value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.radius.value" title="Link to this definition"></a></dt>
+<dd><p>Get the radius data for a given element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<em>str</em>) – The chemical symbol of the element.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the CIF radius and Pauling radius.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, float]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If the element is not found in the radius data.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_radius</span><span class="p">(</span><span class="s2">&quot;Fe&quot;</span><span class="p">)</span>
+<span class="go">{&#39;CIF&#39;: 1.242, &#39;Pauling_CN12&#39;: 1.26}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-bobleesj.utils.sources.ptable">
+<span id="bobleesj-utils-sources-ptable-module"></span><h3>bobleesj.utils.sources.ptable module<a class="headerlink" href="#module-bobleesj.utils.sources.ptable" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.ptable.get_data">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.ptable.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sources/ptable.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.ptable.get_data" title="Link to this definition"></a></dt>
+<dd><p>Get the periodic table data.</p>
+<p>Sourced from
+<a class="reference external" href="https://pubchem.ncbi.nlm.nih.gov/ptable/atomic-mass/">https://pubchem.ncbi.nlm.nih.gov/ptable/atomic-mass/</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.ptable.values_from_atomic_number">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.ptable.</span></span><span class="sig-name descname"><span class="pre">values_from_atomic_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atomic_number</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sources/ptable.html#values_from_atomic_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.ptable.values_from_atomic_number" title="Link to this definition"></a></dt>
+<dd><p>Get the element data by atomic number.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.ptable.values_from_name">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.ptable.</span></span><span class="sig-name descname"><span class="pre">values_from_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sources/ptable.html#values_from_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.ptable.values_from_name" title="Link to this definition"></a></dt>
+<dd><p>Get the element data by name.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bobleesj.utils.sources.ptable.values_from_symbol">
+<span class="sig-prename descclassname"><span class="pre">bobleesj.utils.sources.ptable.</span></span><span class="sig-name descname"><span class="pre">values_from_symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbol</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bobleesj/utils/sources/ptable.html#values_from_symbol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bobleesj.utils.sources.ptable.values_from_symbol" title="Link to this definition"></a></dt>
+<dd><p>Get the element data by chemical symbol.</p>
+</dd></dl>
+
+</section>
 </section>
 </section>
 
@@ -357,7 +495,7 @@ options. Returns the selected property.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bobleesj.utils.parsers.html" class="btn btn-neutral float-left" title="bobleesj.utils.parsers package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bobleesj.utils.sorters.html" class="btn btn-neutral float-left" title="bobleesj.utils.sorters package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="bobleesj.utils.data.html" class="btn btn-neutral float-right" title="bobleesj.utils.data package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
