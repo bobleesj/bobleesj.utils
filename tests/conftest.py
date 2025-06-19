@@ -1,6 +1,6 @@
 import pytest
 
-from bobleesj.utils.elements import ElementSorter
+from bobleesj.utils.sorters.element import ElementSorter
 from bobleesj.utils.sources.oliynyk import Oliynyk
 
 
