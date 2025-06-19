@@ -32,7 +32,12 @@ def custom_labels_from_excel():
         },
     }
 
+@pytest.fixture
+def element_sorter_from_excel(custom_label_excel_path):
+    return Elements(excel_path=custom_label_excel_path)
+
 
 @pytest.fixture
-def element_sorter(custom_labels_from_excel):
+def element_sorter_from_dict(custom_labels_from_excel):
     return Elements(label_mapping=custom_labels_from_excel)
+

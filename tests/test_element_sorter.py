@@ -1,8 +1,12 @@
 import pytest
 
 
-def test_get_custom_labels_from_excel(element_sorter):
-    assert element_sorter.label_mapping == {
+"""
+Test init with custom labels from a dictionary
+"""
+
+def test_get_custom_labels_from_dict(element_sorter_from_dict):
+    assert element_sorter_from_dict.label_mapping == {
         2: {"A": ["Fe", "Co", "Ni"], "B": ["Si", "Ga", "Ge"]},
         3: {
             "R": ["Sc", "Y", "La"],
@@ -18,6 +22,22 @@ def test_get_custom_labels_from_excel(element_sorter):
     }
 
 
+def test_get_custom_labels_from_excel(element_sorter_from_excel):
+    assert element_sorter_from_excel.label_mapping == {
+        2: {"A": ["Fe", "Co", "Ni"], "B": ["Si", "Ga", "Ge"]},
+        3: {
+            "R": ["Sc", "Y", "La"],
+            "M": ["Fe", "Co", "Ni"],
+            "X": ["Si", "Ga", "Ge"],
+        },
+        4: {
+            "A": ["Sc", "Y", "La"],
+            "B": ["Fe", "Co", "Ni"],
+            "C": ["Si", "Ga", "Ge"],
+            "D": ["Gd", "Tb", "Dy"],
+        },
+    }
+
 """
 Sort by custom labels defined
 """
@@ -32,8 +52,8 @@ Sort by custom labels defined
         (["Ga", "Co"], ("Co", "Ga")),
     ],
 )
-def test_custom_sort_binary(elements, expected, element_sorter):
-    result = element_sorter.sort(elements, method="custom")
+def test_custom_sort_binary(elements, expected, element_sorter_from_dict):
+    result = element_sorter_from_dict.sort(elements, method="custom")
     assert result == expected
 
 
@@ -45,8 +65,8 @@ def test_custom_sort_binary(elements, expected, element_sorter):
         (["Fe", "Si", "Sc"], ("Sc", "Fe", "Si")),
     ],
 )
-def test_custom_sort_ternary(elements, expected, element_sorter):
-    result = element_sorter.sort(elements, method="custom")
+def test_custom_sort_ternary(elements, expected, element_sorter_from_dict):
+    result = element_sorter_from_dict.sort(elements, method="custom")
     assert result == expected
 
 
@@ -58,8 +78,8 @@ def test_custom_sort_ternary(elements, expected, element_sorter):
         (["Y", "Co", "Ga", "Dy"], ("Y", "Co", "Ga", "Dy")),
     ],
 )
-def test_custom_sort_quaternary(elements, expected, element_sorter):
-    result = element_sorter.sort(elements, method="custom")
+def test_custom_sort_quaternary(elements, expected, element_sorter_from_dict):
+    result = element_sorter_from_dict.sort(elements, method="custom")
     assert result == expected
 
 
@@ -79,8 +99,8 @@ Sort by Mendeleev number order.
         (["Ga", "Co"], ("Ga", "Co")),  # Ga=74, Co=58 → Ga before Co
     ],
 )
-def test_mendeleev_sort_descend(elements, expected, element_sorter):
-    result = element_sorter.sort(elements, method="mendeleev")
+def test_mendeleev_sort_descend(elements, expected, element_sorter_from_dict):
+    result = element_sorter_from_dict.sort(elements, method="mendeleev")
     assert result == expected
 
 
@@ -95,8 +115,8 @@ def test_mendeleev_sort_descend(elements, expected, element_sorter):
         (["Co", "Ga"], ("Co", "Ga")),  # Co=58, Ga=74
     ],
 )
-def test_mendeleev_sort_ascend(elements, expected, element_sorter):
-    result = element_sorter.sort(
+def test_mendeleev_sort_ascend(elements, expected, element_sorter_from_dict):
+    result = element_sorter_from_dict.sort(
         elements, method="mendeleev", descending=False
     )
     assert result == expected
@@ -115,8 +135,8 @@ Sort by alphabetical order.
         (["C", "B", "A"], ("C", "B", "A")),
     ],
 )
-def test_alphabetical_sort_descend(elements, expected, element_sorter):
-    result = element_sorter.sort(elements, descending=True)
+def test_alphabetical_sort_descend(elements, expected, element_sorter_from_dict):
+    result = element_sorter_from_dict.sort(elements, descending=True)
     assert result == expected
 
 
@@ -128,6 +148,6 @@ def test_alphabetical_sort_descend(elements, expected, element_sorter):
         (["C", "B", "A"], ("A", "B", "C")),
     ],
 )
-def test_alphabetical_sort_ascend(elements, expected, element_sorter):
-    result = element_sorter.sort(elements, descending=False)
+def test_alphabetical_sort_ascend(elements, expected, element_sorter_from_dict):
+    result = element_sorter_from_dict.sort(elements, descending=False)
     assert result == expected

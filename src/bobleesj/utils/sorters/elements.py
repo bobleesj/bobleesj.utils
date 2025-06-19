@@ -6,6 +6,26 @@ from bobleesj.utils.sources import mendeleev
 
 
 class Elements:
+    """
+    A class to sort chemical elements based on custom labels defined, Mendeleev numbers, or alphabetically.
+    
+    Parameters
+    ----------
+    label_mapping : dict, optional
+        A dictionary mapping the number of elements to their custom labels.
+        If not provided, an Excel file path can be specified to load the labels.
+    excel_path : str, optional
+        Path to an Excel file containing custom labels for elements.
+        If provided, it will override the `label_mapping` parameter.
+    
+    Examples:
+    --------
+    >>> element_sorter = Elements(excel_path="path/to/labels.xlsx")
+    >>> element_sorter.sort(["Fe", "Si"], method="custom")    
+    ("Fe", "Si")
+    >>> element_sorter.sort(["O", "Fe"], method="mendeleev")
+    ("O", "Fe")
+    """
     def __init__(self, label_mapping: dict = None, excel_path: str = None):
         if label_mapping:
             self.label_mapping = label_mapping
