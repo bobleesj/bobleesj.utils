@@ -8,6 +8,9 @@ def oliynyk() -> Oliynyk:
     # 20250516 - deleted Tc, Pm and Hg since some properties are not available
     return Oliynyk()
 
+@pytest.fixture
+def custom_label_excel_path():
+    return "tests/data/sort/test-custom-labels.xlsx"
 
 @pytest.fixture
 def custom_labels_from_excel():
