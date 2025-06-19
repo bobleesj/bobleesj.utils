@@ -11,10 +11,6 @@ class Elements:
             self.label_mapping = label_mapping
         elif excel_path:
             self.label_mapping = self._load_labels_from_excel(excel_path)
-        else:
-            raise ValueError(
-                "Either label_mapping or excel_path must be provided."
-            )
 
     def _load_labels_from_excel(self, excel_path: str) -> dict:
         sheet_map = {
@@ -95,6 +91,12 @@ class Elements:
             except KeyError as e:
                 raise ValueError(f"Unknown element in Mendeleev sort: {e}")
         elif method == "custom":
+            if self.label_mapping is None:
+                raise ValueError(
+                    "Custom label mapping is not defined. "
+                    "Provide a valid label_mapping or excel_path when you instantiate the Elements class."
+                )
+            
             if length not in self.label_mapping:
                 raise ValueError(
                     f"No label mapping found for {length}-element systems."
