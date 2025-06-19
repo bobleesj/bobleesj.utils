@@ -18,6 +18,11 @@ def test_get_custom_labels_from_excel(element_sorter):
     }
 
 
+"""
+Sort by custom labels defined
+"""
+
+
 @pytest.mark.parametrize(
     "elements,expected",
     [
@@ -27,8 +32,8 @@ def test_get_custom_labels_from_excel(element_sorter):
         (["Ga", "Co"], ("Co", "Ga")),
     ],
 )
-def test_get_binary_AB_elements(elements, expected, element_sorter):
-    result = element_sorter.sort(elements)
+def test_custom_sort_binary(elements, expected, element_sorter):
+    result = element_sorter.sort(elements, method="custom")
     assert result == expected
 
 
@@ -40,8 +45,8 @@ def test_get_binary_AB_elements(elements, expected, element_sorter):
         (["Fe", "Si", "Sc"], ("Sc", "Fe", "Si")),
     ],
 )
-def test_get_ternary_RMX_elements(elements, expected, element_sorter):
-    result = element_sorter.sort(elements)
+def test_custom_sort_ternary(elements, expected, element_sorter):
+    result = element_sorter.sort(elements, method="custom")
     assert result == expected
 
 
@@ -53,6 +58,76 @@ def test_get_ternary_RMX_elements(elements, expected, element_sorter):
         (["Y", "Co", "Ga", "Dy"], ("Y", "Co", "Ga", "Dy")),
     ],
 )
-def test_get_quaternary_ABCD_elements(elements, expected, element_sorter):
-    result = element_sorter.sort(elements)
+def test_custom_sort_quaternary(elements, expected, element_sorter):
+    result = element_sorter.sort(elements, method="custom")
+    assert result == expected
+
+
+"""
+Sort by Mendeleev number order.
+"""
+
+
+@pytest.mark.parametrize(
+    "elements,expected",
+    [
+        (
+            ["Fe", "Si"],
+            ("Si", "Fe"),
+        ),  # Fe=55, Si=78 → Si before Fe in descending order
+        (["Si", "Fe"], ("Si", "Fe")),
+        (["Ga", "Co"], ("Ga", "Co")),  # Ga=74, Co=58 → Ga before Co
+    ],
+)
+def test_mendeleev_sort_descend(elements, expected, element_sorter):
+    result = element_sorter.sort(elements, method="mendeleev")
+    assert result == expected
+
+
+@pytest.mark.parametrize(
+    "elements,expected",
+    [
+        (
+            ["Fe", "Si"],
+            ("Fe", "Si"),
+        ),  # Fe=55, Si=78 → Fe before Si in ascending order
+        (["Si", "Fe"], ("Fe", "Si")),
+        (["Co", "Ga"], ("Co", "Ga")),  # Co=58, Ga=74
+    ],
+)
+def test_mendeleev_sort_ascend(elements, expected, element_sorter):
+    result = element_sorter.sort(
+        elements, method="mendeleev", descending=False
+    )
+    assert result == expected
+
+
+"""
+Sort by alphabetical order.
+"""
+
+
+@pytest.mark.parametrize(
+    "elements,expected",
+    [
+        (["Fe", "Si"], ("Si", "Fe")),
+        (["Si", "Fe"], ("Si", "Fe")),
+        (["C", "B", "A"], ("C", "B", "A")),
+    ],
+)
+def test_alphabetical_sort_descend(elements, expected, element_sorter):
+    result = element_sorter.sort(elements, descending=True)
+    assert result == expected
+
+
+@pytest.mark.parametrize(
+    "elements,expected",
+    [
+        (["Fe", "Si"], ("Fe", "Si")),
+        (["Si", "Fe"], ("Fe", "Si")),
+        (["C", "B", "A"], ("A", "B", "C")),
+    ],
+)
+def test_alphabetical_sort_ascend(elements, expected, element_sorter):
+    result = element_sorter.sort(elements, descending=False)
     assert result == expected

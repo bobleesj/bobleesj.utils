@@ -2,6 +2,8 @@ import itertools
 
 import pandas as pd
 
+from bobleesj.utils.sources import mendeleev
+
 
 class Elements:
     def __init__(self, label_mapping: dict = None, excel_path: str = None):
@@ -23,7 +25,6 @@ class Elements:
                 ["Element_A", "Element_B", "Element_C", "Element_D"],
             ),
         }
-
         label_keys_map = {
             2: ["A", "B"],
             3: ["R", "M", "X"],
@@ -41,20 +42,75 @@ class Elements:
             }
         return custom_labels
 
-    def sort(self, elements: list[str]) -> tuple:
+    def sort(
+        self, elements: list[str], method=None, descending: bool = True
+    ) -> tuple:
+        """Sort a list of chemical elements using a specified method.
+
+        Parameters
+        ----------
+        elements : list of str
+            List of element symbols to be sorted (e.g., ['Fe', 'O']).
+        method : str or None, optional
+            Sorting method to use:
+            - 'custom' : Use custom label-based sorting.
+            - 'mendeleev' : Sort by predefined Mendeleev numbers.
+            - None or any other : Sort alphabetically (default).
+        descending : bool, default=True
+            Whether to sort in descending order.
+
+        Returns
+        -------
+        tuple
+            A tuple of sorted element symbols.
+
+        Raises
+        ------
+        ValueError
+            If an unsupported method is provided or if custom sorting fails
+            due to undefined label mapping or invalid number of elements.
+
+        Examples
+        --------
+        >>> elements.sort(["O", "Fe"], descending=False)
+        ("Fe", "O")
+
+        >>> elements.sort(['O', 'Fe'], method="mendeleev")
+        ("O", "Fe")
+
+        >>> elements.sort(["Fe", "O"], method="custom")
+        ("Fe", "O")
+        """
         length = len(elements)
-        if length not in self.label_mapping:
-            raise ValueError(
-                f"No label mapping found for {length}-element systems."
-            )
-        if length == 2:
-            return self._sort_binary(elements)
-        elif length == 3:
-            return self._sort_ternary(elements)
-        elif length == 4:
-            return self._sort_quaternary(elements)
+        if method is None:
+            return tuple(sorted(elements, reverse=descending))
+        elif method == "mendeleev":
+            try:
+                sorted_elements = sorted(
+                    elements,
+                    key=lambda el: mendeleev.numbers[el],
+                    reverse=descending,
+                )
+                return tuple(sorted_elements)
+            except KeyError as e:
+                raise ValueError(f"Unknown element in Mendeleev sort: {e}")
+        elif method == "custom":
+            if length not in self.label_mapping:
+                raise ValueError(
+                    f"No label mapping found for {length}-element systems."
+                )
+            if length == 2:
+                return self._sort_binary(elements)
+            elif length == 3:
+                return self._sort_ternary(elements)
+            elif length == 4:
+                return self._sort_quaternary(elements)
+            else:
+                raise ValueError(
+                    "Only 2, 3, or 4-element systems are supported."
+                )
         else:
-            raise ValueError("Only 2, 3, or 4-element systems are supported.")
+            raise ValueError(f"Unknown sort method: {method}")
 
     def _sort_binary(self, elements: list[str]) -> tuple[str, str]:
         if len(elements) != 2:
