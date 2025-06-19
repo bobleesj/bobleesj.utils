@@ -17,6 +17,7 @@ Subpackages
     bobleesj.utils.parsers
     bobleesj.utils.io
     bobleesj.utils.cli
+    bobleesj.utils.sorters
     bobleesj.utils.sources
     bobleesj.utils.data
 
