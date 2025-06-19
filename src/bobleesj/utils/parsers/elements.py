@@ -1,8 +1,12 @@
 import pandas as pd
 
+
 def get_custom_labels_from_excel(excel_path: str) -> dict:
     """Read custom labels from an Excel file and return a dictionary
-    mapping. This function is used in SAF and CAF applciations."""
+    mapping.
+
+    This function is used in SAF and CAF applciations.
+    """
 
     sheet_map = {
         2: ("Binary", ["Element_A", "Element_B"]),

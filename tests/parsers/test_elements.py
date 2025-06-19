@@ -1,5 +1,6 @@
 from bobleesj.utils.parsers.elements import get_custom_labels_from_excel
 
+
 def test_get_custom_labels_from_excel(custom_label_excel_path):
     actual_custom_label = get_custom_labels_from_excel(custom_label_excel_path)
     assert actual_custom_label == {
