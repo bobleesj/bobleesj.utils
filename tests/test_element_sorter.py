@@ -1,9 +1,9 @@
 import pytest
 
-
 """
 Test init with custom labels from a dictionary
 """
+
 
 def test_get_custom_labels_from_dict(element_sorter_from_dict):
     assert element_sorter_from_dict.label_mapping == {
@@ -37,6 +37,7 @@ def test_get_custom_labels_from_excel(element_sorter_from_excel):
             "D": ["Gd", "Tb", "Dy"],
         },
     }
+
 
 """
 Sort by custom labels defined
@@ -135,7 +136,9 @@ Sort by alphabetical order.
         (["C", "B", "A"], ("C", "B", "A")),
     ],
 )
-def test_alphabetical_sort_descend(elements, expected, element_sorter_from_dict):
+def test_alphabetical_sort_descend(
+    elements, expected, element_sorter_from_dict
+):
     result = element_sorter_from_dict.sort(elements, descending=True)
     assert result == expected
 
@@ -148,6 +151,8 @@ def test_alphabetical_sort_descend(elements, expected, element_sorter_from_dict)
         (["C", "B", "A"], ("A", "B", "C")),
     ],
 )
-def test_alphabetical_sort_ascend(elements, expected, element_sorter_from_dict):
+def test_alphabetical_sort_ascend(
+    elements, expected, element_sorter_from_dict
+):
     result = element_sorter_from_dict.sort(elements, descending=False)
     assert result == expected
