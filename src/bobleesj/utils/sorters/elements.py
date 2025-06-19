@@ -3,7 +3,7 @@ import itertools
 import pandas as pd
 
 
-class ElementSorter:
+class Elements:
     def __init__(self, label_mapping: dict = None, excel_path: str = None):
         if label_mapping:
             self.label_mapping = label_mapping
