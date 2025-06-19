@@ -198,7 +198,6 @@ class Formula:
         {2: ["NdSi2", "ThOs"], 3: ["NdSi2Th2"], 4: ["YNdThSi2"]}
         """
         sorted_formulas = {}
-
         for formula in formulas:
             element_count = Formula(formula).element_count
             if element_count not in sorted_formulas:

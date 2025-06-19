@@ -10,6 +10,11 @@ def oliynyk() -> Oliynyk:
 
 
 @pytest.fixture
+def custom_label_excel_path():
+    return "tests/data/sort/test-custom-labels.xlsx"
+
+
+@pytest.fixture
 def custom_labels_from_excel():
     return {
         2: {"A": ["Fe", "Co", "Ni"], "B": ["Si", "Ga", "Ge"]},
