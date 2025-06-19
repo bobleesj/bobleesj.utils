@@ -6,6 +6,36 @@ from bobleesj.utils.sources import mendeleev
 
 
 class Elements:
+    """Sort chemical elements by custom labels, Mendeleev numbers, or
+    alphabetically.
+
+    Parameters
+    ----------
+    label_mapping : dict, optional
+        The custom label mapping for sorting elements.
+    excel_path : str, optional
+        The path to Excel file with custom labels.
+        It overrides `label_mapping` if provided.
+
+    Examples
+    --------
+    >>> element_sorter = Elements(excel_path="labels.xlsx")
+    >>> element_sorter.sort(["Fe", "Si"], method="custom")
+    ('Fe', 'Si')
+    >>> custom_labels = {
+    ...     2: {"A": ["Fe", "Co"], "B": ["Si", "Ga"]},
+    ...     3: {"R": ["Sc", "Y"], "M": ["Fe", "Co"],
+                "X": ["Si", "Ga"]},
+    ...     4: {"A": ["Sc", "Y"], "B": ["Fe", "Co"],
+                "C": ["Si", "Ga"], "D": ["Gd", "Tb", "Dy"]},
+    ... }
+    >>> element_sorter = Elements(label_mapping=custom_labels)
+    >>> element_sorter.sort(["Sc", "Fe", "Si"], method="custom")
+    ('Sc', 'Fe', 'Si')
+    >>> element_sorter.sort(["O", "Fe"], method="mendeleev")
+    ('O', 'Fe')
+    """
+
     def __init__(self, label_mapping: dict = None, excel_path: str = None):
         if label_mapping:
             self.label_mapping = label_mapping
@@ -41,41 +71,37 @@ class Elements:
     def sort(
         self, elements: list[str], method=None, descending: bool = True
     ) -> tuple:
-        """Sort a list of chemical elements using a specified method.
+        """Sort a list of elements.
 
         Parameters
         ----------
         elements : list of str
-            List of element symbols to be sorted (e.g., ['Fe', 'O']).
+            Element symbols to sort (e.g., ['Fe', 'O']).
         method : str or None, optional
-            Sorting method to use:
-            - 'custom' : Use custom label-based sorting.
-            - 'mendeleev' : Sort by predefined Mendeleev numbers.
-            - None or any other : Sort alphabetically (default).
+            'custom': custom label-based sorting.
+            'mendeleev': by Mendeleev numbers.
+            None/other: alphabetical (default).
         descending : bool, default=True
-            Whether to sort in descending order.
+            Sort descending.
 
         Returns
         -------
         tuple
-            A tuple of sorted element symbols.
+            Sorted element symbols.
 
         Raises
         ------
         ValueError
-            If an unsupported method is provided or if custom sorting fails
-            due to undefined label mapping or invalid number of elements.
+            If method is unsupported or custom sorting fails.
 
         Examples
         --------
         >>> elements.sort(["O", "Fe"], descending=False)
-        ("Fe", "O")
-
+        ('Fe', 'O')
         >>> elements.sort(['O', 'Fe'], method="mendeleev")
-        ("O", "Fe")
-
+        ('O', 'Fe')
         >>> elements.sort(["Fe", "O"], method="custom")
-        ("Fe", "O")
+        ('Fe', 'O')
         """
         length = len(elements)
         if method is None:
@@ -94,9 +120,9 @@ class Elements:
             if self.label_mapping is None:
                 raise ValueError(
                     "Custom label mapping is not defined. "
-                    "Provide a valid label_mapping or excel_path when you instantiate the Elements class."
+                    "Provide a valid label_mapping or excel_path "
+                    "when you instantiate the Elements class."
                 )
-            
             if length not in self.label_mapping:
                 raise ValueError(
                     f"No label mapping found for {length}-element systems."
