@@ -5,7 +5,7 @@ import pandas as pd
 from bobleesj.utils.sources import mendeleev
 
 
-class Elements:
+class ElementSorter:
     """Sort chemical elements by custom labels, Mendeleev numbers, or
     alphabetically.
 
@@ -19,7 +19,7 @@ class Elements:
 
     Examples
     --------
-    >>> element_sorter = Elements(excel_path="labels.xlsx")
+    >>> element_sorter = ElementSorter(excel_path="labels.xlsx")
     >>> element_sorter.sort(["Fe", "Si"], method="custom")
     ('Fe', 'Si')
     >>> custom_labels = {
@@ -29,7 +29,7 @@ class Elements:
     ...     4: {"A": ["Sc", "Y"], "B": ["Fe", "Co"],
                 "C": ["Si", "Ga"], "D": ["Gd", "Tb", "Dy"]},
     ... }
-    >>> element_sorter = Elements(label_mapping=custom_labels)
+    >>> element_sorter = ElementSorter(label_mapping=custom_labels)
     >>> element_sorter.sort(["Sc", "Fe", "Si"], method="custom")
     ('Sc', 'Fe', 'Si')
     >>> element_sorter.sort(["O", "Fe"], method="mendeleev")
@@ -37,15 +37,10 @@ class Elements:
     """
 
     def __init__(self, label_mapping: dict = None, excel_path: str = None):
-        if label_mapping is None and excel_path is None:
-            raise ValueError(
-                "At least label_mapping or excel_path must be provided."
-            )
         if label_mapping:
             self.label_mapping = label_mapping
         elif excel_path:
             self.label_mapping = self._load_labels_from_excel(excel_path)
-        self._validate_unique_assignments()
 
     def _load_labels_from_excel(self, excel_path: str) -> dict:
         sheet_map = {
@@ -146,6 +141,7 @@ class Elements:
                 raise ValueError(
                     f"No label mapping found for {length}-element systems."
                 )
+            self._validate_unique_assignments()
             if length == 2:
                 return self._sort_binary(elements)
             elif length == 3:
