@@ -62,11 +62,19 @@ Acknowledgements
    :caption: EXAMPLES
 
    notebooks/Formula
+   notebooks/ElementSorter
+
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: DATA
+
    notebooks/Oliynyk
    notebooks/radius
    notebooks/Element
    notebooks/ptable
-   notebooks/ElementSorter
+   notebooks/mendeleev
 
 .. toctree::
    :maxdepth: 2
