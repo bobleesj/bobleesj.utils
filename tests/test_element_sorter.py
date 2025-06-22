@@ -1,6 +1,18 @@
 import pytest
 
 """
+Test init with error
+"""
+
+
+def test_init_error_when_no_label_mapping_or_excel():
+    from bobleesj.utils.sorters.elements import Elements
+
+    with pytest.raises(ValueError):
+        Elements()
+
+
+"""
 Test init with custom labels from a dictionary
 """
 
@@ -37,6 +49,22 @@ def test_get_custom_labels_from_excel(element_sorter_from_excel):
             "D": ["Gd", "Tb", "Dy"],
         },
     }
+
+
+"""
+Test init with custom labels with duplicate assignments
+"""
+
+
+def test_duplicate_elements_in_labels_raises_error():
+    from bobleesj.utils.sorters.elements import Elements
+
+    duplicate_labels = {2: {"A": ["Fe", "Co"], "B": ["Si", "Fe"]}}
+
+    with pytest.raises(
+        ValueError, match="Element 'Fe' assigned to multiple labels"
+    ):
+        Elements(label_mapping=duplicate_labels)
 
 
 """

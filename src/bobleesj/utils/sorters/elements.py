@@ -37,10 +37,15 @@ class Elements:
     """
 
     def __init__(self, label_mapping: dict = None, excel_path: str = None):
+        if label_mapping is None and excel_path is None:
+            raise ValueError(
+                "At least label_mapping or excel_path must be provided."
+            )
         if label_mapping:
             self.label_mapping = label_mapping
         elif excel_path:
             self.label_mapping = self._load_labels_from_excel(excel_path)
+        self._validate_unique_assignments()
 
     def _load_labels_from_excel(self, excel_path: str) -> dict:
         sheet_map = {
@@ -67,6 +72,20 @@ class Elements:
                 for label, elements in zip(label_keys, element_lists)
             }
         return custom_labels
+
+    def _validate_unique_assignments(self):
+        """Ensure no element is assigned to multiple labels in the same
+        system."""
+        for n, label_dict in self.label_mapping.items():
+            seen = {}
+            for label, elements in label_dict.items():
+                for el in elements:
+                    if el in seen:
+                        raise ValueError(
+                            f"Element '{el}' assigned to multiple labels "
+                            f"('{seen[el]}' and '{label}') in n={n}."
+                        )
+                    seen[el] = label
 
     def sort(
         self, elements: list[str], method=None, descending: bool = True
