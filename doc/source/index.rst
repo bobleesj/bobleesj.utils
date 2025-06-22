@@ -1,4 +1,3 @@
-
 #######
 |title|
 #######
@@ -23,6 +22,10 @@ Getting started
 - ``Element`` to prevent typos in writing element symbols and names.
 
 - ``ptable`` to parse the atomic number, atomic mass, element, and the name.
+
+- ``folder`` to work with folders and files, used in CLI apps.
+
+- ``ElementSorter`` to sort elements in many ways.
 
 ============
 Installation
@@ -59,10 +62,18 @@ Acknowledgements
    :caption: EXAMPLES
 
    notebooks/Formula
+   notebooks/ElementSorter
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: DATA
+
    notebooks/Oliynyk
    notebooks/radius
    notebooks/Element
    notebooks/ptable
+   notebooks/mendeleev
 
 .. toctree::
    :maxdepth: 2

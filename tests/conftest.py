@@ -1,6 +1,6 @@
 import pytest
 
-from bobleesj.utils.sorters.elements import Elements
+from bobleesj.utils.sorters.element_sorter import ElementSorter
 from bobleesj.utils.sources.oliynyk import Oliynyk
 
 
@@ -35,9 +35,9 @@ def custom_labels_from_excel():
 
 @pytest.fixture
 def element_sorter_from_excel(custom_label_excel_path):
-    return Elements(excel_path=custom_label_excel_path)
+    return ElementSorter(excel_path=custom_label_excel_path)
 
 
 @pytest.fixture
 def element_sorter_from_dict(custom_labels_from_excel):
-    return Elements(label_mapping=custom_labels_from_excel)
+    return ElementSorter(label_mapping=custom_labels_from_excel)
