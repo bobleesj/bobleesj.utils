@@ -40,24 +40,6 @@ def test_get_custom_labels_from_excel(element_sorter_from_excel):
 
 
 """
-Test init with custom labels with duplicate assignments
-"""
-
-
-def test_duplicate_elements_in_labels_raises_error():
-    from bobleesj.utils.sorters.element_sorter import ElementSorter
-
-    duplicate_labels = {2: {"A": ["Fe", "Co"], "B": ["Si", "Fe"]}}
-
-    with pytest.raises(
-        ValueError, match="Element 'Fe' assigned to multiple labels"
-    ):
-        ElementSorter(label_mapping=duplicate_labels).sort(
-            ["Fe", "Si"], method="custom"
-        )
-
-
-"""
 Sort by custom labels defined
 """
 

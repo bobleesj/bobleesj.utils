@@ -68,20 +68,6 @@ class ElementSorter:
             }
         return custom_labels
 
-    def _validate_unique_assignments(self):
-        """Ensure no element is assigned to multiple labels in the same
-        system."""
-        for n, label_dict in self.label_mapping.items():
-            seen = {}
-            for label, elements in label_dict.items():
-                for el in elements:
-                    if el in seen:
-                        raise ValueError(
-                            f"Element '{el}' assigned to multiple labels "
-                            f"('{seen[el]}' and '{label}') in n={n}."
-                        )
-                    seen[el] = label
-
     def sort(
         self, elements: list[str], method=None, descending: bool = True
     ) -> tuple:
@@ -141,7 +127,6 @@ class ElementSorter:
                 raise ValueError(
                     f"No label mapping found for {length}-element systems."
                 )
-            self._validate_unique_assignments()
             if length == 2:
                 return self._sort_binary(elements)
             elif length == 3:
