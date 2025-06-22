@@ -11,10 +11,10 @@ bobleesj.utils.sorters package
 Submodules
 ----------
 
-bobleesj.utils.sorters.elements module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bobleesj.utils.sorters.element_sorter module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. automodule:: bobleesj.utils.sorters.elements
+.. automodule:: bobleesj.utils.sorters.element_sorter
     :members:
     :undoc-members:
     :show-inheritance:

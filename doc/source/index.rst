@@ -64,7 +64,6 @@ Acknowledgements
    notebooks/Formula
    notebooks/ElementSorter
 
-
 .. toctree::
    :maxdepth: 2
    :hidden:
