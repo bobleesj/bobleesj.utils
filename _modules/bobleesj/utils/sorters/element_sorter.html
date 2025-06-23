@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils.sorters.elements &mdash; bobleesj.utils 0.0.1 documentation</title>
+  <title>bobleesj.utils.sorters.element_sorter &mdash; bobleesj.utils 0.0.5rc0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -13,7 +13,7 @@
   
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=f539c95a"></script>
+      <script src="../../../../_static/documentation_options.js?v=02849fec"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -46,10 +46,15 @@
               <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/ElementSorter.html">ElementSorter</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Oliynyk.html">Oliynyk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/radius.html">radius</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/Element.html">Element</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/ptable.html">Periodic table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/mendeleev.html">Mendeleev</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">COMMANDS</span></p>
 <ul>
@@ -77,7 +82,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">bobleesj.utils.sorters.elements</li>
+      <li class="breadcrumb-item active">bobleesj.utils.sorters.element_sorter</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -86,7 +91,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for bobleesj.utils.sorters.elements</h1><div class="highlight"><pre>
+  <h1>Source code for bobleesj.utils.sorters.element_sorter</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -94,9 +99,9 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.sources</span><span class="w"> </span><span class="kn">import</span> <span class="n">mendeleev</span>
 
 
-<div class="viewcode-block" id="Elements">
-<a class="viewcode-back" href="../../../../api/bobleesj.utils.sorters.html#bobleesj.utils.sorters.elements.Elements">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Elements</span><span class="p">:</span>
+<div class="viewcode-block" id="ElementSorter">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sorters.html#bobleesj.utils.sorters.element_sorter.ElementSorter">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ElementSorter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sort chemical elements by custom labels, Mendeleev numbers, or</span>
 <span class="sd">    alphabetically.</span>
 
@@ -110,7 +115,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; element_sorter = Elements(excel_path=&quot;labels.xlsx&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; element_sorter = ElementSorter(excel_path=&quot;labels.xlsx&quot;)</span>
 <span class="sd">    &gt;&gt;&gt; element_sorter.sort([&quot;Fe&quot;, &quot;Si&quot;], method=&quot;custom&quot;)</span>
 <span class="sd">    (&#39;Fe&#39;, &#39;Si&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; custom_labels = {</span>
@@ -120,7 +125,7 @@
 <span class="sd">    ...     4: {&quot;A&quot;: [&quot;Sc&quot;, &quot;Y&quot;], &quot;B&quot;: [&quot;Fe&quot;, &quot;Co&quot;],</span>
 <span class="sd">                &quot;C&quot;: [&quot;Si&quot;, &quot;Ga&quot;], &quot;D&quot;: [&quot;Gd&quot;, &quot;Tb&quot;, &quot;Dy&quot;]},</span>
 <span class="sd">    ... }</span>
-<span class="sd">    &gt;&gt;&gt; element_sorter = Elements(label_mapping=custom_labels)</span>
+<span class="sd">    &gt;&gt;&gt; element_sorter = ElementSorter(label_mapping=custom_labels)</span>
 <span class="sd">    &gt;&gt;&gt; element_sorter.sort([&quot;Sc&quot;, &quot;Fe&quot;, &quot;Si&quot;], method=&quot;custom&quot;)</span>
 <span class="sd">    (&#39;Sc&#39;, &#39;Fe&#39;, &#39;Si&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; element_sorter.sort([&quot;O&quot;, &quot;Fe&quot;], method=&quot;mendeleev&quot;)</span>
@@ -159,8 +164,8 @@
             <span class="p">}</span>
         <span class="k">return</span> <span class="n">custom_labels</span>
 
-<div class="viewcode-block" id="Elements.sort">
-<a class="viewcode-back" href="../../../../api/bobleesj.utils.sorters.html#bobleesj.utils.sorters.elements.Elements.sort">[docs]</a>
+<div class="viewcode-block" id="ElementSorter.sort">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.sorters.html#bobleesj.utils.sorters.element_sorter.ElementSorter.sort">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">descending</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>

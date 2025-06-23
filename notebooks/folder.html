@@ -3,12 +3,14 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview: module code &mdash; bobleesj.utils 0.0.5rc0 documentation</title>
+  <title>Folder &mdash; bobleesj.utils 0.0.5rc0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -45,16 +47,16 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">EXAMPLES</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/Formula.html">Formula</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/ElementSorter.html">ElementSorter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Formula.html">Formula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ElementSorter.html">ElementSorter</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DATA</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/Oliynyk.html">Oliynyk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/radius.html">radius</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/Element.html">Element</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/ptable.html">Periodic table</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/mendeleev.html">Mendeleev</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oliynyk.html">Oliynyk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radius.html">radius</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ptable.html">Periodic table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mendeleev.html">Mendeleev</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">COMMANDS</span></p>
 <ul>
@@ -81,8 +83,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Overview: module code</li>
+      <li class="breadcrumb-item active">Folder</li>
       <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/bobleesj/bobleesj.utils/blob/main/doc/source/notebooks/folder.ipynb" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -90,23 +93,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>All modules for which code is available</h1>
-<ul><li><a href="bobleesj/utils/cli/api.html">bobleesj.utils.cli.api</a></li>
-<li><a href="bobleesj/utils/cli/auth.html">bobleesj.utils.cli.auth</a></li>
-<li><a href="bobleesj/utils/cli/create/issues.html">bobleesj.utils.cli.create.issues</a></li>
-<li><a href="bobleesj/utils/cli/delete/branch.html">bobleesj.utils.cli.delete.branch</a></li>
-<li><a href="bobleesj/utils/cli/shell.html">bobleesj.utils.cli.shell</a></li>
-<li><a href="bobleesj/utils/cli/test.html">bobleesj.utils.cli.test</a></li>
-<li><a href="bobleesj/utils/data/element.html">bobleesj.utils.data.element</a></li>
-<li><a href="bobleesj/utils/io/config.html">bobleesj.utils.io.config</a></li>
-<li><a href="bobleesj/utils/io/folder.html">bobleesj.utils.io.folder</a></li>
-<li><a href="bobleesj/utils/numbers.html">bobleesj.utils.numbers</a></li>
-<li><a href="bobleesj/utils/parsers/formula.html">bobleesj.utils.parsers.formula</a></li>
-<li><a href="bobleesj/utils/sorters/element_sorter.html">bobleesj.utils.sorters.element_sorter</a></li>
-<li><a href="bobleesj/utils/sources/oliynyk.html">bobleesj.utils.sources.oliynyk</a></li>
-<li><a href="bobleesj/utils/sources/ptable.html">bobleesj.utils.sources.ptable</a></li>
-<li><a href="bobleesj/utils/sources/radius.html">bobleesj.utils.sources.radius</a></li>
-</ul>
+  <section id="Folder">
+<h1>Folder<a class="headerlink" href="#Folder" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">folder.py</span></code> offers helper functions to work folders and files.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bobleesj.utils.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">folder</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a list of file paths from the given directory</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="n">folder</span><span class="o">.</span><span class="n">get_file_paths</span><span class="p">(</span>
+    <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check whether the folder contains the specify file type</span>
+<span class="n">folder</span><span class="o">.</span><span class="n">contains_file_type</span><span class="p">(</span>
+    <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+
 
            </div>
           </div>
