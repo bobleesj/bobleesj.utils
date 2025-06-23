@@ -4,6 +4,24 @@ Release notes
 
 .. current developments
 
+0.0.5
+=====
+
+**Added:**
+
+* Implement parsing custom labels from Excel for binary, ternary, and ternary, as it is used both in SAF and CAF.
+* Ensure no elements are assigned to multiple labels for custom label sort.
+* Add instructions how to use ElementSorter, Mendeleev number.
+* Configure a single news title that sets the news item, commit message, and PR title.
+* Add ElementSorder class to sort elements based on custom order.
+* Sort by Mendeleeve and alphabetical order of elements in Element Sorter.
+* Add bob create gif -p <path-to-video-file> to generate .gif easily.
+
+**Fixed:**
+
+* Replace Elements to ElementSorter to better match between the class and the file name.
+
+
 
 0.0.4
 =====
