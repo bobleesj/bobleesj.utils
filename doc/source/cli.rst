@@ -14,56 +14,63 @@ Create ``~/.bobrc`` with the following content:
             "dev_dir_path": "<path-to-your-folder-containing-packages>",
         }
 
+``bob list <subcommand>``
+------------------------
+
+#. List issues in the GitHub repositories of the packages in the ``dev_dir_path`` specified in ``~/.bobrc``:
+
+    .. code-block:: bash
+
+        $ bob list issues
+
 ``bob create <subcommand>``
 ---------------------------
 
-Create issues in the GitHub repositories of the packages in the ``dev_dir_path`` specified in ``~/.bobrc``:
+#. Create issues in the GitHub repositories of the packages in the ``dev_dir_path`` specified in ``~/.bobrc``:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ bob create issues
+        $ bob create issues
 
+#. Create a .gif from a video file:
 
-Create a .gif from a video file:
+    .. code-block:: bash
 
-.. code-block:: bash
-
-    $ bob create gif -p <path-to-the-video-file>
+        $ bob create gif -p <path-to-the-video-file>
 
 ``bob delete <subcommand>``
 ---------------------------
 
-Delete all local branches except ``main``:
+#. Delete all local branches except ``main``:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ bob delete local-branches
+        $ bob delete local-branches
 
 ``bob test <subcommand>``
 -------------------------
 
-Create a new conda environment, install the dependencies from conda-forge, install the package in editable mode, and run the tests and pre-commit hooks. Ensure ``mamba`` is used.
-
-.. code-block:: bash
-
-    $ bob test package
-
-.. note::
-
-    It runs the following command internally:
+#. Create a new conda environment, install the dependencies from conda-forge, install the package in editable mode, and run the tests and pre-commit hooks. Ensure ``mamba`` is used.
 
     .. code-block:: bash
 
-        mamba create -n {env_name} python=3.13 \\
-        --file requirements/test.txt \\
-        --file requirements/conda.txt \\
-        --file requirements/docs.txt -y && \\
-        source $(conda info --base)/etc/profile.d/conda.sh && \\
-        mamba activate {env_name} && \\
-        pip install --no-deps -e . && \\
-        pip install pre-commit && \\
-        pytest && pre-commit run --all-files
+        $ bob test package
 
+    .. note::
+
+        It runs the following command internally:
+
+        .. code-block:: bash
+
+            mamba create -n {env_name} python=3.13 \\
+            --file requirements/test.txt \\
+            --file requirements/conda.txt \\
+            --file requirements/docs.txt -y && \\
+            source $(conda info --base)/etc/profile.d/conda.sh && \\
+            mamba activate {env_name} && \\
+            pip install --no-deps -e . && \\
+            pip install pre-commit && \\
+            pytest && pre-commit run --all-files
 
 .. seealso::
 
@@ -77,25 +84,24 @@ Create a new conda environment, install the dependencies from conda-forge, insta
         $ bash Miniforge3-$(uname)-$(uname -m).sh
         $ mamba shell init
 
-
-Test whether the package can be uploaded to PyPI before releasing it:
-
-.. code-block:: bash
-
-    $ bob test release
-
-.. note::
-
-    It runs the following command internally:
+#. Test whether the package can be uploaded to PyPI before releasing it:
 
     .. code-block:: bash
 
-        mamba create -n {env_name} python=3.13 \\
-        --file requirements/test.txt \\
-        --file requirements/conda.txt \\
-        --file requirements/docs.txt -y && \\
-        source $(conda info --base)/etc/profile.d/conda.sh && \\
-        mamba activate {env_name} && \\
-        pip install build twine && \\
-        pip install . --no-deps && \\
-        python -m build && twine check dist/*
+        $ bob test release
+
+    .. note::
+
+        It runs the following command internally:
+
+        .. code-block:: bash
+
+            mamba create -n {env_name} python=3.13 \\
+            --file requirements/test.txt \\
+            --file requirements/conda.txt \\
+            --file requirements/docs.txt -y && \\
+            source $(conda info --base)/etc/profile.d/conda.sh && \\
+            mamba activate {env_name} && \\
+            pip install build twine && \\
+            pip install . --no-deps && \\
+            python -m build && twine check dist/*
