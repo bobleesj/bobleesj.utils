@@ -20,3 +20,4 @@ def value(file_path: str, key: str):
     if value is None:
         raise ValueError(f"No '{key}' is found in your config file.")
     return value
+
