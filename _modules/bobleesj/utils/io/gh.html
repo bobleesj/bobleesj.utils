@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bobleesj.utils.cli.shell &mdash; bobleesj.utils 0.0.1 documentation</title>
+  <title>bobleesj.utils.io.gh &mdash; bobleesj.utils 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -82,7 +82,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">bobleesj.utils.cli.shell</li>
+      <li class="breadcrumb-item active">bobleesj.utils.io.gh</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -91,21 +91,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for bobleesj.utils.cli.shell</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+  <h1>Source code for bobleesj.utils.io.gh</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 
-<div class="viewcode-block" id="run">
-<a class="viewcode-back" href="../../../../api/bobleesj.utils.cli.html#bobleesj.utils.cli.shell.run">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run a shell command in the specified directory.&quot;&quot;&quot;</span>
-    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="n">command</span><span class="p">,</span>
-        <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">cwd</span><span class="o">=</span><span class="n">cwd</span><span class="p">,</span>
-    <span class="p">)</span></div>
+<div class="viewcode-block" id="find_git_repos">
+<a class="viewcode-back" href="../../../../api/bobleesj.utils.io.html#bobleesj.utils.io.gh.find_git_repos">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_git_repos</span><span class="p">(</span><span class="n">root_dir</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">parent</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">root_dir</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;.git&quot;</span><span class="p">)]</span></div>
 
 </pre></div>
 

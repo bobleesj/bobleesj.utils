@@ -15,6 +15,7 @@ Subpackages
     :titlesonly:
 
     bobleesj.utils.cli.delete
+    bobleesj.utils.cli.list
     bobleesj.utils.cli.create
 
 Submodules
