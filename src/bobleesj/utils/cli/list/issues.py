@@ -1,8 +1,10 @@
-import subprocess
 import json
-from pathlib import Path
+import subprocess
 from datetime import datetime
+from pathlib import Path
+
 from bobleesj.utils.io import config, gh
+
 
 def format_date(date_str):
     try:
@@ -11,10 +13,12 @@ def format_date(date_str):
     except Exception:
         return date_str
 
+
 def format_labels(labels):
     if not labels:
         return "-"
     return ", ".join(label["name"] for label in labels)
+
 
 def list_issues(repo_path):
     repo_name = Path(repo_path).name
@@ -22,10 +26,15 @@ def list_issues(repo_path):
     try:
         result = subprocess.run(
             [
-                "gh", "issue", "list",
-                "--state", "open",
-                "--limit", "100",
-                "--json", "number,title,createdAt,labels,author,milestone"
+                "gh",
+                "issue",
+                "list",
+                "--state",
+                "open",
+                "--limit",
+                "100",
+                "--json",
+                "number,title,createdAt,labels,author,milestone",
             ],
             cwd=repo_path,
             check=True,
@@ -36,7 +45,9 @@ def list_issues(repo_path):
         if not issues:
             print("No open issues.")
             return
-        print(f"{'ID':<5} {'TITLE':<100} {'LABELS':<10} {'AUTHOR':<15} {'MILESTONE':<20} {'CREATED'}")
+        print(
+            f"{'ID':<5} {'TITLE':<100} {'LABELS':<10} {'AUTHOR':<15} {'MILESTONE':<20} {'CREATED'}"
+        )
         print("-" * 175)
         for issue in issues:
             issue_id = str(issue["number"])
@@ -46,7 +57,9 @@ def list_issues(repo_path):
             author = issue.get("author", {}).get("login", "unknown")
             milestone_data = issue.get("milestone")
             milestone = milestone_data["title"] if milestone_data else "-"
-            print(f"{issue_id:<5} {title[:100]:<100} {labels:<10} {author:<15} {milestone[:18]:<20} {created}")
+            print(
+                f"{issue_id:<5} {title[:100]:<100} {labels:<10} {author:<15} {milestone[:18]:<20} {created}"
+            )
 
     except subprocess.CalledProcessError:
         print("❌ Failed to list issues.")

@@ -10,8 +10,6 @@ def prompt_for_issue():
     return title, body
 
 
-
-
 def create_issue(repo_path, title, body):
     print(f"\nProcessing repository: {repo_path}")
     try:

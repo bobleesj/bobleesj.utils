@@ -17,9 +17,7 @@ def setup_test_subcommands(subparsers):
     parser = subparsers.add_parser(
         "test", help="Test the package with a new conda environment."
     )
-    subparsers = parser.add_subparsers(
-        dest="subcommand", required=True
-    )
+    subparsers = parser.add_subparsers(dest="subcommand", required=True)
     commands = {
         "package": ("Test the single package.", test.build_pytest),
         "release": (
@@ -42,9 +40,7 @@ def setup_create_subcommands(subparsers):
     parser = subparsers.add_parser(
         "create", help="Create new issues, PRs, etc."
     )
-    subparsers = parser.add_subparsers(
-        dest="subcommand", required=True
-    )
+    subparsers = parser.add_subparsers(dest="subcommand", required=True)
     commands = {
         "issues": ("Create issues.", create_issues.create),
         "gif": ("Create a GIF from a video file.", gif.create),
@@ -67,9 +63,7 @@ def setup_delete_subcommands(subparsers):
     parser = subparsers.add_parser(
         "delete", help="Operations for deleting files, branches, etc."
     )
-    subparsers = parser.add_subparsers(
-        dest="subcommand", required=True
-    )
+    subparsers = parser.add_subparsers(dest="subcommand", required=True)
     commands = {
         "local-branches": (
             "Delete all local branches.",
@@ -90,9 +84,7 @@ def setup_list_subcommands(subparsers):
     parser = subparsers.add_parser(
         "list", help="Operations for listing and viewing files."
     )
-    subparsers = parser.add_subparsers(
-        dest="subcommand", required=True
-    )
+    subparsers = parser.add_subparsers(dest="subcommand", required=True)
     commands = {
         "issues": (
             "List all issues for each repository.",
@@ -102,6 +94,7 @@ def setup_list_subcommands(subparsers):
     for name, (help_text, handler) in commands.items():
         subparser = subparsers.add_parser(name, help=help_text)
         subparser.set_defaults(func=handler)
+
 
 def main():
     parser = ArgumentParser(
