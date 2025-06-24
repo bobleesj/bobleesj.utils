@@ -46,7 +46,8 @@ def list_issues(repo_path):
             print("No open issues.")
             return
         print(
-            f"{'ID':<5} {'TITLE':<100} {'LABELS':<10} {'AUTHOR':<15} {'MILESTONE':<20} {'CREATED'}"
+            f"{'ID':<5} {'TITLE':<100} {'LABELS':<10} "
+            f"{'AUTHOR':<15} {'MILESTONE':<20} {'CREATED'}"
         )
         print("-" * 175)
         for issue in issues:
@@ -58,7 +59,8 @@ def list_issues(repo_path):
             milestone_data = issue.get("milestone")
             milestone = milestone_data["title"] if milestone_data else "-"
             print(
-                f"{issue_id:<5} {title[:100]:<100} {labels:<10} {author:<15} {milestone[:18]:<20} {created}"
+                f"{issue_id:<5} {title[:100]:<100} {labels:<10} "
+                f"{author:<15} {milestone[:18]:<20} {created}"
             )
 
     except subprocess.CalledProcessError:
