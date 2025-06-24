@@ -9,24 +9,6 @@
 | Software version |release|
 | Last updated |today|.
 
-===============
-Getting started
-===============
-
-- ``Formula`` to sort, filter, order formula(s).
-
-- ``Oliynyk`` to parse Oliynyk elemental property database (https://doi.org/10.1016/j.dib.2024.110178).
-
-- ``radius`` to parse available atomic radii for each element.
-
-- ``Element`` to prevent typos in writing element symbols and names.
-
-- ``ptable`` to parse the atomic number, atomic mass, element, and the name.
-
-- ``folder`` to work with folders and files, used in CLI apps.
-
-- ``ElementSorter`` to sort elements in many ways.
-
 ============
 Installation
 ============
@@ -43,12 +25,45 @@ If you prefer using ``conda``, you can install it from the conda-forge channel:
 
    $ conda install bobleesj.utils
 
+===============
+Getting started
+===============
+
+Classes:
+
+- Use ``ElementSorter`` to sort elements in many way
+- Use ``Formula`` to sort, filter, order formula(s).
+  
+Data sources:
+
+- ``Oliynyk`` to work with the Oliynyk elemental property data.
+- ``mendeleev`` to get the Mendeleev number for each element.
+- ``radius`` to get the atomic radii for each element.
+- ``Element`` to prevent typos in writing element symbols and names.
+- ``ptable`` to parse the atomic number, atomic mass, element, and the name.
+- ``folder`` to work with folders and files, used in CLI apps.
+
+
+=========
+Citations
+=========
+
+If you use the ``Oliynyk`` module in your research, please cite the  https://doi.org/10.1016/j.dib.2024.110178.
 
 =================
 How to contribute
 =================
 
 Would you like to request new features? Please open issue on GitHub. Before you make a pull request, consider running ``pre-commit run --all-files`` to check the code style and formatting.
+
+============
+Contributors
+============
+
+- Sangjoon Bob Lee (`@bobleesj <https://github.com/bobleesj>`_) - Maintainer
+- Danila Shiryaev (`@dshirya <https://github.com/dshirya>`_) - Oliynyk elemental property data 
+- Anton Oliynyk (`@oliynyklab <https://github.com/oliynyklab>`_) - Oliynyk elemental property data
+- Emil Jaffal (`@emiljaffal <https://github.com/emiljaffal>`_) - CIF radius interpolation
 
 ================
 Acknowledgements
@@ -59,7 +74,7 @@ Acknowledgements
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: EXAMPLES
+   :caption: CLASSES
 
    notebooks/Formula
    notebooks/ElementSorter
@@ -67,7 +82,7 @@ Acknowledgements
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: DATA
+   :caption: DATA SOURCES
 
    notebooks/Oliynyk
    notebooks/radius
