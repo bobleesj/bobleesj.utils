@@ -1,33 +1,11 @@
 from argparse import ArgumentParser
 
-from bobleesj.utils.cli import test
 from bobleesj.utils.cli.create import gif
 from bobleesj.utils.cli.create import issues as create_issues
 from bobleesj.utils.cli.delete import branch
 from bobleesj.utils.cli.list import issues as list_issues
 
 
-def setup_test_subcommands(subparsers):
-    """
-    Examples
-    --------
-    >>> bob test package
-    >>> bob test release
-    """
-    parser = subparsers.add_parser(
-        "test", help="Test the package with a new conda environment."
-    )
-    subparsers = parser.add_subparsers(dest="subcommand", required=True)
-    commands = {
-        "package": ("Test the single package.", test.build_pytest),
-        "release": (
-            "Test the release condition for the package.",
-            test.build_check_release,
-        ),
-    }
-    for name, (help_text, handler) in commands.items():
-        subparser = subparsers.add_parser(name, help=help_text)
-        subparser.set_defaults(func=handler)
 
 
 def setup_create_subcommands(subparsers):
