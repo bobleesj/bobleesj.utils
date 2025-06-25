@@ -63,10 +63,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">&lt;verb&gt;</span> <span class="pre">&lt;noun&gt;</span></code> commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bob-list-subcommand"><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">list</span> <span class="pre">&lt;subcommand&gt;</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bob-create-subcommand"><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">create</span> <span class="pre">&lt;subcommand&gt;</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bob-delete-subcommand"><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">delete</span> <span class="pre">&lt;subcommand&gt;</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bob-test-subcommand"><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">test</span> <span class="pre">&lt;subcommand&gt;</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-commands">List commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-commands">Create commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-commands">Delete commands</a></li>
 </ul>
 </li>
 </ul>
@@ -115,8 +114,8 @@
 </div>
 </div></blockquote>
 </section>
-<section id="bob-list-subcommand">
-<h2><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">list</span> <span class="pre">&lt;subcommand&gt;</span></code><a class="headerlink" href="#bob-list-subcommand" title="Link to this heading"></a></h2>
+<section id="list-commands">
+<h2>List commands<a class="headerlink" href="#list-commands" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>List issues in the GitHub repositories of the packages in the <code class="docutils literal notranslate"><span class="pre">dev_dir_path</span></code> specified in <code class="docutils literal notranslate"><span class="pre">~/.bobrc</span></code>:</p>
 <blockquote>
@@ -127,8 +126,8 @@
 </li>
 </ol>
 </section>
-<section id="bob-create-subcommand">
-<h2><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">create</span> <span class="pre">&lt;subcommand&gt;</span></code><a class="headerlink" href="#bob-create-subcommand" title="Link to this heading"></a></h2>
+<section id="create-commands">
+<h2>Create commands<a class="headerlink" href="#create-commands" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Create issues in the GitHub repositories of the packages in the <code class="docutils literal notranslate"><span class="pre">dev_dir_path</span></code> specified in <code class="docutils literal notranslate"><span class="pre">~/.bobrc</span></code>:</p>
 <blockquote>
@@ -146,75 +145,13 @@
 </li>
 </ol>
 </section>
-<section id="bob-delete-subcommand">
-<h2><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">delete</span> <span class="pre">&lt;subcommand&gt;</span></code><a class="headerlink" href="#bob-delete-subcommand" title="Link to this heading"></a></h2>
+<section id="delete-commands">
+<h2>Delete commands<a class="headerlink" href="#delete-commands" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Delete all local branches except <code class="docutils literal notranslate"><span class="pre">main</span></code>:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bob<span class="w"> </span>delete<span class="w"> </span>local-branches
 </pre></div>
-</div>
-</div></blockquote>
-</li>
-</ol>
-</section>
-<section id="bob-test-subcommand">
-<h2><code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">test</span> <span class="pre">&lt;subcommand&gt;</span></code><a class="headerlink" href="#bob-test-subcommand" title="Link to this heading"></a></h2>
-<ol class="arabic">
-<li><p>Create a new conda environment, install the dependencies from conda-forge, install the package in editable mode, and run the tests and pre-commit hooks. Ensure <code class="docutils literal notranslate"><span class="pre">mamba</span></code> is used.</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bob<span class="w"> </span><span class="nb">test</span><span class="w"> </span>package
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It runs the following command internally:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span><span class="o">{</span>env_name<span class="o">}</span><span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13<span class="w"> </span><span class="se">\\</span>
---file<span class="w"> </span>requirements/test.txt<span class="w"> </span><span class="se">\\</span>
---file<span class="w"> </span>requirements/conda.txt<span class="w"> </span><span class="se">\\</span>
---file<span class="w"> </span>requirements/docs.txt<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-<span class="nb">source</span><span class="w"> </span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span>/etc/profile.d/conda.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-mamba<span class="w"> </span>activate<span class="w"> </span><span class="o">{</span>env_name<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-pip<span class="w"> </span>install<span class="w"> </span>pre-commit<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-pytest<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
-</pre></div>
-</div>
-</div>
-</div></blockquote>
-</li>
-</ol>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Do you have trouble running <code class="docutils literal notranslate"><span class="pre">mamba</span></code>? Here is how you can download and install <code class="docutils literal notranslate"><span class="pre">mamba</span></code> if you don’t have it installed yet. This version is for macOS:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/Users/&lt;macbook-username&gt;/miniconda3
-$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/Users/&lt;macbook-username&gt;/miniforge3
-$<span class="w"> </span>curl<span class="w"> </span>-L<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;[https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span>$<span class="s2">](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span>$<span class="s2">)(uname -m).sh&quot;</span>
-$<span class="w"> </span>bash<span class="w"> </span>Miniforge3-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span>.sh
-$<span class="w"> </span>mamba<span class="w"> </span>shell<span class="w"> </span>init
-</pre></div>
-</div>
-</div>
-<ol class="arabic">
-<li><p>Test whether the package can be uploaded to PyPI before releasing it:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bob<span class="w"> </span><span class="nb">test</span><span class="w"> </span>release
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It runs the following command internally:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span><span class="o">{</span>env_name<span class="o">}</span><span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13<span class="w"> </span><span class="se">\\</span>
---file<span class="w"> </span>requirements/test.txt<span class="w"> </span><span class="se">\\</span>
---file<span class="w"> </span>requirements/conda.txt<span class="w"> </span><span class="se">\\</span>
---file<span class="w"> </span>requirements/docs.txt<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-<span class="nb">source</span><span class="w"> </span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span>/etc/profile.d/conda.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-mamba<span class="w"> </span>activate<span class="w"> </span><span class="o">{</span>env_name<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-pip<span class="w"> </span>install<span class="w"> </span>build<span class="w"> </span>twine<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-pip<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>--no-deps<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\\</span>
-python<span class="w"> </span>-m<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>twine<span class="w"> </span>check<span class="w"> </span>dist/*
-</pre></div>
-</div>
 </div>
 </div></blockquote>
 </li>
