@@ -14,8 +14,8 @@ Create ``~/.bobrc`` with the following content:
             "dev_dir_path": "<path-to-your-folder-containing-packages>",
         }
 
-``bob list <subcommand>``
-------------------------
+List commands
+-------------
 
 #. List issues in the GitHub repositories of the packages in the ``dev_dir_path`` specified in ``~/.bobrc``:
 
@@ -23,8 +23,8 @@ Create ``~/.bobrc`` with the following content:
 
         $ bob list issues
 
-``bob create <subcommand>``
----------------------------
+Create commands
+---------------
 
 #. Create issues in the GitHub repositories of the packages in the ``dev_dir_path`` specified in ``~/.bobrc``:
 
@@ -38,8 +38,8 @@ Create ``~/.bobrc`` with the following content:
 
         $ bob create gif -p <path-to-the-video-file>
 
-``bob delete <subcommand>``
----------------------------
+Delete commands
+---------------
 
 #. Delete all local branches except ``main``:
 
