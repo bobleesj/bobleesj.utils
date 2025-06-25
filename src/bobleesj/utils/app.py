@@ -79,7 +79,6 @@ def main():
         description="Save time managing software packages."
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
-    setup_test_subcommands(subparsers)
     setup_delete_subcommands(subparsers)
     setup_create_subcommands(subparsers)
     setup_list_subcommands(subparsers)
