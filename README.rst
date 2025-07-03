@@ -29,7 +29,7 @@
         :target: https://pypi.org/project/bobleesj.utils/
 
 .. |Tracking| image:: https://img.shields.io/badge/issue_tracking-github-blue
-        :target: https://github.com/bobleesj/'/issues
+        :target: https://github.com/bobleesj/bobleesj.utils/issues
 
 
 Motivation
