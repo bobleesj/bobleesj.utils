@@ -33,7 +33,7 @@ Classes:
 
 - Use ``ElementSorter`` to sort elements in many way
 - Use ``Formula`` to sort, filter, order formula(s).
-  
+
 Data sources:
 
 - ``Oliynyk`` to work with the Oliynyk elemental property data.
@@ -61,7 +61,7 @@ Contributors
 ============
 
 - Sangjoon Bob Lee (`@bobleesj <https://github.com/bobleesj>`_) - Maintainer
-- Danila Shiryaev (`@dshirya <https://github.com/dshirya>`_) - Oliynyk elemental property data 
+- Danila Shiryaev (`@dshirya <https://github.com/dshirya>`_) - Oliynyk elemental property data
 - Anton Oliynyk (`@oliynyklab <https://github.com/oliynyklab>`_) - Oliynyk elemental property data
 - Emil Jaffal (`@emiljaffal <https://github.com/emiljaffal>`_) - CIF radius interpolation
 
