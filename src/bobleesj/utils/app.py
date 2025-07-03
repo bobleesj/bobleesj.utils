@@ -6,8 +6,6 @@ from bobleesj.utils.cli.delete import branch
 from bobleesj.utils.cli.list import issues as list_issues
 
 
-
-
 def setup_create_subcommands(subparsers):
     """
     Examples
