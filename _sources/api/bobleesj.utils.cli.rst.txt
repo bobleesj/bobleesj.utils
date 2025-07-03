@@ -37,14 +37,6 @@ bobleesj.utils.cli.shell module
     :undoc-members:
     :show-inheritance:
 
-bobleesj.utils.cli.test module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. automodule:: bobleesj.utils.cli.test
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 bobleesj.utils.cli.api module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
