@@ -16,6 +16,7 @@
 
 **Fixed:**
 
+* Use tests.txt and doc to docs aligned with the scikit-package standards.
 * Remove bob test subcommands because they are simpler to use within alias.
 
 **Security:**
