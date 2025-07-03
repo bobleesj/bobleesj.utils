@@ -6,7 +6,33 @@
 
 ``bobleesj.utils`` is a Python package for sharing utility functions and classes in materials informatics.
 
-| Software version |release|
+|PyPI| |Forge| |PythonVersion|
+
+|CI| |Codecov| |Tracking| |PR|
+
+.. |CI| image:: https://github.com/bobleesj/bobleesj.utils/actions/workflows/matrix-and-codecov-on-merge-to-main.yml/badge.svg
+        :target: https://github.com/bobleesj/bobleesj.utils/actions/workflows/matrix-and-codecov-on-merge-to-main.yml
+
+.. |Codecov| image:: https://codecov.io/gh/bobleesj/bobleesj.utils/branch/main/graph/badge.svg
+        :target: https://codecov.io/gh/bobleesj/bobleesj.utils
+
+.. |Forge| image:: https://img.shields.io/conda/vn/conda-forge/bobleesj.utils
+        :target: https://anaconda.org/conda-forge/bobleesj.utils
+
+.. |PR| image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
+        :alt: GitHub pull requests
+        :target: https://github.com/bobleesj/bobleesj.utils/pulls
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/bobleesj.utils
+        :target: https://pypi.org/project/bobleesj.utils/
+
+.. |PythonVersion| image:: https://img.shields.io/pypi/pyversions/bobleesj.utils
+        :target: https://pypi.org/project/bobleesj.utils/
+
+.. |Tracking| image:: https://img.shields.io/github/issues/bobleesj/bobleesj.utils
+        :alt: GitHub issues
+        :target: https://github.com/bobleesj/bobleesj.utils/issues
+
 | Last updated |today|.
 
 ============

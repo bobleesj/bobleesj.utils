@@ -4,7 +4,7 @@
 .. |title| replace:: bobleesj.utils
 .. _title: https://bobleesj.github.io/bobleesj.utils'
 
-|PyPi| |Forge| |PythonVersion| |PR|
+|PyPI| |Forge| |PythonVersion| |PR|
 
 |CI| |Codecov| |Black| |Tracking|
 
@@ -22,7 +22,7 @@
 
 .. |PR| image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
 
-.. |PyPi| image:: https://img.shields.io/pypi/v/bobleesj.utils
+.. |PyPI| image:: https://img.shields.io/pypi/v/bobleesj.utils
         :target: https://pypi.org/project/bobleesj.utils/
 
 .. |PythonVersion| image:: https://img.shields.io/pypi/pyversions/bobleesj.utils
