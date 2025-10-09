@@ -11,7 +11,7 @@ def setup_create_subcommands(subparsers):
     Examples
     --------
     >>> bob create issues
-    >>> bob create gif -p <path-to-the-video-file>
+    >>> bob create gif -p <path-to-the-video-file> -s 2.0
     """
     parser = subparsers.add_parser(
         "create", help="Create new issues, PRs, etc."
@@ -27,7 +27,14 @@ def setup_create_subcommands(subparsers):
             subparser.add_argument(
                 "-p", "--path", required=True, help="Path to the video file"
             )
+            subparser.add_argument(
+                "-s", "--speed",
+                type=float,
+                default=1.0,
+                help="Playback speed multiplier (e.g., 0.5 for slower, 2.0 for faster)"
+            )
         subparser.set_defaults(func=handler)
+
 
 
 def setup_delete_subcommands(subparsers):

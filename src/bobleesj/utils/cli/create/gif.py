@@ -1,22 +1,37 @@
 import os
-
-from moviepy import VideoFileClip
-
+import moviepy
+from moviepy.video.fx import MultiplySpeed
 
 def create(args):
-    if not args.path:
-        print("No path provided. Use -p or --path to specify the file path.")
+    if not getattr(args, "path", None):
+        print("No path provided.")
         return
+
     video_path = args.path
     if not os.path.isfile(video_path):
-        print(f"Error: File not found at path '{video_path}'")
+        print(f"File not found: {video_path}")
         return
+
+    speed = getattr(args, "speed", 1.0)
     try:
-        clip = VideoFileClip(video_path)
-        base, _ = os.path.splitext(video_path)
-        gif_path = base + ".gif"
-        print(f"Converting video to GIF at: {gif_path}")
-        clip.write_gif(gif_path, fps=5)
-        print("GIF created successfully!")
+        speed = float(speed)
+        if speed <= 0:
+            raise ValueError()
+    except Exception:
+        print("Invalid speed; must be > 0.")
+        return
+
+    base, _ = os.path.splitext(video_path)
+    gif_path = base + ".gif"
+    try:
+        print(f"Converting to GIF: {gif_path} (speed: {speed}x)")
+        with moviepy.VideoFileClip(video_path) as clip:
+            if speed != 1.0:
+                clip = clip.with_effects([MultiplySpeed(speed)])
+            # decide fps
+            src_fps = clip.fps or 10
+            target_fps = max(1, min(15, int(round(src_fps))))
+            clip.write_gif(gif_path, fps=target_fps)
+        print("GIF created!")
     except Exception as e:
-        print(f"Failed to convert video to GIF: {e}")
+        print(f"Failed to create GIF: {e}")
