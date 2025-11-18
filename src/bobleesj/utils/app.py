@@ -12,6 +12,7 @@ def setup_create_subcommands(subparsers):
     --------
     >>> bob create issues
     >>> bob create gif -p <path-to-the-video-file> -s 2.0
+    >>> bob create gif -p <path-to-the-video-file> -s 1.5 -fr 30
     """
     parser = subparsers.add_parser(
         "create", help="Create new issues, PRs, etc."
@@ -32,6 +33,12 @@ def setup_create_subcommands(subparsers):
                 type=float,
                 default=1.0,
                 help="Playback speed multiplier (e.g., 0.5 for slower, 2.0 for faster)"
+            )
+            subparser.add_argument(
+                "-fr", "--framerate",
+                type=int,
+                default=10,
+                help="Output frame rate (fps) for the GIF (default: 10)"
             )
         subparser.set_defaults(func=handler)
 

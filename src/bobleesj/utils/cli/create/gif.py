@@ -21,17 +21,23 @@ def create(args):
         print("Invalid speed; must be > 0.")
         return
 
+    framerate = getattr(args, "framerate", 10)
+    try:
+        framerate = int(framerate)
+        if framerate <= 0:
+            raise ValueError()
+    except Exception:
+        print("Invalid framerate; must be a positive integer.")
+        return
+
     base, _ = os.path.splitext(video_path)
     gif_path = base + ".gif"
     try:
-        print(f"Converting to GIF: {gif_path} (speed: {speed}x)")
+        print(f"Converting to GIF: {gif_path} (speed: {speed}x, fps: {framerate})")
         with moviepy.VideoFileClip(video_path) as clip:
             if speed != 1.0:
                 clip = clip.with_effects([MultiplySpeed(speed)])
-            # decide fps
-            src_fps = clip.fps or 10
-            target_fps = max(1, min(15, int(round(src_fps))))
-            clip.write_gif(gif_path, fps=target_fps)
+            clip.write_gif(gif_path, fps=framerate)
         print("GIF created!")
     except Exception as e:
         print(f"Failed to create GIF: {e}")
