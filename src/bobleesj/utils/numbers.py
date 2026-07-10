@@ -1,12 +1,3 @@
-from numpy import max, mean, median, min, std, var
+"""Deprecated: moved to ``cifkit.numbers``. This module re-exports from cifkit."""
 
-
-def calculate_basic_stats(values):
-    return {
-        "max": float(max(values)),
-        "min": float(min(values)),
-        "mid": float(median(values)),
-        "avg": float(mean(values)),
-        "std": float(std(values)),
-        "var": float(var(values)),
-    }
+from cifkit.numbers import calculate_basic_stats  # noqa: F401
