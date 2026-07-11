@@ -1,0 +1,82 @@
+name: Yank all PyPI releases (one-shot retire)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  yank:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Yank every release of bobleesj.utils on PyPI
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, sys, urllib.request, urllib.error, urllib.parse
+
+          token = os.environ["PYPI_TOKEN"].strip()
+          # Accept raw token or "pypi-..." already
+          if not token.startswith("pypi-") and not token.startswith("Token "):
+              # common: secret stores pypi-...
+              pass
+          auth = token if token.lower().startswith("token ") else f"token {token}"
+
+          with urllib.request.urlopen("https://pypi.org/pypi/bobleesj.utils/json") as r:
+              data = json.load(r)
+          versions = sorted(data["releases"].keys())
+          reason = (
+              "Deprecated and retired. Use cifkit>=1.2.1 instead: "
+              "https://pypi.org/project/cifkit/ "
+              "(elemental data, Formula, ElementSorter moved to cifkit)."
+          )
+          ok = fail = 0
+          for ver in versions:
+              files = data["releases"][ver]
+              if files and all(f.get("yanked") for f in files):
+                  print(f"skip already yanked: {ver}")
+                  continue
+              url = f"https://pypi.org/pypi/bobleesj.utils/{urllib.parse.quote(ver)}/yank/"
+              # try form body
+              body = urllib.parse.urlencode({"yanked_reason": reason}).encode()
+              req = urllib.request.Request(
+                  url,
+                  data=body,
+                  method="POST",
+                  headers={
+                      "Authorization": auth,
+                      "Content-Type": "application/x-www-form-urlencoded",
+                      "Accept": "application/json",
+                  },
+              )
+              try:
+                  with urllib.request.urlopen(req) as resp:
+                      print(f"yanked {ver}: HTTP {resp.status}")
+                      ok += 1
+              except urllib.error.HTTPError as e:
+                  detail = e.read().decode("utf-8", "replace")[:500]
+                  print(f"FAILED {ver}: HTTP {e.code} {detail}", file=sys.stderr)
+                  # alternate path without trailing slash
+                  if e.code == 404:
+                      url2 = url.rstrip("/")
+                      req2 = urllib.request.Request(
+                          url2,
+                          data=body,
+                          method="POST",
+                          headers={
+                              "Authorization": auth,
+                              "Content-Type": "application/x-www-form-urlencoded",
+                          },
+                      )
+                      try:
+                          with urllib.request.urlopen(req2) as resp:
+                              print(f"yanked {ver} (no slash): HTTP {resp.status}")
+                              ok += 1
+                              continue
+                      except urllib.error.HTTPError as e2:
+                          print(f"alt FAILED {ver}: {e2.code} {e2.read()[:300]}", file=sys.stderr)
+                  fail += 1
+          print(f"done ok={ok} fail={fail}")
+          if fail:
+              sys.exit(1)
+          PY

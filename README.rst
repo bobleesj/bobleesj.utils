@@ -37,12 +37,16 @@ Motivation
 
 .. warning::
 
-   **This package is deprecated.** The elemental data modules (Oliynyk database,
-   ``Formula``, ``ElementSorter``, Mendeleev/periodic-table/radius data, stats
-   helpers) moved to `cifkit <https://github.com/bobleesj/cifkit>`_ (>=1.2.1).
-   This final release re-exports them from cifkit with a ``DeprecationWarning``:
-   replace ``bobleesj.utils`` with ``cifkit`` in your imports. The repository is
-   archived and no further releases will be made.
+   **RETIRED.** This package is deprecated and archived.
+
+   * Use **cifkit** (``pip install cifkit``) for Oliynyk data, ``Formula``,
+     ``ElementSorter``, Mendeleev/ptable/radius sources, etc.
+     https://pypi.org/project/cifkit/
+   * All PyPI releases of ``bobleesj.utils`` are **yanked** (not installable
+     by default). Do not depend on this project.
+   * The GitHub repository is archived (read-only).
+
+``bobleesj
 
 ``bobleesj.utils`` is a Python package that provides a collection of utility functions and classes to simplify common tasks in materials informatics. ``bobleesj.utils`` is used across scientific software projects created and maintained by @bobleesj.
 
